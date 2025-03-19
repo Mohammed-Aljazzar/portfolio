@@ -39,9 +39,9 @@ This is a personal portfolio website showcasing my skills, projects, and profess
   - Scroll through the client testimonials using the carousel.
 
 ## Customization
-  - Update Content: Edit index.html to change text, images, or links.
-  - Styling: Modify css/style.css for custom colors, layouts, or effects.
-  - Scripts: Adjust js/main.js to tweak animations or interactivity.
+  - **Update Content**: Edit index.html to change text, images, or links.
+  - **Styling**: Modify css/style.css for custom colors, layouts, or effects.
+  - **Scripts**: Adjust js/main.js to tweak animations or interactivity.
 
 ## License
   This project is licensed under the MIT License.
@@ -50,4 +50,4 @@ This is a personal portfolio website showcasing my skills, projects, and profess
   - Developer: Mohammed Aljazzar
   - Email: m.i.aljazzar19@gmail.com
   - Phone: +970 598 048 284
-    - GitHub: Mohammed-Aljazzar
+  - GitHub: Mohammed-Aljazzar
