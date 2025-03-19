@@ -1,6 +1,6 @@
 # Mohammed Aljazzar - Personal Portfolio
 
-![Portfolio Banner](https://via.placeholder.com/150) <!-- Replace with your portfolio banner or logo if available -->
+![Portfolio Banner](screenshots/home.png) 
 
 This is a personal portfolio website showcasing my skills, projects, and professional journey as a web developer. The portfolio is built from scratch using modern web technologies to provide a responsive, visually appealing, and interactive experience.
 
