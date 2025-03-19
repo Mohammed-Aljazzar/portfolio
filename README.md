@@ -1,4 +1,4 @@
-# Mohammed Aljazzar - Personal Portfolio
+# Personal Portfolio
 
 ![Portfolio Banner](screenshots/home.png) 
 
@@ -47,7 +47,7 @@ This is a personal portfolio website showcasing my skills, projects, and profess
   This project is licensed under the MIT License.
 
 ## Contact
-  - Developer: Mohammed Aljazzar
-  - Email: m.i.aljazzar19@gmail.com
-  - Phone: +970 598 048 284
-  - GitHub: Mohammed-Aljazzar
+  - **Developer**: Mohammed Aljazzar
+  - **Email**: m.i.aljazzar19@gmail.com
+  - **Phone**: +970 598 048 284
+  - **GitHub**: Mohammed-Aljazzar
