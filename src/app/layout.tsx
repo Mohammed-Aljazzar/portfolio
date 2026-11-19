@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     images: ["/assets/images/mohammed-aljazzar.jpg"],
     type: "website",
   },
-  icons: { icon: "/favicon.ico" },
+  icons: { icon: "/favicon.svg", apple: "/favicon.svg" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -1,0 +1,46 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="borderGrad" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2DD4BF" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#0D9488" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#818CF8" stop-opacity="0.8"/>
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="20" y1="80" x2="40" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0D9488"/>
+      <stop offset="50%" stop-color="#14B8A6"/>
+      <stop offset="100%" stop-color="#2DD4BF"/>
+    </linearGradient>
+    <linearGradient id="indigoGrad" x1="60" y1="20" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#818CF8"/>
+      <stop offset="50%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#4F46E5"/>
+    </linearGradient>
+    <linearGradient id="sparkGrad" x1="44" y1="22" x2="56" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#2DD4BF"/>
+      <stop offset="100%" stop-color="#818CF8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Squircle Frame -->
+  <rect x="4" y="4" width="92" height="92" rx="24" fill="#0B1120" stroke="url(#borderGrad)" stroke-width="2"/>
+
+  <!-- Left Architectural Pillar -->
+  <path d="M 22 76 V 30 L 32 20 H 34 V 76 H 22 Z" fill="url(#tealGrad)"/>
+
+  <!-- Left Diagonal -->
+  <path d="M 34 20 L 50 52 L 42 58 L 24 28 L 34 20 Z" fill="url(#tealGrad)" opacity="0.95"/>
+
+  <!-- Right Diagonal -->
+  <path d="M 50 52 L 66 20 L 76 28 L 58 58 L 50 52 Z" fill="url(#indigoGrad)" opacity="0.95"/>
+
+  <!-- Right UI/UX Pillar -->
+  <path d="M 66 20 C 74 20 78 24 78 32 V 76 H 66 V 32 C 66 28 64 25 59 25 L 66 20 Z" fill="url(#indigoGrad)"/>
+
+  <!-- Center AI Spark -->
+  <polygon points="50,22 55,30 50,38 45,30" fill="url(#sparkGrad)"/>
+  <circle cx="50" cy="30" r="1.5" fill="#0B1120"/>
+
+  <!-- Baseline -->
+  <rect x="22" y="79.5" width="56" height="2.5" rx="1.25" fill="url(#borderGrad)" opacity="0.8"/>
+</svg>
