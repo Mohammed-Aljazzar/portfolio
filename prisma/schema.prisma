@@ -1,0 +1,207 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model SiteConfig {
+  id                     Int      @id @default(1)
+  nameAr                 String   @default("محمد الجزار")
+  nameEn                 String   @default("Mohammed Aljazzar")
+  titleAr                String   @default("مهندس برمجيات Full-Stack | مطور أنظمة ERP | مصمم UI/UX | مدرب تقني")
+  titleEn                String   @default("Full-Stack Software Engineer | ERP Developer | UI/UX Designer | Technical Trainer")
+  bioAr                  String
+  bioEn                  String
+  availabilityStatusAr   String   @default("متاح للعمل الحر والاستشارات الهندسية والتدريب")
+  availabilityStatusEn   String   @default("Available for Engineering, Consulting & Training")
+  isAvailable            Boolean  @default(true)
+  email                  String   @default("m.i.aljazzar19@gmail.com")
+  phone                  String   @default("+972 59 804 8284")
+  locationAr             String   @default("غزة، فلسطين (متاح للعمل عن بُعد عالمياً)")
+  locationEn             String   @default("Gaza, Palestine (Available for Remote Work Globally)")
+  cvUrlAr                String   @default("/assets/cv/Mohammed_Aljazzar_CV_AR.pdf")
+  cvUrlEn                String   @default("/assets/cv/Mohammed_Aljazzar_CV_EN.pdf")
+  avatarUrl              String   @default("/assets/images/mohammed-aljazzar.jpg")
+  yearsOfExperience      Int      @default(5)
+  completedProjects      Int      @default(18)
+  trainingProgramsCount  Int      @default(14)
+  workshopsCount         Int      @default(28)
+  traineesCount          Int      @default(650)
+  trainingHours          Int      @default(480)
+  updatedAt              DateTime @updatedAt
+}
+
+model Pillar {
+  id            String   @id @default(cuid())
+  number        String   // "01", "02", "03", "04"
+  titleAr       String
+  titleEn       String
+  subtitleAr    String
+  subtitleEn    String
+  descriptionAr String
+  descriptionEn String
+  technologies  String   // JSON string array
+  icon          String
+  order         Int      @default(0)
+}
+
+model Project {
+  id             String   @id @default(cuid())
+  slug           String   @unique
+  titleAr        String
+  titleEn        String
+  category       String   // "erp" | "backend" | "frontend" | "uiux"
+  isFeatured     Boolean  @default(false)
+  summaryAr      String
+  summaryEn      String
+  challengeAr    String?
+  challengeEn    String?
+  solutionAr     String?
+  solutionEn     String?
+  architectureAr String?
+  architectureEn String?
+  techStack      String   // JSON string array
+  githubUrl      String?
+  liveDemoUrl    String?
+  behanceUrl     String?
+  coverImage     String
+  order          Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Experience {
+  id           String   @id @default(cuid())
+  roleAr       String
+  roleEn       String
+  companyAr    String
+  companyEn    String
+  locationAr   String
+  locationEn   String
+  type         String   // "remote" | "onsite" | "hybrid"
+  startDate    String
+  endDate      String   // "Present" or date
+  isCurrent    Boolean  @default(false)
+  highlightsAr String   // JSON string array
+  highlightsEn String   // JSON string array
+  techStack    String   // JSON string array
+  category     String   @default("engineering") // "engineering" | "operations"
+  order        Int      @default(0)
+  createdAt    DateTime @default(now())
+}
+
+model TrainingPartner {
+  id          String   @id @default(cuid())
+  nameAr      String
+  nameEn      String
+  roleAr      String?
+  roleEn      String?
+  descriptionAr String?
+  descriptionEn String?
+  logoUrl     String?
+  websiteUrl  String?
+  order       Int      @default(0)
+}
+
+model TrainingProgram {
+  id             String   @id @default(cuid())
+  titleAr        String
+  titleEn        String
+  organizationAr String
+  organizationEn String
+  category       String   @default("tech")
+  batchesCount   Int      @default(1)
+  totalHours     Int      @default(30)
+  traineesCount  Int      @default(25)
+  descriptionAr  String
+  descriptionEn  String
+  topicsAr       String   // JSON string array
+  topicsEn       String   // JSON string array
+  order          Int      @default(0)
+  createdAt      DateTime @default(now())
+}
+
+model Workshop {
+  id                 String   @id @default(cuid())
+  titleAr            String
+  titleEn            String
+  organizationAr     String
+  organizationEn     String
+  date               String
+  beneficiariesCount Int      @default(30)
+  topicsAr           String   // JSON string array
+  topicsEn           String   // JSON string array
+  order              Int      @default(0)
+  createdAt          DateTime @default(now())
+}
+
+model Skill {
+  id          String   @id @default(cuid())
+  nameAr      String
+  nameEn      String
+  category    String   // "erp" | "backend" | "frontend" | "uiux"
+  level       String   @default("Expert") // "Expert" | "Advanced" | "Proficient"
+  isCore      Boolean  @default(false)
+  order       Int      @default(0)
+}
+
+model Certification {
+  id            String   @id @default(cuid())
+  titleAr       String
+  titleEn       String
+  issuerAr      String
+  issuerEn      String
+  dateAr        String
+  dateEn        String
+  badge         String?
+  order         Int      @default(0)
+}
+
+model Education {
+  id            String   @id @default(cuid())
+  degreeAr      String
+  degreeEn      String
+  fieldAr       String
+  fieldEn       String
+  institutionAr String
+  institutionEn String
+  locationAr    String
+  locationEn    String
+  period        String
+  gradeAr       String
+  gradeEn       String
+  detailsAr     String?
+  detailsEn     String?
+  order         Int      @default(0)
+}
+
+model SocialLink {
+  id        String   @id @default(cuid())
+  platform  String   // "github" | "linkedin" | "behance" | "mostaql" | "facebook" | "x" | "instagram" | "whatsapp"
+  labelAr   String
+  labelEn   String
+  url       String
+  isVisible Boolean  @default(true)
+  order     Int      @default(0)
+}
+
+model ContactMessage {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  requestType String   // "erp" | "uiux" | "training" | "consulting" | "general"
+  message     String
+  status      String   @default("unread") // "unread" | "read" | "replied"
+  createdAt   DateTime @default(now())
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  createdAt    DateTime @default(now())
+}

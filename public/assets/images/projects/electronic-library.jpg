@@ -1,0 +1,11 @@
+<svg width="600" height="360" viewBox="0 0 600 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="360" fill="#0F172A"/>
+  <circle cx="300" cy="180" r="140" fill="#0D9488" opacity="0.15"/>
+  <rect x="80" y="60" width="440" height="240" rx="16" stroke="#1E293B" stroke-width="2" fill="#111827"/>
+  <rect x="110" y="90" width="180" height="18" rx="4" fill="#2DD4BF" opacity="0.8"/>
+  <rect x="110" y="120" width="380" height="10" rx="3" fill="#334155"/>
+  <rect x="110" y="140" width="320" height="10" rx="3" fill="#334155"/>
+  <rect x="110" y="160" width="260" height="10" rx="3" fill="#334155"/>
+  <rect x="110" y="200" width="90" height="28" rx="6" fill="#0D9488"/>
+  <text x="300" y="290" font-family="monospace" font-size="13" fill="#64748B" text-anchor="middle">ELECTRONIC LIBRARY</text>
+</svg>
