@@ -35,9 +35,15 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
-        arabic: ["var(--font-cairo)", "Cairo", "IBM Plex Sans Arabic", "sans-serif"],
-        mono: ["var(--font-mono)", "JetBrains Mono", "monospace"],
+        sans: ["var(--font-sans)", "system-ui", "-apple-system", "sans-serif"],
+        heading: ["var(--font-alexandria)", "var(--font-syne)", "var(--font-cairo)", "sans-serif"],
+        alexandria: ["var(--font-alexandria)", "sans-serif"],
+        tajawal: ["var(--font-tajawal)", "sans-serif"],
+        cairo: ["var(--font-cairo)", "sans-serif"],
+        ibm: ["var(--font-ibm)", "sans-serif"],
+        arabic: ["var(--font-alexandria)", "var(--font-tajawal)", "var(--font-cairo)", "sans-serif"],
+        syne: ["var(--font-syne)", "sans-serif"],
+        mono: ["var(--font-mono)", "JetBrains Mono", "Fira Code", "monospace"],
       },
       animation: {
         "fadeIn": "fadeIn 0.6s ease-out forwards",

@@ -8,6 +8,7 @@ import PageTransition from "@/components/layout/PageTransition";
 import { ScrollProgressBar } from "@/components/common/ScrollProgressBar";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mohammed-aljazzar.vercel.app"),
   title: "محمد الجزار | Mohammed Aljazzar — Software Engineer & ERP Specialist",
   description: "الموقع الشخصي ومعرض الأعمال للمهندس محمد الجزار — مهندس برمجيات Full-Stack ومطور أنظمة ERP (Odoo & ERPNext) ومصمم UI/UX ومدرب تقني.",
   keywords: [
@@ -31,6 +32,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800;900&family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&family=Tajawal:wght@300;400;500;700;800&display=swap"
+        />
       </head>
       <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900 dark:bg-[#0B1120] dark:text-slate-100 antialiased selection:bg-teal-500 selection:text-white">
         <LanguageProvider>

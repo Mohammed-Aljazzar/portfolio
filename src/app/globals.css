@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800;900&family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&family=Tajawal:wght@300;400;500;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -12,9 +12,13 @@
   --muted-text: #475569;
   --primary-accent: #0D9488;
   --secondary-accent: #4F46E5;
+  --font-alexandria: 'Alexandria', 'Cairo', sans-serif;
+  --font-tajawal: 'Tajawal', 'Alexandria', sans-serif;
   --font-cairo: 'Cairo', sans-serif;
-  --font-sans: 'Plus Jakarta Sans', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-ibm: 'IBM Plex Sans Arabic', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-syne: 'Syne', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
 .dark {
@@ -29,12 +33,71 @@
 
 html {
   scroll-behavior: smooth;
-  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* LTR Base Typography */
+html[dir="ltr"] {
+  font-family: var(--font-sans);
+  line-height: 1.65;
+}
+
+html[dir="ltr"] h1,
+html[dir="ltr"] h2,
+html[dir="ltr"] h3,
+html[dir="ltr"] h4,
+html[dir="ltr"] .font-heading {
+  font-family: var(--font-syne), var(--font-sans);
+  letter-spacing: -0.025em;
+}
+
+/* RTL Arabic Base Typography (High-end Portfolio Standard: Alexandria & Tajawal) */
 html[dir="rtl"] {
-  font-family: var(--font-cairo);
-  line-height: 1.75;
+  font-family: var(--font-alexandria), var(--font-tajawal), 'Cairo', sans-serif;
+  line-height: 1.8;
+  letter-spacing: normal;
+}
+
+/* Arabic Headings: Crisp Geometric Modernity with Alexandria */
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] h5,
+html[dir="rtl"] h6,
+html[dir="rtl"] .font-heading {
+  font-family: var(--font-alexandria), 'Cairo', sans-serif;
+  font-feature-settings: "cv01", "cv02";
+  letter-spacing: normal;
+}
+
+/* Arabic Body, Paragraphs and Long Text: Seamless Reading with Tajawal */
+html[dir="rtl"] p,
+html[dir="rtl"] .font-body,
+html[dir="rtl"] blockquote {
+  font-family: var(--font-tajawal), var(--font-alexandria), sans-serif;
+  line-height: 1.85;
+}
+
+/* Prevent Tailwind tracking classes from disrupting connected Arabic ligatures */
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] p:not([dir="ltr"]),
+html[dir="rtl"] span:not([dir="ltr"]):not(.font-mono):not(.en-text) {
+  letter-spacing: normal;
+}
+
+/* Maintain crisp tracking on English / Monospace tokens inside RTL */
+html[dir="rtl"] [dir="ltr"],
+html[dir="rtl"] .font-mono,
+html[dir="rtl"] code,
+html[dir="rtl"] kbd,
+html[dir="rtl"] .en-text {
+  letter-spacing: inherit;
 }
 
 body {
