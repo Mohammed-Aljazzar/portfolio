@@ -19,6 +19,7 @@ import {
   ExternalLink,
   Shield,
   FileText,
+  MessageSquare,
 } from "lucide-react";
 
 export const Navbar: React.FC = () => {
@@ -47,7 +48,6 @@ export const Navbar: React.FC = () => {
     { href: "/experience", label: t.nav.experience },
     { href: "/training", label: t.nav.training, highlight: true },
     { href: "/projects", label: t.nav.projects },
-    { href: "/contact", label: t.nav.contact },
   ];
 
   return (
@@ -129,59 +129,17 @@ export const Navbar: React.FC = () => {
               )}
             </motion.button>
 
-            {/* CV Download Dropdown */}
-            <div className="relative">
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => setCvDropdownOpen(!cvDropdownOpen)}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 text-white shadow-xs transition-all"
+            {/* Contact CTA Button */}
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-bold rounded-xl bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 hover:from-teal-500 hover:to-indigo-500 text-white shadow-md shadow-teal-500/20 hover:shadow-teal-500/35 transition-all duration-300 group"
               >
-                <Download className="w-3.5 h-3.5" />
-                <span>{t.nav.downloadCv}</span>
-                <ChevronDown className="w-3 h-3 opacity-80" />
-              </motion.button>
-
-              <AnimatePresence>
-                {cvDropdownOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 8, scale: 0.95 }}
-                    transition={{ duration: 0.15 }}
-                    className={`absolute mt-2 w-48 rounded-xl shadow-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 py-1.5 z-50 ${
-                      isRTL ? "left-0" : "right-0"
-                    }`}
-                    onMouseLeave={() => setCvDropdownOpen(false)}
-                  >
-                    <a
-                      href="/assets/cv/Mohammed_Aljazzar_CV_AR.pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-between px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:bg-teal-50 dark:hover:bg-teal-950/50 hover:text-teal-700 dark:hover:text-teal-300 font-medium"
-                    >
-                      <span className="flex items-center gap-2">
-                        <FileText className="w-3.5 h-3.5 text-teal-600" />
-                        {t.nav.cvArabic}
-                      </span>
-                      <ExternalLink className="w-3 h-3 opacity-60" />
-                    </a>
-                    <a
-                      href="/assets/cv/Mohammed_Aljazzar_CV_EN.pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-between px-3.5 py-2 text-xs text-slate-700 dark:text-slate-300 hover:bg-teal-50 dark:hover:bg-teal-950/50 hover:text-teal-700 dark:hover:text-teal-300 font-medium"
-                    >
-                      <span className="flex items-center gap-2">
-                        <FileText className="w-3.5 h-3.5 text-indigo-600" />
-                        {t.nav.cvEnglish}
-                      </span>
-                      <ExternalLink className="w-3 h-3 opacity-60" />
-                    </a>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
+                <MessageSquare className="w-3.5 h-3.5 transition-transform duration-300 group-hover:scale-110" />
+                <span>{language === "ar" ? "تواصل معي" : "Get in Touch"}</span>
+              </Link>
+            </motion.div>
 
             {/* Admin CMS Portal Link */}
             <Link
@@ -247,6 +205,17 @@ export const Navbar: React.FC = () => {
                   );
                 })}
               </nav>
+
+              {/* Mobile Contact Action */}
+              <Link
+                href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-2 w-full py-2.5 text-xs font-bold rounded-xl bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 text-white shadow-md shadow-teal-500/20"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
+                <MessageSquare className="w-3.5 h-3.5" />
+                <span>{language === "ar" ? "تواصل معي" : "Get in Touch"}</span>
+              </Link>
 
               <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-2">
                 <a
