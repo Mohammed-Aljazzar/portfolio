@@ -383,36 +383,6 @@ export default function HomePage() {
                   </div>
                 </div>
               </motion.div>
-
-              {/* Credential Pills with Soft Glass Effect */}
-              <motion.div variants={heroItem} className="pt-2 flex flex-wrap items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-teal-50/80 dark:bg-slate-800/80 border border-teal-200/60 dark:border-slate-700 font-mono font-semibold text-teal-800 dark:text-teal-300 backdrop-blur-xs">
-                  <ShieldCheck className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
-                  Official Odoo S.A. Certified
-                </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-indigo-50/80 dark:bg-slate-800/80 border border-indigo-200/60 dark:border-slate-700 font-mono font-semibold text-indigo-800 dark:text-indigo-300 backdrop-blur-xs">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
-                  Frappe &amp; ERPNext Specialist
-                </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-100/80 dark:bg-slate-800/80 font-mono font-medium">
-                  <Award className="w-3.5 h-3.5 text-amber-500" />
-                  Software Eng. &amp; AI Honors (GPA 3.48)
-                </span>
-              </motion.div>
-
-              {/* Fast Tech Stack Pills with Soft Micro-interactions */}
-              <motion.div variants={heroItem} className="pt-2 flex flex-wrap gap-2">
-                {techBadges.map((tech) => (
-                  <motion.span
-                    key={tech.name}
-                    whileHover={{ scale: 1.06, y: -2 }}
-                    className="inline-flex items-center gap-1 px-3 py-1 text-xs font-mono rounded-lg bg-white/90 dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700/80 text-slate-700 dark:text-slate-300 shadow-2xs hover:border-teal-400 dark:hover:border-teal-400 transition-colors cursor-default"
-                  >
-                    <span className="text-[11px] opacity-80">{tech.icon}</span>
-                    <span>{tech.name}</span>
-                  </motion.span>
-                ))}
-              </motion.div>
             </motion.div>
 
             {/* Right Side — High-End Portrait */}
