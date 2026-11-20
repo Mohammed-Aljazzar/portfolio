@@ -144,7 +144,7 @@ export default function HomePage() {
           1. HERO SECTION — Bento & Interactive Hub
              (With Typewriter & Floating Ambient Orbs)
          ══════════════════════════════════════════════ */}
-      <section className="relative pt-20 sm:pt-24 lg:pt-24 pb-6 overflow-hidden bg-grid-pattern">
+      <section className="relative pt-24 sm:pt-28 pb-8 overflow-hidden bg-grid-pattern">
         {/* Floating Ambient Glow Spheres with Slow Motion */}
         <motion.div
           animate={{
@@ -170,12 +170,12 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             
-            {/* Left Content — Staggered Text Entrance */}
+            {/* Left Content — Staggered Text Entrance with Comfortable Spacing */}
             <motion.div
               variants={heroContainer}
               initial="hidden"
               animate="visible"
-              className="lg:col-span-7 space-y-4.5 sm:space-y-5"
+              className="lg:col-span-7 space-y-6 sm:space-y-7"
             >
               {/* Interactive Telemetry Status Badges */}
               <motion.div variants={heroItem} className="flex flex-wrap items-center gap-2.5">
@@ -201,38 +201,38 @@ export default function HomePage() {
               </motion.div>
 
               {/* Headline with Typewriter Subtitle */}
-              <motion.div variants={heroItem} className="space-y-2 sm:space-y-2.5">
+              <motion.div variants={heroItem} className="space-y-3 sm:space-y-3.5">
                 <p className="text-xs sm:text-sm font-mono uppercase tracking-wider text-teal-600 dark:text-teal-400 font-bold flex items-center gap-2">
                   <Terminal className="w-4 h-4" />
                   {t.hero.greeting}
                 </p>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+                <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.18]">
                   {language === "ar" ? config.nameAr : config.nameEn}
                 </h1>
                 
                 {/* Dynamic Typewriter Text with Minimum Height to Avoid Layout Shifts */}
-                <div className="text-base sm:text-lg lg:text-xl font-bold min-h-[2.4rem] sm:min-h-[2.2rem] flex items-center">
+                <div className="text-base sm:text-xl lg:text-2xl font-bold min-h-[3rem] sm:min-h-[2.8rem] flex items-center">
                   <TypewriterText
                     phrases={typewriterPhrases}
                     speed={65}
                     pause={2000}
                     className="text-gradient font-bold"
-                    cursorClassName="text-teal-500 font-mono text-lg sm:text-xl"
+                    cursorClassName="text-teal-500 font-mono text-xl sm:text-2xl"
                   />
                 </div>
               </motion.div>
 
               {/* Bio */}
-              <motion.p variants={heroItem} className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
+              <motion.p variants={heroItem} className="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
                 {language === "ar" ? config.bioAr : config.bioEn}
               </motion.p>
 
               {/* Action Hub — Primary & Secondary Buttons */}
-              <motion.div variants={heroItem} className="flex flex-wrap items-center gap-3 pt-1">
+              <motion.div variants={heroItem} className="flex flex-wrap items-center gap-3.5 pt-2 sm:pt-2.5">
                 {/* 1. Primary Button: Projects */}
                 <Link
                   href="/projects"
-                  className="inline-flex items-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 text-white font-bold text-sm shadow-md hover:shadow-teal-500/25 transition-all duration-300 group hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 text-white font-bold text-sm shadow-md hover:shadow-teal-500/25 transition-all duration-300 group hover:-translate-y-0.5"
                 >
                   <span>{t.hero.ctaProjects}</span>
                   <Arrow className="w-4 h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
@@ -243,7 +243,7 @@ export default function HomePage() {
                   href={language === "ar" ? config.cvUrlAr || "/assets/cv/Mohammed_Aljazzar_CV_AR.pdf" : config.cvUrlEn || "/assets/cv/Mohammed_Aljazzar_CV_EN.pdf"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4.5 sm:px-5 py-3 sm:py-3.5 rounded-xl bg-slate-100/90 hover:bg-slate-200/90 dark:bg-slate-800/90 dark:hover:bg-slate-700/90 border border-slate-300/80 dark:border-slate-700 text-slate-800 dark:text-slate-100 font-bold text-sm transition-all duration-300 hover:-translate-y-0.5 shadow-xs group"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-slate-100/90 hover:bg-slate-200/90 dark:bg-slate-800/90 dark:hover:bg-slate-700/90 border border-slate-300/80 dark:border-slate-700 text-slate-800 dark:text-slate-100 font-bold text-sm transition-all duration-300 hover:-translate-y-0.5 shadow-xs group"
                 >
                   <Download className="w-4 h-4 text-teal-600 dark:text-teal-400 group-hover:-translate-y-0.5 transition-transform" />
                   <span>{language === "ar" ? "تحميل السيرة الذاتية" : "Download Resume (CV)"}</span>
@@ -251,7 +251,7 @@ export default function HomePage() {
               </motion.div>
 
               {/* Direct Quick Contact & Social Channels (Email, LinkedIn, WhatsApp, GitHub, X) */}
-              <motion.div variants={heroItem} className="pt-1 sm:pt-1.5 flex flex-wrap items-center gap-3">
+              <motion.div variants={heroItem} className="pt-2 sm:pt-2.5 flex flex-wrap items-center gap-3 sm:gap-4">
                 <span className="text-xs font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 font-semibold flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-teal-500" />
                   {language === "ar" ? "قنوات التواصل المباشر:" : "Direct Channels:"}
@@ -261,7 +261,7 @@ export default function HomePage() {
                   {/* 1. Email */}
                   <a
                     href="mailto:m.i.aljazzar19@gmail.com"
-                    className="relative flex items-center justify-center w-9.5 h-9.5 sm:w-10 sm:h-10 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:border-teal-500/50 hover:bg-teal-50/50 dark:hover:bg-teal-950/40 shadow-xs hover:-translate-y-1 hover:shadow-md transition-all duration-200 group"
+                    className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:border-teal-500/50 hover:bg-teal-50/50 dark:hover:bg-teal-950/40 shadow-xs hover:-translate-y-1 hover:shadow-md transition-all duration-200 group"
                     title="m.i.aljazzar19@gmail.com"
                     aria-label="Email"
                   >
@@ -276,7 +276,7 @@ export default function HomePage() {
                     href="https://www.linkedin.com/in/mohammed-aljazzar/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative flex items-center justify-center w-9.5 h-9.5 sm:w-10 sm:h-10 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-[#0A66C2] hover:border-[#0A66C2]/50 hover:bg-[#0A66C2]/10 shadow-xs hover:-translate-y-1 hover:shadow-md transition-all duration-200 group"
+                    className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-[#0A66C2] hover:border-[#0A66C2]/50 hover:bg-[#0A66C2]/10 shadow-xs hover:-translate-y-1 hover:shadow-md transition-all duration-200 group"
                     title="LinkedIn"
                     aria-label="LinkedIn"
                   >
@@ -291,7 +291,7 @@ export default function HomePage() {
                     href="https://wa.me/972598048284"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative flex items-center justify-center w-9.5 h-9.5 sm:w-10 sm:h-10 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-[#25D366] hover:border-[#25D366]/50 hover:bg-[#25D366]/10 shadow-xs hover:-translate-y-1 hover:shadow-md transition-all duration-200 group"
+                    className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-[#25D366] hover:border-[#25D366]/50 hover:bg-[#25D366]/10 shadow-xs hover:-translate-y-1 hover:shadow-md transition-all duration-200 group"
                     title="+972 59 804 8284"
                     aria-label="WhatsApp"
                   >
@@ -308,7 +308,7 @@ export default function HomePage() {
                     href="https://github.com/Mohammed-Aljazzar"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative flex items-center justify-center w-9.5 h-9.5 sm:w-10 sm:h-10 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:border-slate-400 dark:hover:border-slate-500 hover:bg-slate-200/60 dark:hover:bg-slate-800 shadow-xs hover:-translate-y-1 hover:shadow-md transition-all duration-200 group"
+                    className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:border-slate-400 dark:hover:border-slate-500 hover:bg-slate-200/60 dark:hover:bg-slate-800 shadow-xs hover:-translate-y-1 hover:shadow-md transition-all duration-200 group"
                     title="GitHub"
                     aria-label="GitHub"
                   >
@@ -323,7 +323,7 @@ export default function HomePage() {
                     href="https://x.com/moh_aljazzar"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative flex items-center justify-center w-9.5 h-9.5 sm:w-10 sm:h-10 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:border-slate-400 dark:hover:border-slate-500 hover:bg-slate-200/60 dark:hover:bg-slate-800 shadow-xs hover:-translate-y-1 hover:shadow-md transition-all duration-200 group"
+                    className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:border-slate-400 dark:hover:border-slate-500 hover:bg-slate-200/60 dark:hover:bg-slate-800 shadow-xs hover:-translate-y-1 hover:shadow-md transition-all duration-200 group"
                     title="X (@moh_aljazzar)"
                     aria-label="X"
                   >
@@ -338,13 +338,13 @@ export default function HomePage() {
               </motion.div>
             </motion.div>
 
-            {/* Right Side — High-End Portrait Aligned to Top of Content */}
+            {/* Right Side — High-End Portrait Aligned Parallel to Content */}
             <div className="lg:col-span-5 relative flex flex-col items-center lg:items-end justify-start">
               <motion.div
                 initial={{ opacity: 0, scale: 0.94 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.4, 0.25, 1] as const }}
-                className="relative w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[390px] xl:max-w-[420px] h-[22rem] sm:h-[25rem] lg:h-[27.5rem] xl:h-[29.5rem] rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group"
+                className="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[420px] xl:max-w-[440px] h-[26rem] sm:h-[30rem] lg:h-[33rem] xl:h-[34rem] rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group"
               >
                 <Image
                   src={config.avatarUrl}
@@ -352,7 +352,7 @@ export default function HomePage() {
                   fill
                   priority
                   className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 440px"
+                  sizes="(max-width: 768px) 100vw, 480px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-90" />
                 
@@ -371,7 +371,7 @@ export default function HomePage() {
           </div>
 
           {/* Subtle Soft Divider between Hero & Stats */}
-          <div className="mt-8 sm:mt-10 lg:mt-12 mb-6 sm:mb-8 relative flex items-center justify-center">
+          <div className="mt-10 sm:mt-12 lg:mt-14 mb-8 sm:mb-10 relative flex items-center justify-center">
             <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-800 to-transparent" />
           </div>
 
