@@ -383,15 +383,30 @@ export default function HomePage() {
              (Inspired by Ahmed Said & Maha Qudwa)
          ══════════════════════════════════════════════ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300">
+        <ScrollReveal className="text-center max-w-3xl mx-auto space-y-4 mb-14">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 shadow-xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
             <Cpu className="w-3.5 h-3.5" />
-            {language === "ar" ? "فلسفة العمل والهندسة" : "Engineering DNA & Philosophy"}
+            <span>{language === "ar" ? "فلسفة العمل والهندسة" : "Engineering DNA & Philosophy"}</span>
           </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-            {language === "ar" ? "المبادئ الثلاثة الحاكمة لكل سطر برمجي" : "Three Principles Governing Every Line of Code"}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+            {language === "ar" ? (
+              <>
+                المبادئ الثلاثة الحاكمة لـ{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                  جودة كل سطر برمجي
+                </span>
+              </>
+            ) : (
+              <>
+                Three Core Principles Governing{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                  Software Excellence
+                </span>
+              </>
+            )}
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-body leading-relaxed max-w-2xl mx-auto">
             {language === "ar"
               ? "لا نكتب الكود لمجرد البرمجة، بل لبناء حلول مؤسسية متينة تحقق أهداف العمل وتدوم لسنوات"
               : "We don't write code for the sake of code. We architect enduring enterprise systems that solve real challenges."}
@@ -456,15 +471,30 @@ export default function HomePage() {
           3. CORE PILLARS (01–04) — Inspired by Maha Qudwa
          ══════════════════════════════════════════════ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300">
+        <ScrollReveal className="text-center max-w-3xl mx-auto space-y-4 mb-14">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 shadow-xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
             <Sparkles className="w-3.5 h-3.5" />
-            {t.pillars.sectionBadge}
+            <span>{t.pillars.sectionBadge}</span>
           </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-            {t.pillars.heading}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+            {language === "ar" ? (
+              <>
+                التخصصات الهندسية و
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                  مجالات التميز المعماري
+                </span>
+              </>
+            ) : (
+              <>
+                Engineering Pillars &{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                  Architectural Domains
+                </span>
+              </>
+            )}
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-body leading-relaxed max-w-2xl mx-auto">
             {t.pillars.subheading}
           </p>
         </ScrollReveal>
@@ -648,15 +678,30 @@ export default function HomePage() {
              (Inspired by Gouda Nasrallah)
          ══════════════════════════════════════════════ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-        <ScrollReveal className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300">
-            <Code2 className="w-3.5 h-3.5" />
-            {language === "ar" ? "شبكة المهارات والجاهزية الإنتاجية" : "Telemetry Skills & Production Readiness"}
+        <ScrollReveal className="text-center max-w-3xl mx-auto space-y-4 mb-12">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 shadow-xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
+            <Terminal className="w-3.5 h-3.5" />
+            <span>{language === "ar" ? "الترسانة التقنية والمهارات" : "Technical Arsenal & Telemetry"}</span>
           </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-            {language === "ar" ? "جاهزية تشغيلية كاملة وأدوات تم اختبارها بالإنتاج" : "Production-Tested Stack & Operational Readiness"}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+            {language === "ar" ? (
+              <>
+                أدوات تم اختبارها بالإنتاج و
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                  جاهزية تشغيلية كاملة
+                </span>
+              </>
+            ) : (
+              <>
+                Production-Tested Stack &{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                  Operational Readiness
+                </span>
+              </>
+            )}
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-body leading-relaxed max-w-2xl mx-auto">
             {language === "ar"
               ? "استكشف الكفاءات البرمجية المصنفة حسب مسارات العمل مع مقاييس الجاهزية والخبرة"
               : "Explore verified technical proficiencies across all 4 engineering disciplines with live readiness telemetry."}
@@ -740,14 +785,30 @@ export default function HomePage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <ScrollReveal>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div className="space-y-2 max-w-2xl">
-              <span className="text-xs font-mono font-semibold text-teal-600 dark:text-teal-400 uppercase">
-                {t.selectedProjects.sectionBadge}
+            <div className="space-y-3 max-w-2xl">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
+                <Code2 className="w-3.5 h-3.5" />
+                <span>{t.selectedProjects.sectionBadge}</span>
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
-                {t.selectedProjects.heading}
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
+                {language === "ar" ? (
+                  <>
+                    نماذج حية من{" "}
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                      الأنظمة والحلول المنجزة
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    Engineered Solutions &{" "}
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                      Live Deployments
+                    </span>
+                  </>
+                )}
               </h2>
-              <p className="text-sm text-slate-600 dark:text-slate-400">
+              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-body leading-relaxed">
                 {t.selectedProjects.subheading}
               </p>
             </div>
@@ -892,52 +953,86 @@ export default function HomePage() {
 
       {/* ══════════════════════════════════════════════
           7. INDEPENDENT TRAINING TRACK BANNER
-             (Distinct Dual-Track Architecture)
+             (Harmonized Brand Colors: Teal & Indigo)
          ══════════════════════════════════════════════ */}
       <ScrollReveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-gradient-to-r from-indigo-950/95 via-slate-900 to-indigo-900/90 border border-indigo-700/40 p-8 sm:p-12 text-white relative overflow-hidden shadow-2xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 space-y-4">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-indigo-500/20 border border-indigo-400/30 text-indigo-300">
-                <GraduationCap className="w-4 h-4" />
-                {t.trainingTeaser.badge}
+        <div className="rounded-3xl bg-gradient-to-br from-slate-900 via-[#0B1120] to-[#042f2e]/90 border border-teal-500/30 dark:border-teal-400/25 p-8 sm:p-12 text-white relative overflow-hidden shadow-2xl group">
+          {/* Ambient Brand Glowing Orbs */}
+          <div className="absolute -top-24 -right-24 w-80 h-80 bg-teal-500/20 rounded-full blur-3xl pointer-events-none group-hover:bg-teal-500/30 transition-all duration-700" />
+          <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none group-hover:bg-indigo-500/30 transition-all duration-700" />
+          <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+            <div className="lg:col-span-8 space-y-5">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-teal-500/15 border border-teal-400/30 text-teal-300 backdrop-blur-md">
+                <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
+                <GraduationCap className="w-4 h-4 text-teal-400" />
+                <span>{t.trainingTeaser.badge}</span>
               </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                {t.trainingTeaser.heading}
+
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-snug">
+                {language === "ar" ? (
+                  <>
+                    نقل المعرفة و
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-teal-300 to-indigo-300">
+                      تمكين العقول التقنية
+                    </span>{" "}
+                    الصاعدة
+                  </>
+                ) : (
+                  <>
+                    Sharing Knowledge &{" "}
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-teal-300 to-indigo-300">
+                      Empowering Emerging
+                    </span>{" "}
+                    Tech Minds
+                  </>
+                )}
               </h3>
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl font-body">
                 {t.trainingTeaser.description}
               </p>
 
-              <div className="grid grid-cols-3 gap-4 pt-4 border-t border-indigo-800/60 max-w-lg">
-                <div>
-                  <div className="text-xl sm:text-2xl font-bold font-mono text-indigo-300">
+              {/* Verified Metrics Counter Hub */}
+              <div className="grid grid-cols-3 gap-4 pt-5 border-t border-slate-800/80 max-w-lg">
+                <div className="space-y-1">
+                  <div className="text-2xl sm:text-3xl font-extrabold font-mono text-teal-400 flex items-center">
                     <AnimatedCounter value={config.trainingProgramsCount} />
+                    <span className="text-teal-500 text-lg ml-0.5 rtl:mr-0.5">+</span>
                   </div>
-                  <div className="text-xs text-slate-400">{t.trainingTeaser.programsCount}</div>
+                  <div className="text-xs text-slate-300 font-medium">{t.trainingTeaser.programsCount}</div>
                 </div>
-                <div>
-                  <div className="text-xl sm:text-2xl font-bold font-mono text-indigo-300">
+                <div className="space-y-1">
+                  <div className="text-2xl sm:text-3xl font-extrabold font-mono text-teal-400 flex items-center">
                     <AnimatedCounter value={config.workshopsCount} />
+                    <span className="text-teal-500 text-lg ml-0.5 rtl:mr-0.5">+</span>
                   </div>
-                  <div className="text-xs text-slate-400">{t.trainingTeaser.workshopsCount}</div>
+                  <div className="text-xs text-slate-300 font-medium">{t.trainingTeaser.workshopsCount}</div>
                 </div>
-                <div>
-                  <div className="text-xl sm:text-2xl font-bold font-mono text-indigo-300">
+                <div className="space-y-1">
+                  <div className="text-2xl sm:text-3xl font-extrabold font-mono text-teal-400 flex items-center">
                     <AnimatedCounter value={config.traineesCount} />
+                    <span className="text-teal-500 text-lg ml-0.5 rtl:mr-0.5">+</span>
                   </div>
-                  <div className="text-xs text-slate-400">{t.trainingTeaser.traineesCount}</div>
+                  <div className="text-xs text-slate-300 font-medium">{t.trainingTeaser.traineesCount}</div>
                 </div>
               </div>
             </div>
 
-            <div className="lg:col-span-4 flex justify-start lg:justify-end">
+            <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center space-y-4">
+              {/* Glassmorphic Mentorship Tag */}
+              <div className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-2xl bg-slate-950/60 border border-slate-800 text-xs font-mono text-slate-300 backdrop-blur-md">
+                <span className="w-2 h-2 rounded-full bg-teal-400" />
+                <span>Odoo • Python/Django • UI/UX</span>
+              </div>
+
               <Link
                 href="/training"
-                className="inline-flex items-center gap-2 px-6 py-4 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-white font-bold text-sm sm:text-base shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-indigo-500/25"
+                className="inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 hover:from-teal-500 hover:to-indigo-500 text-white font-bold text-sm sm:text-base shadow-xl shadow-teal-500/20 hover:shadow-teal-500/35 transition-all duration-300 hover:-translate-y-1 group/btn"
               >
                 <span>{t.trainingTeaser.exploreBtn}</span>
-                <Arrow className="w-4 h-4" />
+                <Arrow className="w-4 h-4 transition-transform group-hover/btn:translate-x-1 rtl:group-hover/btn:-translate-x-1" />
               </Link>
             </div>
           </div>
@@ -949,15 +1044,30 @@ export default function HomePage() {
              (Inspired by Maha Qudwa)
          ══════════════════════════════════════════════ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-        <ScrollReveal className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300">
+        <ScrollReveal className="text-center max-w-3xl mx-auto space-y-4 mb-12">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 shadow-xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
             <Award className="w-3.5 h-3.5" />
-            {language === "ar" ? "محطات وإشارات على الطريق" : "Signals Along The Way"}
+            <span>{language === "ar" ? "محطات وإشارات على الطريق" : "Signals Along The Way"}</span>
           </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-            {language === "ar" ? "اعتمادات وإنجازات رسّخت الخبرة" : "Milestones, Credentials & Honors"}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+            {language === "ar" ? (
+              <>
+                اعتمادات وإنجازات{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                  رسّخت الخبرة العملية
+                </span>
+              </>
+            ) : (
+              <>
+                Milestones & Credentials{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                  Affirming Excellence
+                </span>
+              </>
+            )}
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-body leading-relaxed max-w-2xl mx-auto">
             {language === "ar"
               ? "سجل موثق من الشهادات الرسمية والاعتمادات الأكاديمية والمهنية الدولية"
               : "Documented trajectory of international vendor certifications and academic distinctions."}
@@ -1041,8 +1151,24 @@ export default function HomePage() {
                 </span>
               </div>
 
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-                {language === "ar" ? "جاهز لبناء شيء استثنائي معاً؟" : "Let's Build Something Exceptional Together"}
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
+                {language === "ar" ? (
+                  <>
+                    جاهز لبناء{" "}
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                      شيء استثنائي يدوم
+                    </span>{" "}
+                    معاً؟
+                  </>
+                ) : (
+                  <>
+                    Ready to Architect{" "}
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                      Something Exceptional
+                    </span>{" "}
+                    Together?
+                  </>
+                )}
               </h2>
 
               <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">

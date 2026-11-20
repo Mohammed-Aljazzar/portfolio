@@ -23,12 +23,32 @@ export default function ExperiencePage() {
       {/* HEADER */}
       <section className="space-y-6">
         <ScrollReveal>
-          <div className="space-y-3">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300">
-              <Briefcase className="w-3.5 h-3.5" />{t.experiencePage.badge}
+          <div className="space-y-4">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
+              <Briefcase className="w-3.5 h-3.5" />
+              <span>{t.experiencePage.badge}</span>
             </span>
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">{t.experiencePage.heading}</h1>
-            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl">{t.experiencePage.subheading}</p>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+              {language === "ar" ? (
+                <>
+                  الخبرات المهنية و
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                    تطوير البرمجيات
+                  </span>
+                </>
+              ) : (
+                <>
+                  Engineering Career &{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                    Software Track
+                  </span>
+                </>
+              )}
+            </h1>
+            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 font-body leading-relaxed max-w-3xl">
+              {t.experiencePage.subheading}
+            </p>
           </div>
         </ScrollReveal>
 

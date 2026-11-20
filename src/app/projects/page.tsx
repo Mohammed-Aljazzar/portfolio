@@ -25,12 +25,32 @@ export default function ProjectsPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
       {/* HEADER */}
       <ScrollReveal>
-        <div className="space-y-3">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300">
-            <FolderGit2 className="w-3.5 h-3.5" />{t.projectsPage.badge}
+        <div className="space-y-4">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 shadow-xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
+            <FolderGit2 className="w-3.5 h-3.5" />
+            <span>{t.projectsPage.badge}</span>
           </span>
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">{t.projectsPage.heading}</h1>
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl">{t.projectsPage.subheading}</p>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+            {language === "ar" ? (
+              <>
+                معرض المشاريع البرمجية و
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                  دراسات الحالة
+                </span>
+              </>
+            ) : (
+              <>
+                Engineered Works &{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                  Case Studies
+                </span>
+              </>
+            )}
+          </h1>
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 font-body leading-relaxed max-w-3xl">
+            {t.projectsPage.subheading}
+          </p>
         </div>
       </ScrollReveal>
 

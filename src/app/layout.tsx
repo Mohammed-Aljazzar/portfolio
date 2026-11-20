@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import PageTransition from "@/components/layout/PageTransition";
 import { ScrollProgressBar } from "@/components/common/ScrollProgressBar";
+import { FloatingActions } from "@/components/common/FloatingActions";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mohammed-aljazzar.vercel.app"),
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <PageTransition>{children}</PageTransition>
             </main>
             <Footer />
+            <FloatingActions />
           </ThemeProvider>
         </LanguageProvider>
       </body>

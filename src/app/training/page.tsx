@@ -28,25 +28,45 @@ export default function TrainingPage() {
       {/* 1. HEADER & PHILOSOPHY */}
       <section className="space-y-8">
         <ScrollReveal>
-          <div className="space-y-3">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300">
-              <GraduationCap className="w-3.5 h-3.5" />{t.trainingPage.badge}
+          <div className="space-y-4">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
+              <GraduationCap className="w-3.5 h-3.5 text-teal-500" />
+              <span>{t.trainingPage.badge}</span>
             </span>
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">{t.trainingPage.heading}</h1>
-            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl">{t.trainingPage.subheading}</p>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+              {language === "ar" ? (
+                <>
+                  سجل البرامج التدريبية و
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                    الإرشاد التقني
+                  </span>
+                </>
+              ) : (
+                <>
+                  Technical Training &{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                    Mentorship Catalog
+                  </span>
+                </>
+              )}
+            </h1>
+            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 font-body leading-relaxed max-w-3xl">
+              {t.trainingPage.subheading}
+            </p>
           </div>
         </ScrollReveal>
 
         <ScrollReveal delay={0.15}>
-          <div className="rounded-3xl bg-gradient-to-r from-indigo-950/80 via-slate-900 to-[#0B1120] border border-indigo-800/40 p-6 sm:p-10 text-white space-y-4 shadow-xl">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-indigo-800/60 pb-4">
+          <div className="rounded-3xl bg-gradient-to-br from-slate-900 via-[#0B1120] to-[#042f2e]/80 border border-teal-500/30 dark:border-teal-400/25 p-6 sm:p-10 text-white space-y-4 shadow-xl">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-4">
               <div className="space-y-1">
-                <h2 className="text-xl sm:text-2xl font-bold text-indigo-200">{language === "ar" ? overview.roleAr : overview.roleEn}</h2>
-                <div className="text-xs font-mono text-indigo-300">{language === "ar" ? overview.periodAr : overview.periodEn}</div>
+                <h2 className="text-xl sm:text-2xl font-bold text-teal-300">{language === "ar" ? overview.roleAr : overview.roleEn}</h2>
+                <div className="text-xs font-mono text-teal-400/80">{language === "ar" ? overview.periodAr : overview.periodEn}</div>
               </div>
-              <span className="text-xs font-mono bg-indigo-900/60 text-indigo-300 px-3 py-1 rounded-full border border-indigo-700/50 w-fit">Project-Based Pedagogy</span>
+              <span className="text-xs font-mono bg-teal-950/80 text-teal-300 px-3 py-1 rounded-full border border-teal-700/60 w-fit">Project-Based Pedagogy</span>
             </div>
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-4xl">{language === "ar" ? overview.philosophyAr : overview.philosophyEn}</p>
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-4xl font-body">{language === "ar" ? overview.philosophyAr : overview.philosophyEn}</p>
           </div>
         </ScrollReveal>
 
