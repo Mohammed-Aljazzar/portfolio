@@ -193,10 +193,10 @@ export default function HomePage() {
 
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/90 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-slate-700 dark:text-slate-300 text-xs font-mono font-medium backdrop-blur-md"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/90 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-slate-700 dark:text-slate-300 text-xs font-semibold backdrop-blur-md"
                 >
-                  <MapPin className="w-3.5 h-3.5 text-slate-500" />
-                  <span>{language === "ar" ? "غزة، فلسطين 🇵🇸" : "Gaza, Palestine 🇵🇸"}</span>
+                  <Cpu className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
+                  <span>{language === "ar" ? "مهندس برمجيات وأنظمة ERP" : "Software & ERP Systems Engineer"}</span>
                 </motion.div>
               </motion.div>
 
