@@ -15,7 +15,7 @@ import {
   GraduationCap, ExternalLink, ChevronRight, ChevronLeft,
   Mail, Copy, Check, MapPin, Briefcase, Terminal, ShieldCheck,
   Cpu, Compass, Code2, Flame, Send, X, Clock, HelpCircle, CheckCircle,
-  Lightbulb, Rocket, Shield, Eye, Download,
+  Lightbulb, Rocket, Shield, Eye, Download, Linkedin,
 } from "lucide-react";
 
 // Animations
@@ -255,6 +255,93 @@ export default function HomePage() {
                   <GraduationCap className="w-4 h-4" />
                   <span>{t.hero.ctaTraining}</span>
                 </Link>
+              </motion.div>
+
+              {/* Direct Quick Contact & Social Channels (Email, LinkedIn, WhatsApp, GitHub, X) */}
+              <motion.div variants={heroItem} className="pt-2 flex flex-wrap items-center gap-3">
+                <span className="text-xs font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 font-semibold flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-teal-500" />
+                  {language === "ar" ? "قنوات التواصل المباشر:" : "Direct Channels:"}
+                </span>
+
+                <div className="flex items-center gap-2">
+                  {/* 1. Email */}
+                  <a
+                    href="mailto:m.i.aljazzar19@gmail.com"
+                    className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:border-teal-500/50 hover:bg-teal-50/50 dark:hover:bg-teal-950/40 shadow-xs hover:-translate-y-1 hover:shadow-md transition-all duration-200 group"
+                    title="m.i.aljazzar19@gmail.com"
+                    aria-label="Email"
+                  >
+                    <Mail className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
+                    <span className="absolute -top-8.5 opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-200 px-2 py-0.5 text-[10px] font-mono font-medium rounded-md bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md whitespace-nowrap z-30">
+                      Email
+                    </span>
+                  </a>
+
+                  {/* 2. LinkedIn */}
+                  <a
+                    href="https://www.linkedin.com/in/mohammed-aljazzar/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-[#0A66C2] hover:border-[#0A66C2]/50 hover:bg-[#0A66C2]/10 shadow-xs hover:-translate-y-1 hover:shadow-md transition-all duration-200 group"
+                    title="LinkedIn"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
+                    <span className="absolute -top-8.5 opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-200 px-2 py-0.5 text-[10px] font-mono font-medium rounded-md bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md whitespace-nowrap z-30">
+                      LinkedIn
+                    </span>
+                  </a>
+
+                  {/* 3. WhatsApp */}
+                  <a
+                    href="https://wa.me/972598048284"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-[#25D366] hover:border-[#25D366]/50 hover:bg-[#25D366]/10 shadow-xs hover:-translate-y-1 hover:shadow-md transition-all duration-200 group"
+                    title="+972 59 804 8284"
+                    aria-label="WhatsApp"
+                  >
+                    <svg className="w-4 h-4 fill-current transition-transform duration-200 group-hover:scale-110" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.301-.15-1.782-.879-2.058-.98-.276-.1-.476-.15-.677.15-.2.3-.777.98-.952 1.18-.176.2-.351.226-.652.076-.301-.15-1.27-.468-2.42-1.493-.895-.798-1.5-1.784-1.675-2.084-.176-.3-.019-.462.132-.612.136-.135.301-.35.452-.526.15-.175.2-.3.301-.5.1-.2.05-.375-.025-.526-.075-.15-.677-1.632-.927-2.235-.243-.587-.49-.508-.677-.518-.175-.008-.376-.01-.577-.01-.2 0-.526.075-.802.375-.276.3-1.053 1.03-1.053 2.511 0 1.48 1.078 2.91 1.228 3.111.15.2 2.122 3.24 5.14 4.544.718.31 1.278.496 1.716.635.722.23 1.378.197 1.897.12.578-.088 1.782-.728 2.033-1.431.25-.703.25-1.306.175-1.431-.075-.125-.276-.2-.577-.35zM12.04 2C6.505 2 2.02 6.485 2.02 12.02c0 1.91.537 3.69 1.47 5.215L2.04 22l4.908-1.412a10.007 10.007 0 0 0 5.092 1.432c5.535 0 10.02-4.485 10.02-10.02C22.06 6.485 17.575 2 12.04 2zm0 18.258a8.214 8.214 0 0 1-4.22-1.163l-.303-.18-3.136.903.9-3.056-.197-.314a8.22 8.22 0 0 1-1.264-4.428c0-4.542 3.696-8.238 8.22-8.238 4.524 0 8.22 3.696 8.22 8.238 0 4.542-3.696 8.238-8.22 8.238z" />
+                    </svg>
+                    <span className="absolute -top-8.5 opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-200 px-2 py-0.5 text-[10px] font-mono font-medium rounded-md bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md whitespace-nowrap z-30">
+                      WhatsApp
+                    </span>
+                  </a>
+
+                  {/* 4. GitHub */}
+                  <a
+                    href="https://github.com/Mohammed-Aljazzar"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:border-slate-400 dark:hover:border-slate-500 hover:bg-slate-200/60 dark:hover:bg-slate-800 shadow-xs hover:-translate-y-1 hover:shadow-md transition-all duration-200 group"
+                    title="GitHub"
+                    aria-label="GitHub"
+                  >
+                    <Github className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
+                    <span className="absolute -top-8.5 opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-200 px-2 py-0.5 text-[10px] font-mono font-medium rounded-md bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md whitespace-nowrap z-30">
+                      GitHub
+                    </span>
+                  </a>
+
+                  {/* 5. X Platform (Twitter) */}
+                  <a
+                    href="https://x.com/moh_aljazzar"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:border-slate-400 dark:hover:border-slate-500 hover:bg-slate-200/60 dark:hover:bg-slate-800 shadow-xs hover:-translate-y-1 hover:shadow-md transition-all duration-200 group"
+                    title="X (@moh_aljazzar)"
+                    aria-label="X"
+                  >
+                    <svg className="w-3.5 h-3.5 fill-current transition-transform duration-200 group-hover:scale-110" viewBox="0 0 24 24">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                    <span className="absolute -top-8.5 opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-200 px-2 py-0.5 text-[10px] font-mono font-medium rounded-md bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md whitespace-nowrap z-30">
+                      X (Twitter)
+                    </span>
+                  </a>
+                </div>
               </motion.div>
 
               {/* Credential Pills with Soft Glass Effect */}
