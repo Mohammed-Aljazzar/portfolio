@@ -168,7 +168,7 @@ export default function HomePage() {
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             
             {/* Left Content — Staggered Text Entrance */}
             <motion.div
@@ -336,57 +336,10 @@ export default function HomePage() {
                   </a>
                 </div>
               </motion.div>
-
-              {/* 4 Hero Stats Cards Side-by-Side (Years, Projects, Programs, Trainees) */}
-              <motion.div variants={heroItem} className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
-                {/* 1. Years of Practical Experience */}
-                <div className="relative p-3 sm:p-3.5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-teal-500/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
-                  <div className="text-2xl sm:text-3xl font-extrabold font-mono text-teal-600 dark:text-teal-400 tracking-tight flex items-center justify-center sm:justify-start">
-                    <AnimatedCounter value={config.yearsOfExperience} />
-                    <span className="text-lg font-sans ml-0.5 text-teal-500">+</span>
-                  </div>
-                  <div className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium leading-snug">
-                    {t.hero.stats.years}
-                  </div>
-                </div>
-
-                {/* 2. Completed Software Projects */}
-                <div className="relative p-3 sm:p-3.5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-indigo-500/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
-                  <div className="text-2xl sm:text-3xl font-extrabold font-mono text-indigo-600 dark:text-indigo-400 tracking-tight flex items-center justify-center sm:justify-start">
-                    <AnimatedCounter value={config.completedProjects} />
-                    <span className="text-lg font-sans ml-0.5 text-indigo-500">+</span>
-                  </div>
-                  <div className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium leading-snug">
-                    {t.hero.stats.projects}
-                  </div>
-                </div>
-
-                {/* 3. Specialized Training Programs */}
-                <div className="relative p-3 sm:p-3.5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-amber-500/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
-                  <div className="text-2xl sm:text-3xl font-extrabold font-mono text-slate-800 dark:text-slate-200 tracking-tight flex items-center justify-center sm:justify-start">
-                    <AnimatedCounter value={config.trainingProgramsCount} />
-                    <span className="text-lg font-sans ml-0.5 text-amber-500">+</span>
-                  </div>
-                  <div className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium leading-snug">
-                    {t.hero.stats.programs}
-                  </div>
-                </div>
-
-                {/* 4. Trainees & Beneficiaries */}
-                <div className="relative p-3 sm:p-3.5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-teal-500/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
-                  <div className="text-2xl sm:text-3xl font-extrabold font-mono text-teal-600 dark:text-teal-400 tracking-tight flex items-center justify-center sm:justify-start">
-                    <AnimatedCounter value={config.traineesCount} />
-                    <span className="text-lg font-sans ml-0.5 text-teal-500">+</span>
-                  </div>
-                  <div className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium leading-snug">
-                    {t.hero.stats.trainees}
-                  </div>
-                </div>
-              </motion.div>
             </motion.div>
 
-            {/* Right Side — High-End Portrait */}
-            <div className="lg:col-span-5 relative flex flex-col items-center justify-center">
+            {/* Right Side — High-End Portrait Aligned to Top of Content */}
+            <div className="lg:col-span-5 relative flex flex-col items-center lg:items-end justify-start pt-1 lg:pt-2">
               <motion.div
                 initial={{ opacity: 0, scale: 0.94 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -416,6 +369,58 @@ export default function HomePage() {
               </motion.div>
             </div>
           </div>
+
+          {/* 4 Hero Stats Cards Spanning the Full Width */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="mt-8 sm:mt-10 lg:mt-12 w-full grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5"
+          >
+            {/* 1. Years of Practical Experience */}
+            <div className="relative p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-teal-500/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
+              <div className="text-3xl sm:text-4xl font-extrabold font-mono text-teal-600 dark:text-teal-400 tracking-tight flex items-center justify-center sm:justify-start">
+                <AnimatedCounter value={config.yearsOfExperience} />
+                <span className="text-xl font-sans ml-0.5 text-teal-500">+</span>
+              </div>
+              <div className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1.5 font-medium leading-snug">
+                {t.hero.stats.years}
+              </div>
+            </div>
+
+            {/* 2. Completed Software Projects */}
+            <div className="relative p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-indigo-500/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
+              <div className="text-3xl sm:text-4xl font-extrabold font-mono text-indigo-600 dark:text-indigo-400 tracking-tight flex items-center justify-center sm:justify-start">
+                <AnimatedCounter value={config.completedProjects} />
+                <span className="text-xl font-sans ml-0.5 text-indigo-500">+</span>
+              </div>
+              <div className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1.5 font-medium leading-snug">
+                {t.hero.stats.projects}
+              </div>
+            </div>
+
+            {/* 3. Specialized Training Programs */}
+            <div className="relative p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-amber-500/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
+              <div className="text-3xl sm:text-4xl font-extrabold font-mono text-slate-800 dark:text-slate-200 tracking-tight flex items-center justify-center sm:justify-start">
+                <AnimatedCounter value={config.trainingProgramsCount} />
+                <span className="text-xl font-sans ml-0.5 text-amber-500">+</span>
+              </div>
+              <div className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1.5 font-medium leading-snug">
+                {t.hero.stats.programs}
+              </div>
+            </div>
+
+            {/* 4. Trainees & Beneficiaries */}
+            <div className="relative p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-teal-500/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
+              <div className="text-3xl sm:text-4xl font-extrabold font-mono text-teal-600 dark:text-teal-400 tracking-tight flex items-center justify-center sm:justify-start">
+                <AnimatedCounter value={config.traineesCount} />
+                <span className="text-xl font-sans ml-0.5 text-teal-500">+</span>
+              </div>
+              <div className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1.5 font-medium leading-snug">
+                {t.hero.stats.trainees}
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
