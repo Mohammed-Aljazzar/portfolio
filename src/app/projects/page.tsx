@@ -61,6 +61,39 @@ export default function ProjectsPage() {
             <motion.div whileHover={{ y: -4, transition: { duration: 0.25 } }}
               className="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between hover:border-teal-500/50 dark:hover:border-teal-400/50 transition-all duration-300 shadow-xs hover:shadow-lg hover:shadow-teal-500/5 group h-full">
               <div className="space-y-4">
+                {/* Visual Window Mockup Frame */}
+                <div
+                  className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-slate-950 border border-slate-800/80 group/img cursor-pointer"
+                  onClick={() => setSelectedProject(project as Project)}
+                >
+                  {/* Window Bar */}
+                  <div className="absolute top-0 inset-x-0 h-6 bg-slate-900/90 backdrop-blur-xs border-b border-slate-800/80 px-2.5 flex items-center justify-between z-10">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-red-500/80" />
+                      <span className="w-2 h-2 rounded-full bg-amber-500/80" />
+                      <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
+                    </div>
+                    <span className="text-[10px] font-mono text-slate-400 truncate max-w-[150px]">
+                      {project.slug || project.category}
+                    </span>
+                    <span className="text-[9px] font-mono text-teal-400 uppercase font-semibold">
+                      {project.category}
+                    </span>
+                  </div>
+
+                  {/* Real Image Graphic Cover */}
+                  <div className="pt-6 w-full h-full relative">
+                    <Image
+                      src={project.coverImage || "/assets/images/projects/erp-smart-service.jpg"}
+                      alt={language === "ar" ? project.titleAr : project.titleEn}
+                      fill
+                      className="object-cover object-center transition-transform duration-500 group-hover/img:scale-105"
+                      sizes="(max-width: 768px) 100vw, 400px"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover/img:opacity-30 transition-opacity" />
+                  </div>
+                </div>
+
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-mono font-bold uppercase px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">{project.category.toUpperCase()}</span>
                   {project.isFeatured && (
@@ -135,6 +168,19 @@ export default function ProjectsPage() {
                   <X className="w-5 h-5" />
                 </button>
               </div>
+
+              {/* Modal Cover Image Preview */}
+              {selectedProject.coverImage && (
+                <div className="relative w-full aspect-[16/8] rounded-2xl overflow-hidden bg-slate-950 border border-slate-800">
+                  <Image
+                    src={selectedProject.coverImage || "/assets/images/projects/erp-smart-service.jpg"}
+                    alt={language === "ar" ? selectedProject.titleAr : selectedProject.titleEn}
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 900px) 100vw, 800px"
+                  />
+                </div>
+              )}
 
               <div className="space-y-1">
                 <h4 className="text-xs font-mono font-bold uppercase text-slate-400">{t.projectsPage.modal.aboutProject}</h4>

@@ -563,11 +563,11 @@ export default function HomePage() {
             {/* Visual Dashboard Illustration Box */}
             <div className="relative w-full aspect-[21/9] sm:aspect-[24/9] rounded-2xl overflow-hidden bg-slate-950/80 border border-slate-800 p-2 sm:p-4">
               <Image
-                src={featuredProject.coverImage ? featuredProject.coverImage.replace(".jpg", ".svg") : "/assets/images/projects/erp-smart-service.svg"}
+                src={featuredProject.coverImage || "/assets/images/projects/erp-smart-service.jpg"}
                 alt={language === "ar" ? featuredProject.titleAr : featuredProject.titleEn}
                 fill
-                unoptimized
-                className="object-cover object-center opacity-85 hover:opacity-100 transition-opacity"
+                className="object-cover object-center opacity-90 hover:opacity-100 transition-opacity"
+                sizes="(max-width: 1200px) 100vw, 1200px"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-3 left-4 rtl:left-auto rtl:right-4 z-10 flex items-center gap-2 text-xs font-mono text-teal-300">
@@ -816,11 +816,10 @@ export default function HomePage() {
                     {/* Visual SVG Graphic Cover */}
                     <div className="pt-6 w-full h-full relative">
                       <Image
-                        src={project.coverImage ? project.coverImage.replace(".jpg", ".svg") : "/assets/images/projects/erp-smart-service.svg"}
+                        src={project.coverImage || "/assets/images/projects/erp-smart-service.jpg"}
                         alt={language === "ar" ? project.titleAr : project.titleEn}
                         fill
-                        unoptimized
-                        className="object-cover object-top transition-transform duration-500 group-hover/img:scale-105"
+                        className="object-cover object-center transition-transform duration-500 group-hover/img:scale-105"
                         sizes="(max-width: 768px) 100vw, 400px"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover/img:opacity-30 transition-opacity" />
@@ -1158,11 +1157,11 @@ export default function HomePage() {
               {/* Modal Cover Image Preview */}
               <div className="relative w-full aspect-[16/8] rounded-2xl overflow-hidden bg-slate-950 border border-slate-800">
                 <Image
-                  src={selectedProject.coverImage ? selectedProject.coverImage.replace(".jpg", ".svg") : "/assets/images/projects/erp-smart-service.svg"}
+                  src={selectedProject.coverImage || "/assets/images/projects/erp-smart-service.jpg"}
                   alt={language === "ar" ? selectedProject.titleAr : selectedProject.titleEn}
                   fill
-                  unoptimized
-                  className="object-cover object-top"
+                  className="object-cover object-center"
+                  sizes="(max-width: 900px) 100vw, 800px"
                 />
               </div>
 
