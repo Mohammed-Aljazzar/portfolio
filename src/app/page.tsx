@@ -15,7 +15,7 @@ import {
   GraduationCap, ExternalLink, ChevronRight, ChevronLeft,
   Mail, Copy, Check, MapPin, Briefcase, Terminal, ShieldCheck,
   Cpu, Compass, Code2, Flame, Send, X, Clock, HelpCircle, CheckCircle,
-  Lightbulb, Rocket, Shield, Eye,
+  Lightbulb, Rocket, Shield, Eye, Download,
 } from "lucide-react";
 
 // Animations
@@ -236,6 +236,17 @@ export default function HomePage() {
                   <span>{t.hero.ctaProjects}</span>
                   <Arrow className="w-4 h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
                 </Link>
+
+                {/* Secondary Button: Download CV */}
+                <a
+                  href={language === "ar" ? config.cvUrlAr || "/assets/cv/Mohammed_Aljazzar_CV_AR.pdf" : config.cvUrlEn || "/assets/cv/Mohammed_Aljazzar_CV_EN.pdf"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-slate-100/90 hover:bg-slate-200/90 dark:bg-slate-800/90 dark:hover:bg-slate-700/90 border border-slate-300/80 dark:border-slate-700 text-slate-800 dark:text-slate-100 font-bold text-sm transition-all duration-300 hover:-translate-y-0.5 shadow-xs group"
+                >
+                  <Download className="w-4 h-4 text-teal-600 dark:text-teal-400 group-hover:-translate-y-0.5 transition-transform" />
+                  <span>{language === "ar" ? "تحميل السيرة الذاتية" : "Download Resume (CV)"}</span>
+                </a>
 
                 <Link
                   href="/training"
