@@ -138,17 +138,39 @@ export default function HomePage() {
     { name: "Figma (UI/UX)", icon: "🎨" },
   ];
 
-  const marqueeTechs = [
-    { name: "Official Odoo S.A. Certified", icon: "🟣", tag: language === "ar" ? "اعتماد رسمي" : "Certified" },
-    { name: "ERPNext & Frappe Framework", icon: "🔷", tag: language === "ar" ? "أنظمة ERP" : "Enterprise ERP" },
-    { name: "Python & Django", icon: "🐍", tag: language === "ar" ? "باك إند" : "Robust Backend" },
-    { name: "Next.js & React.js", icon: "▲", tag: language === "ar" ? "تطبيقات ويب" : "Modern Web Apps" },
-    { name: "TypeScript", icon: "TS", tag: language === "ar" ? "أمان كودي" : "Type Safety" },
-    { name: "PostgreSQL & MariaDB", icon: "🐘", tag: language === "ar" ? "قواعد بيانات" : "Databases" },
-    { name: "Docker Containerization", icon: "🐳", tag: language === "ar" ? "نشر وحاويات" : "DevOps & Containers" },
-    { name: "Tailwind CSS & Native RTL", icon: "🌊", tag: language === "ar" ? "واجهات متجاوبة" : "Responsive UI" },
-    { name: "Figma UI/UX & Design Systems", icon: "🎨", tag: language === "ar" ? "تصميم رقمي" : "Product Design" },
-    { name: "RESTful APIs & Celery", icon: "⚡", tag: language === "ar" ? "تكامل عالي الكفاءة" : "High Throughput" },
+  const methodologyCards = [
+    {
+      number: "01",
+      badgeColor: "bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/60",
+      titleAr: "هندسة أنظمة ERP",
+      titleEn: "ERP Systems Engineering",
+      descAr: "تحليل متطلبات الشركات وتحويلها إلى تدفقات عمل مؤتمتة عبر Odoo (معتمد رسمياً) و Frappe / ERPNext.",
+      descEn: "Analyzing corporate requirements and turning them into automated workflows via Odoo (Official Certified) & Frappe / ERPNext.",
+    },
+    {
+      number: "02",
+      badgeColor: "bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-200/60 dark:border-amber-800/60",
+      titleAr: "تطوير الويب المتكامل",
+      titleEn: "Full-Stack Web Development",
+      descAr: "بناء معماريات خلفية عالية الاعتمادية بـ Python & Django وواجهات أمامية فائقة السرعة بـ React & Next.js.",
+      descEn: "Building high-reliability backend architectures with Python & Django and ultra-fast frontends with React & Next.js.",
+    },
+    {
+      number: "03",
+      badgeColor: "bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/60",
+      titleAr: "تجربة المستخدم UI/UX",
+      titleEn: "UI/UX User Experience",
+      descAr: "تصميم أنظمة تصميم متكاملة (Design Systems) ونماذج تفاعلية في Figma تجمع بين الجمال وسهولة الاستخدام.",
+      descEn: "Crafting comprehensive design systems and interactive prototypes in Figma merging aesthetics with effortless usability.",
+    },
+    {
+      number: "04",
+      badgeColor: "bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200/60 dark:border-indigo-800/60",
+      titleAr: "التدريب ونقل المعرفة",
+      titleEn: "Training & Knowledge Transfer",
+      descAr: "تمكين الفرق والمطورين عبر برامج تدريبية تطبيقية وورش عمل مكثفة في البرمجة وأنظمة المؤسسات.",
+      descEn: "Empowering engineering teams and developers through hands-on training programs and intensive enterprise workshops.",
+    },
   ];
 
   return (
@@ -443,113 +465,48 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          2. TECH STACK & CERTIFICATIONS MARQUEE
-             (Smooth Continuous Hardware-Accelerated Flow)
-         ══════════════════════════════════════════════ */}
-      <div className="relative py-4 -my-4 sm:-my-6 overflow-hidden border-y border-slate-200/80 dark:border-slate-800/80 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md">
-        {/* Left & Right Gradient Shadows for Seamless Fade */}
-        <div className="absolute left-0 inset-y-0 w-16 sm:w-28 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 inset-y-0 w-16 sm:w-28 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-
-        <div className="animate-marquee-scroll flex items-center gap-3 sm:gap-4 whitespace-nowrap">
-          {[...marqueeTechs, ...marqueeTechs].map((tech, idx) => (
-            <div
-              key={idx}
-              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-white/80 dark:bg-slate-800/80 border border-slate-200/90 dark:border-slate-700/80 shadow-xs hover:border-teal-500/50 hover:bg-teal-50/40 dark:hover:bg-teal-950/30 transition-all duration-200 group"
-            >
-              <span className="text-base sm:text-lg">{tech.icon}</span>
-              <span className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 font-mono tracking-tight group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
-                {tech.name}
-              </span>
-              <span className="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-700/80 text-slate-500 dark:text-slate-400">
-                {tech.tag}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* ══════════════════════════════════════════════
-          3. CORE SOLUTIONS & ENGINEERING SERVICES
-             (Bento & Pillars Grid)
+          2. WORK METHODOLOGY & ENGINEERING SERVICES
+             (Matching User Reference Image Exactly)
          ══════════════════════════════════════════════ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal className="text-center max-w-3xl mx-auto space-y-4 mb-14">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 shadow-xs">
-            <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>{language === "ar" ? "الخدمات والحلول الهندسية" : "Solutions & Engineering Services"}</span>
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
-            {language === "ar" ? (
-              <>
-                ما أقدمه للشركات و
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
-                  المنظومات البرمجية
-                </span>
-              </>
-            ) : (
-              <>
-                Enterprise Solutions &{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
-                  Engineering Capabilities
-                </span>
-              </>
-            )}
+        <ScrollReveal className="text-right rtl:text-right ltr:text-left mb-8 sm:mb-10">
+          {/* Overline with accent line */}
+          <div className="flex items-center justify-end rtl:justify-end ltr:justify-start gap-2 mb-2">
+            <span className="text-[11px] sm:text-xs font-mono tracking-widest uppercase text-teal-600 dark:text-teal-400 font-bold">
+              HOW I WORK • APPROACH •
+            </span>
+            <span className="w-5 sm:w-6 h-[2px] bg-teal-500 rounded-full inline-block" />
+          </div>
+
+          {/* Section Main Title */}
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+            {language === "ar" ? "منهجية العمل والخدمات الهندسية" : "Work Methodology & Engineering Services"}
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-body leading-relaxed max-w-2xl mx-auto">
-            {language === "ar"
-              ? "أربع ركائز هندسية متكاملة تجمع بين صرامة أنظمة الـ ERP، متانة وأمان الباك إند، سرعة تطبيقات الويب، وتصميم واجهات فائقة البساطة"
-              : "Four unified pillars merging ERP architecture rigor, high-throughput backend APIs, dynamic web performance, and intuitive UI/UX design."}
-          </p>
         </ScrollReveal>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8" staggerDelay={0.12}>
-          {pillars.map((pillar) => (
-            <StaggerItem key={pillar.number}>
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6" staggerDelay={0.1}>
+          {methodologyCards.map((card) => (
+            <StaggerItem key={card.number}>
               <motion.div
-                whileHover={{ y: -6, transition: { duration: 0.3 } }}
-                className="relative rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 hover:border-teal-500/50 dark:hover:border-teal-400/50 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-teal-500/5 group overflow-hidden"
+                whileHover={{ y: -5, transition: { duration: 0.25 } }}
+                className="relative p-6 sm:p-7 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col items-center text-center group h-full justify-start"
               >
-                {/* Large Background Watermark Number */}
-                <span className="absolute -top-3 right-4 rtl:right-auto rtl:left-4 text-7xl sm:text-8xl font-black font-mono text-slate-100 dark:text-slate-800/40 select-none pointer-events-none group-hover:text-teal-500/10 transition-colors duration-500">
-                  {pillar.number}
-                </span>
-
-                <div className="relative z-10 space-y-4">
-                  <div className="flex items-start justify-between">
-                    <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800">
-                      PILLAR {pillar.number}
-                    </span>
-                    <div className="p-3 rounded-2xl bg-teal-50 dark:bg-slate-800 border border-teal-100 dark:border-slate-700 group-hover:bg-teal-100 dark:group-hover:bg-teal-950/40 transition-colors duration-300">
-                      {pillarIcons[pillar.icon]}
-                    </div>
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-300">
-                      {language === "ar" ? pillar.titleAr : pillar.titleEn}
-                    </h3>
-                    <p className="text-xs font-mono text-teal-600 dark:text-teal-400 font-semibold">
-                      {language === "ar" ? pillar.subtitleAr : pillar.subtitleEn}
-                    </p>
-                  </div>
-
-                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                    {language === "ar" ? pillar.descriptionAr : pillar.descriptionEn}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 pt-3 border-t border-slate-100 dark:border-slate-800">
-                    {pillar.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2.5 py-1 text-xs font-mono rounded-lg bg-slate-50 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/60 group-hover:border-teal-300/40 dark:group-hover:border-teal-700/40 transition-colors duration-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                {/* Number Badge in the Top-End corner */}
+                <div className="w-full flex justify-end rtl:justify-end ltr:justify-start mb-4">
+                  <span className={`px-2.5 py-1 text-xs font-mono font-bold rounded-xl ${card.badgeColor}`}>
+                    {card.number}
+                  </span>
                 </div>
+
+                {/* Card Title */}
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                  {language === "ar" ? card.titleAr : card.titleEn}
+                </h3>
+
+                {/* Card Description */}
+                <p className="text-xs sm:text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+                  {language === "ar" ? card.descAr : card.descEn}
+                </p>
               </motion.div>
             </StaggerItem>
           ))}
