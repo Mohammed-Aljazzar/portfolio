@@ -227,8 +227,9 @@ export default function HomePage() {
                 {language === "ar" ? config.bioAr : config.bioEn}
               </motion.p>
 
-              {/* Action Hub */}
+              {/* Action Hub — Primary & Secondary Buttons */}
               <motion.div variants={heroItem} className="flex flex-wrap items-center gap-3 pt-2">
+                {/* 1. Primary Button: Projects */}
                 <Link
                   href="/projects"
                   className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 text-white font-bold text-sm shadow-md hover:shadow-teal-500/25 transition-all duration-300 group hover:-translate-y-0.5"
@@ -237,7 +238,7 @@ export default function HomePage() {
                   <Arrow className="w-4 h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
                 </Link>
 
-                {/* Secondary Button: Download CV */}
+                {/* 2. Secondary Button: Download CV */}
                 <a
                   href={language === "ar" ? config.cvUrlAr || "/assets/cv/Mohammed_Aljazzar_CV_AR.pdf" : config.cvUrlEn || "/assets/cv/Mohammed_Aljazzar_CV_EN.pdf"}
                   target="_blank"
@@ -247,14 +248,6 @@ export default function HomePage() {
                   <Download className="w-4 h-4 text-teal-600 dark:text-teal-400 group-hover:-translate-y-0.5 transition-transform" />
                   <span>{language === "ar" ? "تحميل السيرة الذاتية" : "Download Resume (CV)"}</span>
                 </a>
-
-                <Link
-                  href="/training"
-                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/50 dark:hover:bg-indigo-900/60 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5"
-                >
-                  <GraduationCap className="w-4 h-4" />
-                  <span>{t.hero.ctaTraining}</span>
-                </Link>
               </motion.div>
 
               {/* Direct Quick Contact & Social Channels (Email, LinkedIn, WhatsApp, GitHub, X) */}
