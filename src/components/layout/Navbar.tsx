@@ -46,8 +46,9 @@ export const Navbar: React.FC = () => {
     { href: "/", label: t.nav.home },
     { href: "/about", label: t.nav.about },
     { href: "/experience", label: t.nav.experience },
-    { href: "/training", label: t.nav.training, highlight: true },
     { href: "/projects", label: t.nav.projects },
+    { href: "/training", label: t.nav.training, highlight: true },
+    { href: "/contact", label: t.nav.contact },
   ];
 
   return (
@@ -77,24 +78,24 @@ export const Navbar: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 bg-slate-100/70 dark:bg-slate-800/50 p-1 rounded-xl border border-slate-200/50 dark:border-slate-700/50">
+          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 bg-slate-100/70 dark:bg-slate-800/50 p-1 rounded-xl border border-slate-200/50 dark:border-slate-700/50">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-all duration-200 relative ${
+                  className={`px-2.5 xl:px-3 py-1.5 text-xs xl:text-sm font-medium rounded-lg transition-all duration-200 relative ${
                     isActive
                       ? "text-teal-900 dark:text-teal-200 font-semibold bg-white dark:bg-slate-900 shadow-xs"
                       : link.highlight
-                      ? "text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 hover:bg-white/50 dark:hover:bg-slate-900/50"
+                      ? "text-teal-700 dark:text-teal-300 hover:text-teal-800 dark:hover:text-teal-200 hover:bg-white/50 dark:hover:bg-slate-900/50"
                       : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-900/50"
                   }`}
                 >
                   {link.label}
                   {link.highlight && (
-                    <span className="absolute -top-1 -right-1 w-2 h-2 bg-indigo-500 rounded-full animate-ping" />
+                    <span className="absolute -top-1 -right-1 w-2 h-2 bg-teal-500 rounded-full animate-ping" />
                   )}
                 </Link>
               );
@@ -129,14 +130,17 @@ export const Navbar: React.FC = () => {
               )}
             </motion.button>
 
-            {/* Contact CTA Button */}
-            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+            {/* Soft, Refined Contact CTA Button */}
+            <motion.div whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }}>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-bold rounded-xl bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 hover:from-teal-500 hover:to-indigo-500 text-white shadow-md shadow-teal-500/20 hover:shadow-teal-500/35 transition-all duration-300 group"
+                className="inline-flex items-center gap-2 px-3.5 xl:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold rounded-full bg-teal-600 hover:bg-teal-500 text-white dark:bg-teal-500/15 dark:hover:bg-teal-500/25 dark:text-teal-200 dark:border dark:border-teal-500/35 shadow-xs shadow-teal-900/10 hover:shadow-sm hover:shadow-teal-500/20 transition-all duration-200 group"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
-                <MessageSquare className="w-3.5 h-3.5 transition-transform duration-300 group-hover:scale-110" />
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 dark:bg-teal-300 opacity-60"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400 dark:bg-teal-400"></span>
+                </span>
+                <MessageSquare className="w-3.5 h-3.5 opacity-90 transition-transform duration-200 group-hover:scale-105" />
                 <span>{language === "ar" ? "تواصل معي" : "Get in Touch"}</span>
               </Link>
             </motion.div>
@@ -210,10 +214,13 @@ export const Navbar: React.FC = () => {
               <Link
                 href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 w-full py-2.5 text-xs font-bold rounded-xl bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 text-white shadow-md shadow-teal-500/20"
+                className="flex items-center justify-center gap-2 w-full py-2.5 text-xs sm:text-sm font-semibold rounded-xl bg-teal-600 hover:bg-teal-500 text-white dark:bg-teal-500/15 dark:hover:bg-teal-500/25 dark:text-teal-200 dark:border dark:border-teal-500/35 shadow-xs transition-all duration-200"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
-                <MessageSquare className="w-3.5 h-3.5" />
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 dark:bg-teal-300 opacity-60"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400 dark:bg-teal-400"></span>
+                </span>
+                <MessageSquare className="w-3.5 h-3.5 opacity-90" />
                 <span>{language === "ar" ? "تواصل معي" : "Get in Touch"}</span>
               </Link>
 
