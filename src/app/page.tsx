@@ -344,7 +344,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, scale: 0.94 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.4, 0.25, 1] as const }}
-                className="relative w-72 h-80 sm:w-80 sm:h-96 lg:w-88 lg:h-[26rem] rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group"
+                className="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[420px] xl:max-w-[440px] h-[24rem] sm:h-[27rem] lg:h-[30rem] xl:h-[32rem] rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group"
               >
                 <Image
                   src={config.avatarUrl}
@@ -352,7 +352,7 @@ export default function HomePage() {
                   fill
                   priority
                   className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 420px"
+                  sizes="(max-width: 768px) 100vw, 480px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-90" />
                 
@@ -370,12 +370,17 @@ export default function HomePage() {
             </div>
           </div>
 
+          {/* Subtle Soft Divider between Hero & Stats */}
+          <div className="mt-10 sm:mt-12 lg:mt-14 mb-8 sm:mb-10 relative flex items-center justify-center">
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-800 to-transparent" />
+          </div>
+
           {/* 4 Hero Stats Cards Spanning the Full Width */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35 }}
-            className="mt-8 sm:mt-10 lg:mt-12 w-full grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5"
+            className="w-full grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5"
           >
             {/* 1. Years of Practical Experience */}
             <div className="relative p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-teal-500/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
