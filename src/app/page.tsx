@@ -227,7 +227,7 @@ export default function HomePage() {
                 {language === "ar" ? config.bioAr : config.bioEn}
               </motion.p>
 
-              {/* Action Hub & 1-Click Copy Email */}
+              {/* Action Hub */}
               <motion.div variants={heroItem} className="flex flex-wrap items-center gap-3 pt-2">
                 <Link
                   href="/projects"
@@ -244,27 +244,6 @@ export default function HomePage() {
                   <GraduationCap className="w-4 h-4" />
                   <span>{t.hero.ctaTraining}</span>
                 </Link>
-
-                {/* 1-Click Copy Email Button (Gouda & Ameer Style) */}
-                <button
-                  onClick={handleCopyEmail}
-                  className="inline-flex items-center gap-2 px-4 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-teal-500 dark:hover:border-teal-400 text-slate-700 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 text-sm font-mono font-medium transition-all duration-300 bg-white/70 dark:bg-slate-900/70 hover:-translate-y-0.5 shadow-xs"
-                  title="Copy email to clipboard"
-                >
-                  {copiedEmail ? (
-                    <>
-                      <Check className="w-4 h-4 text-teal-500" />
-                      <span className="text-teal-600 dark:text-teal-400 font-sans font-semibold">
-                        {language === "ar" ? "تم نسخ البريد!" : "Copied!"}
-                      </span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-4 h-4" />
-                      <span>{config.email || "m.i.aljazzar19@gmail.com"}</span>
-                    </>
-                  )}
-                </button>
               </motion.div>
 
               {/* Credential Pills with Soft Glass Effect */}
