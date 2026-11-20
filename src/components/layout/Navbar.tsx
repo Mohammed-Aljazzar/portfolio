@@ -78,14 +78,14 @@ export const Navbar: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 bg-slate-100/70 dark:bg-slate-800/50 p-1 rounded-xl border border-slate-200/50 dark:border-slate-700/50">
+          <nav className="hidden lg:flex items-center h-10 gap-0.5 xl:gap-1 bg-slate-100/70 dark:bg-slate-800/50 p-1 rounded-full border border-slate-200/50 dark:border-slate-700/50">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-2.5 xl:px-3 py-1.5 text-xs xl:text-sm font-medium rounded-lg transition-all duration-200 relative ${
+                  className={`h-8 px-3 xl:px-3.5 inline-flex items-center justify-center text-xs xl:text-sm font-medium rounded-full transition-all duration-200 relative ${
                     isActive
                       ? "text-teal-900 dark:text-teal-200 font-semibold bg-white dark:bg-slate-900 shadow-xs"
                       : link.highlight
@@ -95,20 +95,20 @@ export const Navbar: React.FC = () => {
                 >
                   {link.label}
                   {link.highlight && (
-                    <span className="absolute -top-1 -right-1 w-2 h-2 bg-teal-500 rounded-full animate-ping" />
+                    <span className="absolute top-1.5 -right-0.5 w-1.5 h-1.5 bg-teal-500 rounded-full animate-ping" />
                   )}
                 </Link>
               );
             })}
           </nav>
 
-          {/* Action Utilities (Language, Theme, CV, Admin) */}
+          {/* Action Utilities (Language, Theme, CTA, Admin) */}
           <div className="hidden sm:flex items-center gap-2">
             {/* Language Switcher */}
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={toggleLanguage}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-teal-500 dark:hover:border-teal-400 hover:text-teal-600 dark:hover:text-teal-400 transition-all bg-slate-50/80 dark:bg-slate-800/60"
+              className="h-10 px-3 inline-flex items-center justify-center gap-1.5 text-xs font-semibold rounded-full border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-teal-500 dark:hover:border-teal-400 hover:text-teal-600 dark:hover:text-teal-400 transition-all bg-slate-50/80 dark:bg-slate-800/60"
               title={t.nav.toggleLanguage}
             >
               <Globe className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
@@ -119,7 +119,7 @@ export const Navbar: React.FC = () => {
             <motion.button
               whileTap={{ rotate: 180, scale: 0.9 }}
               onClick={toggleTheme}
-              className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-teal-500 dark:hover:border-teal-400 hover:text-teal-600 dark:hover:text-teal-400 transition-all bg-slate-50/80 dark:bg-slate-800/60"
+              className="h-10 w-10 rounded-full inline-flex items-center justify-center border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-teal-500 dark:hover:border-teal-400 hover:text-teal-600 dark:hover:text-teal-400 transition-all bg-slate-50/80 dark:bg-slate-800/60"
               title={t.nav.toggleTheme}
               aria-label="Toggle Theme"
             >
@@ -134,7 +134,7 @@ export const Navbar: React.FC = () => {
             <motion.div whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }}>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-3.5 xl:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold rounded-full bg-teal-600 hover:bg-teal-500 text-white dark:bg-teal-500/15 dark:hover:bg-teal-500/25 dark:text-teal-200 dark:border dark:border-teal-500/35 shadow-xs shadow-teal-900/10 hover:shadow-sm hover:shadow-teal-500/20 transition-all duration-200 group"
+                className="h-10 inline-flex items-center justify-center gap-2 px-4 xl:px-5 text-xs sm:text-sm font-semibold rounded-full bg-teal-600 hover:bg-teal-500 text-white dark:bg-teal-500/15 dark:hover:bg-teal-500/25 dark:text-teal-200 dark:border dark:border-teal-500/35 shadow-xs shadow-teal-900/10 hover:shadow-sm hover:shadow-teal-500/20 transition-all duration-200 group"
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 dark:bg-teal-300 opacity-60"></span>
@@ -148,7 +148,7 @@ export const Navbar: React.FC = () => {
             {/* Admin CMS Portal Link */}
             <Link
               href="/admin"
-              className="p-2 rounded-lg border border-transparent hover:border-slate-200 dark:hover:border-slate-800 text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
+              className="h-10 w-10 rounded-full inline-flex items-center justify-center border border-transparent hover:border-slate-200 dark:hover:border-slate-800 text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
               title={t.nav.admin}
             >
               <Shield className="w-4 h-4" />
@@ -159,20 +159,20 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-1.5 lg:hidden">
             <button
               onClick={toggleLanguage}
-              className="px-2 py-1 text-xs font-semibold rounded-md border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300"
+              className="h-8 px-2.5 text-xs font-semibold rounded-full border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300"
             >
               {language === "ar" ? "EN" : "عربي"}
             </button>
             <button
               onClick={toggleTheme}
-              className="p-1.5 rounded-md border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300"
+              className="h-8 w-8 inline-flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300"
               aria-label="Toggle Theme"
             >
-              {theme === "dark" ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4" />}
+              {theme === "dark" ? <Sun className="w-3.5 h-3.5 text-amber-400" /> : <Moon className="w-3.5 h-3.5" />}
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-1.5 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+              className="h-8 w-8 inline-flex items-center justify-center rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -196,11 +196,11 @@ export const Navbar: React.FC = () => {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className={`px-3 py-2 text-sm font-medium rounded-xl transition-colors ${
+                      className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
                         isActive
                           ? "bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 font-bold"
                           : link.highlight
-                          ? "text-indigo-600 dark:text-indigo-400 font-semibold"
+                          ? "text-teal-700 dark:text-teal-300 font-semibold"
                           : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
                       }`}
                     >
@@ -214,7 +214,7 @@ export const Navbar: React.FC = () => {
               <Link
                 href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 w-full py-2.5 text-xs sm:text-sm font-semibold rounded-xl bg-teal-600 hover:bg-teal-500 text-white dark:bg-teal-500/15 dark:hover:bg-teal-500/25 dark:text-teal-200 dark:border dark:border-teal-500/35 shadow-xs transition-all duration-200"
+                className="flex items-center justify-center gap-2 w-full py-2.5 text-xs sm:text-sm font-semibold rounded-full bg-teal-600 hover:bg-teal-500 text-white dark:bg-teal-500/15 dark:hover:bg-teal-500/25 dark:text-teal-200 dark:border dark:border-teal-500/35 shadow-xs transition-all duration-200"
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 dark:bg-teal-300 opacity-60"></span>
@@ -229,7 +229,7 @@ export const Navbar: React.FC = () => {
                   href="/assets/cv/Mohammed_Aljazzar_CV_AR.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between px-3 py-2 text-xs font-semibold rounded-lg bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300"
+                  className="flex items-center justify-between px-4 py-2 text-xs font-semibold rounded-full bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300"
                 >
                   <span>{t.nav.cvArabic}</span>
                   <Download className="w-3.5 h-3.5" />
@@ -238,7 +238,7 @@ export const Navbar: React.FC = () => {
                   href="/assets/cv/Mohammed_Aljazzar_CV_EN.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between px-3 py-2 text-xs font-semibold rounded-lg bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300"
+                  className="flex items-center justify-between px-4 py-2 text-xs font-semibold rounded-full bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300"
                 >
                   <span>{t.nav.cvEnglish}</span>
                   <Download className="w-3.5 h-3.5" />
