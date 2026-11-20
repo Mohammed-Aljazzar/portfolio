@@ -138,6 +138,19 @@ export default function HomePage() {
     { name: "Figma (UI/UX)", icon: "🎨" },
   ];
 
+  const marqueeTechs = [
+    { name: "Official Odoo S.A. Certified", icon: "🟣", tag: language === "ar" ? "اعتماد رسمي" : "Certified" },
+    { name: "ERPNext & Frappe Framework", icon: "🔷", tag: language === "ar" ? "أنظمة ERP" : "Enterprise ERP" },
+    { name: "Python & Django", icon: "🐍", tag: language === "ar" ? "باك إند" : "Robust Backend" },
+    { name: "Next.js & React.js", icon: "▲", tag: language === "ar" ? "تطبيقات ويب" : "Modern Web Apps" },
+    { name: "TypeScript", icon: "TS", tag: language === "ar" ? "أمان كودي" : "Type Safety" },
+    { name: "PostgreSQL & MariaDB", icon: "🐘", tag: language === "ar" ? "قواعد بيانات" : "Databases" },
+    { name: "Docker Containerization", icon: "🐳", tag: language === "ar" ? "نشر وحاويات" : "DevOps & Containers" },
+    { name: "Tailwind CSS & Native RTL", icon: "🌊", tag: language === "ar" ? "واجهات متجاوبة" : "Responsive UI" },
+    { name: "Figma UI/UX & Design Systems", icon: "🎨", tag: language === "ar" ? "تصميم رقمي" : "Product Design" },
+    { name: "RESTful APIs & Celery", icon: "⚡", tag: language === "ar" ? "تكامل عالي الكفاءة" : "High Throughput" },
+  ];
+
   return (
     <div className="space-y-24 sm:space-y-32 pb-24">
       {/* ══════════════════════════════════════════════
@@ -430,123 +443,64 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          2. THE DNA OF ENGINEERING & CORE PRINCIPLES
-             (Inspired by Ahmed Said & Maha Qudwa)
+          2. TECH STACK & CERTIFICATIONS MARQUEE
+             (Smooth Continuous Hardware-Accelerated Flow)
          ══════════════════════════════════════════════ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal className="text-center max-w-3xl mx-auto space-y-4 mb-14">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 shadow-xs">
-            <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
-            <Cpu className="w-3.5 h-3.5" />
-            <span>{language === "ar" ? "فلسفة العمل والهندسة" : "Engineering DNA & Philosophy"}</span>
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
-            {language === "ar" ? (
-              <>
-                المبادئ الثلاثة الحاكمة لـ{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
-                  جودة كل سطر برمجي
-                </span>
-              </>
-            ) : (
-              <>
-                Three Core Principles Governing{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
-                  Software Excellence
-                </span>
-              </>
-            )}
-          </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-body leading-relaxed max-w-2xl mx-auto">
-            {language === "ar"
-              ? "لا نكتب الكود لمجرد البرمجة، بل لبناء حلول مؤسسية متينة تحقق أهداف العمل وتدوم لسنوات"
-              : "We don't write code for the sake of code. We architect enduring enterprise systems that solve real challenges."}
-          </p>
-        </ScrollReveal>
+      <div className="relative py-4 -my-4 sm:-my-6 overflow-hidden border-y border-slate-200/80 dark:border-slate-800/80 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md">
+        {/* Left & Right Gradient Shadows for Seamless Fade */}
+        <div className="absolute left-0 inset-y-0 w-16 sm:w-28 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 inset-y-0 w-16 sm:w-28 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.1}>
-          {[
-            {
-              icon: <Lightbulb className="w-6 h-6 text-teal-600 dark:text-teal-400" />,
-              badge: language === "ar" ? "المبدأ 01" : "Principle 01",
-              title: language === "ar" ? "عقلية حل المشكلات أولاً" : "Problem-First Architecture",
-              desc: language === "ar"
-                ? "البدء دائماً بفهم عميق لاحتياج العميل، تدفقات العمل، واختناقات الأداء قبل كتابة سطر كود واحد، لضمان أعلى عائد استثماري للحل التقني."
-                : "Deep immersion in business workflows, constraints, and pain points before writing code to maximize software ROI.",
-            },
-            {
-              icon: <Shield className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />,
-              badge: language === "ar" ? "المبدأ 02" : "Principle 02",
-              title: language === "ar" ? "معمارية نظيفة وقابلة للتوسع" : "Clean & Modular Scalability",
-              desc: language === "ar"
-                ? "اعتماد المعايير الدولية في هندسة قواعد البيانات، الـ APIs النظيفة، وفصل المسؤوليات، مما يجعل النظام قابلاً للنمو والتطوير دون تراكم ديون تقنية."
-                : "Adhering to strict modular architectures, relational schema normalization, and decoupled APIs that scale without technical debt.",
-            },
-            {
-              icon: <Rocket className="w-6 h-6 text-teal-600 dark:text-teal-400" />,
-              badge: language === "ar" ? "المبدأ 03" : "Principle 03",
-              title: language === "ar" ? "تصميم يضع الإنسان في المركز" : "Human-Centered Product Design",
-              desc: language === "ar"
-                ? "أقوى نظام في العالم يفقد جدواه إن كان معقداً أو مربكاً للموظف. ندمج بين صرامة الـ ERP وبساطة وسرعة واجهات الـ UI/UX الحديثة."
-                : "The most powerful backend is useless if employees dread using it. We marry ERP rigor with fluid, intuitive consumer-grade UX.",
-            },
-          ].map((card, i) => (
-            <StaggerItem key={i}>
-              <motion.div
-                whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 space-y-4 shadow-xs hover:border-teal-500/50 dark:hover:border-teal-400/50 transition-all duration-300 hover:shadow-xl hover:shadow-teal-500/5 group h-full flex flex-col justify-between"
-              >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 group-hover:bg-teal-50 dark:group-hover:bg-teal-950/40 transition-colors">
-                      {card.icon}
-                    </div>
-                    <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
-                      {card.badge}
-                    </span>
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
-                    {card.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                    {card.desc}
-                  </p>
-                </div>
-              </motion.div>
-            </StaggerItem>
+        <div className="animate-marquee-scroll flex items-center gap-3 sm:gap-4 whitespace-nowrap">
+          {[...marqueeTechs, ...marqueeTechs].map((tech, idx) => (
+            <div
+              key={idx}
+              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-white/80 dark:bg-slate-800/80 border border-slate-200/90 dark:border-slate-700/80 shadow-xs hover:border-teal-500/50 hover:bg-teal-50/40 dark:hover:bg-teal-950/30 transition-all duration-200 group"
+            >
+              <span className="text-base sm:text-lg">{tech.icon}</span>
+              <span className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 font-mono tracking-tight group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                {tech.name}
+              </span>
+              <span className="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-700/80 text-slate-500 dark:text-slate-400">
+                {tech.tag}
+              </span>
+            </div>
           ))}
-        </StaggerContainer>
-      </section>
+        </div>
+      </div>
 
       {/* ══════════════════════════════════════════════
-          3. CORE PILLARS (01–04) — Inspired by Maha Qudwa
+          3. CORE SOLUTIONS & ENGINEERING SERVICES
+             (Bento & Pillars Grid)
          ══════════════════════════════════════════════ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-center max-w-3xl mx-auto space-y-4 mb-14">
           <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 shadow-xs">
             <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
             <Sparkles className="w-3.5 h-3.5" />
-            <span>{t.pillars.sectionBadge}</span>
+            <span>{language === "ar" ? "الخدمات والحلول الهندسية" : "Solutions & Engineering Services"}</span>
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
             {language === "ar" ? (
               <>
-                التخصصات الهندسية و
+                ما أقدمه للشركات و
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
-                  مجالات التميز المعماري
+                  المنظومات البرمجية
                 </span>
               </>
             ) : (
               <>
-                Engineering Pillars &{" "}
+                Enterprise Solutions &{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
-                  Architectural Domains
+                  Engineering Capabilities
                 </span>
               </>
             )}
           </h2>
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-body leading-relaxed max-w-2xl mx-auto">
-            {t.pillars.subheading}
+            {language === "ar"
+              ? "أربع ركائز هندسية متكاملة تجمع بين صرامة أنظمة الـ ERP، متانة وأمان الباك إند، سرعة تطبيقات الويب، وتصميم واجهات فائقة البساطة"
+              : "Four unified pillars merging ERP architecture rigor, high-throughput backend APIs, dynamic web performance, and intuitive UI/UX design."}
           </p>
         </ScrollReveal>
 
@@ -557,7 +511,7 @@ export default function HomePage() {
                 whileHover={{ y: -6, transition: { duration: 0.3 } }}
                 className="relative rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 hover:border-teal-500/50 dark:hover:border-teal-400/50 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-teal-500/5 group overflow-hidden"
               >
-                {/* Large Background Watermark Number (Maha Qudwa style) */}
+                {/* Large Background Watermark Number */}
                 <span className="absolute -top-3 right-4 rtl:right-auto rtl:left-4 text-7xl sm:text-8xl font-black font-mono text-slate-100 dark:text-slate-800/40 select-none pointer-events-none group-hover:text-teal-500/10 transition-colors duration-500">
                   {pillar.number}
                 </span>
@@ -604,7 +558,7 @@ export default function HomePage() {
 
       {/* ══════════════════════════════════════════════
           4. FEATURED PROJECT SPOTLIGHT — Browser Mockup
-             (With Visual Mockup Banner & Split Breakdown)
+             (Flagship Case Study in the Limelight)
          ══════════════════════════════════════════════ */}
       <ScrollReveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-gradient-to-br from-teal-950/95 via-slate-900 to-[#0B1120] border border-teal-800/50 text-white relative overflow-hidden shadow-2xl">
@@ -723,6 +677,95 @@ export default function HomePage() {
           </div>
         </div>
       </ScrollReveal>
+
+      {/* ══════════════════════════════════════════════
+          5. THE DNA OF ENGINEERING & CORE PRINCIPLES
+             (Three Pillars of Code Excellence)
+         ══════════════════════════════════════════════ */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal className="text-center max-w-3xl mx-auto space-y-4 mb-14">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 shadow-xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
+            <Cpu className="w-3.5 h-3.5" />
+            <span>{language === "ar" ? "فلسفة العمل والهندسة" : "Engineering DNA & Philosophy"}</span>
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+            {language === "ar" ? (
+              <>
+                المبادئ الثلاثة الحاكمة لـ{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                  جودة كل سطر برمجي
+                </span>
+              </>
+            ) : (
+              <>
+                Three Core Principles Governing{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                  Software Excellence
+                </span>
+              </>
+            )}
+          </h2>
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-body leading-relaxed max-w-2xl mx-auto">
+            {language === "ar"
+              ? "لا نكتب الكود لمجرد البرمجة، بل لبناء حلول مؤسسية متينة تحقق أهداف العمل وتدوم لسنوات"
+              : "We don't write code for the sake of code. We architect enduring enterprise systems that solve real challenges."}
+          </p>
+        </ScrollReveal>
+
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.1}>
+          {[
+            {
+              icon: <Lightbulb className="w-6 h-6 text-teal-600 dark:text-teal-400" />,
+              badge: language === "ar" ? "المبدأ 01" : "Principle 01",
+              title: language === "ar" ? "عقلية حل المشكلات أولاً" : "Problem-First Architecture",
+              desc: language === "ar"
+                ? "البدء دائماً بفهم عميق لاحتياج العميل، تدفقات العمل، واختناقات الأداء قبل كتابة سطر كود واحد، لضمان أعلى عائد استثماري للحل التقني."
+                : "Deep immersion in business workflows, constraints, and pain points before writing code to maximize software ROI.",
+            },
+            {
+              icon: <Shield className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />,
+              badge: language === "ar" ? "المبدأ 02" : "Principle 02",
+              title: language === "ar" ? "معمارية نظيفة وقابلة للتوسع" : "Clean & Modular Scalability",
+              desc: language === "ar"
+                ? "اعتماد المعايير الدولية في هندسة قواعد البيانات، الـ APIs النظيفة، وفصل المسؤوليات، مما يجعل النظام قابلاً للنمو والتطوير دون تراكم ديون تقنية."
+                : "Adhering to strict modular architectures, relational schema normalization, and decoupled APIs that scale without technical debt.",
+            },
+            {
+              icon: <Rocket className="w-6 h-6 text-teal-600 dark:text-teal-400" />,
+              badge: language === "ar" ? "المبدأ 03" : "Principle 03",
+              title: language === "ar" ? "تصميم يضع الإنسان في المركز" : "Human-Centered Product Design",
+              desc: language === "ar"
+                ? "أقوى نظام في العالم يفقد جدواه إن كان معقداً أو مربكاً للموظف. ندمج بين صرامة الـ ERP وبساطة وسرعة واجهات الـ UI/UX الحديثة."
+                : "The most powerful backend is useless if employees dread using it. We marry ERP rigor with fluid, intuitive consumer-grade UX.",
+            },
+          ].map((card, i) => (
+            <StaggerItem key={i}>
+              <motion.div
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                className="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 space-y-4 shadow-xs hover:border-teal-500/50 dark:hover:border-teal-400/50 transition-all duration-300 hover:shadow-xl hover:shadow-teal-500/5 group h-full flex flex-col justify-between"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 group-hover:bg-teal-50 dark:group-hover:bg-teal-950/40 transition-colors">
+                      {card.icon}
+                    </div>
+                    <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                      {card.badge}
+                    </span>
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                    {card.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {card.desc}
+                  </p>
+                </div>
+              </motion.div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </section>
 
       {/* ══════════════════════════════════════════════
           5. BIO-TELEMETRY SKILLS MESH WITH GAUGES

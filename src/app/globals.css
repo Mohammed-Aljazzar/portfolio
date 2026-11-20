@@ -131,6 +131,31 @@ body {
   box-shadow: 0 12px 35px -10px rgba(45, 212, 191, 0.12);
 }
 
+/* Infinite Marquee Animation */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-scroll {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 28s linear infinite;
+  will-change: transform;
+}
+
+[dir="rtl"] .animate-marquee-scroll {
+  animation-direction: reverse;
+}
+
+.animate-marquee-scroll:hover {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
