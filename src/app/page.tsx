@@ -1114,42 +1114,35 @@ export default function HomePage() {
 
       {/* ══════════════════════════════════════════════
           4. BIO-TELEMETRY SKILLS MESH WITH GAUGES
-             (Inspired by Gouda Nasrallah)
+             Formatted 100% like Philosophy of Work section
          ══════════════════════════════════════════════ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-        <ScrollReveal className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 shadow-xs">
-            <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
-            <Terminal className="w-3.5 h-3.5" />
-            <span>{language === "ar" ? "الترسانة التقنية والمهارات" : "Technical Arsenal & Telemetry"}</span>
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
-            {language === "ar" ? (
-              <>
-                أدوات تم اختبارها بالإنتاج و
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
-                  جاهزية تشغيلية كاملة
-                </span>
-              </>
-            ) : (
-              <>
-                Production-Tested Stack &{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
-                  Operational Readiness
-                </span>
-              </>
-            )}
+      <section id="skills" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
+        <ScrollReveal className="text-right rtl:text-right ltr:text-left mb-2">
+          {/* Overline with dash & bullet */}
+          <div className="flex items-center justify-start gap-2 mb-2.5">
+            <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
+            <span className="text-xs sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
+              {language === "ar" ? "الترسانة التقنية والمهارات" : "TECHNICAL ARSENAL & SKILLS"}
+            </span>
+          </div>
+
+          {/* Main Title — Refined, Classy & Smooth Typography */}
+          <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
+            {language === "ar" ? "أدوات تم اختبارها بالإنتاج وجاهزية تشغيلية كاملة" : "Production-Tested Stack & Operational Readiness"}
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-body leading-relaxed max-w-2xl mx-auto">
+
+          {/* Subtitle Paragraph */}
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl mt-2.5">
             {language === "ar"
-              ? "استكشف الكفاءات البرمجية المصنفة حسب مسارات العمل مع مقاييس الجاهزية والخبرة"
-              : "Explore verified technical proficiencies across all 4 engineering disciplines with live readiness telemetry."}
+              ? "استكشف الكفاءات البرمجية المصنفة حسب مسارات العمل مع مقاييس الجاهزية والخبرة العملية في بيئات الإنتاج الفعلية."
+              : "Explore verified technical proficiencies across engineering disciplines with live readiness telemetry from production environments."}
           </p>
         </ScrollReveal>
 
         {/* Skill Tabs */}
-        <ScrollReveal delay={0.1}>
-          <div className="flex flex-wrap justify-center gap-2 p-1.5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 max-w-fit mx-auto">
+        <ScrollReveal delay={0.08}>
+          <div className="flex flex-wrap justify-start gap-2 p-1.5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 max-w-fit">
             {[
               { id: "erp", label: language === "ar" ? "أنظمة ERP وأتمتة الأعمال" : "ERP & Business Automation", icon: <Layers className="w-4 h-4" /> },
               { id: "backend", label: language === "ar" ? "الباك إند وقواعد البيانات" : "Backend & DevOps", icon: <Server className="w-4 h-4" /> },
