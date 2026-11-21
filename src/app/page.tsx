@@ -784,10 +784,10 @@ export default function HomePage() {
         {/* Bottom CTA Button Aligned to Left in RTL (End of line) */}
         <div className="flex justify-end mt-8 sm:mt-10">
           <Link
-            href="/projects"
+            href="/experience"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 text-slate-800 dark:text-slate-200 text-xs sm:text-sm font-bold shadow-xs hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 hover:shadow-md transition-all group"
           >
-            <span>{language === "ar" ? "استكشف الأعمال والمشاريع" : "Explore Projects & Case Studies"}</span>
+            <span>{language === "ar" ? "عرض الخبرات الهندسية" : "View Engineering Experience"}</span>
             <ArrowLeft className="w-4 h-4 rtl:rotate-0 ltr:rotate-180 text-slate-500 group-hover:text-teal-600 dark:group-hover:text-teal-400 group-hover:-translate-x-1 ltr:group-hover:translate-x-1 transition-all" />
           </Link>
         </div>
