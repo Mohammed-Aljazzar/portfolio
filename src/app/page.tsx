@@ -42,6 +42,7 @@ export default function HomePage() {
   const [activeSkillTab, setActiveSkillTab] = useState<"erp" | "backend" | "frontend" | "uiux">("erp");
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [selectedProject, setSelectedProject] = useState<any | null>(null);
+  const [featuredIndex, setFeaturedIndex] = useState<number>(2);
 
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
   const Chevron = isRTL ? ChevronLeft : ChevronRight;
@@ -49,6 +50,60 @@ export default function HomePage() {
   const config = initialData.config;
   const pillars = initialData.pillars;
   const skills = initialData.skills;
+
+  const showcaseProjects = [
+    {
+      id: "smart-service-management",
+      slug: "smart-service-management",
+      category: "ERP",
+      categoryKey: "erp",
+      titleAr: "نظام إدارة الخدمات الذكي",
+      titleEn: "Smart Service Management System",
+      descAr: "نظام متكامل لإدارة أوامر العمل، الصيانة، الفواتير، وقطع الغيار مبني على Frappe و ERPNext.",
+      descEn: "Integrated system for managing work orders, maintenance, invoicing, and spare parts built on Frappe & ERPNext.",
+      tags: ["Javascript", "Python", "Frappe"],
+      role: "Lead ERP Architect",
+      coreStack: "Frappe • ERPNext • Python",
+      badge: "FEATURED ERP • 01",
+      image: "/assets/images/projects/erp-smart-service.jpg",
+    },
+    {
+      id: "masar-partner-platform",
+      slug: "masar-partner-platform",
+      category: "FRONTEND",
+      categoryKey: "frontend",
+      titleAr: "منصة مسار بارتنر المتكاملة",
+      titleEn: "Masar Partner Integrated Platform",
+      descAr: "البوابة الرقمية الرسمية ونظام إدارة الخدمات لشركة مسار بارتنر، بتجربة استخدام حديثة وسريعة.",
+      descEn: "Official digital gateway and service management platform for Masar Partner with a modern user experience.",
+      tags: ["Tailwind CSS", "TypeScript", "Next.js"],
+      role: "Frontend & UI Lead",
+      coreStack: "Next.js • TypeScript • Tailwind CSS",
+      badge: "FEATURED FRONTEND • 02",
+      image: "/assets/images/projects/masar-platform.jpg",
+    },
+    {
+      id: "bi-dashboard-reporting",
+      slug: "bi-dashboard-reporting",
+      category: "FRONTEND",
+      categoryKey: "frontend",
+      titleAr: "لوحة تحكم ذكاء الأعمال والتقارير",
+      titleEn: "BI Analytics & Reporting Dashboard",
+      descAr: "واجهة تحليل بيانات فورية لعرض مؤشرات الأداء المالي والتشغيلي بدقة تفاعلية.",
+      descEn: "Real-time analytics dashboard presenting financial and operational KPIs with rich interactive visualizations.",
+      tags: ["Tailwind CSS", "TypeScript", "React.js"],
+      role: "Frontend Engineer",
+      coreStack: "React.js • TypeScript • Tailwind CSS",
+      badge: "FEATURED FRONTEND • 03",
+      image: "/assets/images/projects/bi-dashboard.jpg",
+    },
+  ];
+
+  const activeFeatured = showcaseProjects[featuredIndex] || showcaseProjects[0];
+  const filteredShowcaseProjects = activeCategory === "all"
+    ? showcaseProjects
+    : showcaseProjects.filter((p) => p.categoryKey === activeCategory);
+
   const featuredProject = (initialData.projects.find((p) => p.isFeatured) || initialData.projects[0]) as any;
   const selectedProjects = initialData.projects
     .filter((p) => activeCategory === "all" || p.category === activeCategory)
@@ -720,127 +775,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════
-          4. FEATURED PROJECT SPOTLIGHT — Browser Mockup
-          (Flagship Case Study in the Limelight)
-         ══════════════════════════════════════════════ */}
-      <ScrollReveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-gradient-to-br from-teal-950/95 via-slate-900 to-[#0B1120] border border-teal-800/50 text-white relative overflow-hidden shadow-2xl">
-          {/* Top Browser Chrome Bar */}
-          <div className="px-6 py-3.5 bg-slate-900/80 border-b border-slate-800 flex items-center justify-between text-xs font-mono text-slate-400">
-            <div className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
-              <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
-              <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
-            </div>
-            <div className="bg-slate-950/60 px-4 py-1 rounded-md text-[11px] text-teal-300 font-mono border border-slate-800">
-              frappe.system/smart-service-management
-            </div>
-            <span className="text-[11px] text-teal-400 font-semibold">ERP &amp; Automation</span>
-          </div>
 
-          <div className="p-6 sm:p-10 lg:p-12 relative z-10 space-y-8">
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-teal-500/20 border border-teal-400/30 text-teal-300">
-                <Sparkles className="w-3.5 h-3.5" />
-                {t.featured.sectionBadge}
-              </span>
-              <span className="text-xs font-mono text-teal-300 bg-teal-900/40 px-3 py-1 rounded-lg border border-teal-700/40">
-                Frappe Framework &amp; ERPNext
-              </span>
-            </div>
-
-            <div className="space-y-3 max-w-4xl">
-              <h3 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
-                {language === "ar" ? featuredProject.titleAr : featuredProject.titleEn}
-              </h3>
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-                {language === "ar" ? featuredProject.summaryAr : featuredProject.summaryEn}
-              </p>
-            </div>
-
-            {/* Visual Dashboard Illustration Box */}
-            <div className="relative w-full aspect-[21/9] sm:aspect-[24/9] rounded-2xl overflow-hidden bg-slate-950/80 border border-slate-800 p-2 sm:p-4">
-              <Image
-                src={featuredProject.coverImage || "/assets/images/projects/erp-smart-service.jpg"}
-                alt={language === "ar" ? featuredProject.titleAr : featuredProject.titleEn}
-                fill
-                className="object-cover object-center opacity-90 hover:opacity-100 transition-opacity"
-                sizes="(max-width: 1200px) 100vw, 1200px"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 left-4 rtl:left-auto rtl:right-4 z-10 flex items-center gap-2 text-xs font-mono text-teal-300">
-                <span className="w-2 h-2 rounded-full bg-teal-400 animate-ping" />
-                <span>Production Verified SLA Automation Engine</span>
-              </div>
-            </div>
-
-            {/* 3 Column Architecture Breakdown */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
-              <div className="rounded-2xl bg-slate-900/70 border border-slate-800 p-5 space-y-2 hover:border-teal-700/50 transition-colors">
-                <div className="text-xs font-mono font-bold text-teal-400 uppercase tracking-wider">
-                  {t.featured.challenge}
-                </div>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  {language === "ar" ? featuredProject.challengeAr : featuredProject.challengeEn}
-                </p>
-              </div>
-
-              <div className="rounded-2xl bg-slate-900/70 border border-slate-800 p-5 space-y-2 hover:border-teal-700/50 transition-colors">
-                <div className="text-xs font-mono font-bold text-teal-400 uppercase tracking-wider">
-                  {t.featured.solution}
-                </div>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  {language === "ar" ? featuredProject.solutionAr : featuredProject.solutionEn}
-                </p>
-              </div>
-
-              <div className="rounded-2xl bg-slate-900/70 border border-slate-800 p-5 space-y-2 hover:border-teal-700/50 transition-colors">
-                <div className="text-xs font-mono font-bold text-teal-400 uppercase tracking-wider">
-                  {t.featured.architecture}
-                </div>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  {language === "ar" ? featuredProject.architectureAr : featuredProject.architectureEn}
-                </p>
-              </div>
-            </div>
-
-            {/* Tech Stack & Links */}
-            <div className="flex flex-wrap items-center justify-between gap-6 pt-4 border-t border-slate-800">
-              <div className="flex flex-wrap gap-2">
-                {featuredProject.techStack.map((tech: string) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 text-xs font-mono rounded-lg bg-teal-900/40 text-teal-200 border border-teal-700/40"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <div className="flex items-center gap-3">
-                {featuredProject.githubUrl && (
-                  <a
-                    href={featuredProject.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
-                  >
-                    <Github className="w-4 h-4" />
-                    <span>{t.featured.viewGithub}</span>
-                  </a>
-                )}
-                <button
-                  onClick={() => setSelectedProject(featuredProject)}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs sm:text-sm transition-all duration-300 hover:-translate-y-0.5"
-                >
-                  <span>{language === "ar" ? "دراسة الحالة الكاملة" : "Full Case Study"}</span>
-                  <Arrow className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </ScrollReveal>
 
       {/* ══════════════════════════════════════════════
           3. BIO-TELEMETRY SKILLS MESH WITH GAUGES
@@ -948,171 +883,240 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          6. SELECTED PROJECTS PREVIEW WITH MOCKUP FRAMES
-             (Inspired by Ameer Abudraz & Ahmed Said)
+          4. SELECTED PROJECTS & SHOWCASE
+             Exact Match to Reference Design (media_1795264182177_70c8dabf.jpg)
          ══════════════════════════════════════════════ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <section id="projects" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
+        {/* Header & Filter Pills Row */}
         <ScrollReveal>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div className="space-y-3 max-w-2xl">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 shadow-xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
-                <Code2 className="w-3.5 h-3.5" />
-                <span>{t.selectedProjects.sectionBadge}</span>
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
-                {language === "ar" ? (
-                  <>
-                    نماذج حية من{" "}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
-                      الأنظمة والحلول المنجزة
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    Engineered Solutions &{" "}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
-                      Live Deployments
-                    </span>
-                  </>
-                )}
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-2">
+            {/* Right in RTL: Title & Subtitle */}
+            <div className="space-y-2 max-w-2xl text-right">
+              <div className="flex items-center justify-start gap-2 mb-2">
+                <span className="w-5 h-[1.5px] bg-teal-500 rounded-full inline-block" />
+                <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
+                <span className="text-xs font-mono font-semibold text-teal-600 dark:text-teal-400 tracking-wider">
+                  SELECTED WORK • 11 PROJECTS ── ▪
+                </span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
+                {language === "ar" ? "أعمال ومشاريع مختارة" : "Selected Work & Projects"}
               </h2>
-              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-body leading-relaxed">
-                {t.selectedProjects.subheading}
+              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed">
+                {language === "ar"
+                  ? "مجموعة من الأنظمة المؤسسية والمنصات التفاعلية وتجارب المستخدم المصممة بدقة عالية للاستخدام العملي."
+                  : "Curated enterprise systems, interactive platforms, and polished user experiences crafted for production impact."}
               </p>
             </div>
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 dark:text-teal-400 hover:underline shrink-0"
-            >
-              <span>{t.selectedProjects.viewAllBtn}</span>
-              <Arrow className="w-4 h-4" />
-            </Link>
+
+            {/* Left in RTL: Filter Pills */}
+            <div className="flex flex-wrap items-center gap-2">
+              {[
+                { id: "all", label: language === "ar" ? "الكل (11)" : "All (11)" },
+                { id: "erp", label: language === "ar" ? "ERP (4)" : "ERP (4)" },
+                { id: "frontend", label: language === "ar" ? "Frontend (2)" : "Frontend (2)" },
+                { id: "backend", label: language === "ar" ? "Backend (3)" : "Backend (3)" },
+                { id: "uiux", label: language === "ar" ? "UI/UX (2)" : "UI/UX (2)" },
+              ].map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveCategory(cat.id)}
+                  className={`px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 ${
+                    activeCategory === cat.id
+                      ? "bg-teal-600 text-white shadow-xs"
+                      : "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200/90 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700"
+                  }`}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </div>
           </div>
         </ScrollReveal>
 
-        {/* Category Tabs */}
-        <ScrollReveal delay={0.1}>
-          <div className="flex flex-wrap gap-2">
-            {[
-              { id: "all", label: t.selectedProjects.all },
-              { id: "erp", label: t.selectedProjects.erp },
-              { id: "backend", label: t.selectedProjects.backend },
-              { id: "frontend", label: t.selectedProjects.frontend },
-              { id: "uiux", label: t.selectedProjects.uiux },
-            ].map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`px-4 py-2 text-xs sm:text-sm font-medium rounded-xl transition-all duration-300 ${
-                  activeCategory === cat.id
-                    ? "bg-teal-600 dark:bg-teal-500 text-white shadow-sm shadow-teal-500/20"
-                    : "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700"
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
-        </ScrollReveal>
-
-        {/* Project Cards Grid with Visual Mockup Windows */}
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.08}>
-          {selectedProjects.map((project) => (
-            <StaggerItem key={project.id}>
-              <motion.div
-                whileHover={{ y: -5, transition: { duration: 0.25 } }}
-                className="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 flex flex-col justify-between hover:border-teal-500/50 dark:hover:border-teal-400/50 transition-all duration-300 shadow-xs hover:shadow-xl hover:shadow-teal-500/5 group h-full cursor-pointer overflow-hidden"
-                onClick={() => setSelectedProject(project)}
-              >
-                <div className="space-y-4">
-                  {/* Visual Project Mockup Window Frame */}
-                  <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-slate-950 border border-slate-800/80 group/img">
-                    {/* Window Bar */}
-                    <div className="absolute top-0 inset-x-0 h-6 bg-slate-900/90 backdrop-blur-xs border-b border-slate-800/80 px-2.5 flex items-center justify-between z-10">
-                      <div className="flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-red-500/80" />
-                        <span className="w-2 h-2 rounded-full bg-amber-500/80" />
-                        <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
-                      </div>
-                      <span className="text-[10px] font-mono text-slate-400 truncate max-w-[150px]">
-                        {project.slug || project.category}
-                      </span>
-                      <span className="text-[9px] font-mono text-teal-400 uppercase font-semibold">
-                        {project.category}
-                      </span>
-                    </div>
-
-                    {/* Visual SVG Graphic Cover */}
-                    <div className="pt-6 w-full h-full relative">
-                      <Image
-                        src={project.coverImage || "/assets/images/projects/erp-smart-service.jpg"}
-                        alt={language === "ar" ? project.titleAr : project.titleEn}
-                        fill
-                        className="object-cover object-center transition-transform duration-500 group-hover/img:scale-105"
-                        sizes="(max-width: 768px) 100vw, 400px"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover/img:opacity-30 transition-opacity" />
-                    </div>
-
-                    {/* Hover Quick Action Badge */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity bg-slate-950/40 backdrop-blur-2xs pointer-events-none">
-                      <span className="px-3 py-1.5 rounded-xl bg-teal-500/95 text-slate-950 font-bold text-xs shadow-lg flex items-center gap-1.5">
-                        <Eye className="w-3.5 h-3.5" />
-                        <span>{language === "ar" ? "معاينة دراسة الحالة" : "Preview Case Study"}</span>
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-mono uppercase px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold">
-                      {project.category.toUpperCase()}
-                    </span>
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
-                        title="GitHub"
+        {/* 1. Large Featured Showcase Card (Hero Card) */}
+        <ScrollReveal delay={0.08}>
+          <div className="rounded-3xl bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800 p-6 sm:p-8 lg:p-10 shadow-xs hover:shadow-xl hover:border-teal-500/30 transition-all duration-300">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              {/* Details Column (Right in RTL / Order 1 in RTL) */}
+              <div className="lg:col-span-6 flex flex-col justify-between text-right space-y-5 lg:order-1 rtl:lg:order-1 ltr:lg:order-1">
+                <div>
+                  {/* Top Bar: Nav Arrows & Category Label */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-1.5">
+                      <button
+                        onClick={() => setFeaturedIndex((featuredIndex - 1 + showcaseProjects.length) % showcaseProjects.length)}
+                        className="w-7 h-7 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
+                        aria-label="Previous"
                       >
-                        <Github className="w-4 h-4" />
-                      </a>
-                    )}
+                        <ChevronRight className="w-3.5 h-3.5 rtl:rotate-0 ltr:rotate-180" />
+                      </button>
+                      <button
+                        onClick={() => setFeaturedIndex((featuredIndex + 1) % showcaseProjects.length)}
+                        className="w-7 h-7 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
+                        aria-label="Next"
+                      >
+                        <ChevronLeft className="w-3.5 h-3.5 rtl:rotate-0 ltr:rotate-180" />
+                      </button>
+                    </div>
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">
+                      {activeFeatured.category}
+                    </span>
                   </div>
 
-                  <div className="space-y-2">
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-300">
-                      {language === "ar" ? project.titleAr : project.titleEn}
-                    </h3>
-                    <p className="text-xs text-slate-600 dark:text-slate-400 line-clamp-3 leading-relaxed">
-                      {language === "ar" ? project.summaryAr : project.summaryEn}
-                    </p>
+                  {/* Title */}
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white leading-tight mb-2.5">
+                    {language === "ar" ? activeFeatured.titleAr : activeFeatured.titleEn}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-normal max-w-lg mb-6">
+                    {language === "ar" ? activeFeatured.descAr : activeFeatured.descEn}
+                  </p>
+
+                  {/* Two Meta Boxes (CORE STACK & ROLE) */}
+                  <div className="grid grid-cols-2 gap-3 mb-6">
+                    <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-right">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 font-semibold block mb-1">
+                        CORE STACK
+                      </span>
+                      <span className="text-xs font-medium text-slate-800 dark:text-slate-200 truncate block">
+                        {activeFeatured.coreStack}
+                      </span>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-right">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 font-semibold block mb-1">
+                        ROLE
+                      </span>
+                      <span className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate block">
+                        {activeFeatured.role}
+                      </span>
+                    </div>
                   </div>
                 </div>
 
-                <div className="pt-5 space-y-4">
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.techStack.slice(0, 4).map((tech: string) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-50 dark:bg-slate-800/80 text-slate-600 dark:text-slate-400 border border-slate-200/60 dark:border-slate-700/60"
-                      >
-                        {tech}
-                      </span>
+                {/* Bottom Row: CTA Button & Pagination Dots */}
+                <div className="flex items-center justify-between pt-2">
+                  <button
+                    onClick={() => {
+                      const p = initialData.projects.find((x) => x.id === activeFeatured.id);
+                      if (p) setSelectedProject(p);
+                    }}
+                    className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs shadow-xs hover:shadow-md transition-all duration-200 group"
+                  >
+                    <span>{language === "ar" ? "عرض التفاصيل" : "View Details"}</span>
+                    <ExternalLink className="w-3.5 h-3.5 rtl:rotate-0 ltr:rotate-90 transition-transform group-hover:translate-x-0.5" />
+                  </button>
+
+                  <div className="flex items-center gap-1.5">
+                    {showcaseProjects.map((_, dotIdx) => (
+                      <button
+                        key={dotIdx}
+                        onClick={() => setFeaturedIndex(dotIdx)}
+                        className={`transition-all duration-300 ${
+                          featuredIndex === dotIdx
+                            ? "w-6 h-1.5 rounded-full bg-teal-600"
+                            : "w-1.5 h-1.5 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-slate-400"
+                        }`}
+                        aria-label={`Slide ${dotIdx + 1}`}
+                      />
                     ))}
-                    {project.techStack.length > 4 && (
-                      <span className="px-1.5 py-0.5 text-[10px] font-mono text-slate-400">
-                        +{project.techStack.length - 4}
-                      </span>
-                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Visual Frame (Left in RTL / Order 2 in RTL) */}
+              <div
+                className="lg:col-span-6 relative aspect-[16/10] sm:aspect-[16/11] rounded-2xl overflow-hidden bg-slate-950 border border-slate-200/80 dark:border-slate-800 shadow-lg group cursor-pointer lg:order-2 rtl:lg:order-2 ltr:lg:order-2"
+                onClick={() => {
+                  const p = initialData.projects.find((x) => x.id === activeFeatured.id);
+                  if (p) setSelectedProject(p);
+                }}
+              >
+                <Image
+                  src={activeFeatured.image}
+                  alt={language === "ar" ? activeFeatured.titleAr : activeFeatured.titleEn}
+                  fill
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 1200px) 100vw, 600px"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
+
+                {/* Floating Badge */}
+                <div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-slate-900/85 backdrop-blur-md text-[10px] font-mono text-white font-bold border border-slate-700/60 shadow-lg flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
+                  <span>{activeFeatured.badge}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* 2. Three Project Cards Grid Below */}
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.08}>
+          {filteredShowcaseProjects.map((project) => (
+            <StaggerItem key={project.id}>
+              <motion.div
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                className="rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800 overflow-hidden shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-between group cursor-pointer h-full"
+                onClick={() => {
+                  const p = initialData.projects.find((x) => x.id === project.id);
+                  if (p) setSelectedProject(p);
+                }}
+              >
+                <div>
+                  {/* Visual Image Header */}
+                  <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-slate-800">
+                    <Image
+                      src={project.image}
+                      alt={language === "ar" ? project.titleAr : project.titleEn}
+                      fill
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 400px"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent" />
+
+                    {/* Floating Category Badge */}
+                    <div className="absolute top-3 right-3 z-10 px-2.5 py-0.5 rounded-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-xs text-[10px] font-mono font-bold uppercase text-teal-700 dark:text-teal-300 border border-slate-200/60 dark:border-slate-700/60 shadow-xs">
+                      {project.category}
+                    </div>
                   </div>
 
-                  <div className="flex items-center justify-between text-xs font-semibold text-teal-600 dark:text-teal-400 pt-3 border-t border-slate-100 dark:border-slate-800 group-hover:text-teal-700 dark:group-hover:text-teal-300">
-                    <span>{t.selectedProjects.viewDetails}</span>
-                    <Chevron className="w-4 h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
+                  {/* Body Content */}
+                  <div className="p-5 sm:p-6 text-right space-y-2.5">
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors line-clamp-1">
+                      {language === "ar" ? project.titleAr : project.titleEn}
+                    </h3>
+
+                    <p className="text-xs sm:text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-2 font-normal">
+                      {language === "ar" ? project.descAr : project.descEn}
+                    </p>
+
+                    {/* Tech Stack Chips */}
+                    <div className="flex flex-wrap gap-1.5 pt-2">
+                      {project.tags.map((tag: string) => (
+                        <span
+                          key={tag}
+                          className="text-[11px] font-mono px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200/50 dark:border-slate-700/50"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
+                </div>
+
+                {/* Footer Row */}
+                <div className="px-5 sm:px-6 py-3.5 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs mt-auto">
+                  <span className="text-teal-600 dark:text-teal-400 font-bold group-hover:underline flex items-center gap-1">
+                    <span>{language === "ar" ? "عرض التفاصيل" : "View Details"}</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </span>
+
+                  <span className="text-[11px] font-mono text-slate-400 dark:text-slate-500">
+                    {project.role}
+                  </span>
                 </div>
               </motion.div>
             </StaggerItem>
