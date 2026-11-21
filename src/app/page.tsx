@@ -468,18 +468,18 @@ export default function HomePage() {
           2. WORK METHODOLOGY & ENGINEERING SERVICES
              (Matching User Reference Image Exactly)
          ══════════════════════════════════════════════ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 sm:-mt-12 lg:-mt-16">
         <ScrollReveal className="text-right rtl:text-right ltr:text-left mb-8 sm:mb-10">
           {/* Overline with accent line */}
-          <div className="flex items-center justify-end rtl:justify-end ltr:justify-start gap-2 mb-2">
-            <span className="text-[11px] sm:text-xs font-mono tracking-widest uppercase text-teal-600 dark:text-teal-400 font-bold">
+          <div className="flex items-center justify-end rtl:justify-end ltr:justify-start gap-2.5 mb-2.5">
+            <span className="text-xs sm:text-[13px] font-mono tracking-[0.2em] uppercase text-teal-600 dark:text-teal-400 font-bold">
               HOW I WORK • APPROACH •
             </span>
-            <span className="w-5 sm:w-6 h-[2px] bg-teal-500 rounded-full inline-block" />
+            <span className="w-8 h-[2.5px] bg-teal-500 rounded-full inline-block" />
           </div>
 
-          {/* Section Main Title */}
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          {/* Section Main Title with High-Impact Typography & Distinct Weight */}
+          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-slate-900 dark:text-white leading-[1.2]">
             {language === "ar" ? "منهجية العمل والخدمات الهندسية" : "Work Methodology & Engineering Services"}
           </h2>
         </ScrollReveal>
@@ -488,12 +488,12 @@ export default function HomePage() {
           {methodologyCards.map((card) => (
             <StaggerItem key={card.number}>
               <motion.div
-                whileHover={{ y: -5, transition: { duration: 0.25 } }}
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
                 className="relative p-6 sm:p-7 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col items-center text-center group h-full justify-start"
               >
                 {/* Number Badge in the Top-End corner */}
                 <div className="w-full flex justify-end rtl:justify-end ltr:justify-start mb-4">
-                  <span className={`px-2.5 py-1 text-xs font-mono font-bold rounded-xl ${card.badgeColor}`}>
+                  <span className={`px-3 py-1 text-xs font-mono font-bold rounded-xl ${card.badgeColor}`}>
                     {card.number}
                   </span>
                 </div>
