@@ -461,56 +461,54 @@ export default function HomePage() {
               </div>
             </div>
           </motion.div>
-        </div>
-      </section>
 
-      {/* ══════════════════════════════════════════════
-          2. WORK METHODOLOGY & ENGINEERING SERVICES
-             (Matching User Reference Image Exactly)
-         ══════════════════════════════════════════════ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 sm:-mt-12 lg:-mt-16">
-        <ScrollReveal className="text-right rtl:text-right ltr:text-left mb-8 sm:mb-10">
-          {/* Overline with accent line */}
-          <div className="flex items-center justify-end rtl:justify-end ltr:justify-start gap-2.5 mb-2.5">
-            <span className="text-xs sm:text-[13px] font-mono tracking-[0.2em] uppercase text-teal-600 dark:text-teal-400 font-bold">
-              HOW I WORK • APPROACH •
-            </span>
-            <span className="w-8 h-[2.5px] bg-teal-500 rounded-full inline-block" />
+          {/* ══════════════════════════════════════════════
+              2. WORK METHODOLOGY & CORE SERVICES
+                 (Immediately Following the 4 Hero Stats)
+             ══════════════════════════════════════════════ */}
+          <div className="pt-16 sm:pt-20 lg:pt-24">
+            <ScrollReveal className="text-right rtl:text-right ltr:text-left mb-8 sm:mb-10">
+              {/* Overline with accent line */}
+              <div className="flex items-center justify-start gap-2.5 mb-2.5">
+                <span className="w-8 h-[2.5px] bg-teal-500 rounded-full inline-block" />
+                <span className="text-xs sm:text-[13px] font-mono tracking-[0.2em] uppercase text-teal-600 dark:text-teal-400 font-bold">
+                  HOW I WORK • APPROACH •
+                </span>
+              </div>
+
+              {/* Section Main Title with High-Impact Typography & Distinct Weight */}
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-slate-900 dark:text-white leading-[1.2]">
+                {language === "ar" ? "منهجية العمل والخدمات الهندسية" : "Work Methodology & Engineering Services"}
+              </h2>
+            </ScrollReveal>
+
+            <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6" staggerDelay={0.1}>
+              {methodologyCards.map((card) => (
+                <StaggerItem key={card.number}>
+                  <motion.div
+                    whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                    className="relative p-6 sm:p-7 pt-12 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col items-center text-center group h-full justify-start"
+                  >
+                    {/* Top-Right Number Pill Badge */}
+                    <span className={`absolute top-4 right-4 px-3 py-1 text-xs font-mono font-bold rounded-lg ${card.badgeColor}`}>
+                      {card.number}
+                    </span>
+
+                    {/* Card Title */}
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                      {language === "ar" ? card.titleAr : card.titleEn}
+                    </h3>
+
+                    {/* Card Description */}
+                    <p className="text-xs sm:text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+                      {language === "ar" ? card.descAr : card.descEn}
+                    </p>
+                  </motion.div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
           </div>
-
-          {/* Section Main Title with High-Impact Typography & Distinct Weight */}
-          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-slate-900 dark:text-white leading-[1.2]">
-            {language === "ar" ? "منهجية العمل والخدمات الهندسية" : "Work Methodology & Engineering Services"}
-          </h2>
-        </ScrollReveal>
-
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6" staggerDelay={0.1}>
-          {methodologyCards.map((card) => (
-            <StaggerItem key={card.number}>
-              <motion.div
-                whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className="relative p-6 sm:p-7 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col items-center text-center group h-full justify-start"
-              >
-                {/* Number Badge in the Top-End corner */}
-                <div className="w-full flex justify-end rtl:justify-end ltr:justify-start mb-4">
-                  <span className={`px-3 py-1 text-xs font-mono font-bold rounded-xl ${card.badgeColor}`}>
-                    {card.number}
-                  </span>
-                </div>
-
-                {/* Card Title */}
-                <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
-                  {language === "ar" ? card.titleAr : card.titleEn}
-                </h3>
-
-                {/* Card Description */}
-                <p className="text-xs sm:text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
-                  {language === "ar" ? card.descAr : card.descEn}
-                </p>
-              </motion.div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+        </div>
       </section>
 
       {/* ══════════════════════════════════════════════
@@ -636,96 +634,7 @@ export default function HomePage() {
       </ScrollReveal>
 
       {/* ══════════════════════════════════════════════
-          5. THE DNA OF ENGINEERING & CORE PRINCIPLES
-             (Three Pillars of Code Excellence)
-         ══════════════════════════════════════════════ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal className="text-center max-w-3xl mx-auto space-y-4 mb-14">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 shadow-xs">
-            <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
-            <Cpu className="w-3.5 h-3.5" />
-            <span>{language === "ar" ? "فلسفة العمل والهندسة" : "Engineering DNA & Philosophy"}</span>
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
-            {language === "ar" ? (
-              <>
-                المبادئ الثلاثة الحاكمة لـ{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
-                  جودة كل سطر برمجي
-                </span>
-              </>
-            ) : (
-              <>
-                Three Core Principles Governing{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
-                  Software Excellence
-                </span>
-              </>
-            )}
-          </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-body leading-relaxed max-w-2xl mx-auto">
-            {language === "ar"
-              ? "لا نكتب الكود لمجرد البرمجة، بل لبناء حلول مؤسسية متينة تحقق أهداف العمل وتدوم لسنوات"
-              : "We don't write code for the sake of code. We architect enduring enterprise systems that solve real challenges."}
-          </p>
-        </ScrollReveal>
-
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.1}>
-          {[
-            {
-              icon: <Lightbulb className="w-6 h-6 text-teal-600 dark:text-teal-400" />,
-              badge: language === "ar" ? "المبدأ 01" : "Principle 01",
-              title: language === "ar" ? "عقلية حل المشكلات أولاً" : "Problem-First Architecture",
-              desc: language === "ar"
-                ? "البدء دائماً بفهم عميق لاحتياج العميل، تدفقات العمل، واختناقات الأداء قبل كتابة سطر كود واحد، لضمان أعلى عائد استثماري للحل التقني."
-                : "Deep immersion in business workflows, constraints, and pain points before writing code to maximize software ROI.",
-            },
-            {
-              icon: <Shield className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />,
-              badge: language === "ar" ? "المبدأ 02" : "Principle 02",
-              title: language === "ar" ? "معمارية نظيفة وقابلة للتوسع" : "Clean & Modular Scalability",
-              desc: language === "ar"
-                ? "اعتماد المعايير الدولية في هندسة قواعد البيانات، الـ APIs النظيفة، وفصل المسؤوليات، مما يجعل النظام قابلاً للنمو والتطوير دون تراكم ديون تقنية."
-                : "Adhering to strict modular architectures, relational schema normalization, and decoupled APIs that scale without technical debt.",
-            },
-            {
-              icon: <Rocket className="w-6 h-6 text-teal-600 dark:text-teal-400" />,
-              badge: language === "ar" ? "المبدأ 03" : "Principle 03",
-              title: language === "ar" ? "تصميم يضع الإنسان في المركز" : "Human-Centered Product Design",
-              desc: language === "ar"
-                ? "أقوى نظام في العالم يفقد جدواه إن كان معقداً أو مربكاً للموظف. ندمج بين صرامة الـ ERP وبساطة وسرعة واجهات الـ UI/UX الحديثة."
-                : "The most powerful backend is useless if employees dread using it. We marry ERP rigor with fluid, intuitive consumer-grade UX.",
-            },
-          ].map((card, i) => (
-            <StaggerItem key={i}>
-              <motion.div
-                whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 space-y-4 shadow-xs hover:border-teal-500/50 dark:hover:border-teal-400/50 transition-all duration-300 hover:shadow-xl hover:shadow-teal-500/5 group h-full flex flex-col justify-between"
-              >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 group-hover:bg-teal-50 dark:group-hover:bg-teal-950/40 transition-colors">
-                      {card.icon}
-                    </div>
-                    <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
-                      {card.badge}
-                    </span>
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
-                    {card.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                    {card.desc}
-                  </p>
-                </div>
-              </motion.div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </section>
-
-      {/* ══════════════════════════════════════════════
-          5. BIO-TELEMETRY SKILLS MESH WITH GAUGES
+          3. BIO-TELEMETRY SKILLS MESH WITH GAUGES
              (Inspired by Gouda Nasrallah)
          ══════════════════════════════════════════════ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
