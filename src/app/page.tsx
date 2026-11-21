@@ -554,21 +554,21 @@ export default function HomePage() {
       <section id="philosophy" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-right rtl:text-right ltr:text-left mb-8 sm:mb-10">
           {/* Overline with dash & bullet */}
-          <div className="flex items-center justify-start gap-2 mb-3">
-            <span className="w-6 h-[2px] bg-teal-500 rounded-full inline-block" />
+          <div className="flex items-center justify-start gap-2 mb-2.5">
+            <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
             <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
-            <span className="text-xs sm:text-sm font-bold text-teal-600 dark:text-teal-400">
+            <span className="text-xs sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
               {language === "ar" ? "فلسفة العمل" : "WORK PHILOSOPHY"}
             </span>
           </div>
 
-          {/* Main Title with Cairo 900 bold weight */}
-          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-black tracking-tight text-slate-900 dark:text-white leading-[1.25]">
+          {/* Main Title — Refined, Classy & Smooth Typography */}
+          <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
             {language === "ar" ? "هندسة تركز على تسليم منتجات موثوقة" : "Engineering Focused on Delivering Reliable Products"}
           </h2>
 
           {/* Subtitle Paragraph */}
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-normal leading-relaxed max-w-3xl mt-3.5">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl mt-2.5">
             {language === "ar"
               ? "أساهم في تطوير الواجهات والربط وضمان الجودة والتنسيق مع الفريق لتحويل متطلبات المنتج إلى تجارب موثوقة للمستخدم."
               : "Contributing to frontend engineering, API integration, QA assurance, and cross-functional team coordination to transform product requirements into dependable user experiences."}
@@ -584,17 +584,17 @@ export default function HomePage() {
                 className="relative p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-start text-right items-start group h-full"
               >
                 {/* Icon in Rounded Box */}
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${card.iconBg}`}>
+                <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-4 sm:mb-5 ${card.iconBg}`}>
                   {card.icon}
                 </div>
 
                 {/* Card Title */}
-                <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2.5 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
                   {language === "ar" ? card.titleAr : card.titleEn}
                 </h3>
 
                 {/* Card Description */}
-                <p className="text-xs sm:text-[13.5px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+                <p className="text-xs sm:text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed font-normal">
                   {language === "ar" ? card.descAr : card.descEn}
                 </p>
               </motion.div>
