@@ -15,7 +15,7 @@ import {
   GraduationCap, ExternalLink, ChevronRight, ChevronLeft,
   Mail, Copy, Check, MapPin, Briefcase, Terminal, ShieldCheck,
   Cpu, Compass, Code2, Flame, Send, X, Clock, HelpCircle, CheckCircle,
-  Lightbulb, Rocket, Shield, Eye, Download, Linkedin,
+  Lightbulb, Rocket, Shield, Eye, Download, Linkedin, AppWindow, Cable,
 } from "lucide-react";
 
 // Animations
@@ -170,6 +170,41 @@ export default function HomePage() {
       titleEn: "Training & Knowledge Transfer",
       descAr: "تمكين الفرق والمطورين عبر برامج تدريبية تطبيقية وورش عمل مكثفة في البرمجة وأنظمة المؤسسات.",
       descEn: "Empowering engineering teams and developers through hands-on training programs and intensive enterprise workshops.",
+    },
+  ];
+
+  const philosophyCards = [
+    {
+      icon: <AppWindow className="w-6 h-6 text-teal-600 dark:text-teal-400" />,
+      iconBg: "bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/60",
+      titleAr: "واجهات جاهزة للإنتاج",
+      titleEn: "Production-Ready Frontends",
+      descAr: "واجهات متجاوبة وسهلة الوصول وقابلة للصيانة، مصممة لمنتجات ومستخدمين حقيقيين.",
+      descEn: "Responsive, accessible, and maintainable interfaces engineered for real products and actual users.",
+    },
+    {
+      icon: <Cable className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />,
+      iconBg: "bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-100 dark:border-cyan-800/60",
+      titleAr: "ربط الواجهات البرمجية",
+      titleEn: "API & Systems Integration",
+      descAr: "ربط موثوق لتدفقات الواجهة مع خدمات الأنظمة الخلفية وحالات البيانات والتحقق ومعالجة الأخطاء.",
+      descEn: "Reliable plumbing connecting client workflows with backend services, state machines, and error resilience.",
+    },
+    {
+      icon: <ShieldCheck className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />,
+      iconBg: "bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/60",
+      titleAr: "ضمان الجودة",
+      titleEn: "Quality Assurance",
+      descAr: "اختبار مسارات المستخدم واكتشاف المشكلات ومراجعة جودة التنفيذ ودعم تسليم مستقر.",
+      descEn: "Testing user journeys, proactively catching regressions, code quality reviews, and stable releases.",
+    },
+    {
+      icon: <Users className="w-6 h-6 text-amber-600 dark:text-amber-400" />,
+      iconBg: "bg-amber-50 dark:bg-amber-950/60 border border-amber-100 dark:border-amber-800/60",
+      titleAr: "التعاون مع الفريق",
+      titleEn: "Team Collaboration",
+      descAr: "تنسيق واضح مع المصممين ومطوري الأنظمة الخلفية والمديرين والعملاء خلال مراحل التسليم.",
+      descEn: "Clear, transparent synergy with designers, backend engineers, product managers, and clients.",
     },
   ];
 
@@ -512,8 +547,76 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════
+          3. WORK PHILOSOPHY SECTION
+             (Engineering Focused on Delivering Reliable Products)
+             Matches media_1795258393687_dc594766.png exactly
+         ══════════════════════════════════════════════ */}
+      <section id="philosophy" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal className="text-right rtl:text-right ltr:text-left mb-8 sm:mb-10">
+          {/* Overline with dash & bullet */}
+          <div className="flex items-center justify-start gap-2 mb-3">
+            <span className="w-6 h-[2px] bg-teal-500 rounded-full inline-block" />
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
+            <span className="text-xs sm:text-sm font-bold text-teal-600 dark:text-teal-400">
+              {language === "ar" ? "فلسفة العمل" : "WORK PHILOSOPHY"}
+            </span>
+          </div>
+
+          {/* Main Title with Cairo 900 bold weight */}
+          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-black tracking-tight text-slate-900 dark:text-white leading-[1.25]">
+            {language === "ar" ? "هندسة تركز على تسليم منتجات موثوقة" : "Engineering Focused on Delivering Reliable Products"}
+          </h2>
+
+          {/* Subtitle Paragraph */}
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-normal leading-relaxed max-w-3xl mt-3.5">
+            {language === "ar"
+              ? "أساهم في تطوير الواجهات والربط وضمان الجودة والتنسيق مع الفريق لتحويل متطلبات المنتج إلى تجارب موثوقة للمستخدم."
+              : "Contributing to frontend engineering, API integration, QA assurance, and cross-functional team coordination to transform product requirements into dependable user experiences."}
+          </p>
+        </ScrollReveal>
+
+        {/* 4 Philosophy Cards */}
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6" staggerDelay={0.1}>
+          {philosophyCards.map((card, idx) => (
+            <StaggerItem key={idx}>
+              <motion.div
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                className="relative p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-start text-right items-start group h-full"
+              >
+                {/* Icon in Rounded Box */}
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${card.iconBg}`}>
+                  {card.icon}
+                </div>
+
+                {/* Card Title */}
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2.5 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                  {language === "ar" ? card.titleAr : card.titleEn}
+                </h3>
+
+                {/* Card Description */}
+                <p className="text-xs sm:text-[13.5px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+                  {language === "ar" ? card.descAr : card.descEn}
+                </p>
+              </motion.div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+
+        {/* Bottom CTA Button Aligned to Left in RTL (End of line) */}
+        <div className="flex justify-end mt-8 sm:mt-10">
+          <Link
+            href="/about"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 text-slate-800 dark:text-slate-200 text-xs sm:text-sm font-bold shadow-xs hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 hover:shadow-md transition-all group"
+          >
+            <span>{language === "ar" ? "المزيد عن فلسفة عملي" : "More About My Philosophy"}</span>
+            <ArrowLeft className="w-4 h-4 rtl:rotate-0 ltr:rotate-180 text-slate-500 group-hover:text-teal-600 dark:group-hover:text-teal-400 group-hover:-translate-x-1 ltr:group-hover:translate-x-1 transition-all" />
+          </Link>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════
           4. FEATURED PROJECT SPOTLIGHT — Browser Mockup
-             (Flagship Case Study in the Limelight)
+          (Flagship Case Study in the Limelight)
          ══════════════════════════════════════════════ */}
       <ScrollReveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-gradient-to-br from-teal-950/95 via-slate-900 to-[#0B1120] border border-teal-800/50 text-white relative overflow-hidden shadow-2xl">
