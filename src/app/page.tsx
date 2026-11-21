@@ -146,8 +146,22 @@ export default function HomePage() {
       badgeColor: "bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/60",
       titleAr: "هندسة أنظمة ERP",
       titleEn: "ERP Systems Engineering",
-      descAr: "تحليل متطلبات الشركات وتحويلها إلى تدفقات عمل مؤتمتة عبر Odoo (معتمد رسمياً) و Frappe / ERPNext.",
-      descEn: "Analyzing corporate requirements and turning them into automated workflows via Odoo (Official Certified) & Frappe / ERPNext.",
+      subtitleAr: "معتمد رسمياً من Odoo S.A. ومختص Frappe",
+      subtitleEn: "Official Odoo S.A. Certified & Frappe Specialist",
+      descAr: "تحليل وتطوير حلول المؤسسات المؤتمتة عبر Odoo و Frappe / ERPNext لإدارة المبيعات، المخازن، والعمليات المالية بدقة وموثوقية عالية.",
+      descEn: "Developing automated enterprise workflows via Odoo & Frappe / ERPNext managing sales, inventory, and accounting with high precision.",
+      featuresAr: [
+        "تطوير موديولات مخصصة (Custom Modules)",
+        "أتمتة دورات العمل والعمليات المالية",
+        "ترحيل قواعد البيانات وربط الـ APIs",
+      ],
+      featuresEn: [
+        "Custom enterprise modules development",
+        "Workflow & financial processes automation",
+        "Database migration & secure API integrations",
+      ],
+      tagsAr: ["Odoo Certified", "ERPNext", "Frappe", "PostgreSQL", "Python"],
+      tagsEn: ["Odoo Certified", "ERPNext", "Frappe", "PostgreSQL", "Python"],
       spanClass: "lg:col-span-1 lg:row-span-2",
     },
     {
@@ -157,8 +171,18 @@ export default function HomePage() {
       badgeColor: "bg-cyan-50 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-300 border border-cyan-200/60 dark:border-cyan-800/60",
       titleAr: "تطوير الويب المتكامل",
       titleEn: "Full-Stack Web Development",
-      descAr: "بناء معماريات خلفية عالية الاعتمادية بـ Python & Django وواجهات أمامية فائقة السرعة بـ React & Next.js.",
-      descEn: "Building high-reliability backend architectures with Python & Django and ultra-fast frontends with React & Next.js.",
+      descAr: "هندسة تطبيقات ويب متكاملة وسريعة الاستجابة؛ واجهات تفاعلية حديثة بـ Next.js و React، ومعماريات خلفية متينة بـ Python & Django مع واجهات RESTful آمنة.",
+      descEn: "Building robust full-stack web applications with high-performance Next.js frontends and secure Python & Django backends.",
+      featuresAr: [
+        "واجهات تفاعلية فائقة السرعة بـ Next.js & React",
+        "معماريات خلفية متينة بـ Python & Django",
+      ],
+      featuresEn: [
+        "Interactive ultra-fast Next.js & React frontends",
+        "Robust, secure Python & Django backend APIs",
+      ],
+      tagsAr: ["Next.js", "React", "Python", "Django", "TypeScript", "REST APIs"],
+      tagsEn: ["Next.js", "React", "Python", "Django", "TypeScript", "REST APIs"],
       spanClass: "md:col-span-2 lg:col-span-2 lg:row-span-1",
     },
     {
@@ -166,10 +190,20 @@ export default function HomePage() {
       icon: <Palette className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />,
       iconBg: "bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/60",
       badgeColor: "bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/60",
-      titleAr: "تجربة المستخدم UI/UX",
-      titleEn: "UI/UX User Experience",
-      descAr: "تصميم أنظمة تصميم متكاملة (Design Systems) ونماذج تفاعلية في Figma تجمع بين الجمال وسهولة الاستخدام.",
-      descEn: "Crafting comprehensive design systems and interactive prototypes in Figma merging aesthetics with effortless usability.",
+      titleAr: "تجربة وتصميم الواجهات",
+      titleEn: "UI/UX Experience Design",
+      descAr: "بناء نظم تصميم (Design Systems) تفاعلية ونماذج عمل في Figma تجمع بين جمالية المظهر وسلاسة الاستخدام وقابلية التنفيذ البرمجي الدقيق.",
+      descEn: "Crafting comprehensive design systems and interactive Figma prototypes balancing clean aesthetics with effortless developer handoff.",
+      featuresAr: [
+        "بناء نظم تصميم موحدة (Design Systems)",
+        "نماذج تفاعلية عالية الدقة في Figma",
+      ],
+      featuresEn: [
+        "Unified scalable design systems",
+        "High-fidelity interactive Figma prototypes",
+      ],
+      tagsAr: ["Figma", "Design Systems", "UI/UX", "Prototyping"],
+      tagsEn: ["Figma", "Design Systems", "UI/UX", "Prototyping"],
       spanClass: "lg:col-span-1 lg:row-span-1",
     },
     {
@@ -178,9 +212,19 @@ export default function HomePage() {
       iconBg: "bg-amber-50 dark:bg-amber-950/60 border border-amber-100 dark:border-amber-800/60",
       badgeColor: "bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-200/60 dark:border-amber-800/60",
       titleAr: "التدريب ونقل المعرفة",
-      titleEn: "Training & Knowledge Transfer",
-      descAr: "تمكين الفرق والمطورين عبر برامج تدريبية تطبيقية وورش عمل مكثفة في البرمجة وأنظمة المؤسسات.",
-      descEn: "Empowering engineering teams and developers through hands-on training programs and intensive enterprise workshops.",
+      titleEn: "Training & Mentorship",
+      descAr: "تمكين المطورين والفرق التقنية من خلال ورش عمل تطبيقية تركز على كتابة كود نظيف، معمارية البرمجيات، وأفضل ممارسات التطوير المؤسسي.",
+      descEn: "Empowering developers and engineering teams through applied workshops on clean code, software architecture, and industry best practices.",
+      featuresAr: [
+        "ورش عمل برمجية تطبيقية ومكثفة",
+        "جلسات مراجعة الكود وهندسة المعمارية",
+      ],
+      featuresEn: [
+        "Applied hands-on coding workshops",
+        "Architecture review & clean code mentorship",
+      ],
+      tagsAr: ["Clean Code", "Code Review", "Architecture", "Mentorship"],
+      tagsEn: ["Clean Code", "Code Review", "Architecture", "Mentorship"],
       spanClass: "lg:col-span-1 lg:row-span-1",
     },
   ];
@@ -580,7 +624,7 @@ export default function HomePage() {
             <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
             <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
             <span className="text-xs sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
-              {language === "ar" ? "منهجية العمل والخدمات الهندسية" : "METHODOLOGY & SERVICES"}
+              {language === "ar" ? "الخدمات والمسارات الهندسية" : "ENGINEERING TRACKS & SERVICES"}
             </span>
           </div>
 
@@ -592,37 +636,73 @@ export default function HomePage() {
           {/* Subtitle Paragraph */}
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl mt-2.5">
             {language === "ar"
-              ? "نغطي دورة حياة المنتج الرقمي بأكملها: من معمارية أنظمة الـ ERP وتطوير الويب إلى واجهات الاستخدام المتقنة والتدريب التقني التطبيقي."
-              : "Covering the full digital product lifecycle: from ERP business architecture and full-stack web to polished UI/UX and applied technical training."}
+              ? "حلول برمجية واقعية تنطلق من متطلبات العمل الفعلية؛ تشمل تخصيص أنظمة الـ ERP، وتطوير تطبيقات الويب الحديثة، وتصميم الواجهات ونقل المعرفة للفرق."
+              : "End-to-end software solutions grounded in real business requirements: from ERP customization and full-stack web to polished UI/UX and engineering mentorship."}
           </p>
         </ScrollReveal>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5" staggerDelay={0.1}>
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6" staggerDelay={0.1}>
           {methodologyCards.map((card) => (
             <StaggerItem key={card.number} className={card.spanClass}>
               <motion.div
                 whileHover={{ y: -5, transition: { duration: 0.25 } }}
-                className="relative p-5 sm:p-6 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-start text-right items-start group h-full"
+                className="relative p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-between text-right items-start group h-full"
               >
-                {/* Top Bar with Icon in Box & Number Pill */}
-                <div className="w-full flex items-center justify-between mb-3.5 sm:mb-4">
-                  <div className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center ${card.iconBg}`}>
-                    {card.icon}
+                <div className="w-full">
+                  {/* Top Bar with Icon in Box & Number Pill + Certified Badge */}
+                  <div className="w-full flex items-center justify-between mb-4 sm:mb-5">
+                    <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center ${card.iconBg}`}>
+                      {card.icon}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      {card.subtitleAr && (
+                        <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-semibold rounded-full bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/60">
+                          <CheckCircle2 className="w-3 h-3 text-teal-600 dark:text-teal-400" />
+                          <span>{language === "ar" ? "معتمد Odoo" : "Odoo Certified"}</span>
+                        </span>
+                      )}
+                      <span className={`px-2.5 py-1 text-xs font-mono font-bold rounded-lg ${card.badgeColor}`}>
+                        {card.number}
+                      </span>
+                    </div>
                   </div>
-                  <span className={`px-2.5 py-0.5 text-xs font-mono font-bold rounded-lg ${card.badgeColor}`}>
-                    {card.number}
-                  </span>
+
+                  {/* Card Title — Prominent font grade & guaranteed single line */}
+                  <h3 className="w-full text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
+                    {language === "ar" ? card.titleAr : card.titleEn}
+                  </h3>
+
+                  {/* Card Description */}
+                  <p className="text-xs sm:text-[13.5px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal mb-4">
+                    {language === "ar" ? card.descAr : card.descEn}
+                  </p>
+
+                  {/* Highlights / Features with neat Check icon */}
+                  {card.featuresAr && (
+                    <ul className={`space-y-2 mb-5 w-full ${card.spanClass.includes("col-span-2") ? "sm:grid sm:grid-cols-2 sm:gap-3 sm:space-y-0" : ""}`}>
+                      {(language === "ar" ? card.featuresAr : card.featuresEn).map((feat, fIdx) => (
+                        <li key={fIdx} className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-teal-500 shrink-0" />
+                          <span className="line-clamp-1">{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
 
-                {/* Card Title — Single Line */}
-                <h3 className="w-full text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
-                  {language === "ar" ? card.titleAr : card.titleEn}
-                </h3>
-
-                {/* Card Description */}
-                <p className="text-xs sm:text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
-                  {language === "ar" ? card.descAr : card.descEn}
-                </p>
+                {/* Tech Pills Footer - Natural, stylish chips without harsh separator */}
+                {card.tagsAr && (
+                  <div className="flex flex-wrap gap-1.5 pt-2 w-full mt-auto">
+                    {(language === "ar" ? card.tagsAr : card.tagsEn).map((tag, tIdx) => (
+                      <span
+                        key={tIdx}
+                        className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-lg bg-slate-100/80 dark:bg-slate-800/70 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/50 hover:border-teal-500/40 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </motion.div>
             </StaggerItem>
           ))}
