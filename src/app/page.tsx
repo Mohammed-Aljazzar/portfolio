@@ -965,7 +965,7 @@ export default function HomePage() {
               {/* Details Column (Right in RTL / Order 1 in RTL) */}
               <div className="lg:col-span-6 flex flex-col justify-between text-right space-y-5 lg:order-1 rtl:lg:order-1 ltr:lg:order-1">
                 <div>
-                  {/* Top Bar: Nav Arrows & Category Label */}
+                  {/* Top Bar: Nav Arrows, Category & Year */}
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-1.5">
                       <button
@@ -984,9 +984,14 @@ export default function HomePage() {
                       </button>
                     </div>
 
-                    <span className="text-xs font-mono font-bold tracking-wider text-teal-600 dark:text-teal-400 uppercase">
-                      {activeFeatured.categoryBadge}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/80">
+                        {activeFeatured.year}
+                      </span>
+                      <span className="text-xs font-mono font-bold tracking-wider text-teal-600 dark:text-teal-400 uppercase">
+                        {activeFeatured.categoryBadge}
+                      </span>
+                    </div>
                   </div>
 
                   {/* Title — Formatted with Philosophy font grade */}
@@ -995,26 +1000,9 @@ export default function HomePage() {
                   </h3>
 
                   {/* Realistic Engineering Description */}
-                  <p className="text-xs sm:text-[13.5px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal max-w-lg mb-4">
+                  <p className="text-xs sm:text-[13.5px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal max-w-lg mb-6">
                     {language === "ar" ? activeFeatured.descAr : activeFeatured.descEn}
                   </p>
-
-                  {/* Tech Stack Chips in Full-Width Card */}
-                  {activeFeatured.tags && activeFeatured.tags.length > 0 && (
-                    <div className="flex flex-wrap items-center gap-1.5 mb-5">
-                      <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 ml-1">
-                        {language === "ar" ? "وسوم التقنيات:" : "Tech Stack:"}
-                      </span>
-                      {activeFeatured.tags.map((tag: string) => (
-                        <span
-                          key={tag}
-                          className="text-[11px] font-mono px-2.5 py-0.5 rounded-md bg-teal-50/70 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 border border-teal-200/70 dark:border-teal-800/60 font-medium"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
 
                   {/* Two Meta Boxes (CORE STACK & ROLE) */}
                   <div className="grid grid-cols-2 gap-3 mb-6">
@@ -1104,7 +1092,7 @@ export default function HomePage() {
 
                 {/* Floating Badge on Image */}
                 <div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-[10.5px] font-mono text-white font-semibold border border-slate-700/60 shadow-md">
-                  <span>{activeFeatured.featuredBadge}</span>
+                  <span>{activeFeatured.featuredBadge} • {activeFeatured.year}</span>
                 </div>
               </div>
             </div>
@@ -1148,8 +1136,11 @@ export default function HomePage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
 
-                      {/* Top Floating Category Badge */}
-                      <div className="absolute top-3 right-3 z-10 pointer-events-none">
+                      {/* Top Floating Badges (Category & Year) */}
+                      <div className="absolute top-3 inset-x-3 flex items-center justify-between z-10 pointer-events-none">
+                        <span className="px-2 py-0.5 rounded-full bg-slate-900/80 backdrop-blur-xs text-[10px] font-mono font-bold text-slate-200 border border-slate-700/60 shadow-xs">
+                          {project.year}
+                        </span>
                         <span className="px-2.5 py-0.5 rounded-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-xs text-[10px] font-mono font-bold tracking-wider text-teal-800 dark:text-teal-300 border border-slate-200/60 dark:border-slate-700/60 shadow-xs">
                           {project.categoryBadge}
                         </span>
