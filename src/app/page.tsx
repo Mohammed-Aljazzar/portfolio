@@ -1211,87 +1211,76 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          7. INDEPENDENT TRAINING TRACK BANNER
-             (Harmonized Brand Colors: Teal & Indigo)
+          5. INDEPENDENT TRAINING TRACK BANNER
+             Formatted 100% like Philosophy of Work section
          ══════════════════════════════════════════════ */}
       <ScrollReveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-gradient-to-br from-slate-900 via-[#0B1120] to-[#042f2e]/90 border border-teal-500/30 dark:border-teal-400/25 p-8 sm:p-12 text-white relative overflow-hidden shadow-2xl group">
-          {/* Ambient Brand Glowing Orbs */}
-          <div className="absolute -top-24 -right-24 w-80 h-80 bg-teal-500/20 rounded-full blur-3xl pointer-events-none group-hover:bg-teal-500/30 transition-all duration-700" />
-          <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none group-hover:bg-indigo-500/30 transition-all duration-700" />
-          <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />
-
+        <div className="rounded-3xl bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800 p-8 sm:p-10 lg:p-12 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-            <div className="lg:col-span-8 space-y-5">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-teal-500/15 border border-teal-400/30 text-teal-300 backdrop-blur-md">
-                <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
-                <GraduationCap className="w-4 h-4 text-teal-400" />
-                <span>{t.trainingTeaser.badge}</span>
-              </span>
+            {/* Right in RTL: Content Column */}
+            <div className="lg:col-span-8 space-y-4 text-right">
+              {/* Overline with dash & bullet */}
+              <div className="flex items-center justify-start gap-2 mb-2.5">
+                <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
+                <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
+                <span className="text-xs sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
+                  {language === "ar" ? "المسار التدريبي ونقل المعرفة" : "TRAINING TRACK & KNOWLEDGE TRANSFER"}
+                </span>
+              </div>
 
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-snug">
-                {language === "ar" ? (
-                  <>
-                    نقل المعرفة و
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-teal-300 to-indigo-300">
-                      تمكين العقول التقنية
-                    </span>{" "}
-                    الصاعدة
-                  </>
-                ) : (
-                  <>
-                    Sharing Knowledge &{" "}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-teal-300 to-indigo-300">
-                      Empowering Emerging
-                    </span>{" "}
-                    Tech Minds
-                  </>
-                )}
+              {/* Main Title — Refined, Classy & Smooth Typography */}
+              <h3 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
+                {language === "ar"
+                  ? "نقل المعرفة وتمكين العقول التقنية الصاعدة"
+                  : "Sharing Knowledge & Empowering Emerging Tech Minds"}
               </h3>
 
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl font-body">
+              {/* Subtitle Paragraph */}
+              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl mt-2.5">
                 {t.trainingTeaser.description}
               </p>
 
               {/* Verified Metrics Counter Hub */}
-              <div className="grid grid-cols-3 gap-4 pt-5 border-t border-slate-800/80 max-w-lg">
+              <div className="grid grid-cols-3 gap-6 pt-6 border-t border-slate-200/80 dark:border-slate-800 max-w-lg mt-6">
                 <div className="space-y-1">
-                  <div className="text-2xl sm:text-3xl font-extrabold font-mono text-teal-400 flex items-center">
+                  <div className="text-2xl sm:text-3xl font-extrabold font-mono text-teal-600 dark:text-teal-400 flex items-center">
                     <AnimatedCounter value={config.trainingProgramsCount} />
-                    <span className="text-teal-500 text-lg ml-0.5 rtl:mr-0.5">+</span>
+                    <span className="text-teal-500 text-lg ml-0.5 rtl:mr-0.5 font-bold">+</span>
                   </div>
-                  <div className="text-xs text-slate-300 font-medium">{t.trainingTeaser.programsCount}</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t.trainingTeaser.programsCount}</div>
                 </div>
                 <div className="space-y-1">
-                  <div className="text-2xl sm:text-3xl font-extrabold font-mono text-teal-400 flex items-center">
+                  <div className="text-2xl sm:text-3xl font-extrabold font-mono text-teal-600 dark:text-teal-400 flex items-center">
                     <AnimatedCounter value={config.workshopsCount} />
-                    <span className="text-teal-500 text-lg ml-0.5 rtl:mr-0.5">+</span>
+                    <span className="text-teal-500 text-lg ml-0.5 rtl:mr-0.5 font-bold">+</span>
                   </div>
-                  <div className="text-xs text-slate-300 font-medium">{t.trainingTeaser.workshopsCount}</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t.trainingTeaser.workshopsCount}</div>
                 </div>
                 <div className="space-y-1">
-                  <div className="text-2xl sm:text-3xl font-extrabold font-mono text-teal-400 flex items-center">
+                  <div className="text-2xl sm:text-3xl font-extrabold font-mono text-teal-600 dark:text-teal-400 flex items-center">
                     <AnimatedCounter value={config.traineesCount} />
-                    <span className="text-teal-500 text-lg ml-0.5 rtl:mr-0.5">+</span>
+                    <span className="text-teal-500 text-lg ml-0.5 rtl:mr-0.5 font-bold">+</span>
                   </div>
-                  <div className="text-xs text-slate-300 font-medium">{t.trainingTeaser.traineesCount}</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t.trainingTeaser.traineesCount}</div>
                 </div>
               </div>
             </div>
 
+            {/* Left in RTL: CTA & Tag Column */}
             <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center space-y-4">
-              {/* Glassmorphic Mentorship Tag */}
-              <div className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-2xl bg-slate-950/60 border border-slate-800 text-xs font-mono text-slate-300 backdrop-blur-md">
-                <span className="w-2 h-2 rounded-full bg-teal-400" />
-                <span>Odoo • Python/Django • UI/UX</span>
+              {/* Mentorship Tag */}
+              <div className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/80 text-[11px] font-mono text-slate-600 dark:text-slate-400 border border-slate-200/70 dark:border-slate-700/70">
+                <span className="w-1.5 h-1.5 rounded-full bg-teal-500" />
+                <span>Odoo • Python/Django • Frappe • UI/UX</span>
               </div>
 
+              {/* Action Button */}
               <Link
                 href="/training"
-                className="inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 hover:from-teal-500 hover:to-indigo-500 text-white font-bold text-sm sm:text-base shadow-xl shadow-teal-500/20 hover:shadow-teal-500/35 transition-all duration-300 hover:-translate-y-1 group/btn"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm shadow-xs hover:shadow-md transition-all duration-200 group"
               >
                 <span>{t.trainingTeaser.exploreBtn}</span>
-                <Arrow className="w-4 h-4 transition-transform group-hover/btn:translate-x-1 rtl:group-hover/btn:-translate-x-1" />
+                <Arrow className="w-4 h-4 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
               </Link>
             </div>
           </div>
