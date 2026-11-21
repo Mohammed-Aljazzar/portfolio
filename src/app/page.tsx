@@ -185,8 +185,8 @@ export default function HomePage() {
     {
       icon: <Layers className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />,
       iconBg: "bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-100 dark:border-cyan-800/60",
-      titleAr: "معمارية نظيفة وقابلة للتوسع",
-      titleEn: "Clean & Modular Scalability",
+      titleAr: "معمارية قابلة للتوسع",
+      titleEn: "Scalable Architecture",
       descAr: "اعتماد المعايير الدولية في هندسة قواعد البيانات، الـ APIs النظيفة، وفصل المسؤوليات، مما يجعل النظام قابلاً للنمو والتطوير دون تراكم ديون تقنية.",
       descEn: "Adhering to strict modular architectures, relational schema normalization, and decoupled APIs that scale without technical debt.",
     },
@@ -541,8 +541,8 @@ export default function HomePage() {
                   {card.icon}
                 </div>
 
-                {/* Card Title — Guaranteed Single Line */}
-                <h3 className="w-full text-[15px] sm:text-base lg:text-[14.5px] xl:text-[16px] font-bold text-slate-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
+                {/* Card Title — Prominent font grade & guaranteed single line */}
+                <h3 className="w-full text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2.5 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
                   {language === "ar" ? card.titleAr : card.titleEn}
                 </h3>
 
