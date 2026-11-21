@@ -790,117 +790,10 @@ export default function HomePage() {
         </div>
       </section>
 
-
-
       {/* ══════════════════════════════════════════════
-          3. BIO-TELEMETRY SKILLS MESH WITH GAUGES
-             (Inspired by Gouda Nasrallah)
-         ══════════════════════════════════════════════ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-        <ScrollReveal className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 shadow-xs">
-            <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
-            <Terminal className="w-3.5 h-3.5" />
-            <span>{language === "ar" ? "الترسانة التقنية والمهارات" : "Technical Arsenal & Telemetry"}</span>
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
-            {language === "ar" ? (
-              <>
-                أدوات تم اختبارها بالإنتاج و
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
-                  جاهزية تشغيلية كاملة
-                </span>
-              </>
-            ) : (
-              <>
-                Production-Tested Stack &{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
-                  Operational Readiness
-                </span>
-              </>
-            )}
-          </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-body leading-relaxed max-w-2xl mx-auto">
-            {language === "ar"
-              ? "استكشف الكفاءات البرمجية المصنفة حسب مسارات العمل مع مقاييس الجاهزية والخبرة"
-              : "Explore verified technical proficiencies across all 4 engineering disciplines with live readiness telemetry."}
-          </p>
-        </ScrollReveal>
-
-        {/* Skill Tabs */}
-        <ScrollReveal delay={0.1}>
-          <div className="flex flex-wrap justify-center gap-2 p-1.5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 max-w-fit mx-auto">
-            {[
-              { id: "erp", label: language === "ar" ? "أنظمة ERP وأتمتة الأعمال" : "ERP & Business Automation", icon: <Layers className="w-4 h-4" /> },
-              { id: "backend", label: language === "ar" ? "الباك إند وقواعد البيانات" : "Backend & DevOps", icon: <Server className="w-4 h-4" /> },
-              { id: "frontend", label: language === "ar" ? "الفرونت إند والويب" : "Frontend & Web Apps", icon: <Layout className="w-4 h-4" /> },
-              { id: "uiux", label: language === "ar" ? "تصميم واجهات وتجربة UI/UX" : "UI/UX & Product Design", icon: <Palette className="w-4 h-4" /> },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveSkillTab(tab.id as any)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 ${
-                  activeSkillTab === tab.id
-                    ? "bg-white dark:bg-slate-800 text-teal-600 dark:text-teal-400 shadow-sm"
-                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                }`}
-              >
-                {tab.icon}
-                <span>{tab.label}</span>
-              </button>
-            ))}
-          </div>
-        </ScrollReveal>
-
-        {/* Skills Grid with Telemetry Gauges */}
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" staggerDelay={0.06}>
-          {skills[activeSkillTab].map((skill, idx) => {
-            const skillName = language === "ar" ? skill.nameAr : skill.nameEn;
-            const gauge = skillGauges[skill.nameEn] || skillGauges[skill.nameAr] || 90;
-
-            return (
-              <StaggerItem key={`${activeSkillTab}-${idx}`}>
-                <motion.div
-                  whileHover={{ y: -3 }}
-                  className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 space-y-3 hover:border-teal-500/50 dark:hover:border-teal-400/50 transition-all duration-300 shadow-2xs group"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="font-semibold text-sm text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
-                      {skillName}
-                    </span>
-                    {skill.isCore && (
-                      <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 shrink-0">
-                        Core
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Telemetry Gauge Bar (Gouda Nasrallah style) */}
-                  <div className="space-y-1.5">
-                    <div className="flex justify-between items-center text-[11px] font-mono text-slate-500 dark:text-slate-400">
-                      <span>{skill.level}</span>
-                      <span className="font-bold text-teal-600 dark:text-teal-400">{gauge}%</span>
-                    </div>
-                    <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${gauge}%` }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="h-full bg-gradient-to-r from-teal-500 to-indigo-500 rounded-full"
-                      />
-                    </div>
-                  </div>
-                </motion.div>
-              </StaggerItem>
-            );
-          })}
-        </StaggerContainer>
-      </section>
-
-      {/* ══════════════════════════════════════════════
-          4. SELECTED PROJECTS & SHOWCASE
+          3. SELECTED PROJECTS & SHOWCASE
              Exact Match to Reference Design (media_1795264182177_70c8dabf.jpg)
-             Typography formatted 100% like Philosophy section
+             Placed directly under the Services / Engineering Tracks section
          ══════════════════════════════════════════════ */}
       <section id="projects" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
         {/* Header & Filter Pills Row */}
@@ -1211,6 +1104,111 @@ export default function HomePage() {
                     <span className="text-[11px] font-mono text-slate-400 dark:text-slate-500 font-medium">
                       {project.role}
                     </span>
+                  </div>
+                </motion.div>
+              </StaggerItem>
+            );
+          })}
+        </StaggerContainer>
+      </section>
+
+      {/* ══════════════════════════════════════════════
+          4. BIO-TELEMETRY SKILLS MESH WITH GAUGES
+             (Inspired by Gouda Nasrallah)
+         ══════════════════════════════════════════════ */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <ScrollReveal className="text-center max-w-3xl mx-auto space-y-4 mb-12">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 shadow-xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
+            <Terminal className="w-3.5 h-3.5" />
+            <span>{language === "ar" ? "الترسانة التقنية والمهارات" : "Technical Arsenal & Telemetry"}</span>
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+            {language === "ar" ? (
+              <>
+                أدوات تم اختبارها بالإنتاج و
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                  جاهزية تشغيلية كاملة
+                </span>
+              </>
+            ) : (
+              <>
+                Production-Tested Stack &{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                  Operational Readiness
+                </span>
+              </>
+            )}
+          </h2>
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-body leading-relaxed max-w-2xl mx-auto">
+            {language === "ar"
+              ? "استكشف الكفاءات البرمجية المصنفة حسب مسارات العمل مع مقاييس الجاهزية والخبرة"
+              : "Explore verified technical proficiencies across all 4 engineering disciplines with live readiness telemetry."}
+          </p>
+        </ScrollReveal>
+
+        {/* Skill Tabs */}
+        <ScrollReveal delay={0.1}>
+          <div className="flex flex-wrap justify-center gap-2 p-1.5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 max-w-fit mx-auto">
+            {[
+              { id: "erp", label: language === "ar" ? "أنظمة ERP وأتمتة الأعمال" : "ERP & Business Automation", icon: <Layers className="w-4 h-4" /> },
+              { id: "backend", label: language === "ar" ? "الباك إند وقواعد البيانات" : "Backend & DevOps", icon: <Server className="w-4 h-4" /> },
+              { id: "frontend", label: language === "ar" ? "الفرونت إند والويب" : "Frontend & Web Apps", icon: <Layout className="w-4 h-4" /> },
+              { id: "uiux", label: language === "ar" ? "تصميم واجهات وتجربة UI/UX" : "UI/UX & Product Design", icon: <Palette className="w-4 h-4" /> },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveSkillTab(tab.id as any)}
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 ${
+                  activeSkillTab === tab.id
+                    ? "bg-white dark:bg-slate-800 text-teal-600 dark:text-teal-400 shadow-sm"
+                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                }`}
+              >
+                {tab.icon}
+                <span>{tab.label}</span>
+              </button>
+            ))}
+          </div>
+        </ScrollReveal>
+
+        {/* Skills Grid with Telemetry Gauges */}
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" staggerDelay={0.06}>
+          {skills[activeSkillTab].map((skill, idx) => {
+            const skillName = language === "ar" ? skill.nameAr : skill.nameEn;
+            const gauge = skillGauges[skill.nameEn] || skillGauges[skill.nameAr] || 90;
+
+            return (
+              <StaggerItem key={`${activeSkillTab}-${idx}`}>
+                <motion.div
+                  whileHover={{ y: -3 }}
+                  className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 space-y-3 hover:border-teal-500/50 dark:hover:border-teal-400/50 transition-all duration-300 shadow-2xs group"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold text-sm text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                      {skillName}
+                    </span>
+                    {skill.isCore && (
+                      <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 shrink-0">
+                        Core
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Telemetry Gauge Bar (Gouda Nasrallah style) */}
+                  <div className="space-y-1.5">
+                    <div className="flex justify-between items-center text-[11px] font-mono text-slate-500 dark:text-slate-400">
+                      <span>{skill.level}</span>
+                      <span className="font-bold text-teal-600 dark:text-teal-400">{gauge}%</span>
+                    </div>
+                    <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${gauge}%` }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="h-full bg-gradient-to-r from-teal-500 to-indigo-500 rounded-full"
+                      />
+                    </div>
                   </div>
                 </motion.div>
               </StaggerItem>
