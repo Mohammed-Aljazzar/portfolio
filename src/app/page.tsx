@@ -885,24 +885,30 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════
           4. SELECTED PROJECTS & SHOWCASE
              Exact Match to Reference Design (media_1795264182177_70c8dabf.jpg)
+             Typography formatted 100% like Philosophy section
          ══════════════════════════════════════════════ */}
       <section id="projects" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
         {/* Header & Filter Pills Row */}
         <ScrollReveal>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-2">
-            {/* Right in RTL: Title & Subtitle */}
+            {/* Right in RTL: Title & Subtitle styled identically to Philosophy section */}
             <div className="space-y-2 max-w-2xl text-right">
-              <div className="flex items-center justify-start gap-2 mb-2">
-                <span className="w-5 h-[1.5px] bg-teal-500 rounded-full inline-block" />
+              {/* Overline with dash & bullet */}
+              <div className="flex items-center justify-start gap-2 mb-2.5">
+                <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
                 <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
-                <span className="text-xs font-mono font-semibold text-teal-600 dark:text-teal-400 tracking-wider">
-                  SELECTED WORK • 11 PROJECTS ── ▪
+                <span className="text-xs sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
+                  {language === "ar" ? "أعمال ومشاريع مختارة" : "SELECTED WORK & PROJECTS"}
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
+
+              {/* Main Title — Refined, Classy & Smooth Typography */}
+              <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
                 {language === "ar" ? "أعمال ومشاريع مختارة" : "Selected Work & Projects"}
               </h2>
-              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed">
+
+              {/* Subtitle Paragraph */}
+              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl mt-2.5">
                 {language === "ar"
                   ? "مجموعة من الأنظمة المؤسسية والمنصات التفاعلية وتجارب المستخدم المصممة بدقة عالية للاستخدام العملي."
                   : "Curated enterprise systems, interactive platforms, and polished user experiences crafted for production impact."}
@@ -959,18 +965,18 @@ export default function HomePage() {
                         <ChevronLeft className="w-3.5 h-3.5 rtl:rotate-0 ltr:rotate-180" />
                       </button>
                     </div>
-                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">
+                    <span className="text-xs sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400 uppercase tracking-wider">
                       {activeFeatured.category}
                     </span>
                   </div>
 
-                  {/* Title */}
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white leading-tight mb-2.5">
+                  {/* Title — Formatted with Philosophy font grade & single line */}
+                  <h3 className="w-full text-xl sm:text-2xl lg:text-[26px] font-bold text-slate-900 dark:text-white leading-snug tracking-tight mb-2.5 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
                     {language === "ar" ? activeFeatured.titleAr : activeFeatured.titleEn}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-normal max-w-lg mb-6">
+                  <p className="text-xs sm:text-[13.5px] text-slate-500 dark:text-slate-400 leading-relaxed font-normal max-w-lg mb-6">
                     {language === "ar" ? activeFeatured.descAr : activeFeatured.descEn}
                   </p>
 
@@ -1084,12 +1090,14 @@ export default function HomePage() {
                   </div>
 
                   {/* Body Content */}
-                  <div className="p-5 sm:p-6 text-right space-y-2.5">
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors line-clamp-1">
+                  <div className="p-5 sm:p-6 text-right space-y-2">
+                    {/* Card Title — Identical font grade & single-line styling to Philosophy cards */}
+                    <h3 className="w-full text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
                       {language === "ar" ? project.titleAr : project.titleEn}
                     </h3>
 
-                    <p className="text-xs sm:text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-2 font-normal">
+                    {/* Card Description */}
+                    <p className="text-xs sm:text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed font-normal line-clamp-2">
                       {language === "ar" ? project.descAr : project.descEn}
                     </p>
 
