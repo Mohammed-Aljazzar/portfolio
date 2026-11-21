@@ -15,7 +15,7 @@ import {
   GraduationCap, ExternalLink, ChevronRight, ChevronLeft,
   Mail, Copy, Check, MapPin, Briefcase, Terminal, ShieldCheck,
   Cpu, Compass, Code2, Flame, Send, X, Clock, HelpCircle, CheckCircle,
-  Lightbulb, Rocket, Shield, Eye, Download, Linkedin, AppWindow, Cable,
+  Lightbulb, Rocket, Shield, Eye, Download, Linkedin, AppWindow, Cable, Globe,
 } from "lucide-react";
 
 // Animations
@@ -55,47 +55,65 @@ export default function HomePage() {
     {
       id: "smart-service-management",
       slug: "smart-service-management",
-      category: "ERP",
+      category: "أنظمة ERP وأتمتة",
+      categoryEn: "ERP & Automation",
       categoryKey: "erp",
+      year: "2024",
+      specialBadge: "حل مؤسسي معتمد",
+      specialBadgeEn: "Production Certified SLA",
       titleAr: "نظام إدارة الخدمات الذكي",
       titleEn: "Smart Service Management System",
-      descAr: "نظام متكامل لإدارة أوامر العمل، الصيانة، الفواتير، وقطع الغيار مبني على Frappe و ERPNext.",
-      descEn: "Integrated system for managing work orders, maintenance, invoicing, and spare parts built on Frappe & ERPNext.",
-      tags: ["Javascript", "Python", "Frappe"],
+      descAr: "نظام مؤسسي متكامل مبني على Frappe Framework و ERPNext لأتمتة دورة حياة أوامر العمل والصيانة الفنية، مراقبة اتفاقيات مستوى الخدمة (SLA)، وربط الفوترة بترحيل القيود المحاسبية تلقائياً.",
+      descEn: "Enterprise service management platform built on Frappe Framework & ERPNext automating maintenance work orders, SLA enforcement, and automated accounting invoice generation.",
+      tags: ["Frappe Framework", "ERPNext", "Python", "MariaDB", "REST APIs"],
       role: "Lead ERP Architect",
-      coreStack: "Frappe • ERPNext • Python",
-      badge: "FEATURED ERP • 01",
+      coreStack: "Frappe • ERPNext • Python • MariaDB",
+      badge: "FEATURED ERP • 2024",
       image: "/assets/images/projects/erp-smart-service.jpg",
+      liveUrl: "https://github.com/Mohammed-Aljazzar/Smart-Service-Management-By-Frappe",
+      githubUrl: "https://github.com/Mohammed-Aljazzar/Smart-Service-Management-By-Frappe",
     },
     {
       id: "masar-partner-platform",
       slug: "masar-partner-platform",
-      category: "FRONTEND",
+      category: "تطوير فرونت إند وويب",
+      categoryEn: "Frontend & Web Apps",
       categoryKey: "frontend",
+      year: "2024",
+      specialBadge: "منصة رقمية حية",
+      specialBadgeEn: "Live Corporate Platform",
       titleAr: "منصة مسار بارتنر المتكاملة",
       titleEn: "Masar Partner Integrated Platform",
-      descAr: "البوابة الرقمية الرسمية ونظام إدارة الخدمات لشركة مسار بارتنر، بتجربة استخدام حديثة وسريعة.",
-      descEn: "Official digital gateway and service management platform for Masar Partner with a modern user experience.",
-      tags: ["Tailwind CSS", "TypeScript", "Next.js"],
+      descAr: "البوابة الرقمية الرسمية لشركة مسار بارتنر؛ تشمل نظام حجز الاستشارات، بوابة الأكاديمية والتدريب، ولوحة إدارة محتوى سريعة بتوافق كامل مع دعم الاتجاهين RTL/LTR وأداء فائق.",
+      descEn: "Official digital gateway for Masar Partner featuring consultation scheduling, training academy portal, and full CMS dashboard with native bilingual RTL/LTR performance.",
+      tags: ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "REST APIs"],
       role: "Frontend & UI Lead",
-      coreStack: "Next.js • TypeScript • Tailwind CSS",
-      badge: "FEATURED FRONTEND • 02",
+      coreStack: "Next.js • TypeScript • Tailwind CSS • Python",
+      badge: "FEATURED FRONTEND • 2024",
       image: "/assets/images/projects/masar-platform.jpg",
+      liveUrl: "https://github.com/Mohammed-Aljazzar/masar_partner",
+      githubUrl: "https://github.com/Mohammed-Aljazzar/masar_partner",
     },
     {
       id: "bi-dashboard-reporting",
       slug: "bi-dashboard-reporting",
-      category: "FRONTEND",
+      category: "تطوير واجهات وتجربة UI/UX",
+      categoryEn: "Frontend & UI/UX Analytics",
       categoryKey: "frontend",
+      year: "2023",
+      specialBadge: "معالجة بيانات لحظية",
+      specialBadgeEn: "Real-Time Telemetry",
       titleAr: "لوحة تحكم ذكاء الأعمال والتقارير",
       titleEn: "BI Analytics & Reporting Dashboard",
-      descAr: "واجهة تحليل بيانات فورية لعرض مؤشرات الأداء المالي والتشغيلي بدقة تفاعلية.",
-      descEn: "Real-time analytics dashboard presenting financial and operational KPIs with rich interactive visualizations.",
-      tags: ["Tailwind CSS", "TypeScript", "React.js"],
+      descAr: "لوحة تحكم تفاعلية متطورة لتحليل مؤشرات الأداء المالي والتشغيلي للشركات، تدعم الرسوم البيانية اللحظية، الفلاتر المتقدمة، والتصدير التلقائي للتقارير بجودة عالية وبدون تأخير.",
+      descEn: "Advanced interactive dashboard for corporate financial and operational KPIs, featuring real-time charting, granular multi-tier filtering, and automated report exports at 60fps.",
+      tags: ["React.js", "TypeScript", "Tailwind CSS", "Recharts", "Analytics"],
       role: "Frontend Engineer",
-      coreStack: "React.js • TypeScript • Tailwind CSS",
-      badge: "FEATURED FRONTEND • 03",
+      coreStack: "React.js • TypeScript • Tailwind CSS • Charts",
+      badge: "FEATURED FRONTEND • 2023",
       image: "/assets/images/projects/bi-dashboard.jpg",
+      liveUrl: "https://mohammed-aljazzar.vercel.app",
+      githubUrl: "https://github.com/Mohammed-Aljazzar",
     },
   ];
 
@@ -947,7 +965,7 @@ export default function HomePage() {
               {/* Details Column (Right in RTL / Order 1 in RTL) */}
               <div className="lg:col-span-6 flex flex-col justify-between text-right space-y-5 lg:order-1 rtl:lg:order-1 ltr:lg:order-1">
                 <div>
-                  {/* Top Bar: Nav Arrows & Category Label */}
+                  {/* Top Bar: Nav Arrows, Category Label & Year Badge */}
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-1.5">
                       <button
@@ -965,8 +983,22 @@ export default function HomePage() {
                         <ChevronLeft className="w-3.5 h-3.5 rtl:rotate-0 ltr:rotate-180" />
                       </button>
                     </div>
-                    <span className="text-xs sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400 uppercase tracking-wider">
-                      {activeFeatured.category}
+
+                    <div className="flex items-center gap-2">
+                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/20">
+                        {activeFeatured.year}
+                      </span>
+                      <span className="text-xs sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400 uppercase tracking-wider">
+                        {language === "ar" ? activeFeatured.category : activeFeatured.categoryEn}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Special Featured Highlight Badge (وسم مميز) */}
+                  <div className="mb-2">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11.5px] font-semibold bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/60">
+                      <Sparkles className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
+                      <span>{language === "ar" ? activeFeatured.specialBadge : activeFeatured.specialBadgeEn}</span>
                     </span>
                   </div>
 
@@ -975,8 +1007,8 @@ export default function HomePage() {
                     {language === "ar" ? activeFeatured.titleAr : activeFeatured.titleEn}
                   </h3>
 
-                  {/* Description */}
-                  <p className="text-xs sm:text-[13.5px] text-slate-500 dark:text-slate-400 leading-relaxed font-normal max-w-lg mb-6">
+                  {/* Rich Detailed Description */}
+                  <p className="text-xs sm:text-[13.5px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal max-w-lg mb-6">
                     {language === "ar" ? activeFeatured.descAr : activeFeatured.descEn}
                   </p>
 
@@ -1002,18 +1034,35 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* Bottom Row: CTA Button & Pagination Dots */}
-                <div className="flex items-center justify-between pt-2">
-                  <button
-                    onClick={() => {
-                      const p = initialData.projects.find((x) => x.id === activeFeatured.id);
-                      if (p) setSelectedProject(p);
-                    }}
-                    className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs shadow-xs hover:shadow-md transition-all duration-200 group"
-                  >
-                    <span>{language === "ar" ? "عرض التفاصيل" : "View Details"}</span>
-                    <ExternalLink className="w-3.5 h-3.5 rtl:rotate-0 ltr:rotate-90 transition-transform group-hover:translate-x-0.5" />
-                  </button>
+                {/* Bottom Row: CTA Buttons (عرض التفاصيل + زيارة الموقع) & Pagination Dots */}
+                <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+                  <div className="flex items-center gap-2.5">
+                    {/* View Details Button */}
+                    <button
+                      onClick={() => {
+                        const p = initialData.projects.find((x) => x.id === activeFeatured.id);
+                        if (p) setSelectedProject(p);
+                      }}
+                      className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs shadow-xs hover:shadow-md transition-all duration-200 group"
+                    >
+                      <span>{language === "ar" ? "عرض التفاصيل" : "View Details"}</span>
+                      <Eye className="w-3.5 h-3.5" />
+                    </button>
+
+                    {/* Visit Site / Live Demo Link */}
+                    {activeFeatured.liveUrl && (
+                      <a
+                        href={activeFeatured.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-xs border border-slate-200 dark:border-slate-700 shadow-xs transition-all"
+                      >
+                        <Globe className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
+                        <span>{language === "ar" ? "زيارة الموقع" : "Live Demo"}</span>
+                        <ExternalLink className="w-3 h-3 text-slate-400" />
+                      </a>
+                    )}
+                  </div>
 
                   <div className="flex items-center gap-1.5">
                     {showcaseProjects.map((_, dotIdx) => (
@@ -1065,15 +1114,17 @@ export default function HomePage() {
             <StaggerItem key={project.id}>
               <motion.div
                 whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className="rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800 overflow-hidden shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-between group cursor-pointer h-full"
-                onClick={() => {
-                  const p = initialData.projects.find((x) => x.id === project.id);
-                  if (p) setSelectedProject(p);
-                }}
+                className="rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800 overflow-hidden shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-between group h-full"
               >
                 <div>
                   {/* Visual Image Header */}
-                  <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-slate-800">
+                  <div
+                    className="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-slate-800 cursor-pointer"
+                    onClick={() => {
+                      const p = initialData.projects.find((x) => x.id === project.id);
+                      if (p) setSelectedProject(p);
+                    }}
+                  >
                     <Image
                       src={project.image}
                       alt={language === "ar" ? project.titleAr : project.titleEn}
@@ -1081,32 +1132,63 @@ export default function HomePage() {
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 768px) 100vw, 400px"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-70 group-hover:opacity-40 transition-opacity" />
 
-                    {/* Floating Category Badge */}
-                    <div className="absolute top-3 right-3 z-10 px-2.5 py-0.5 rounded-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-xs text-[10px] font-mono font-bold uppercase text-teal-700 dark:text-teal-300 border border-slate-200/60 dark:border-slate-700/60 shadow-xs">
-                      {project.category}
+                    {/* Top Floating Badges (نوع العمل + السنة) */}
+                    <div className="absolute top-3 inset-x-3 flex items-center justify-between z-10 pointer-events-none">
+                      {/* Year */}
+                      <span className="px-2.5 py-1 rounded-full bg-slate-900/85 backdrop-blur-md text-[10.5px] font-mono font-bold text-amber-300 border border-amber-500/30 shadow-xs flex items-center gap-1.5">
+                        <Sparkles className="w-3 h-3 text-amber-400" />
+                        <span>{project.year}</span>
+                      </span>
+
+                      {/* Category Badge (نوع العمل) */}
+                      <span className="px-2.5 py-1 rounded-full bg-slate-900/85 backdrop-blur-md text-[11px] font-semibold text-teal-300 border border-teal-500/30 shadow-xs">
+                        {language === "ar" ? project.category : project.categoryEn}
+                      </span>
+                    </div>
+
+                    {/* Hover Quick View Overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-slate-950/40 backdrop-blur-2xs">
+                      <span className="px-3.5 py-1.5 rounded-full bg-teal-600 text-white font-bold text-xs shadow-lg flex items-center gap-1.5">
+                        <Eye className="w-3.5 h-3.5" />
+                        <span>{language === "ar" ? "معاينة دراسة الحالة" : "Preview Case Study"}</span>
+                      </span>
                     </div>
                   </div>
 
                   {/* Body Content */}
-                  <div className="p-5 sm:p-6 text-right space-y-2">
-                    {/* Card Title — Identical font grade & single-line styling to Philosophy cards */}
-                    <h3 className="w-full text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
+                  <div className="p-5 sm:p-6 text-right space-y-2.5">
+                    {/* Special Highlight Tag (وسم مميز) */}
+                    <div className="flex items-center gap-2">
+                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/60">
+                        <Sparkles className="w-3 h-3 text-teal-500" />
+                        <span>{language === "ar" ? project.specialBadge : project.specialBadgeEn}</span>
+                      </span>
+                    </div>
+
+                    {/* Card Title — Prominent font grade & single line */}
+                    <h3
+                      className="w-full text-lg sm:text-xl font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors whitespace-nowrap overflow-hidden text-ellipsis cursor-pointer"
+                      onClick={() => {
+                        const p = initialData.projects.find((x) => x.id === project.id);
+                        if (p) setSelectedProject(p);
+                      }}
+                    >
                       {language === "ar" ? project.titleAr : project.titleEn}
                     </h3>
 
-                    {/* Card Description */}
-                    <p className="text-xs sm:text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed font-normal line-clamp-2">
+                    {/* Detailed Rich Description (محتوى تفصيلي غني) */}
+                    <p className="text-xs sm:text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal line-clamp-3">
                       {language === "ar" ? project.descAr : project.descEn}
                     </p>
 
-                    {/* Tech Stack Chips */}
-                    <div className="flex flex-wrap gap-1.5 pt-2">
+                    {/* Tech Stack Chips (وسوم التقنيات) */}
+                    <div className="flex flex-wrap gap-1.5 pt-1">
                       {project.tags.map((tag: string) => (
                         <span
                           key={tag}
-                          className="text-[11px] font-mono px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200/50 dark:border-slate-700/50"
+                          className="text-[11px] font-mono px-2.5 py-0.5 rounded-md bg-slate-100/90 dark:bg-slate-800/90 text-slate-600 dark:text-slate-400 border border-slate-200/60 dark:border-slate-700/60 hover:border-teal-500/40 hover:text-teal-600 dark:hover:text-teal-300 transition-colors"
                         >
                           {tag}
                         </span>
@@ -1115,14 +1197,39 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* Footer Row */}
+                {/* Footer Row: Action Buttons (عرض التفاصيل + زيارة الموقع) & Role */}
                 <div className="px-5 sm:px-6 py-3.5 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs mt-auto">
-                  <span className="text-teal-600 dark:text-teal-400 font-bold group-hover:underline flex items-center gap-1">
-                    <span>{language === "ar" ? "عرض التفاصيل" : "View Details"}</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </span>
+                  <div className="flex items-center gap-3">
+                    {/* View Details Button */}
+                    <button
+                      onClick={() => {
+                        const p = initialData.projects.find((x) => x.id === project.id);
+                        if (p) setSelectedProject(p);
+                      }}
+                      className="text-teal-600 dark:text-teal-400 font-bold hover:underline flex items-center gap-1 transition-colors"
+                    >
+                      <span>{language === "ar" ? "عرض التفاصيل" : "Details"}</span>
+                      <Eye className="w-3.5 h-3.5" />
+                    </button>
 
-                  <span className="text-[11px] font-mono text-slate-400 dark:text-slate-500">
+                    <span className="text-slate-300 dark:text-slate-700">•</span>
+
+                    {/* Visit Site / Live Demo Link */}
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-slate-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 font-semibold flex items-center gap-1 transition-colors"
+                      >
+                        <Globe className="w-3.5 h-3.5" />
+                        <span>{language === "ar" ? "زيارة الموقع" : "Live Demo"}</span>
+                      </a>
+                    )}
+                  </div>
+
+                  {/* Role Tag */}
+                  <span className="text-[11px] font-mono text-slate-400 dark:text-slate-500 font-medium">
                     {project.role}
                   </span>
                 </div>
