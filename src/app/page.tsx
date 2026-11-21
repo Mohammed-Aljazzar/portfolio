@@ -141,6 +141,8 @@ export default function HomePage() {
   const methodologyCards = [
     {
       number: "01",
+      icon: <Cpu className="w-6 h-6 text-teal-600 dark:text-teal-400" />,
+      iconBg: "bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/60",
       badgeColor: "bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/60",
       titleAr: "هندسة أنظمة ERP",
       titleEn: "ERP Systems Engineering",
@@ -149,7 +151,9 @@ export default function HomePage() {
     },
     {
       number: "02",
-      badgeColor: "bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-200/60 dark:border-amber-800/60",
+      icon: <Code2 className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />,
+      iconBg: "bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-100 dark:border-cyan-800/60",
+      badgeColor: "bg-cyan-50 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-300 border border-cyan-200/60 dark:border-cyan-800/60",
       titleAr: "تطوير الويب المتكامل",
       titleEn: "Full-Stack Web Development",
       descAr: "بناء معماريات خلفية عالية الاعتمادية بـ Python & Django وواجهات أمامية فائقة السرعة بـ React & Next.js.",
@@ -157,6 +161,8 @@ export default function HomePage() {
     },
     {
       number: "03",
+      icon: <Palette className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />,
+      iconBg: "bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/60",
       badgeColor: "bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/60",
       titleAr: "تجربة المستخدم UI/UX",
       titleEn: "UI/UX User Experience",
@@ -165,7 +171,9 @@ export default function HomePage() {
     },
     {
       number: "04",
-      badgeColor: "bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200/60 dark:border-indigo-800/60",
+      icon: <GraduationCap className="w-6 h-6 text-amber-600 dark:text-amber-400" />,
+      iconBg: "bg-amber-50 dark:bg-amber-950/60 border border-amber-100 dark:border-amber-800/60",
+      badgeColor: "bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-200/60 dark:border-amber-800/60",
       titleAr: "التدريب ونقل المعرفة",
       titleEn: "Training & Knowledge Transfer",
       descAr: "تمكين الفرق والمطورين عبر برامج تدريبية تطبيقية وورش عمل مكثفة في البرمجة وأنظمة المؤسسات.",
@@ -570,21 +578,30 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════
           3. WORK METHODOLOGY & CORE SERVICES
              (ERP, Web, UI/UX, Mentorship)
+             Matches the Philosophy section styling 100%
          ══════════════════════════════════════════════ */}
       <section id="services" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-right rtl:text-right ltr:text-left mb-8 sm:mb-10">
-          {/* Overline with accent line */}
-          <div className="flex items-center justify-start gap-2.5 mb-2.5">
-            <span className="w-8 h-[2.5px] bg-teal-500 rounded-full inline-block" />
-            <span className="text-xs sm:text-[13px] font-mono tracking-[0.2em] uppercase text-teal-600 dark:text-teal-400 font-bold">
-              HOW I WORK • APPROACH •
+          {/* Overline with dash & bullet */}
+          <div className="flex items-center justify-start gap-2 mb-2.5">
+            <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
+            <span className="text-xs sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
+              {language === "ar" ? "منهجية العمل والخدمات الهندسية" : "METHODOLOGY & SERVICES"}
             </span>
           </div>
 
-          {/* Section Main Title with High-Impact Typography & Distinct Weight */}
-          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-slate-900 dark:text-white leading-[1.2]">
-            {language === "ar" ? "منهجية العمل والخدمات الهندسية" : "Work Methodology & Engineering Services"}
+          {/* Main Title — Refined, Classy & Smooth Typography */}
+          <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
+            {language === "ar" ? "مسارات هندسية متكاملة لبناء وتطوير الأعمال" : "Integrated Engineering Tracks for Scalable Business"}
           </h2>
+
+          {/* Subtitle Paragraph */}
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl mt-2.5">
+            {language === "ar"
+              ? "نغطي دورة حياة المنتج الرقمي بأكملها: من معمارية أنظمة الـ ERP وتطوير الويب إلى واجهات الاستخدام المتقنة والتدريب التقني التطبيقي."
+              : "Covering the full digital product lifecycle: from ERP business architecture and full-stack web to polished UI/UX and applied technical training."}
+          </p>
         </ScrollReveal>
 
         <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6" staggerDelay={0.1}>
@@ -592,26 +609,42 @@ export default function HomePage() {
             <StaggerItem key={card.number}>
               <motion.div
                 whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className="relative p-6 sm:p-7 pt-12 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col items-center text-center group h-full justify-start"
+                className="relative p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-start text-right items-start group h-full"
               >
-                {/* Top-Right Number Pill Badge */}
-                <span className={`absolute top-4 right-4 px-3 py-1 text-xs font-mono font-bold rounded-lg ${card.badgeColor}`}>
-                  {card.number}
-                </span>
+                {/* Top Bar with Icon in Box & Number Pill */}
+                <div className="w-full flex items-center justify-between mb-4 sm:mb-5">
+                  <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center ${card.iconBg}`}>
+                    {card.icon}
+                  </div>
+                  <span className={`px-2.5 py-1 text-xs font-mono font-bold rounded-lg ${card.badgeColor}`}>
+                    {card.number}
+                  </span>
+                </div>
 
-                {/* Card Title */}
-                <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                {/* Card Title — Prominent font grade & guaranteed single line */}
+                <h3 className="w-full text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2.5 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
                   {language === "ar" ? card.titleAr : card.titleEn}
                 </h3>
 
                 {/* Card Description */}
-                <p className="text-xs sm:text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+                <p className="text-xs sm:text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed font-normal">
                   {language === "ar" ? card.descAr : card.descEn}
                 </p>
               </motion.div>
             </StaggerItem>
           ))}
         </StaggerContainer>
+
+        {/* Bottom CTA Button Aligned to Left in RTL (End of line) */}
+        <div className="flex justify-end mt-8 sm:mt-10">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 text-slate-800 dark:text-slate-200 text-xs sm:text-sm font-bold shadow-xs hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 hover:shadow-md transition-all group"
+          >
+            <span>{language === "ar" ? "استكشف الأعمال والمشاريع" : "Explore Projects & Case Studies"}</span>
+            <ArrowLeft className="w-4 h-4 rtl:rotate-0 ltr:rotate-180 text-slate-500 group-hover:text-teal-600 dark:group-hover:text-teal-400 group-hover:-translate-x-1 ltr:group-hover:translate-x-1 transition-all" />
+          </Link>
+        </div>
       </section>
 
       {/* ══════════════════════════════════════════════
