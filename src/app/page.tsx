@@ -175,36 +175,36 @@ export default function HomePage() {
 
   const philosophyCards = [
     {
-      icon: <AppWindow className="w-6 h-6 text-teal-600 dark:text-teal-400" />,
+      icon: <Lightbulb className="w-6 h-6 text-teal-600 dark:text-teal-400" />,
       iconBg: "bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/60",
-      titleAr: "واجهات جاهزة للإنتاج",
-      titleEn: "Production-Ready Frontends",
-      descAr: "واجهات متجاوبة وسهلة الوصول وقابلة للصيانة، مصممة لمنتجات ومستخدمين حقيقيين.",
-      descEn: "Responsive, accessible, and maintainable interfaces engineered for real products and actual users.",
+      titleAr: "عقلية حل المشكلات أولاً",
+      titleEn: "Problem-First Architecture",
+      descAr: "البدء دائماً بفهم عميق لتدفقات العمل واحتياجات المؤسسة واختناقات الأداء قبل كتابة سطر كود واحد، لضمان أعلى عائد استثماري وقيمة ملموسة.",
+      descEn: "Deep immersion in business workflows, constraints, and pain points before writing code to maximize software ROI and operational impact.",
     },
     {
-      icon: <Cable className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />,
+      icon: <Layers className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />,
       iconBg: "bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-100 dark:border-cyan-800/60",
-      titleAr: "ربط الواجهات البرمجية",
-      titleEn: "API & Systems Integration",
-      descAr: "ربط موثوق لتدفقات الواجهة مع خدمات الأنظمة الخلفية وحالات البيانات والتحقق ومعالجة الأخطاء.",
-      descEn: "Reliable plumbing connecting client workflows with backend services, state machines, and error resilience.",
+      titleAr: "معمارية نظيفة وقابلة للتوسع",
+      titleEn: "Clean & Modular Scalability",
+      descAr: "اعتماد المعايير الدولية في هندسة قواعد البيانات، الـ APIs النظيفة، وفصل المسؤوليات، مما يجعل النظام قابلاً للنمو والتطوير دون تراكم ديون تقنية.",
+      descEn: "Adhering to strict modular architectures, relational schema normalization, and decoupled APIs that scale without technical debt.",
     },
     {
-      icon: <ShieldCheck className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />,
+      icon: <Palette className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />,
       iconBg: "bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/60",
-      titleAr: "ضمان الجودة",
-      titleEn: "Quality Assurance",
-      descAr: "اختبار مسارات المستخدم واكتشاف المشكلات ومراجعة جودة التنفيذ ودعم تسليم مستقر.",
-      descEn: "Testing user journeys, proactively catching regressions, code quality reviews, and stable releases.",
+      titleAr: "تصميم يضع الإنسان في المركز",
+      titleEn: "Human-Centered Design",
+      descAr: "أقوى نظام برمجيات يفقد جدواه إن كان معقداً في التشغيل. ندمج بين صرامة الـ ERP وبساطة وسرعة واجهات الـ UI/UX الحديثة لتجربة مستخدم سلسة.",
+      descEn: "The most powerful backend is useless if difficult to operate. We marry enterprise ERP rigor with fluid, intuitive consumer-grade UX.",
     },
     {
-      icon: <Users className="w-6 h-6 text-amber-600 dark:text-amber-400" />,
+      icon: <ShieldCheck className="w-6 h-6 text-amber-600 dark:text-amber-400" />,
       iconBg: "bg-amber-50 dark:bg-amber-950/60 border border-amber-100 dark:border-amber-800/60",
-      titleAr: "التعاون مع الفريق",
-      titleEn: "Team Collaboration",
-      descAr: "تنسيق واضح مع المصممين ومطوري الأنظمة الخلفية والمديرين والعملاء خلال مراحل التسليم.",
-      descEn: "Clear, transparent synergy with designers, backend engineers, product managers, and clients.",
+      titleAr: "موثوقية الإنتاج والأمان العالي",
+      titleEn: "Production Rigor & Security",
+      descAr: "حماية متقدمة للبيانات، إدارة دقيقة للصلاحيات، أتمتة موثوقة لتدفقات العمل، وضمان استقرار تشغيلي مستمر للأنظمة تحت أعلى أحمال العمل.",
+      descEn: "Enterprise-grade data security, granular access controls, automated fail-safes, and 24/7 stability under peak operational loads.",
     },
   ];
 
@@ -511,20 +511,20 @@ export default function HomePage() {
             <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
             <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
             <span className="text-xs sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
-              {language === "ar" ? "فلسفة العمل" : "WORK PHILOSOPHY"}
+              {language === "ar" ? "فلسفة العمل والهندسة" : "WORK & ENGINEERING PHILOSOPHY"}
             </span>
           </div>
 
           {/* Main Title — Refined, Classy & Smooth Typography */}
           <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
-            {language === "ar" ? "هندسة تركز على تسليم منتجات موثوقة" : "Engineering Focused on Delivering Reliable Products"}
+            {language === "ar" ? "المبادئ الحاكمة لجودة واستدامة الأنظمة" : "Guiding Principles for Enduring & Scalable Systems"}
           </h2>
 
           {/* Subtitle Paragraph */}
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl mt-2.5">
             {language === "ar"
-              ? "أساهم في تطوير الواجهات والربط وضمان الجودة والتنسيق مع الفريق لتحويل متطلبات المنتج إلى تجارب موثوقة للمستخدم."
-              : "Contributing to frontend engineering, API integration, QA assurance, and cross-functional team coordination to transform product requirements into dependable user experiences."}
+              ? "لا نكتب الكود لمجرد البرمجة، بل لبناء معماريات مؤسسية متينة تحقق أهداف العمل وتدوم لسنوات، توازن بين صرامة الأنظمة وسلاسة التجربة."
+              : "We don't write code for the sake of code. We architect enduring enterprise systems that solve real challenges, balancing structural rigor with fluid experience."}
           </p>
         </ScrollReveal>
 
