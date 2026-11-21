@@ -146,8 +146,23 @@ export default function HomePage() {
       badgeColor: "bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/60",
       titleAr: "هندسة أنظمة ERP",
       titleEn: "ERP Systems Engineering",
-      descAr: "تحليل متطلبات الشركات وتحويلها إلى تدفقات عمل مؤتمتة عبر Odoo (معتمد رسمياً) و Frappe / ERPNext.",
-      descEn: "Analyzing corporate requirements and turning them into automated workflows via Odoo (Official Certified) & Frappe / ERPNext.",
+      subtitleAr: "معتمد رسمياً من Odoo S.A. ومختص Frappe / ERPNext",
+      subtitleEn: "Official Odoo S.A. Certified & Frappe Specialist",
+      descAr: "تحليل شامل لمتطلبات الشركات وتحويلها إلى تدفقات عمل رقمية مؤتمتة عبر Odoo و Frappe / ERPNext مع ربط شامل لقواعد البيانات وإدارة العمليات المؤسسية.",
+      descEn: "Comprehensive corporate requirements analysis turned into automated digital workflows via Odoo and Frappe / ERPNext with enterprise database architecture.",
+      featuresAr: [
+        "تخصيص وتطوير وحدات Odoo و Frappe المتقدمة",
+        "أتمتة دورات العمل (المبيعات، المخازن، المحاسبة)",
+        "ترحيل وهيكلة قواعد البيانات المؤسسية بأمان",
+      ],
+      featuresEn: [
+        "Custom enterprise modules for Odoo & Frappe",
+        "Full workflow automation (Sales, Inventory, Accounting)",
+        "Secure relational database architecture & migration",
+      ],
+      tagsAr: ["Odoo Certified", "ERPNext", "Frappe", "PostgreSQL"],
+      tagsEn: ["Odoo Certified", "ERPNext", "Frappe", "PostgreSQL"],
+      spanClass: "lg:col-span-1 lg:row-span-2",
     },
     {
       number: "02",
@@ -156,8 +171,19 @@ export default function HomePage() {
       badgeColor: "bg-cyan-50 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-300 border border-cyan-200/60 dark:border-cyan-800/60",
       titleAr: "تطوير الويب المتكامل",
       titleEn: "Full-Stack Web Development",
-      descAr: "بناء معماريات خلفية عالية الاعتمادية بـ Python & Django وواجهات أمامية فائقة السرعة بـ React & Next.js.",
-      descEn: "Building high-reliability backend architectures with Python & Django and ultra-fast frontends with React & Next.js.",
+      descAr: "بناء معماريات خلفية عالية الاعتمادية بـ Python & Django وواجهات أمامية فائقة السرعة بـ React & Next.js وتكامل RESTful APIs متقدم.",
+      descEn: "Building high-reliability backend architectures with Python & Django and ultra-fast frontends with React & Next.js with advanced API integration.",
+      featuresAr: [
+        "معماريات Python & Django عالية الأمان والأداء",
+        "واجهات تفاعلية فائقة السرعة بـ Next.js و React",
+      ],
+      featuresEn: [
+        "High-performance Python & Django backends",
+        "Blazing-fast interactive frontends with Next.js & React",
+      ],
+      tagsAr: ["Python", "Django", "React.js", "Next.js", "TypeScript"],
+      tagsEn: ["Python", "Django", "React.js", "Next.js", "TypeScript"],
+      spanClass: "md:col-span-2 lg:col-span-2 lg:row-span-1",
     },
     {
       number: "03",
@@ -168,6 +194,9 @@ export default function HomePage() {
       titleEn: "UI/UX User Experience",
       descAr: "تصميم أنظمة تصميم متكاملة (Design Systems) ونماذج تفاعلية في Figma تجمع بين الجمال وسهولة الاستخدام.",
       descEn: "Crafting comprehensive design systems and interactive prototypes in Figma merging aesthetics with effortless usability.",
+      tagsAr: ["Figma", "Design Systems", "UI/UX"],
+      tagsEn: ["Figma", "Design Systems", "UI/UX"],
+      spanClass: "lg:col-span-1 lg:row-span-1",
     },
     {
       number: "04",
@@ -178,6 +207,9 @@ export default function HomePage() {
       titleEn: "Training & Knowledge Transfer",
       descAr: "تمكين الفرق والمطورين عبر برامج تدريبية تطبيقية وورش عمل مكثفة في البرمجة وأنظمة المؤسسات.",
       descEn: "Empowering engineering teams and developers through hands-on training programs and intensive enterprise workshops.",
+      tagsAr: ["ورش عمل مكثفة", "تدريب تطبيقي", "تمكين الفرق"],
+      tagsEn: ["Intensive Workshops", "Hands-on Training", "Team Mentorship"],
+      spanClass: "lg:col-span-1 lg:row-span-1",
     },
   ];
 
@@ -593,32 +625,69 @@ export default function HomePage() {
           </p>
         </ScrollReveal>
 
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6" staggerDelay={0.1}>
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6" staggerDelay={0.1}>
           {methodologyCards.map((card) => (
-            <StaggerItem key={card.number}>
+            <StaggerItem key={card.number} className={card.spanClass}>
               <motion.div
                 whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className="relative p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-start text-right items-start group h-full"
+                className="relative p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-between text-right items-start group h-full"
               >
-                {/* Top Bar with Icon in Box & Number Pill */}
-                <div className="w-full flex items-center justify-between mb-4 sm:mb-5">
-                  <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center ${card.iconBg}`}>
-                    {card.icon}
+                <div className="w-full">
+                  {/* Top Bar with Icon in Box & Number Pill */}
+                  <div className="w-full flex items-center justify-between mb-4 sm:mb-5">
+                    <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center ${card.iconBg}`}>
+                      {card.icon}
+                    </div>
+                    <span className={`px-2.5 py-1 text-xs font-mono font-bold rounded-lg ${card.badgeColor}`}>
+                      {card.number}
+                    </span>
                   </div>
-                  <span className={`px-2.5 py-1 text-xs font-mono font-bold rounded-lg ${card.badgeColor}`}>
-                    {card.number}
-                  </span>
+
+                  {/* Card Title — Prominent font grade & guaranteed single line */}
+                  <h3 className="w-full text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
+                    {language === "ar" ? card.titleAr : card.titleEn}
+                  </h3>
+
+                  {/* Optional Subtitle Badge for Card 1 */}
+                  {card.subtitleAr && (
+                    <div className="mb-3">
+                      <span className="inline-block text-[11px] font-mono font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/50 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/60">
+                        {language === "ar" ? card.subtitleAr : card.subtitleEn}
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Card Description */}
+                  <p className="text-xs sm:text-[13.5px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal mb-4">
+                    {language === "ar" ? card.descAr : card.descEn}
+                  </p>
+
+                  {/* Bullet Highlights for Card 1 (Tall Card) */}
+                  {card.featuresAr && (
+                    <ul className="space-y-2 mb-6 pt-3 border-t border-slate-100 dark:border-slate-800/80 w-full">
+                      {(language === "ar" ? card.featuresAr : card.featuresEn).map((feat, fIdx) => (
+                        <li key={fIdx} className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-300">
+                          <span className="w-1.5 h-1.5 rounded-full bg-teal-500 mt-1.5 shrink-0" />
+                          <span>{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
 
-                {/* Card Title — Prominent font grade & guaranteed single line */}
-                <h3 className="w-full text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2.5 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
-                  {language === "ar" ? card.titleAr : card.titleEn}
-                </h3>
-
-                {/* Card Description */}
-                <p className="text-xs sm:text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed font-normal">
-                  {language === "ar" ? card.descAr : card.descEn}
-                </p>
+                {/* Tech Pills Footer */}
+                {card.tagsAr && (
+                  <div className="flex flex-wrap gap-1.5 pt-4 border-t border-slate-100 dark:border-slate-800/60 w-full mt-auto">
+                    {(language === "ar" ? card.tagsAr : card.tagsEn).map((tag, tIdx) => (
+                      <span
+                        key={tIdx}
+                        className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </motion.div>
             </StaggerItem>
           ))}
