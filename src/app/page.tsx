@@ -496,58 +496,11 @@ export default function HomePage() {
               </div>
             </div>
           </motion.div>
-
-          {/* ══════════════════════════════════════════════
-              2. WORK METHODOLOGY & CORE SERVICES
-                 (Immediately Following the 4 Hero Stats)
-             ══════════════════════════════════════════════ */}
-          <div className="pt-16 sm:pt-20 lg:pt-24">
-            <ScrollReveal className="text-right rtl:text-right ltr:text-left mb-8 sm:mb-10">
-              {/* Overline with accent line */}
-              <div className="flex items-center justify-start gap-2.5 mb-2.5">
-                <span className="w-8 h-[2.5px] bg-teal-500 rounded-full inline-block" />
-                <span className="text-xs sm:text-[13px] font-mono tracking-[0.2em] uppercase text-teal-600 dark:text-teal-400 font-bold">
-                  HOW I WORK • APPROACH •
-                </span>
-              </div>
-
-              {/* Section Main Title with High-Impact Typography & Distinct Weight */}
-              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-slate-900 dark:text-white leading-[1.2]">
-                {language === "ar" ? "منهجية العمل والخدمات الهندسية" : "Work Methodology & Engineering Services"}
-              </h2>
-            </ScrollReveal>
-
-            <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6" staggerDelay={0.1}>
-              {methodologyCards.map((card) => (
-                <StaggerItem key={card.number}>
-                  <motion.div
-                    whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                    className="relative p-6 sm:p-7 pt-12 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col items-center text-center group h-full justify-start"
-                  >
-                    {/* Top-Right Number Pill Badge */}
-                    <span className={`absolute top-4 right-4 px-3 py-1 text-xs font-mono font-bold rounded-lg ${card.badgeColor}`}>
-                      {card.number}
-                    </span>
-
-                    {/* Card Title */}
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
-                      {language === "ar" ? card.titleAr : card.titleEn}
-                    </h3>
-
-                    {/* Card Description */}
-                    <p className="text-xs sm:text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
-                      {language === "ar" ? card.descAr : card.descEn}
-                    </p>
-                  </motion.div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-          </div>
         </div>
       </section>
 
       {/* ══════════════════════════════════════════════
-          3. WORK PHILOSOPHY SECTION
+          2. WORK PHILOSOPHY SECTION
              (Engineering Focused on Delivering Reliable Products)
              Matches media_1795258393687_dc594766.png exactly
          ══════════════════════════════════════════════ */}
@@ -612,6 +565,53 @@ export default function HomePage() {
             <ArrowLeft className="w-4 h-4 rtl:rotate-0 ltr:rotate-180 text-slate-500 group-hover:text-teal-600 dark:group-hover:text-teal-400 group-hover:-translate-x-1 ltr:group-hover:translate-x-1 transition-all" />
           </Link>
         </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════
+          3. WORK METHODOLOGY & CORE SERVICES
+             (ERP, Web, UI/UX, Mentorship)
+         ══════════════════════════════════════════════ */}
+      <section id="services" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal className="text-right rtl:text-right ltr:text-left mb-8 sm:mb-10">
+          {/* Overline with accent line */}
+          <div className="flex items-center justify-start gap-2.5 mb-2.5">
+            <span className="w-8 h-[2.5px] bg-teal-500 rounded-full inline-block" />
+            <span className="text-xs sm:text-[13px] font-mono tracking-[0.2em] uppercase text-teal-600 dark:text-teal-400 font-bold">
+              HOW I WORK • APPROACH •
+            </span>
+          </div>
+
+          {/* Section Main Title with High-Impact Typography & Distinct Weight */}
+          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-slate-900 dark:text-white leading-[1.2]">
+            {language === "ar" ? "منهجية العمل والخدمات الهندسية" : "Work Methodology & Engineering Services"}
+          </h2>
+        </ScrollReveal>
+
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6" staggerDelay={0.1}>
+          {methodologyCards.map((card) => (
+            <StaggerItem key={card.number}>
+              <motion.div
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                className="relative p-6 sm:p-7 pt-12 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col items-center text-center group h-full justify-start"
+              >
+                {/* Top-Right Number Pill Badge */}
+                <span className={`absolute top-4 right-4 px-3 py-1 text-xs font-mono font-bold rounded-lg ${card.badgeColor}`}>
+                  {card.number}
+                </span>
+
+                {/* Card Title */}
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                  {language === "ar" ? card.titleAr : card.titleEn}
+                </h3>
+
+                {/* Card Description */}
+                <p className="text-xs sm:text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+                  {language === "ar" ? card.descAr : card.descEn}
+                </p>
+              </motion.div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
       </section>
 
       {/* ══════════════════════════════════════════════
