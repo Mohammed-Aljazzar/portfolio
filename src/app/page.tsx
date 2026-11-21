@@ -177,8 +177,8 @@ export default function HomePage() {
     {
       icon: <Lightbulb className="w-6 h-6 text-teal-600 dark:text-teal-400" />,
       iconBg: "bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/60",
-      titleAr: "عقلية حل المشكلات أولاً",
-      titleEn: "Problem-First Architecture",
+      titleAr: "عقلية حل المشكلات",
+      titleEn: "Problem-First Mindset",
       descAr: "البدء دائماً بفهم عميق لتدفقات العمل واحتياجات المؤسسة واختناقات الأداء قبل كتابة سطر كود واحد، لضمان أعلى عائد استثماري وقيمة ملموسة.",
       descEn: "Deep immersion in business workflows, constraints, and pain points before writing code to maximize software ROI and operational impact.",
     },
@@ -193,7 +193,7 @@ export default function HomePage() {
     {
       icon: <Palette className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />,
       iconBg: "bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/60",
-      titleAr: "تصميم يضع الإنسان في المركز",
+      titleAr: "تصميم يركز على الإنسان",
       titleEn: "Human-Centered Design",
       descAr: "أقوى نظام برمجيات يفقد جدواه إن كان معقداً في التشغيل. ندمج بين صرامة الـ ERP وبساطة وسرعة واجهات الـ UI/UX الحديثة لتجربة مستخدم سلسة.",
       descEn: "The most powerful backend is useless if difficult to operate. We marry enterprise ERP rigor with fluid, intuitive consumer-grade UX.",
@@ -201,7 +201,7 @@ export default function HomePage() {
     {
       icon: <ShieldCheck className="w-6 h-6 text-amber-600 dark:text-amber-400" />,
       iconBg: "bg-amber-50 dark:bg-amber-950/60 border border-amber-100 dark:border-amber-800/60",
-      titleAr: "موثوقية الإنتاج والأمان العالي",
+      titleAr: "موثوقية وأمان الإنتاج",
       titleEn: "Production Rigor & Security",
       descAr: "حماية متقدمة للبيانات، إدارة دقيقة للصلاحيات، أتمتة موثوقة لتدفقات العمل، وضمان استقرار تشغيلي مستمر للأنظمة تحت أعلى أحمال العمل.",
       descEn: "Enterprise-grade data security, granular access controls, automated fail-safes, and 24/7 stability under peak operational loads.",
@@ -541,8 +541,8 @@ export default function HomePage() {
                   {card.icon}
                 </div>
 
-                {/* Card Title */}
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                {/* Card Title — Guaranteed Single Line */}
+                <h3 className="w-full text-[15px] sm:text-base lg:text-[14.5px] xl:text-[16px] font-bold text-slate-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
                   {language === "ar" ? card.titleAr : card.titleEn}
                 </h3>
 
