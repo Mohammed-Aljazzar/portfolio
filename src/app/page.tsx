@@ -1218,7 +1218,7 @@ export default function HomePage() {
         <div className="rounded-3xl bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800 p-8 sm:p-10 lg:p-12 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             {/* Right in RTL: Content Column */}
-            <div className="lg:col-span-8 space-y-4 text-right">
+            <div className="lg:col-span-7 space-y-4 text-right">
               {/* Overline with dash & bullet */}
               <div className="flex items-center justify-start gap-2 mb-2.5">
                 <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
@@ -1266,18 +1266,42 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Left in RTL: CTA & Tag Column */}
-            <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center space-y-4">
-              {/* Mentorship Tag */}
-              <div className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/80 text-[11px] font-mono text-slate-600 dark:text-slate-400 border border-slate-200/70 dark:border-slate-700/70">
-                <span className="w-1.5 h-1.5 rounded-full bg-teal-500" />
-                <span>Odoo • Python/Django • Frappe • UI/UX</span>
+            {/* Left in RTL: CTA & Tracks Card Column */}
+            <div className="lg:col-span-5 p-6 sm:p-7 rounded-2xl bg-slate-50/90 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 flex flex-col justify-between space-y-5 text-right">
+              <div>
+                <div className="flex items-center justify-between mb-3.5">
+                  <span className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                    <GraduationCap className="w-4 h-4 text-teal-600 dark:text-teal-400" />
+                    <span>{language === "ar" ? "المسارات التخصصية المعتمدة" : "Accredited Tracks"}</span>
+                  </span>
+                  <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 font-semibold border border-teal-200/60 dark:border-teal-800/60">
+                    Live Mentorship
+                  </span>
+                </div>
+
+                {/* Individual Tags Chips */}
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    { ar: "أنظمة Odoo ERP الرسمية", en: "Odoo ERP S.A." },
+                    { ar: "Frappe & ERPNext", en: "Frappe & ERPNext" },
+                    { ar: "Python & Django APIs", en: "Python & Django" },
+                    { ar: "تصميم واجهات وتجربة UI/UX", en: "UI/UX & Figma" },
+                    { ar: "العمل الحر الدولي (Upwork)", en: "Global Freelancing" },
+                  ].map((track) => (
+                    <span
+                      key={track.en}
+                      className="text-[11px] sm:text-[11.5px] font-mono px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/80 shadow-2xs font-medium hover:border-teal-500/40 transition-colors"
+                    >
+                      {language === "ar" ? track.ar : track.en}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               {/* Action Button */}
               <Link
                 href="/training"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm shadow-xs hover:shadow-md transition-all duration-200 group"
+                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm shadow-xs hover:shadow-md transition-all duration-200 group text-center"
               >
                 <span>{t.trainingTeaser.exploreBtn}</span>
                 <Arrow className="w-4 h-4 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
