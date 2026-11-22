@@ -627,174 +627,8 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          2. WORK PHILOSOPHY SECTION
-             (Engineering Focused on Delivering Reliable Products)
-             Matches media_1795258393687_dc594766.png exactly
-         ══════════════════════════════════════════════ */}
-      <section id="philosophy" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal className="text-right rtl:text-right ltr:text-left mb-8 sm:mb-10">
-          {/* Overline with dash & bullet */}
-          <div className="flex items-center justify-start gap-2 mb-2.5">
-            <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
-            <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
-            <span className="text-xs sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
-              {language === "ar" ? "فلسفة العمل والهندسة" : "WORK & ENGINEERING PHILOSOPHY"}
-            </span>
-          </div>
-
-          {/* Main Title — Refined, Classy & Smooth Typography */}
-          <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
-            {language === "ar" ? "المبادئ الحاكمة لجودة واستدامة الأنظمة" : "Guiding Principles for Enduring & Scalable Systems"}
-          </h2>
-
-          {/* Subtitle Paragraph */}
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl mt-2.5">
-            {language === "ar"
-              ? "لا نكتب الكود لمجرد البرمجة، بل لبناء معماريات مؤسسية متينة تحقق أهداف العمل وتدوم لسنوات، توازن بين صرامة الأنظمة وسلاسة التجربة."
-              : "We don't write code for the sake of code. We architect enduring enterprise systems that solve real challenges, balancing structural rigor with fluid experience."}
-          </p>
-        </ScrollReveal>
-
-        {/* 4 Philosophy Cards */}
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6" staggerDelay={0.1}>
-          {philosophyCards.map((card, idx) => (
-            <StaggerItem key={idx}>
-              <motion.div
-                whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className="relative p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-start text-right items-start group h-full"
-              >
-                {/* Icon in Rounded Box */}
-                <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-4 sm:mb-5 ${card.iconBg}`}>
-                  {card.icon}
-                </div>
-
-                {/* Card Title — Prominent font grade & guaranteed single line */}
-                <h3 className="w-full text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2.5 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
-                  {language === "ar" ? card.titleAr : card.titleEn}
-                </h3>
-
-                {/* Card Description */}
-                <p className="text-xs sm:text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed font-normal">
-                  {language === "ar" ? card.descAr : card.descEn}
-                </p>
-              </motion.div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </section>
-
-      {/* ══════════════════════════════════════════════
-          3. WORK METHODOLOGY & CORE SERVICES
-             (ERP, Web, UI/UX, Mentorship)
-             Matches the Philosophy section styling 100%
-         ══════════════════════════════════════════════ */}
-      <section id="services" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal className="text-right rtl:text-right ltr:text-left mb-8 sm:mb-10">
-          {/* Overline with dash & bullet */}
-          <div className="flex items-center justify-start gap-2 mb-2.5">
-            <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
-            <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
-            <span className="text-xs sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
-              {language === "ar" ? "الخدمات والمسارات الهندسية" : "ENGINEERING TRACKS & SERVICES"}
-            </span>
-          </div>
-
-          {/* Main Title — Refined, Classy & Smooth Typography */}
-          <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
-            {language === "ar" ? "مسارات هندسية متكاملة لبناء وتطوير الأعمال" : "Integrated Engineering Tracks for Scalable Business"}
-          </h2>
-
-          {/* Subtitle Paragraph */}
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl mt-2.5">
-            {language === "ar"
-              ? "حلول برمجية واقعية تنطلق من متطلبات العمل الفعلية؛ تشمل تخصيص أنظمة الـ ERP، وتطوير تطبيقات الويب الحديثة، وتصميم الواجهات ونقل المعرفة للفرق."
-              : "End-to-end software solutions grounded in real business requirements: from ERP customization and full-stack web to polished UI/UX and engineering mentorship."}
-          </p>
-        </ScrollReveal>
-
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6" staggerDelay={0.1}>
-          {methodologyCards.map((card) => (
-            <StaggerItem key={card.number} className={card.spanClass}>
-              <motion.div
-                whileHover={{ y: -5, transition: { duration: 0.25 } }}
-                className="relative p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-between text-right items-start group h-full"
-              >
-                <div className="w-full">
-                  {/* Top Bar with Icon in Box & Number Pill + Certified Badge */}
-                  <div className="w-full flex items-center justify-between mb-4 sm:mb-5">
-                    <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center ${card.iconBg}`}>
-                      {card.icon}
-                    </div>
-                    <div className="flex items-center gap-2">
-                      {card.subtitleAr && (
-                        <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-semibold rounded-full bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/60">
-                          <CheckCircle2 className="w-3 h-3 text-teal-600 dark:text-teal-400" />
-                          <span>{language === "ar" ? "معتمد Odoo" : "Odoo Certified"}</span>
-                        </span>
-                      )}
-                      <span className={`px-2.5 py-1 text-xs font-mono font-bold rounded-lg ${card.badgeColor}`}>
-                        {card.number}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Card Title — Prominent font grade & guaranteed single line */}
-                  <h3 className="w-full text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
-                    {language === "ar" ? card.titleAr : card.titleEn}
-                  </h3>
-
-                  {/* Card Description */}
-                  <p className="text-xs sm:text-[13.5px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal mb-4">
-                    {language === "ar" ? card.descAr : card.descEn}
-                  </p>
-
-                  {/* Highlights / Features with neat Check icon */}
-                  {card.featuresAr && (
-                    <ul className={`space-y-2 mb-5 w-full ${card.spanClass.includes("col-span-2") ? "sm:grid sm:grid-cols-2 sm:gap-3 sm:space-y-0" : ""}`}>
-                      {(language === "ar" ? card.featuresAr : card.featuresEn).map((feat, fIdx) => (
-                        <li key={fIdx} className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-teal-500 shrink-0" />
-                          <span className="line-clamp-1">{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-
-                {/* Tech Pills Footer - Natural, stylish chips without harsh separator */}
-                {card.tagsAr && (
-                  <div className="flex flex-wrap gap-1.5 pt-2 w-full mt-auto">
-                    {(language === "ar" ? card.tagsAr : card.tagsEn).map((tag, tIdx) => (
-                      <span
-                        key={tIdx}
-                        className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-lg bg-slate-100/80 dark:bg-slate-800/70 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/50 hover:border-teal-500/40 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </motion.div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-
-        {/* Bottom CTA Button Aligned to Left in RTL (End of line) */}
-        <div className="flex justify-end mt-8 sm:mt-10">
-          <Link
-            href="/experience"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 text-slate-800 dark:text-slate-200 text-xs sm:text-sm font-bold shadow-xs hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 hover:shadow-md transition-all group"
-          >
-            <span>{language === "ar" ? "عرض الخبرات الهندسية" : "View Engineering Experience"}</span>
-            <ArrowLeft className="w-4 h-4 rtl:rotate-0 ltr:rotate-180 text-slate-500 group-hover:text-teal-600 dark:group-hover:text-teal-400 group-hover:-translate-x-1 ltr:group-hover:translate-x-1 transition-all" />
-          </Link>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════
-          3. SELECTED PROJECTS & SHOWCASE
-             Exact Match to Reference Design (media_1795264182177_70c8dabf.jpg)
-             Placed directly under the Services / Engineering Tracks section
+          2. SELECTED PROJECTS & SHOWCASE
+             Placed directly under the Hero section
          ══════════════════════════════════════════════ */}
       <section id="projects" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
         {/* Header & Filter Pills Row */}
@@ -1100,6 +934,171 @@ export default function HomePage() {
             );
           })}
         </StaggerContainer>
+      </section>
+
+      {/* ══════════════════════════════════════════════
+          3. WORK PHILOSOPHY SECTION
+             (Engineering Focused on Delivering Reliable Products)
+             Matches media_1795258393687_dc594766.png exactly
+         ══════════════════════════════════════════════ */}
+      <section id="philosophy" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal className="text-right rtl:text-right ltr:text-left mb-8 sm:mb-10">
+          {/* Overline with dash & bullet */}
+          <div className="flex items-center justify-start gap-2 mb-2.5">
+            <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
+            <span className="text-xs sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
+              {language === "ar" ? "فلسفة العمل والهندسة" : "WORK & ENGINEERING PHILOSOPHY"}
+            </span>
+          </div>
+
+          {/* Main Title — Refined, Classy & Smooth Typography */}
+          <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
+            {language === "ar" ? "المبادئ الحاكمة لجودة واستدامة الأنظمة" : "Guiding Principles for Enduring & Scalable Systems"}
+          </h2>
+
+          {/* Subtitle Paragraph */}
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl mt-2.5">
+            {language === "ar"
+              ? "لا نكتب الكود لمجرد البرمجة، بل لبناء معماريات مؤسسية متينة تحقق أهداف العمل وتدوم لسنوات، توازن بين صرامة الأنظمة وسلاسة التجربة."
+              : "We don't write code for the sake of code. We architect enduring enterprise systems that solve real challenges, balancing structural rigor with fluid experience."}
+          </p>
+        </ScrollReveal>
+
+        {/* 4 Philosophy Cards */}
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6" staggerDelay={0.1}>
+          {philosophyCards.map((card, idx) => (
+            <StaggerItem key={idx}>
+              <motion.div
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                className="relative p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-start text-right items-start group h-full"
+              >
+                {/* Icon in Rounded Box */}
+                <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-4 sm:mb-5 ${card.iconBg}`}>
+                  {card.icon}
+                </div>
+
+                {/* Card Title — Prominent font grade & guaranteed single line */}
+                <h3 className="w-full text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2.5 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
+                  {language === "ar" ? card.titleAr : card.titleEn}
+                </h3>
+
+                {/* Card Description */}
+                <p className="text-xs sm:text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed font-normal">
+                  {language === "ar" ? card.descAr : card.descEn}
+                </p>
+              </motion.div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </section>
+
+      {/* ══════════════════════════════════════════════
+          3. WORK METHODOLOGY & CORE SERVICES
+             (ERP, Web, UI/UX, Mentorship)
+             Matches the Philosophy section styling 100%
+         ══════════════════════════════════════════════ */}
+      <section id="services" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal className="text-right rtl:text-right ltr:text-left mb-8 sm:mb-10">
+          {/* Overline with dash & bullet */}
+          <div className="flex items-center justify-start gap-2 mb-2.5">
+            <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
+            <span className="text-xs sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
+              {language === "ar" ? "الخدمات والمسارات الهندسية" : "ENGINEERING TRACKS & SERVICES"}
+            </span>
+          </div>
+
+          {/* Main Title — Refined, Classy & Smooth Typography */}
+          <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
+            {language === "ar" ? "مسارات هندسية متكاملة لبناء وتطوير الأعمال" : "Integrated Engineering Tracks for Scalable Business"}
+          </h2>
+
+          {/* Subtitle Paragraph */}
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl mt-2.5">
+            {language === "ar"
+              ? "حلول برمجية واقعية تنطلق من متطلبات العمل الفعلية؛ تشمل تخصيص أنظمة الـ ERP، وتطوير تطبيقات الويب الحديثة، وتصميم الواجهات ونقل المعرفة للفرق."
+              : "End-to-end software solutions grounded in real business requirements: from ERP customization and full-stack web to polished UI/UX and engineering mentorship."}
+          </p>
+        </ScrollReveal>
+
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6" staggerDelay={0.1}>
+          {methodologyCards.map((card) => (
+            <StaggerItem key={card.number} className={card.spanClass}>
+              <motion.div
+                whileHover={{ y: -5, transition: { duration: 0.25 } }}
+                className="relative p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-between text-right items-start group h-full"
+              >
+                <div className="w-full">
+                  {/* Top Bar with Icon in Box & Number Pill + Certified Badge */}
+                  <div className="w-full flex items-center justify-between mb-4 sm:mb-5">
+                    <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center ${card.iconBg}`}>
+                      {card.icon}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      {card.subtitleAr && (
+                        <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-semibold rounded-full bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/60">
+                          <CheckCircle2 className="w-3 h-3 text-teal-600 dark:text-teal-400" />
+                          <span>{language === "ar" ? "معتمد Odoo" : "Odoo Certified"}</span>
+                        </span>
+                      )}
+                      <span className={`px-2.5 py-1 text-xs font-mono font-bold rounded-lg ${card.badgeColor}`}>
+                        {card.number}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Card Title — Prominent font grade & guaranteed single line */}
+                  <h3 className="w-full text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
+                    {language === "ar" ? card.titleAr : card.titleEn}
+                  </h3>
+
+                  {/* Card Description */}
+                  <p className="text-xs sm:text-[13.5px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal mb-4">
+                    {language === "ar" ? card.descAr : card.descEn}
+                  </p>
+
+                  {/* Highlights / Features with neat Check icon */}
+                  {card.featuresAr && (
+                    <ul className={`space-y-2 mb-5 w-full ${card.spanClass.includes("col-span-2") ? "sm:grid sm:grid-cols-2 sm:gap-3 sm:space-y-0" : ""}`}>
+                      {(language === "ar" ? card.featuresAr : card.featuresEn).map((feat, fIdx) => (
+                        <li key={fIdx} className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-teal-500 shrink-0" />
+                          <span className="line-clamp-1">{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+
+                {/* Tech Pills Footer - Natural, stylish chips without harsh separator */}
+                {card.tagsAr && (
+                  <div className="flex flex-wrap gap-1.5 pt-2 w-full mt-auto">
+                    {(language === "ar" ? card.tagsAr : card.tagsEn).map((tag, tIdx) => (
+                      <span
+                        key={tIdx}
+                        className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-lg bg-slate-100/80 dark:bg-slate-800/70 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/50 hover:border-teal-500/40 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </motion.div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+
+        {/* Bottom CTA Button Aligned to Left in RTL (End of line) */}
+        <div className="flex justify-end mt-8 sm:mt-10">
+          <Link
+            href="/experience"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 text-slate-800 dark:text-slate-200 text-xs sm:text-sm font-bold shadow-xs hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 hover:shadow-md transition-all group"
+          >
+            <span>{language === "ar" ? "عرض الخبرات الهندسية" : "View Engineering Experience"}</span>
+            <ArrowLeft className="w-4 h-4 rtl:rotate-0 ltr:rotate-180 text-slate-500 group-hover:text-teal-600 dark:group-hover:text-teal-400 group-hover:-translate-x-1 ltr:group-hover:translate-x-1 transition-all" />
+          </Link>
+        </div>
       </section>
 
       {/* ══════════════════════════════════════════════
