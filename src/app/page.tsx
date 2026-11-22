@@ -1315,8 +1315,8 @@ export default function HomePage() {
               {/* Subtitle Paragraph */}
               <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-normal max-w-2xl">
                 {language === "ar"
-                  ? "أنا منفتح على فرص تطوير البرمجيات، حلول وأنظمة الـ ERP، ومشاريع العمل الحر المختارة التي أستطيع المساهمة فيها في البناء المعماري، جودة التنفيذ، وتسليم منتجات موثوقة تدوم."
-                  : "Open to software engineering roles, ERP implementations, and selective consulting where I can architect, execute, and deliver robust, production-grade systems."}
+                  ? "سواء كنت بحاجة لبناء وتخصيص نظام ERP متكامل، تطوير منصة ويب متقدمة، أو قيادة تحدٍ هندسي استثنائي؛ يسعدني مناقشة فكرتك وتحويلها لواقع تشغيلي موثوق."
+                  : "Whether you need custom ERP engineering, scalable web architectures, or dedicated technical consulting, let's discuss your roadmap and build it with production-grade reliability."}
               </p>
             </div>
 
