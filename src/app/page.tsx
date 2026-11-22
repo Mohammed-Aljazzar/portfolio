@@ -1202,16 +1202,16 @@ export default function HomePage() {
 
       {/* ══════════════════════════════════════════════
           5. INDEPENDENT TRAINING TRACK BANNER
-             Formatted 100% like Philosophy of Work section
+             Clean, lightweight & focused on mentorship CTA
          ══════════════════════════════════════════════ */}
       <ScrollReveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800 p-6 sm:p-8 lg:p-10 shadow-xs hover:shadow-xl hover:border-teal-500/30 dark:hover:border-teal-400/30 transition-all duration-300 relative overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch relative z-10">
-            {/* Right in RTL: Content Column */}
-            <div className="lg:col-span-7 flex flex-col justify-between space-y-6 text-right">
+        <div className="rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 p-6 sm:p-8 lg:p-9 shadow-xs hover:shadow-lg hover:border-teal-500/30 dark:hover:border-teal-400/30 transition-all duration-300 relative overflow-hidden">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-10">
+            {/* Right in RTL: Content + Counters */}
+            <div className="flex-1 space-y-5 text-right">
               <div>
                 {/* Overline with dash & bullet */}
-                <div className="flex items-center justify-start gap-2 mb-2.5">
+                <div className="flex items-center justify-start gap-2 mb-2">
                   <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
                   <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
                   <span className="text-xs sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
@@ -1220,93 +1220,57 @@ export default function HomePage() {
                 </div>
 
                 {/* Main Title — Refined, Classy & Smooth Typography */}
-                <h3 className="text-2xl sm:text-3xl lg:text-[30px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight mb-3">
+                <h3 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight mb-2">
                   {language === "ar"
                     ? "نقل المعرفة وتمكين العقول التقنية الصاعدة"
                     : "Sharing Knowledge & Empowering Emerging Tech Minds"}
                 </h3>
 
                 {/* Subtitle Paragraph */}
-                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-xl">
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl">
                   {t.trainingTeaser.description}
                 </p>
               </div>
 
               {/* Verified Metrics Counter Hub */}
-              <div className="grid grid-cols-3 gap-4 pt-5 border-t border-slate-200/80 dark:border-slate-800">
-                <div className="space-y-1">
-                  <div className="text-2xl sm:text-3xl font-extrabold font-mono text-teal-600 dark:text-teal-400 flex items-center">
+              <div className="flex flex-wrap items-center gap-6 sm:gap-8 pt-4 border-t border-slate-100 dark:border-slate-800/80">
+                <div className="flex items-center gap-2.5">
+                  <span className="text-2xl sm:text-3xl font-extrabold font-mono text-teal-600 dark:text-teal-400 flex items-center">
                     <AnimatedCounter value={config.trainingProgramsCount} />
-                    <span className="text-teal-500 text-lg ml-0.5 rtl:mr-0.5 font-bold">+</span>
-                  </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t.trainingTeaser.programsCount}</div>
+                    <span className="text-teal-500 text-base ml-0.5 rtl:mr-0.5 font-bold">+</span>
+                  </span>
+                  <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t.trainingTeaser.programsCount}</span>
                 </div>
-                <div className="space-y-1">
-                  <div className="text-2xl sm:text-3xl font-extrabold font-mono text-teal-600 dark:text-teal-400 flex items-center">
+
+                <div className="w-[1px] h-6 bg-slate-200 dark:bg-slate-800 hidden sm:block" />
+
+                <div className="flex items-center gap-2.5">
+                  <span className="text-2xl sm:text-3xl font-extrabold font-mono text-teal-600 dark:text-teal-400 flex items-center">
                     <AnimatedCounter value={config.workshopsCount} />
-                    <span className="text-teal-500 text-lg ml-0.5 rtl:mr-0.5 font-bold">+</span>
-                  </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t.trainingTeaser.workshopsCount}</div>
+                    <span className="text-teal-500 text-base ml-0.5 rtl:mr-0.5 font-bold">+</span>
+                  </span>
+                  <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t.trainingTeaser.workshopsCount}</span>
                 </div>
-                <div className="space-y-1">
-                  <div className="text-2xl sm:text-3xl font-extrabold font-mono text-teal-600 dark:text-teal-400 flex items-center">
+
+                <div className="w-[1px] h-6 bg-slate-200 dark:bg-slate-800 hidden sm:block" />
+
+                <div className="flex items-center gap-2.5">
+                  <span className="text-2xl sm:text-3xl font-extrabold font-mono text-teal-600 dark:text-teal-400 flex items-center">
                     <AnimatedCounter value={config.traineesCount} />
-                    <span className="text-teal-500 text-lg ml-0.5 rtl:mr-0.5 font-bold">+</span>
-                  </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t.trainingTeaser.traineesCount}</div>
+                    <span className="text-teal-500 text-base ml-0.5 rtl:mr-0.5 font-bold">+</span>
+                  </span>
+                  <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t.trainingTeaser.traineesCount}</span>
                 </div>
               </div>
             </div>
 
-            {/* Left in RTL: CTA & Tracks Card Column */}
-            <div className="lg:col-span-5 p-5 sm:p-6 rounded-2xl bg-slate-50/90 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 flex flex-col justify-between space-y-4 text-right">
-              {/* Header: Title + Live Mentorship Pill */}
-              <div className="flex items-center justify-between pb-3 border-b border-slate-200/80 dark:border-slate-700/60">
-                <div className="flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-lg bg-teal-500/10 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0">
-                    <GraduationCap className="w-4 h-4" />
-                  </div>
-                  <span className="text-xs sm:text-[13px] font-bold text-slate-900 dark:text-white">
-                    {language === "ar" ? "المسارات التخصصية المعتمدة" : "Accredited Tracks"}
-                  </span>
-                </div>
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 text-[10.5px] font-mono font-bold border border-teal-200/70 dark:border-teal-800/70">
-                  <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
-                  <span>Live Mentorship</span>
-                </span>
-              </div>
-
-              {/* Structured Tracks List */}
-              <div className="space-y-2">
-                {[
-                  { ar: "أنظمة Odoo ERP الرسمية", en: "Certified Odoo ERP Systems", badge: "Odoo S.A." },
-                  { ar: "Frappe & ERPNext", en: "Frappe & ERPNext Solutions", badge: "Enterprise" },
-                  { ar: "Python & Django APIs", en: "Python & Django APIs", badge: "Backend" },
-                  { ar: "تصميم واجهات وتجربة UI/UX", en: "UI/UX & Figma", badge: "Figma" },
-                  { ar: "العمل الحر الدولي (Upwork)", en: "Global Freelancing (Upwork)", badge: "Career" },
-                ].map((track) => (
-                  <div
-                    key={track.en}
-                    className="flex items-center justify-between px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/70 dark:border-slate-800 hover:border-teal-500/40 hover:bg-teal-50/20 dark:hover:bg-teal-950/20 transition-all text-xs group"
-                  >
-                    <div className="flex items-center gap-2 min-w-0">
-                      <span className="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0 group-hover:scale-125 transition-transform" />
-                      <span className="font-semibold text-slate-800 dark:text-slate-200 truncate text-[11.5px] sm:text-xs">
-                        {language === "ar" ? track.ar : track.en}
-                      </span>
-                    </div>
-                    <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800/80 shrink-0 font-medium">
-                      {track.badge}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Action Button */}
+            {/* Left in RTL: CTA Button */}
+            <div className="shrink-0 flex items-center justify-start lg:justify-end">
               <Link
                 href="/training"
-                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm shadow-xs hover:shadow-md transition-all duration-200 group text-center mt-1"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm shadow-xs hover:shadow-md transition-all duration-200 group text-center whitespace-nowrap"
               >
+                <GraduationCap className="w-4 h-4" />
                 <span>{t.trainingTeaser.exploreBtn}</span>
                 <Arrow className="w-4 h-4 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
               </Link>
