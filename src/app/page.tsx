@@ -937,63 +937,6 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          3. WORK PHILOSOPHY SECTION
-             (Engineering Focused on Delivering Reliable Products)
-             Matches media_1795258393687_dc594766.png exactly
-         ══════════════════════════════════════════════ */}
-      <section id="philosophy" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal className="text-right rtl:text-right ltr:text-left mb-8 sm:mb-10">
-          {/* Overline with dash & bullet */}
-          <div className="flex items-center justify-start gap-2 mb-2.5">
-            <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
-            <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
-            <span className="text-xs sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
-              {language === "ar" ? "فلسفة العمل والهندسة" : "WORK & ENGINEERING PHILOSOPHY"}
-            </span>
-          </div>
-
-          {/* Main Title — Refined, Classy & Smooth Typography */}
-          <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
-            {language === "ar" ? "المبادئ الحاكمة لجودة واستدامة الأنظمة" : "Guiding Principles for Enduring & Scalable Systems"}
-          </h2>
-
-          {/* Subtitle Paragraph */}
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl mt-2.5">
-            {language === "ar"
-              ? "لا نكتب الكود لمجرد البرمجة، بل لبناء معماريات مؤسسية متينة تحقق أهداف العمل وتدوم لسنوات، توازن بين صرامة الأنظمة وسلاسة التجربة."
-              : "We don't write code for the sake of code. We architect enduring enterprise systems that solve real challenges, balancing structural rigor with fluid experience."}
-          </p>
-        </ScrollReveal>
-
-        {/* 4 Philosophy Cards */}
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6" staggerDelay={0.1}>
-          {philosophyCards.map((card, idx) => (
-            <StaggerItem key={idx}>
-              <motion.div
-                whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className="relative p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-start text-right items-start group h-full"
-              >
-                {/* Icon in Rounded Box */}
-                <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-4 sm:mb-5 ${card.iconBg}`}>
-                  {card.icon}
-                </div>
-
-                {/* Card Title — Prominent font grade & guaranteed single line */}
-                <h3 className="w-full text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2.5 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
-                  {language === "ar" ? card.titleAr : card.titleEn}
-                </h3>
-
-                {/* Card Description */}
-                <p className="text-xs sm:text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed font-normal">
-                  {language === "ar" ? card.descAr : card.descEn}
-                </p>
-              </motion.div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </section>
-
-      {/* ══════════════════════════════════════════════
           3. WORK METHODOLOGY & CORE SERVICES
              (ERP, Web, UI/UX, Mentorship)
              Matches the Philosophy section styling 100%
@@ -1277,6 +1220,63 @@ export default function HomePage() {
           </div>
         </div>
       </ScrollReveal>
+
+      {/* ══════════════════════════════════════════════
+          6. WORK PHILOSOPHY SECTION
+             (Engineering Focused on Delivering Reliable Products)
+             Matches media_1795258393687_dc594766.png exactly
+         ══════════════════════════════════════════════ */}
+      <section id="philosophy" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal className="text-right rtl:text-right ltr:text-left mb-8 sm:mb-10">
+          {/* Overline with dash & bullet */}
+          <div className="flex items-center justify-start gap-2 mb-2.5">
+            <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
+            <span className="text-xs sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
+              {language === "ar" ? "فلسفة العمل والهندسة" : "WORK & ENGINEERING PHILOSOPHY"}
+            </span>
+          </div>
+
+          {/* Main Title — Refined, Classy & Smooth Typography */}
+          <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
+            {language === "ar" ? "المبادئ الحاكمة لجودة واستدامة الأنظمة" : "Guiding Principles for Enduring & Scalable Systems"}
+          </h2>
+
+          {/* Subtitle Paragraph */}
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl mt-2.5">
+            {language === "ar"
+              ? "لا نكتب الكود لمجرد البرمجة، بل لبناء معماريات مؤسسية متينة تحقق أهداف العمل وتدوم لسنوات، توازن بين صرامة الأنظمة وسلاسة التجربة."
+              : "We don't write code for the sake of code. We architect enduring enterprise systems that solve real challenges, balancing structural rigor with fluid experience."}
+          </p>
+        </ScrollReveal>
+
+        {/* 4 Philosophy Cards */}
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6" staggerDelay={0.1}>
+          {philosophyCards.map((card, idx) => (
+            <StaggerItem key={idx}>
+              <motion.div
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                className="relative p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-start text-right items-start group h-full"
+              >
+                {/* Icon in Rounded Box */}
+                <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-4 sm:mb-5 ${card.iconBg}`}>
+                  {card.icon}
+                </div>
+
+                {/* Card Title — Prominent font grade & guaranteed single line */}
+                <h3 className="w-full text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2.5 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
+                  {language === "ar" ? card.titleAr : card.titleEn}
+                </h3>
+
+                {/* Card Description */}
+                <p className="text-xs sm:text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed font-normal">
+                  {language === "ar" ? card.descAr : card.descEn}
+                </p>
+              </motion.div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </section>
 
       {/* ══════════════════════════════════════════════
           7. GLOBAL COMMUNICATION HUB & CONTACT
