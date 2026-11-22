@@ -1292,7 +1292,7 @@ export default function HomePage() {
               <div className="flex flex-col items-start gap-3">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/80 dark:border-emerald-800/80 text-emerald-700 dark:text-emerald-300 text-xs font-medium">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>{language === "ar" ? "متاح للفرص المناسبة" : "Available for select opportunities"}</span>
+                  <span>{language === "ar" ? "جاهز لبدء تعاون هندسي جديد" : "Ready for New Engineering Collaborations"}</span>
                 </div>
 
                 {/* Overline with dash & bullet */}
