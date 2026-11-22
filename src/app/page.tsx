@@ -16,7 +16,7 @@ import {
   Mail, Copy, Check, MapPin, Briefcase, Terminal, ShieldCheck,
   Cpu, Compass, Code2, Flame, Send, X, Clock, HelpCircle, CheckCircle,
   Lightbulb, Rocket, Shield, Eye, Download, Linkedin, AppWindow, Cable, Globe, ArrowUpRight,
-  LayoutGrid,
+  LayoutGrid, MessageCircle,
 } from "lucide-react";
 
 // Animations
@@ -1280,116 +1280,72 @@ export default function HomePage() {
 
       {/* ══════════════════════════════════════════════
           7. GLOBAL COMMUNICATION HUB & CONTACT
-             (Inspired by Gouda Nasrallah & Ameer Abudraz)
+             Formatted to match reference design (media_1795342356118_66eef428.png)
          ══════════════════════════════════════════════ */}
-      <ScrollReveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 sm:p-12 shadow-xl relative overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <ScrollReveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="rounded-[28px] sm:rounded-3xl bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800 p-8 sm:p-12 lg:p-14 shadow-xs hover:shadow-xl hover:border-teal-500/30 dark:hover:border-teal-400/30 transition-all duration-300 relative overflow-hidden">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 lg:gap-14">
             
-            <div className="lg:col-span-8 space-y-4">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300">
-                  <span className="w-2 h-2 rounded-full bg-teal-500 animate-ping" />
-                  RESPONSE TIME: &lt; 2 HOURS
-                </span>
-                <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
-                  {language === "ar" ? "قنوات موثقة ومباشرة" : "Direct Verified Channels"}
-                </span>
+            {/* Right in RTL: Content Column */}
+            <div className="flex-1 space-y-4 text-right">
+              {/* Top Row: Availability Pill & Overline */}
+              <div className="flex flex-col items-start gap-3">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/80 dark:border-emerald-800/80 text-emerald-700 dark:text-emerald-300 text-xs font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>{language === "ar" ? "متاح للفرص المناسبة" : "Available for select opportunities"}</span>
+                </div>
+
+                {/* Overline with dash & bullet */}
+                <div className="flex items-center justify-start gap-2">
+                  <span className="w-5 h-[1.5px] bg-teal-500 rounded-full inline-block" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
+                  <span className="text-xs font-semibold text-teal-600 dark:text-teal-400">
+                    {language === "ar" ? "للتواصل" : "GET IN TOUCH"}
+                  </span>
+                </div>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
-                {language === "ar" ? (
-                  <>
-                    جاهز لبناء{" "}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
-                      شيء استثنائي يدوم
-                    </span>{" "}
-                    معاً؟
-                  </>
-                ) : (
-                  <>
-                    Ready to Architect{" "}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
-                      Something Exceptional
-                    </span>{" "}
-                    Together?
-                  </>
-                )}
+              {/* Main Headline */}
+              <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-900 dark:text-white leading-snug tracking-tight">
+                {language === "ar"
+                  ? "جاهز لبناء شيء استثنائي يدوم معاً؟"
+                  : "Ready to Architect Something Exceptional Together?"}
               </h2>
 
-              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
+              {/* Subtitle Paragraph */}
+              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-normal max-w-2xl">
                 {language === "ar"
-                  ? "سواء كنت بحاجة لتطوير نظام ERP مخصص، بناء تطبيق ويب متكامل بـ Django و Next.js، تصميم واجهات مستخدم، أو تنسيق برنامج تدريبي متقدم؛ يسعدني التواصل المباشر معك."
-                  : "Whether you need a custom ERP implementation, scalable Django/Next.js full-stack platform, refined UI/UX design system, or specialized technical training, let's talk."}
+                  ? "أنا منفتح على فرص تطوير البرمجيات، حلول وأنظمة الـ ERP، ومشاريع العمل الحر المختارة التي أستطيع المساهمة فيها في البناء المعماري، جودة التنفيذ، وتسليم منتجات موثوقة تدوم."
+                  : "Open to software engineering roles, ERP implementations, and selective consulting where I can architect, execute, and deliver robust, production-grade systems."}
               </p>
-
-              {/* Direct Channel Badges */}
-              <div className="flex flex-wrap items-center gap-3 pt-3">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 text-white font-bold text-sm shadow-md transition-all duration-300 hover:-translate-y-0.5"
-                >
-                  <Mail className="w-4 h-4" />
-                  <span>{t.hero.ctaContact}</span>
-                  <Arrow className="w-4 h-4" />
-                </Link>
-
-                <a
-                  href="https://wa.me/972598048284"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
-                >
-                  <span>WhatsApp: +972 59 804 8284</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-
-                <button
-                  onClick={handleCopyEmail}
-                  className="inline-flex items-center gap-2 px-4 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-teal-500 text-sm font-mono transition-all duration-300 hover:-translate-y-0.5"
-                >
-                  {copiedEmail ? (
-                    <>
-                      <Check className="w-4 h-4 text-teal-500" />
-                      <span className="text-teal-600 font-sans font-semibold">
-                        {language === "ar" ? "تم نسخ البريد!" : "Copied!"}
-                      </span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-4 h-4" />
-                      <span>m.i.aljazzar19@gmail.com</span>
-                    </>
-                  )}
-                </button>
-              </div>
             </div>
 
-            {/* Quick Links to Socials */}
-            <div className="lg:col-span-4 flex flex-col gap-2.5">
-              {[
-                { name: "LinkedIn", handle: "/in/mohammed-aljazzar", url: "https://www.linkedin.com/in/mohammed-aljazzar" },
-                { name: "GitHub", handle: "@Mohammed-Aljazzar", url: "https://github.com/Mohammed-Aljazzar" },
-                { name: "Behance", handle: "@mohammedaljazzar", url: "https://www.behance.net/mohammedaljazzar" },
-              ].map((soc) => (
-                <a
-                  key={soc.name}
-                  href={soc.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 hover:border-teal-500 dark:hover:border-teal-400 transition-all hover:-translate-y-0.5 group"
-                >
-                  <div>
-                    <div className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
-                      {soc.name}
-                    </div>
-                    <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
-                      {soc.handle}
-                    </div>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-teal-500 transition-colors" />
-                </a>
-              ))}
+            {/* Left in RTL: Action Buttons Stack (Exact Match to Reference Image) */}
+            <div className="w-full sm:w-64 shrink-0 flex flex-col items-stretch space-y-3">
+              {/* 1. Primary Action Button (Start Conversation / ابدأ محادثة) */}
+              <a
+                href="https://wa.me/972598048284"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-[#0e7490] hover:bg-[#0c627a] text-white font-bold text-sm shadow-md shadow-teal-900/10 hover:shadow-lg transition-all duration-200 group text-center"
+              >
+                <MessageCircle className="w-4 h-4 transition-transform group-hover:scale-110" />
+                <span>{language === "ar" ? "ابدأ محادثة" : "Start a Conversation"}</span>
+              </a>
+
+              {/* 2. Secondary Action Button (Send Email / أرسل بريداً) */}
+              <a
+                href="mailto:m.i.aljazzar19@gmail.com"
+                className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:border-teal-500 dark:hover:border-teal-400 hover:bg-slate-50 dark:hover:bg-slate-800/80 font-bold text-sm shadow-2xs hover:shadow-sm transition-all duration-200 group text-center"
+              >
+                <Mail className="w-4 h-4 text-slate-500 dark:text-slate-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors" />
+                <span>{language === "ar" ? "أرسل بريداً" : "Send an Email"}</span>
+              </a>
+
+              {/* Subtext below buttons */}
+              <p className="text-[11.5px] text-slate-400 dark:text-slate-500 text-center font-normal pt-1">
+                {language === "ar" ? "أرد عادةً في أقرب وقت أكون فيه متاحًا." : "Usually reply as soon as available."}
+              </p>
             </div>
 
           </div>
