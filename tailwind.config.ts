@@ -39,6 +39,7 @@ const config: Config = {
         arabic: ["var(--font-cairo)", "Cairo", "sans-serif"],
         cairo: ["var(--font-cairo)", "Cairo", "sans-serif"],
         heading: ["var(--font-cairo)", "Cairo", "sans-serif"],
+        ibm: ["var(--font-ibm)", "IBM Plex Sans Arabic", "sans-serif"],
         mono: ["var(--font-mono)", "JetBrains Mono", "monospace"],
       },
       animation: {
