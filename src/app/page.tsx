@@ -1215,33 +1215,35 @@ export default function HomePage() {
              Formatted 100% like Philosophy of Work section
          ══════════════════════════════════════════════ */}
       <ScrollReveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800 p-8 sm:p-10 lg:p-12 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 relative overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+        <div className="rounded-3xl bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800 p-6 sm:p-8 lg:p-10 shadow-xs hover:shadow-xl hover:border-teal-500/30 dark:hover:border-teal-400/30 transition-all duration-300 relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch relative z-10">
             {/* Right in RTL: Content Column */}
-            <div className="lg:col-span-7 space-y-4 text-right">
-              {/* Overline with dash & bullet */}
-              <div className="flex items-center justify-start gap-2 mb-2.5">
-                <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
-                <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
-                <span className="text-xs sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
-                  {language === "ar" ? "المسار التدريبي ونقل المعرفة" : "TRAINING TRACK & KNOWLEDGE TRANSFER"}
-                </span>
+            <div className="lg:col-span-7 flex flex-col justify-between space-y-6 text-right">
+              <div>
+                {/* Overline with dash & bullet */}
+                <div className="flex items-center justify-start gap-2 mb-2.5">
+                  <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
+                  <span className="text-xs sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
+                    {language === "ar" ? "المسار التدريبي ونقل المعرفة" : "TRAINING TRACK & KNOWLEDGE TRANSFER"}
+                  </span>
+                </div>
+
+                {/* Main Title — Refined, Classy & Smooth Typography */}
+                <h3 className="text-2xl sm:text-3xl lg:text-[30px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight mb-3">
+                  {language === "ar"
+                    ? "نقل المعرفة وتمكين العقول التقنية الصاعدة"
+                    : "Sharing Knowledge & Empowering Emerging Tech Minds"}
+                </h3>
+
+                {/* Subtitle Paragraph */}
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-xl">
+                  {t.trainingTeaser.description}
+                </p>
               </div>
 
-              {/* Main Title — Refined, Classy & Smooth Typography */}
-              <h3 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
-                {language === "ar"
-                  ? "نقل المعرفة وتمكين العقول التقنية الصاعدة"
-                  : "Sharing Knowledge & Empowering Emerging Tech Minds"}
-              </h3>
-
-              {/* Subtitle Paragraph */}
-              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl mt-2.5">
-                {t.trainingTeaser.description}
-              </p>
-
               {/* Verified Metrics Counter Hub */}
-              <div className="grid grid-cols-3 gap-6 pt-6 border-t border-slate-200/80 dark:border-slate-800 max-w-lg mt-6">
+              <div className="grid grid-cols-3 gap-4 pt-5 border-t border-slate-200/80 dark:border-slate-800">
                 <div className="space-y-1">
                   <div className="text-2xl sm:text-3xl font-extrabold font-mono text-teal-600 dark:text-teal-400 flex items-center">
                     <AnimatedCounter value={config.trainingProgramsCount} />
@@ -1267,41 +1269,53 @@ export default function HomePage() {
             </div>
 
             {/* Left in RTL: CTA & Tracks Card Column */}
-            <div className="lg:col-span-5 p-6 sm:p-7 rounded-2xl bg-slate-50/90 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 flex flex-col justify-between space-y-5 text-right">
-              <div>
-                <div className="flex items-center justify-between mb-3.5">
-                  <span className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
-                    <GraduationCap className="w-4 h-4 text-teal-600 dark:text-teal-400" />
-                    <span>{language === "ar" ? "المسارات التخصصية المعتمدة" : "Accredited Tracks"}</span>
-                  </span>
-                  <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 font-semibold border border-teal-200/60 dark:border-teal-800/60">
-                    Live Mentorship
+            <div className="lg:col-span-5 p-5 sm:p-6 rounded-2xl bg-slate-50/90 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 flex flex-col justify-between space-y-4 text-right">
+              {/* Header: Title + Live Mentorship Pill */}
+              <div className="flex items-center justify-between pb-3 border-b border-slate-200/80 dark:border-slate-700/60">
+                <div className="flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-lg bg-teal-500/10 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0">
+                    <GraduationCap className="w-4 h-4" />
+                  </div>
+                  <span className="text-xs sm:text-[13px] font-bold text-slate-900 dark:text-white">
+                    {language === "ar" ? "المسارات التخصصية المعتمدة" : "Accredited Tracks"}
                   </span>
                 </div>
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 text-[10.5px] font-mono font-bold border border-teal-200/70 dark:border-teal-800/70">
+                  <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
+                  <span>Live Mentorship</span>
+                </span>
+              </div>
 
-                {/* Individual Tags Chips */}
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    { ar: "أنظمة Odoo ERP الرسمية", en: "Odoo ERP S.A." },
-                    { ar: "Frappe & ERPNext", en: "Frappe & ERPNext" },
-                    { ar: "Python & Django APIs", en: "Python & Django" },
-                    { ar: "تصميم واجهات وتجربة UI/UX", en: "UI/UX & Figma" },
-                    { ar: "العمل الحر الدولي (Upwork)", en: "Global Freelancing" },
-                  ].map((track) => (
-                    <span
-                      key={track.en}
-                      className="text-[11px] sm:text-[11.5px] font-mono px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/80 shadow-2xs font-medium hover:border-teal-500/40 transition-colors"
-                    >
-                      {language === "ar" ? track.ar : track.en}
+              {/* Structured Tracks List */}
+              <div className="space-y-2">
+                {[
+                  { ar: "أنظمة Odoo ERP الرسمية", en: "Certified Odoo ERP Systems", badge: "Odoo S.A." },
+                  { ar: "Frappe & ERPNext", en: "Frappe & ERPNext Solutions", badge: "Enterprise" },
+                  { ar: "Python & Django APIs", en: "Python & Django APIs", badge: "Backend" },
+                  { ar: "تصميم واجهات وتجربة UI/UX", en: "UI/UX & Figma", badge: "Figma" },
+                  { ar: "العمل الحر الدولي (Upwork)", en: "Global Freelancing (Upwork)", badge: "Career" },
+                ].map((track) => (
+                  <div
+                    key={track.en}
+                    className="flex items-center justify-between px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/70 dark:border-slate-800 hover:border-teal-500/40 hover:bg-teal-50/20 dark:hover:bg-teal-950/20 transition-all text-xs group"
+                  >
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span className="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0 group-hover:scale-125 transition-transform" />
+                      <span className="font-semibold text-slate-800 dark:text-slate-200 truncate text-[11.5px] sm:text-xs">
+                        {language === "ar" ? track.ar : track.en}
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800/80 shrink-0 font-medium">
+                      {track.badge}
                     </span>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
 
               {/* Action Button */}
               <Link
                 href="/training"
-                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm shadow-xs hover:shadow-md transition-all duration-200 group text-center"
+                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm shadow-xs hover:shadow-md transition-all duration-200 group text-center mt-1"
               >
                 <span>{t.trainingTeaser.exploreBtn}</span>
                 <Arrow className="w-4 h-4 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
