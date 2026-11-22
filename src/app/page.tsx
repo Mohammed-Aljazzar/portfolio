@@ -403,7 +403,7 @@ export default function HomePage() {
                   <Terminal className="w-4 h-4" />
                   {t.hero.greeting}
                 </p>
-                <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.18]">
+                <h1 className="text-3xl sm:text-5xl lg:text-[54px] xl:text-[62px] font-black font-heading tracking-tight text-slate-900 dark:text-slate-100 leading-[1.14]">
                   {language === "ar" ? config.nameAr : config.nameEn}
                 </h1>
                 
