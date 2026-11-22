@@ -580,7 +580,7 @@ export default function HomePage() {
             className="w-full grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5"
           >
             {/* 1. Years of Practical Experience */}
-            <div className="relative p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-teal-500/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
+            <div className="relative p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-teal-500/50 hover:shadow-md transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
               <div className="text-3xl sm:text-4xl font-extrabold font-mono text-teal-600 dark:text-teal-400 tracking-tight flex items-center justify-center sm:justify-start">
                 <AnimatedCounter value={config.yearsOfExperience} />
                 <span className="text-xl font-sans ml-0.5 text-teal-500">+</span>
@@ -591,7 +591,7 @@ export default function HomePage() {
             </div>
 
             {/* 2. Completed Software Projects */}
-            <div className="relative p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-indigo-500/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
+            <div className="relative p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-indigo-500/50 hover:shadow-md transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
               <div className="text-3xl sm:text-4xl font-extrabold font-mono text-indigo-600 dark:text-indigo-400 tracking-tight flex items-center justify-center sm:justify-start">
                 <AnimatedCounter value={config.completedProjects} />
                 <span className="text-xl font-sans ml-0.5 text-indigo-500">+</span>
@@ -602,7 +602,7 @@ export default function HomePage() {
             </div>
 
             {/* 3. Specialized Training Programs */}
-            <div className="relative p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-amber-500/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
+            <div className="relative p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-amber-500/50 hover:shadow-md transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
               <div className="text-3xl sm:text-4xl font-extrabold font-mono text-slate-800 dark:text-slate-200 tracking-tight flex items-center justify-center sm:justify-start">
                 <AnimatedCounter value={config.trainingProgramsCount} />
                 <span className="text-xl font-sans ml-0.5 text-amber-500">+</span>
@@ -613,7 +613,7 @@ export default function HomePage() {
             </div>
 
             {/* 4. Trainees & Beneficiaries */}
-            <div className="relative p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-teal-500/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
+            <div className="relative p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-teal-500/50 hover:shadow-md transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
               <div className="text-3xl sm:text-4xl font-extrabold font-mono text-teal-600 dark:text-teal-400 tracking-tight flex items-center justify-center sm:justify-start">
                 <AnimatedCounter value={config.traineesCount} />
                 <span className="text-xl font-sans ml-0.5 text-teal-500">+</span>
@@ -824,7 +824,6 @@ export default function HomePage() {
             return (
               <StaggerItem key={project.id}>
                 <motion.div
-                  whileHover={{ y: -6, transition: { duration: 0.25 } }}
                   className={`rounded-2xl bg-white dark:bg-slate-900/90 border overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group h-full ${
                     isSelectedInHero
                       ? "border-teal-500/80 dark:border-teal-400/80 shadow-md ring-1 ring-teal-500/30"
@@ -969,7 +968,6 @@ export default function HomePage() {
           {methodologyCards.map((card) => (
             <StaggerItem key={card.number} className={card.spanClass}>
               <motion.div
-                whileHover={{ y: -5, transition: { duration: 0.25 } }}
                 className="relative p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-between text-right items-start group h-full"
               >
                 <div className="w-full">
@@ -1106,7 +1104,6 @@ export default function HomePage() {
             return (
               <StaggerItem key={`${activeSkillTab}-${idx}`}>
                 <motion.div
-                  whileHover={{ y: -3 }}
                   className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 space-y-3 hover:border-teal-500/50 dark:hover:border-teal-400/50 transition-all duration-300 shadow-2xs group"
                 >
                   <div className="flex items-center justify-between">
@@ -1255,7 +1252,6 @@ export default function HomePage() {
           {philosophyCards.map((card, idx) => (
             <StaggerItem key={idx}>
               <motion.div
-                whileHover={{ y: -6, transition: { duration: 0.25 } }}
                 className="relative p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-start text-right items-start group h-full"
               >
                 {/* Icon in Rounded Box */}
