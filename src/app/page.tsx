@@ -372,7 +372,7 @@ export default function HomePage() {
               variants={heroContainer}
               initial="hidden"
               animate="visible"
-              className="lg:col-span-7 space-y-6 sm:space-y-7"
+              className="lg:col-span-7 space-y-6 sm:space-y-7 order-2 lg:order-1"
             >
               {/* Interactive Telemetry Status Badges */}
               <motion.div variants={heroItem} className="flex flex-wrap items-center gap-2.5">
@@ -534,13 +534,13 @@ export default function HomePage() {
               </motion.div>
             </motion.div>
 
-            {/* Right Side — High-End Portrait Aligned Parallel to Content */}
-            <div className="lg:col-span-5 relative flex flex-col items-center lg:items-end justify-start">
+            {/* Right Side — High-End Portrait (Above content on small screens, right on lg+) */}
+            <div className="lg:col-span-5 relative flex flex-col items-center lg:items-end justify-start order-1 lg:order-2">
               <motion.div
                 initial={{ opacity: 0, scale: 0.94 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.4, 0.25, 1] as const }}
-                className="relative w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[420px] xl:max-w-[440px] aspect-[4/5] sm:h-[30rem] lg:h-[33rem] xl:h-[34rem] rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group"
+                className="relative w-full max-w-[280px] sm:max-w-[340px] lg:max-w-[420px] xl:max-w-[440px] aspect-[4/5] sm:h-[30rem] lg:h-[33rem] xl:h-[34rem] rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group"
               >
                 <Image
                   src={config.avatarUrl}
