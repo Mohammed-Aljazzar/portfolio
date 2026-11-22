@@ -1327,7 +1327,7 @@ export default function HomePage() {
                 href="https://wa.me/972598048284"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-[#0e7490] hover:bg-[#0c627a] text-white font-bold text-sm shadow-md shadow-teal-900/10 hover:shadow-lg transition-all duration-200 group text-center"
+                className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 text-white font-bold text-sm shadow-md hover:shadow-teal-500/25 transition-all duration-200 group text-center hover:-translate-y-0.5"
               >
                 <MessageCircle className="w-4 h-4 transition-transform group-hover:scale-110" />
                 <span>{language === "ar" ? "ابدأ محادثة" : "Start a Conversation"}</span>
