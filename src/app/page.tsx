@@ -16,6 +16,7 @@ import {
   Mail, Copy, Check, MapPin, Briefcase, Terminal, ShieldCheck,
   Cpu, Compass, Code2, Flame, Send, X, Clock, HelpCircle, CheckCircle,
   Lightbulb, Rocket, Shield, Eye, Download, Linkedin, AppWindow, Cable, Globe, ArrowUpRight,
+  LayoutGrid,
 } from "lucide-react";
 
 // Animations
@@ -823,27 +824,16 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Left in RTL: Filter Pills */}
-            <div className="flex flex-wrap items-center gap-2">
-              {[
-                { id: "all", label: language === "ar" ? "الكل (11)" : "All (11)" },
-                { id: "erp", label: language === "ar" ? "ERP (4)" : "ERP (4)" },
-                { id: "frontend", label: language === "ar" ? "Frontend (2)" : "Frontend (2)" },
-                { id: "backend", label: language === "ar" ? "Backend (3)" : "Backend (3)" },
-                { id: "uiux", label: language === "ar" ? "UI/UX (2)" : "UI/UX (2)" },
-              ].map((cat) => (
-                <button
-                  key={cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
-                  className={`px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 ${
-                    activeCategory === cat.id
-                      ? "bg-teal-600 text-white shadow-xs"
-                      : "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200/90 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700"
-                  }`}
-                >
-                  {cat.label}
-                </button>
-              ))}
+            {/* Left in RTL: Link to All Projects Page with Apps Icon */}
+            <div>
+              <Link
+                href="/projects"
+                className="inline-flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 text-slate-800 dark:text-slate-200 text-xs sm:text-[13px] font-bold shadow-xs hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 hover:shadow-md transition-all group"
+              >
+                <LayoutGrid className="w-4 h-4 text-teal-600 dark:text-teal-400 group-hover:scale-110 transition-transform" />
+                <span>{language === "ar" ? "كل المشاريع" : "All Projects"}</span>
+                <ArrowLeft className="w-3.5 h-3.5 rtl:rotate-0 ltr:rotate-180 text-slate-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 group-hover:-translate-x-0.5 ltr:group-hover:translate-x-0.5 transition-all" />
+              </Link>
             </div>
           </div>
         </ScrollReveal>
