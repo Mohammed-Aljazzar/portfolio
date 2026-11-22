@@ -62,8 +62,8 @@ export const Footer: React.FC = () => {
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span>
                 {language === "ar"
-                  ? "غزة، فلسطين • متاح للعمل عن بُعد عالمياً"
-                  : "Gaza, Palestine • Available Remote Worldwide"}
+                  ? "فلسطين • متاح للعمل عن بُعد عالمياً"
+                  : "Palestine • Available Remote Worldwide"}
               </span>
             </div>
           </div>
