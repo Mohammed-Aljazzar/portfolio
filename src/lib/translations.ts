@@ -3,9 +3,9 @@ export const translations = {
     nav: {
       home: "الرئيسية",
       about: "نبذة عني",
-      experience: "الخبرات الهندسية",
-      training: "التدريب والورش",
-      projects: "معرض المشاريع",
+      experience: "الخبرة",
+      training: "التدريب",
+      projects: "المشاريع",
       contact: "تواصل معي",
       admin: "لوحة التحكم",
       downloadCv: "تحميل السيرة الذاتية",
