@@ -68,7 +68,7 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 pb-8 sm:pb-10 border-b border-slate-100 dark:border-slate-800/80">
           
           {/* Identity & Status */}
-          <div className="space-y-2.5 max-w-md text-right rtl:text-right ltr:text-left">
+          <div className="space-y-2.5 max-w-md text-start">
             <Link href="/" className="inline-flex items-center gap-3 group">
               <MonogramLogo size={38} />
               <div>

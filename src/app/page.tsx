@@ -403,7 +403,7 @@ export default function HomePage() {
                   <Terminal className="w-4 h-4" />
                   {t.hero.greeting}
                 </p>
-                <h1 className="text-3xl sm:text-5xl lg:text-[52px] xl:text-[58px] font-bold font-ibm tracking-tight text-slate-900 dark:text-slate-100 leading-[1.2]">
+                <h1 className={`text-3xl sm:text-5xl lg:text-[52px] xl:text-[58px] tracking-tight text-slate-900 dark:text-slate-100 leading-[1.2] ${isRTL ? "font-bold font-ibm" : "font-extrabold font-sans"}`}>
                   {language === "ar" ? config.nameAr : config.nameEn}
                 </h1>
                 
@@ -583,7 +583,7 @@ export default function HomePage() {
             <div className="relative p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-teal-500/50 hover:shadow-md transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
               <div className="text-3xl sm:text-4xl font-extrabold font-mono text-teal-600 dark:text-teal-400 tracking-tight flex items-center justify-center sm:justify-start">
                 <AnimatedCounter value={config.yearsOfExperience} />
-                <span className="text-xl font-sans ml-0.5 text-teal-500">+</span>
+                <span className="text-xl font-sans ltr:ml-0.5 rtl:mr-0.5 text-teal-500">+</span>
               </div>
               <div className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1.5 font-medium leading-snug">
                 {t.hero.stats.years}
@@ -594,7 +594,7 @@ export default function HomePage() {
             <div className="relative p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-indigo-500/50 hover:shadow-md transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
               <div className="text-3xl sm:text-4xl font-extrabold font-mono text-indigo-600 dark:text-indigo-400 tracking-tight flex items-center justify-center sm:justify-start">
                 <AnimatedCounter value={config.completedProjects} />
-                <span className="text-xl font-sans ml-0.5 text-indigo-500">+</span>
+                <span className="text-xl font-sans ltr:ml-0.5 rtl:mr-0.5 text-indigo-500">+</span>
               </div>
               <div className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1.5 font-medium leading-snug">
                 {t.hero.stats.projects}
@@ -605,7 +605,7 @@ export default function HomePage() {
             <div className="relative p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-amber-500/50 hover:shadow-md transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
               <div className="text-3xl sm:text-4xl font-extrabold font-mono text-slate-800 dark:text-slate-200 tracking-tight flex items-center justify-center sm:justify-start">
                 <AnimatedCounter value={config.trainingProgramsCount} />
-                <span className="text-xl font-sans ml-0.5 text-amber-500">+</span>
+                <span className="text-xl font-sans ltr:ml-0.5 rtl:mr-0.5 text-amber-500">+</span>
               </div>
               <div className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1.5 font-medium leading-snug">
                 {t.hero.stats.programs}
@@ -616,7 +616,7 @@ export default function HomePage() {
             <div className="relative p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-teal-500/50 hover:shadow-md transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
               <div className="text-3xl sm:text-4xl font-extrabold font-mono text-teal-600 dark:text-teal-400 tracking-tight flex items-center justify-center sm:justify-start">
                 <AnimatedCounter value={config.traineesCount} />
-                <span className="text-xl font-sans ml-0.5 text-teal-500">+</span>
+                <span className="text-xl font-sans ltr:ml-0.5 rtl:mr-0.5 text-teal-500">+</span>
               </div>
               <div className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1.5 font-medium leading-snug">
                 {t.hero.stats.trainees}
@@ -634,8 +634,8 @@ export default function HomePage() {
         {/* Header & Filter Pills Row */}
         <ScrollReveal>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-2">
-            {/* Right in RTL: Title & Subtitle styled identically to Philosophy section */}
-            <div className="space-y-2 max-w-2xl text-right">
+            {/* Header Text: Start-aligned in both RTL and LTR */}
+            <div className="space-y-2 max-w-2xl text-start">
               {/* Overline with dash & bullet */}
               <div className="flex items-center justify-start gap-2 mb-2.5">
                 <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
@@ -679,8 +679,8 @@ export default function HomePage() {
             className="rounded-3xl bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800 p-6 sm:p-8 lg:p-10 shadow-xs hover:shadow-xl hover:border-teal-500/30 transition-all duration-300 scroll-mt-28"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              {/* Details Column (Right in RTL / Order 1 in RTL) */}
-              <div className="lg:col-span-6 flex flex-col justify-between text-right space-y-5 lg:order-1 rtl:lg:order-1 ltr:lg:order-1">
+              {/* Details Column */}
+              <div className="lg:col-span-6 flex flex-col justify-between text-start space-y-5 lg:order-1">
                 <div>
                   {/* Top Bar: Nav Arrows, Category & Year */}
                   <div className="flex items-center justify-between mb-4">
@@ -723,7 +723,7 @@ export default function HomePage() {
 
                   {/* Two Meta Boxes (CORE STACK & ROLE) */}
                   <div className="grid grid-cols-2 gap-3 mb-6">
-                    <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-right">
+                    <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-start">
                       <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 font-semibold block mb-1">
                         CORE STACK
                       </span>
@@ -732,7 +732,7 @@ export default function HomePage() {
                       </span>
                     </div>
 
-                    <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-right">
+                    <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-start">
                       <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 font-semibold block mb-1">
                         ROLE
                       </span>
@@ -864,7 +864,7 @@ export default function HomePage() {
                     </div>
 
                     {/* Body Content */}
-                    <div className="p-5 sm:p-6 text-right space-y-2.5">
+                    <div className="p-5 sm:p-6 text-start space-y-2.5">
                       {/* Card Title */}
                       <h3
                         className="w-full text-lg font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors cursor-pointer"
@@ -941,7 +941,7 @@ export default function HomePage() {
              Matches the Philosophy section styling 100%
          ══════════════════════════════════════════════ */}
       <section id="services" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal className="text-right rtl:text-right ltr:text-left mb-8 sm:mb-10">
+        <ScrollReveal className="text-start mb-8 sm:mb-10">
           {/* Overline with dash & bullet */}
           <div className="flex items-center justify-start gap-2 mb-2.5">
             <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
@@ -968,7 +968,7 @@ export default function HomePage() {
           {methodologyCards.map((card) => (
             <StaggerItem key={card.number} className={card.spanClass}>
               <motion.div
-                className="relative p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-between text-right items-start group h-full"
+                className="relative p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-between text-start items-start group h-full"
               >
                 <div className="w-full">
                   {/* Top Bar with Icon in Box & Number Pill + Certified Badge */}
@@ -1047,7 +1047,7 @@ export default function HomePage() {
              Formatted 100% like Philosophy of Work section
          ══════════════════════════════════════════════ */}
       <section id="skills" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
-        <ScrollReveal className="text-right rtl:text-right ltr:text-left mb-2">
+        <ScrollReveal className="text-start mb-2">
           {/* Overline with dash & bullet */}
           <div className="flex items-center justify-start gap-2 mb-2.5">
             <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
@@ -1146,8 +1146,8 @@ export default function HomePage() {
       <ScrollReveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 p-6 sm:p-8 lg:p-9 shadow-xs hover:shadow-lg hover:border-teal-500/30 dark:hover:border-teal-400/30 transition-all duration-300 relative overflow-hidden">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-10">
-            {/* Right in RTL: Content + Counters */}
-            <div className="flex-1 space-y-5 text-right">
+            {/* Content + Counters Column */}
+            <div className="flex-1 space-y-5 text-start">
               <div>
                 {/* Overline with dash & bullet */}
                 <div className="flex items-center justify-start gap-2 mb-2">
@@ -1224,7 +1224,7 @@ export default function HomePage() {
              Matches media_1795258393687_dc594766.png exactly
          ══════════════════════════════════════════════ */}
       <section id="philosophy" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal className="text-right rtl:text-right ltr:text-left mb-8 sm:mb-10">
+        <ScrollReveal className="text-start mb-8 sm:mb-10">
           {/* Overline with dash & bullet */}
           <div className="flex items-center justify-start gap-2 mb-2.5">
             <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
@@ -1252,7 +1252,7 @@ export default function HomePage() {
           {philosophyCards.map((card, idx) => (
             <StaggerItem key={idx}>
               <motion.div
-                className="relative p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-start text-right items-start group h-full"
+                className="relative p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-start text-start items-start group h-full"
               >
                 {/* Icon in Rounded Box */}
                 <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-4 sm:mb-5 ${card.iconBg}`}>
@@ -1282,8 +1282,8 @@ export default function HomePage() {
         <div className="rounded-[28px] sm:rounded-3xl bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800 p-8 sm:p-12 lg:p-14 shadow-xs hover:shadow-xl hover:border-teal-500/30 dark:hover:border-teal-400/30 transition-all duration-300 relative overflow-hidden">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 lg:gap-14">
             
-            {/* Right in RTL: Content Column */}
-            <div className="flex-1 space-y-4 text-right">
+            {/* Content Column */}
+            <div className="flex-1 space-y-4 text-start">
               {/* Top Row: Availability Pill & Overline */}
               <div className="flex flex-col items-start gap-3">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/80 dark:border-emerald-800/80 text-emerald-700 dark:text-emerald-300 text-xs font-medium">
