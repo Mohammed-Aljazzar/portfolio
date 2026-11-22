@@ -372,10 +372,10 @@ export default function HomePage() {
               variants={heroContainer}
               initial="hidden"
               animate="visible"
-              className="lg:col-span-7 space-y-6 sm:space-y-7 order-2 lg:order-1"
+              className="lg:col-span-7 space-y-6 sm:space-y-7 order-2 lg:order-1 text-center lg:text-start flex flex-col items-center lg:items-start"
             >
               {/* Interactive Telemetry Status Badges */}
-              <motion.div variants={heroItem} className="flex flex-wrap items-center gap-2.5">
+              <motion.div variants={heroItem} className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50/90 dark:bg-teal-950/70 border border-teal-200/80 dark:border-teal-800 text-teal-800 dark:text-teal-300 text-xs font-semibold shadow-xs backdrop-blur-md"
@@ -397,8 +397,8 @@ export default function HomePage() {
               </motion.div>
 
               {/* Headline with Typewriter Subtitle */}
-              <motion.div variants={heroItem} className="space-y-3 sm:space-y-3.5">
-                <p className="text-xs sm:text-sm font-mono uppercase tracking-wider text-teal-600 dark:text-teal-400 font-bold flex items-center gap-2">
+              <motion.div variants={heroItem} className="space-y-3 sm:space-y-3.5 w-full">
+                <p className="text-xs sm:text-sm font-mono uppercase tracking-wider text-teal-600 dark:text-teal-400 font-bold flex items-center justify-center lg:justify-start gap-2">
                   <Terminal className="w-4 h-4" />
                   {t.hero.greeting}
                 </p>
@@ -407,7 +407,7 @@ export default function HomePage() {
                 </h1>
                 
                 {/* Dynamic Typewriter Text with Minimum Height to Avoid Layout Shifts */}
-                <div className="text-base sm:text-xl lg:text-2xl font-bold min-h-[3.6rem] sm:min-h-[2.8rem] flex items-center">
+                <div className="text-base sm:text-xl lg:text-2xl font-bold min-h-[3.6rem] sm:min-h-[2.8rem] flex items-center justify-center lg:justify-start">
                   <TypewriterText
                     phrases={typewriterPhrases}
                     speed={65}
@@ -419,12 +419,12 @@ export default function HomePage() {
               </motion.div>
 
               {/* Bio */}
-              <motion.p variants={heroItem} className="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
+              <motion.p variants={heroItem} className="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 {language === "ar" ? config.bioAr : config.bioEn}
               </motion.p>
 
               {/* Action Hub — Primary & Secondary Buttons */}
-              <motion.div variants={heroItem} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3.5 pt-2 sm:pt-2.5">
+              <motion.div variants={heroItem} className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-3.5 pt-2 sm:pt-2.5 w-full sm:w-auto">
                 {/* 1. Primary Button: Projects */}
                 <Link
                   href="/projects"
@@ -447,7 +447,7 @@ export default function HomePage() {
               </motion.div>
 
               {/* Direct Quick Contact & Social Channels (Email, LinkedIn, WhatsApp, GitHub, X) */}
-              <motion.div variants={heroItem} className="pt-2 sm:pt-2.5 flex flex-wrap items-center gap-3 sm:gap-4">
+              <motion.div variants={heroItem} className="pt-2 sm:pt-2.5 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4">
                 <span className="text-xs font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 font-semibold flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-teal-500" />
                   {language === "ar" ? "قنوات التواصل المباشر:" : "Direct Channels:"}
