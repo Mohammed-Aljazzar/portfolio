@@ -217,9 +217,9 @@ export const translations = {
   en: {
     nav: {
       home: "Home",
-      about: "About Me",
-      experience: "Engineering Career",
-      training: "Training & Workshops",
+      about: "About",
+      experience: "Experience",
+      training: "Training",
       projects: "Projects",
       contact: "Contact",
       admin: "Admin CMS",
