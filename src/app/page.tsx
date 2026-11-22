@@ -407,7 +407,7 @@ export default function HomePage() {
                 </h1>
                 
                 {/* Dynamic Typewriter Text with Minimum Height to Avoid Layout Shifts */}
-                <div className="text-base sm:text-xl lg:text-2xl font-bold min-h-[3rem] sm:min-h-[2.8rem] flex items-center">
+                <div className="text-base sm:text-xl lg:text-2xl font-bold min-h-[3.6rem] sm:min-h-[2.8rem] flex items-center">
                   <TypewriterText
                     phrases={typewriterPhrases}
                     speed={65}
@@ -424,11 +424,11 @@ export default function HomePage() {
               </motion.p>
 
               {/* Action Hub — Primary & Secondary Buttons */}
-              <motion.div variants={heroItem} className="flex flex-wrap items-center gap-3.5 pt-2 sm:pt-2.5">
+              <motion.div variants={heroItem} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3.5 pt-2 sm:pt-2.5">
                 {/* 1. Primary Button: Projects */}
                 <Link
                   href="/projects"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 text-white font-bold text-sm shadow-md hover:shadow-teal-500/25 transition-all duration-300 group hover:-translate-y-0.5"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 text-white font-bold text-sm shadow-md hover:shadow-teal-500/25 transition-all duration-300 group"
                 >
                   <span>{t.hero.ctaProjects}</span>
                   <Arrow className="w-4 h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
@@ -439,9 +439,9 @@ export default function HomePage() {
                   href={language === "ar" ? config.cvUrlAr || "/assets/cv/Mohammed_Aljazzar_CV_AR.pdf" : config.cvUrlEn || "/assets/cv/Mohammed_Aljazzar_CV_EN.pdf"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-slate-100/90 hover:bg-slate-200/90 dark:bg-slate-800/90 dark:hover:bg-slate-700/90 border border-slate-300/80 dark:border-slate-700 text-slate-800 dark:text-slate-100 font-bold text-sm transition-all duration-300 hover:-translate-y-0.5 shadow-xs group"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-slate-100/90 hover:bg-slate-200/90 dark:bg-slate-800/90 dark:hover:bg-slate-700/90 border border-slate-300/80 dark:border-slate-700 text-slate-800 dark:text-slate-100 font-bold text-sm transition-all duration-300 shadow-xs group"
                 >
-                  <Download className="w-4 h-4 text-teal-600 dark:text-teal-400 group-hover:-translate-y-0.5 transition-transform" />
+                  <Download className="w-4 h-4 text-teal-600 dark:text-teal-400 transition-transform" />
                   <span>{language === "ar" ? "تحميل السيرة الذاتية" : "Download Resume (CV)"}</span>
                 </a>
               </motion.div>
@@ -540,7 +540,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, scale: 0.94 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.4, 0.25, 1] as const }}
-                className="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[420px] xl:max-w-[440px] h-[26rem] sm:h-[30rem] lg:h-[33rem] xl:h-[34rem] rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group"
+                className="relative w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[420px] xl:max-w-[440px] aspect-[4/5] sm:h-[30rem] lg:h-[33rem] xl:h-[34rem] rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group"
               >
                 <Image
                   src={config.avatarUrl}
@@ -580,7 +580,7 @@ export default function HomePage() {
           >
             {/* 1. Years of Practical Experience */}
             <div className="relative p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-teal-500/50 hover:shadow-md transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
-              <div className="text-3xl sm:text-4xl font-extrabold font-mono text-teal-600 dark:text-teal-400 tracking-tight flex items-center justify-center sm:justify-start">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-mono text-teal-600 dark:text-teal-400 tracking-tight flex items-center justify-center sm:justify-start">
                 <AnimatedCounter value={config.yearsOfExperience} />
                 <span className="text-xl font-sans ltr:ml-0.5 rtl:mr-0.5 text-teal-500">+</span>
               </div>
@@ -591,7 +591,7 @@ export default function HomePage() {
 
             {/* 2. Completed Software Projects */}
             <div className="relative p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-indigo-500/50 hover:shadow-md transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
-              <div className="text-3xl sm:text-4xl font-extrabold font-mono text-indigo-600 dark:text-indigo-400 tracking-tight flex items-center justify-center sm:justify-start">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-mono text-indigo-600 dark:text-indigo-400 tracking-tight flex items-center justify-center sm:justify-start">
                 <AnimatedCounter value={config.completedProjects} />
                 <span className="text-xl font-sans ltr:ml-0.5 rtl:mr-0.5 text-indigo-500">+</span>
               </div>
@@ -602,7 +602,7 @@ export default function HomePage() {
 
             {/* 3. Specialized Training Programs */}
             <div className="relative p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-amber-500/50 hover:shadow-md transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
-              <div className="text-3xl sm:text-4xl font-extrabold font-mono text-slate-800 dark:text-slate-200 tracking-tight flex items-center justify-center sm:justify-start">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-mono text-slate-800 dark:text-slate-200 tracking-tight flex items-center justify-center sm:justify-start">
                 <AnimatedCounter value={config.trainingProgramsCount} />
                 <span className="text-xl font-sans ltr:ml-0.5 rtl:mr-0.5 text-amber-500">+</span>
               </div>
@@ -613,7 +613,7 @@ export default function HomePage() {
 
             {/* 4. Trainees & Beneficiaries */}
             <div className="relative p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-teal-500/50 hover:shadow-md transition-all duration-200 flex flex-col justify-center text-center sm:text-start">
-              <div className="text-3xl sm:text-4xl font-extrabold font-mono text-teal-600 dark:text-teal-400 tracking-tight flex items-center justify-center sm:justify-start">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-mono text-teal-600 dark:text-teal-400 tracking-tight flex items-center justify-center sm:justify-start">
                 <AnimatedCounter value={config.traineesCount} />
                 <span className="text-xl font-sans ltr:ml-0.5 rtl:mr-0.5 text-teal-500">+</span>
               </div>
@@ -721,8 +721,8 @@ export default function HomePage() {
                   </p>
 
                   {/* Two Meta Boxes (CORE STACK & ROLE) */}
-                  <div className="grid grid-cols-2 gap-3 mb-6">
-                    <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-start">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 mb-6">
+                    <div className="p-3 sm:p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-start">
                       <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 font-semibold block mb-1">
                         CORE STACK
                       </span>
@@ -988,8 +988,8 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  {/* Card Title — Prominent font grade & guaranteed single line */}
-                  <h3 className="w-full text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
+                  {/* Card Title — Prominent font grade & responsive wrap */}
+                  <h3 className="w-full text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors leading-snug">
                     {language === "ar" ? card.titleAr : card.titleEn}
                   </h3>
 
@@ -1264,11 +1264,11 @@ export default function HomePage() {
                   {card.icon}
                 </div>
 
-                {/* Card Title — Prominent font grade & guaranteed single line */}
-                <h3 className="w-full text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2.5 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
+                {/* Card Title — Prominent font grade & responsive wrap */}
+                <h3 className="w-full text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2.5 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors leading-snug">
                   {language === "ar" ? card.titleAr : card.titleEn}
                 </h3>
-
+                
                 {/* Card Description */}
                 <p className="text-xs sm:text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed font-normal">
                   {language === "ar" ? card.descAr : card.descEn}
@@ -1281,10 +1281,10 @@ export default function HomePage() {
 
       {/* ══════════════════════════════════════════════
           7. GLOBAL COMMUNICATION HUB & CONTACT
-             Formatted to match reference design (media_1795342356118_66eef428.png)
+          Formatted to match reference design (media_1795342356118_66eef428.png)
          ══════════════════════════════════════════════ */}
       <ScrollReveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-[28px] sm:rounded-3xl bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800 p-8 sm:p-12 lg:p-14 shadow-xs hover:shadow-xl hover:border-teal-500/30 dark:hover:border-teal-400/30 transition-all duration-300 relative overflow-hidden">
+        <div className="rounded-3xl bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800 p-6 sm:p-10 lg:p-14 shadow-xs hover:shadow-xl hover:border-teal-500/30 dark:hover:border-teal-400/30 transition-all duration-300 relative overflow-hidden">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 lg:gap-14">
             
             {/* Content Column */}
