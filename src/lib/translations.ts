@@ -17,7 +17,7 @@ export const translations = {
       close: "إغلاق",
     },
     hero: {
-      availableBadge: "متاح للمشاريع الجديدة",
+      availableBadge: "متاح للعمل التقني والتدريب",
       unavailableBadge: "غير متاح حالياً للمشاريع الجديدة",
       greeting: "مرحباً، أنا",
       name: "محمد الجزار",
@@ -232,7 +232,7 @@ export const translations = {
       close: "Close",
     },
     hero: {
-      availableBadge: "Available for New Projects",
+      availableBadge: "Available for Technical Work & Training",
       unavailableBadge: "Currently Booked for Active Engagements",
       greeting: "Hello, I am",
       name: "Mohammed Aljazzar",
