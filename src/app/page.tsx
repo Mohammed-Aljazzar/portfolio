@@ -1119,7 +1119,13 @@ export default function HomePage() {
                   {/* Telemetry Gauge Bar (Gouda Nasrallah style) */}
                   <div className="space-y-1.5">
                     <div className="flex justify-between items-center text-[11px] font-mono text-slate-500 dark:text-slate-400">
-                      <span>{skill.level}</span>
+                      <span>
+                        {skill.level.includes("|")
+                          ? language === "ar"
+                            ? skill.level.split("|")[0].trim()
+                            : skill.level.split("|")[1].trim()
+                          : skill.level}
+                      </span>
                       <span className="font-bold text-teal-600 dark:text-teal-400">{gauge}%</span>
                     </div>
                     <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">

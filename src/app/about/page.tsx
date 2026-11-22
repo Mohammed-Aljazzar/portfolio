@@ -142,7 +142,13 @@ export default function AboutPage() {
                   <div className="font-semibold text-sm text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-300">
                     {language === "ar" ? skill.nameAr : skill.nameEn}
                   </div>
-                  <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400">{skill.level}</div>
+                  <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
+                    {skill.level.includes("|")
+                      ? language === "ar"
+                        ? skill.level.split("|")[0].trim()
+                        : skill.level.split("|")[1].trim()
+                      : skill.level}
+                  </div>
                 </div>
                 {skill.isCore && (
                   <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 shrink-0">Core</span>
