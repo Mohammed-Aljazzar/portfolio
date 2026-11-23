@@ -633,30 +633,30 @@ export default function HomePage() {
         {/* Header & Filter Pills Row */}
         <ScrollReveal>
           <div className="pb-2 space-y-2.5">
-            <div className="flex items-center justify-between gap-4">
-              <div className="space-y-1 text-start">
+            <div className="flex items-center justify-between gap-3 sm:gap-4">
+              <div className="space-y-1 text-start min-w-0">
                 {/* Overline with dash & bullet */}
-                <div className="flex items-center justify-start gap-2 mb-1.5 sm:mb-2">
-                  <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
+                <div className="flex items-center justify-start gap-2 mb-1 sm:mb-2">
+                  <span className="w-5 sm:w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
                   <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
-                  <span className="text-xs sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
+                  <span className="text-[11px] sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400 truncate">
                     {language === "ar" ? "أعمال ومشاريع مختارة" : "SELECTED WORK & PROJECTS"}
                   </span>
                 </div>
 
                 {/* Main Title — Refined, Classy & Smooth Typography */}
-                <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
+                <h2 className="text-xl sm:text-3xl lg:text-[32px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
                   {language === "ar" ? "أعمال ومشاريع مختارة" : "Selected Work & Projects"}
                 </h2>
               </div>
 
-              {/* Edge-aligned opposite to the Section Title */}
+              {/* Edge-aligned opposite to the Section Title — Compact on mobile only */}
               <div className="shrink-0">
                 <Link
                   href="/projects"
-                  className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 text-slate-800 dark:text-slate-200 text-xs sm:text-[13px] font-bold shadow-xs hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 hover:shadow-md transition-all group"
+                  className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 sm:px-5 sm:py-2.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 text-slate-800 dark:text-slate-200 text-[11px] sm:text-[13px] font-bold shadow-xs hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 hover:shadow-md transition-all group"
                 >
-                  <LayoutGrid className="w-4 h-4 text-teal-600 dark:text-teal-400 group-hover:scale-110 transition-transform" />
+                  <LayoutGrid className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-teal-600 dark:text-teal-400 group-hover:scale-110 transition-transform" />
                   <span>{language === "ar" ? "كل المشاريع" : "All Projects"}</span>
                 </Link>
               </div>
