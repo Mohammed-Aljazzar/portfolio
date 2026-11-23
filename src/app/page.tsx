@@ -1227,9 +1227,9 @@ export default function HomePage() {
                 </p>
               </div>
 
-              {/* Verified Metrics Counter Hub */}
-              <div className="flex flex-wrap items-center gap-6 sm:gap-8 pt-4 border-t border-slate-100 dark:border-slate-800/80">
-                <div className="flex items-center gap-2.5">
+              {/* Verified Metrics Counter Hub — Centered on mobile only */}
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-5 sm:gap-8 pt-4 border-t border-slate-100 dark:border-slate-800/80">
+                <div className="flex items-center justify-center gap-2.5">
                   <span className="text-2xl sm:text-3xl font-extrabold font-mono text-teal-600 dark:text-teal-400 flex items-center">
                     <AnimatedCounter value={config.trainingProgramsCount} />
                     <span className="text-teal-500 text-base ml-0.5 rtl:mr-0.5 font-bold">+</span>
@@ -1239,7 +1239,7 @@ export default function HomePage() {
 
                 <div className="w-[1px] h-6 bg-slate-200 dark:bg-slate-800 hidden sm:block" />
 
-                <div className="flex items-center gap-2.5">
+                <div className="flex items-center justify-center gap-2.5">
                   <span className="text-2xl sm:text-3xl font-extrabold font-mono text-teal-600 dark:text-teal-400 flex items-center">
                     <AnimatedCounter value={config.workshopsCount} />
                     <span className="text-teal-500 text-base ml-0.5 rtl:mr-0.5 font-bold">+</span>
@@ -1249,7 +1249,7 @@ export default function HomePage() {
 
                 <div className="w-[1px] h-6 bg-slate-200 dark:bg-slate-800 hidden sm:block" />
 
-                <div className="flex items-center gap-2.5">
+                <div className="flex items-center justify-center gap-2.5">
                   <span className="text-2xl sm:text-3xl font-extrabold font-mono text-teal-600 dark:text-teal-400 flex items-center">
                     <AnimatedCounter value={config.traineesCount} />
                     <span className="text-teal-500 text-base ml-0.5 rtl:mr-0.5 font-bold">+</span>
@@ -1259,8 +1259,8 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Left in RTL: CTA Button */}
-            <div className="shrink-0 flex items-center justify-start lg:justify-end">
+            {/* Left in RTL: CTA Button — Centered on mobile only */}
+            <div className="shrink-0 flex items-center justify-center sm:justify-start lg:justify-end w-full sm:w-auto">
               <Link
                 href="/training"
                 className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm shadow-xs hover:shadow-md transition-all duration-200 group text-center whitespace-nowrap"
