@@ -254,7 +254,7 @@ export default function HomePage() {
       ],
       tagsAr: ["Next.js", "React", "Python", "Django", "TypeScript", "REST APIs"],
       tagsEn: ["Next.js", "React", "Python", "Django", "TypeScript", "REST APIs"],
-      spanClass: "md:col-span-2 lg:col-span-2 lg:row-span-1",
+      spanClass: "lg:col-span-2 lg:row-span-1",
     },
     {
       number: "03",
@@ -966,9 +966,9 @@ export default function HomePage() {
           </p>
         </ScrollReveal>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6" staggerDelay={0.1}>
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6" staggerDelay={0.1}>
           {methodologyCards.map((card) => (
-            <StaggerItem key={card.number} className={card.spanClass}>
+            <StaggerItem key={card.number} className={`${card.spanClass} h-full`}>
               <motion.div
                 className="relative p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-between text-start items-start group h-full"
               >
@@ -980,7 +980,7 @@ export default function HomePage() {
                     </div>
                     <div className="flex items-center gap-2">
                       {card.subtitleAr && (
-                        <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-semibold rounded-full bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/60">
+                        <span className="hidden lg:inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-semibold rounded-full bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/60">
                           <CheckCircle2 className="w-3 h-3 text-teal-600 dark:text-teal-400" />
                           <span>{language === "ar" ? "معتمد Odoo" : "Odoo Certified"}</span>
                         </span>
@@ -1003,7 +1003,7 @@ export default function HomePage() {
 
                   {/* Highlights / Features with neat Check icon */}
                   {card.featuresAr && (
-                    <ul className={`space-y-2 mb-5 w-full ${card.spanClass.includes("col-span-2") ? "sm:grid sm:grid-cols-2 sm:gap-3 sm:space-y-0" : ""}`}>
+                    <ul className={`space-y-2 mb-5 w-full ${card.spanClass.includes("col-span-2") ? "lg:grid lg:grid-cols-2 lg:gap-3 lg:space-y-0" : ""}`}>
                       {(language === "ar" ? card.featuresAr : card.featuresEn).map((feat, fIdx) => (
                         <li key={fIdx} className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
                           <CheckCircle2 className="w-3.5 h-3.5 text-teal-500 shrink-0" />
