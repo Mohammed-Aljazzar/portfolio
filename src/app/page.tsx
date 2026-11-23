@@ -632,42 +632,42 @@ export default function HomePage() {
       <section id="projects" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
         {/* Header & Filter Pills Row */}
         <ScrollReveal>
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-2">
-            {/* Header Text: Start-aligned in both RTL and LTR */}
-            <div className="space-y-2 max-w-2xl text-start">
-              {/* Overline with dash & bullet */}
-              <div className="flex items-center justify-start gap-2 mb-2.5">
-                <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
-                <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
-                <span className="text-xs sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
-                  {language === "ar" ? "أعمال ومشاريع مختارة" : "SELECTED WORK & PROJECTS"}
-                </span>
+          <div className="pb-2 space-y-2.5">
+            <div className="flex items-center justify-between gap-4">
+              <div className="space-y-1 text-start">
+                {/* Overline with dash & bullet */}
+                <div className="flex items-center justify-start gap-2 mb-1.5 sm:mb-2">
+                  <span className="w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
+                  <span className="text-xs sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
+                    {language === "ar" ? "أعمال ومشاريع مختارة" : "SELECTED WORK & PROJECTS"}
+                  </span>
+                </div>
+
+                {/* Main Title — Refined, Classy & Smooth Typography */}
+                <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
+                  {language === "ar" ? "أعمال ومشاريع مختارة" : "Selected Work & Projects"}
+                </h2>
               </div>
 
-              {/* Main Title — Refined, Classy & Smooth Typography */}
-              <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
-                {language === "ar" ? "أعمال ومشاريع مختارة" : "Selected Work & Projects"}
-              </h2>
-
-              {/* Subtitle Paragraph */}
-              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl mt-2.5">
-                {language === "ar"
-                  ? "مجموعة من الأنظمة المؤسسية والمنصات التفاعلية وتجارب المستخدم المصممة بدقة عالية للاستخدام العملي."
-                  : "Curated enterprise systems, interactive platforms, and polished user experiences crafted for production impact."}
-              </p>
+              {/* Edge-aligned opposite to the Section Title */}
+              <div className="shrink-0">
+                <Link
+                  href="/projects"
+                  className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 text-slate-800 dark:text-slate-200 text-xs sm:text-[13px] font-bold shadow-xs hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 hover:shadow-md transition-all group"
+                >
+                  <LayoutGrid className="w-4 h-4 text-teal-600 dark:text-teal-400 group-hover:scale-110 transition-transform" />
+                  <span>{language === "ar" ? "كل المشاريع" : "All Projects"}</span>
+                </Link>
+              </div>
             </div>
 
-            {/* Left in RTL: Link to All Projects Page with Apps Icon */}
-            <div>
-              <Link
-                href="/projects"
-                className="inline-flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 text-slate-800 dark:text-slate-200 text-xs sm:text-[13px] font-bold shadow-xs hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 hover:shadow-md transition-all group"
-              >
-                <LayoutGrid className="w-4 h-4 text-teal-600 dark:text-teal-400 group-hover:scale-110 transition-transform" />
-                <span>{language === "ar" ? "كل المشاريع" : "All Projects"}</span>
-                <ArrowLeft className="w-3.5 h-3.5 rtl:rotate-0 ltr:rotate-180 text-slate-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 group-hover:-translate-x-0.5 ltr:group-hover:translate-x-0.5 transition-all" />
-              </Link>
-            </div>
+            {/* Subtitle Paragraph */}
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl text-start">
+              {language === "ar"
+                ? "مجموعة من الأنظمة المؤسسية والمنصات التفاعلية وتجارب المستخدم المصممة بدقة عالية للاستخدام العملي."
+                : "Curated enterprise systems, interactive platforms, and polished user experiences crafted for production impact."}
+            </p>
           </div>
         </ScrollReveal>
 
