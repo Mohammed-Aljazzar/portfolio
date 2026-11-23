@@ -156,6 +156,7 @@ export interface CertificationItem {
   dateAr: string;
   dateEn: string;
   badge?: string;
+  categoryKey?: "erp_ai" | "web" | "uiux" | "mentorship";
 }
 
 export interface SocialLinkItem {
