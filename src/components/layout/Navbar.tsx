@@ -43,12 +43,12 @@ export const Navbar: React.FC = () => {
   }, [pathname]);
 
   const navLinks = [
-    { href: "/", label: t.nav.home },
-    { href: "/about", label: t.nav.about },
-    { href: "/experience", label: t.nav.experience },
-    { href: "/projects", label: t.nav.projects },
-    { href: "/training", label: t.nav.training, highlight: true },
-    { href: "/contact", label: t.nav.contact },
+    { href: `/${language}`, label: t.nav.home },
+    { href: `/${language}/about`, label: t.nav.about },
+    { href: `/${language}/experience`, label: t.nav.experience },
+    { href: `/${language}/projects`, label: t.nav.projects },
+    { href: `/${language}/training`, label: t.nav.training, highlight: true },
+    { href: `/${language}/contact`, label: t.nav.contact },
   ];
 
   return (
@@ -63,7 +63,7 @@ export const Navbar: React.FC = () => {
         >
           {/* Logo & Brand */}
           <Link
-            href="/"
+            href={`/${language}`}
             className="flex items-center gap-3 focus:outline-none rounded-xl p-1 group"
           >
             <MonogramLogo size={36} />
@@ -133,7 +133,7 @@ export const Navbar: React.FC = () => {
             {/* Soft, Refined Contact CTA Button */}
             <motion.div whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }}>
               <Link
-                href="/contact"
+                href={`/${language}/contact`}
                 className="h-10 inline-flex items-center justify-center gap-2 px-4 xl:px-5 text-xs sm:text-sm font-semibold rounded-full bg-teal-600 hover:bg-teal-500 text-white dark:bg-teal-500/15 dark:hover:bg-teal-500/25 dark:text-teal-200 dark:border dark:border-teal-500/35 shadow-xs shadow-teal-900/10 hover:shadow-sm hover:shadow-teal-500/20 transition-all duration-200 group"
               >
                 <span className="relative flex h-2 w-2">
@@ -199,7 +199,7 @@ export const Navbar: React.FC = () => {
 
               {/* Mobile Contact Action */}
               <Link
-                href="/contact"
+                href={`/${language}/contact`}
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center justify-center gap-2 w-full py-2.5 text-xs sm:text-sm font-semibold rounded-full bg-teal-600 hover:bg-teal-500 text-white dark:bg-teal-500/15 dark:hover:bg-teal-500/25 dark:text-teal-200 dark:border dark:border-teal-500/35 shadow-xs transition-all duration-200"
               >

@@ -1,6 +1,7 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState, useTransition } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { Language } from "@/lib/types";
 import { translations } from "@/lib/translations";
 
@@ -15,33 +16,63 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguageState] = useState<Language>("ar");
-  const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+  const [, startTransition] = useTransition();
 
-  useEffect(() => {
-    setMounted(true);
-    const saved = localStorage.getItem("portfolio_lang") as Language | null;
-    if (saved && (saved === "ar" || saved === "en")) {
-      setLanguageState(saved);
-      document.documentElement.lang = saved;
-      document.documentElement.dir = saved === "ar" ? "rtl" : "ltr";
-    } else {
-      document.documentElement.lang = "ar";
-      document.documentElement.dir = "rtl";
-    }
-  }, []);
+  const getLangFromPath = (path: string | null): Language => {
+    if (!path) return "ar";
+    if (path.startsWith("/en/") || path === "/en") return "en";
+    if (path.startsWith("/ar/") || path === "/ar") return "ar";
+    return "ar";
+  };
 
-  const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
+  const [language, setLanguageState] = useState<Language>(() => {
     if (typeof window !== "undefined") {
-      localStorage.setItem("portfolio_lang", lang);
-      document.documentElement.lang = lang;
-      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+      return getLangFromPath(window.location.pathname);
     }
+    return "ar";
+  });
+
+  // Sync state & DOM whenever pathname changes
+  useEffect(() => {
+    const currentLang = getLangFromPath(pathname);
+    setLanguageState(currentLang);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("portfolio_lang", currentLang);
+      document.cookie = `portfolio_lang=${currentLang}; path=/; max-age=31536000; SameSite=Lax`;
+      document.documentElement.lang = currentLang;
+      document.documentElement.dir = currentLang === "ar" ? "rtl" : "ltr";
+    }
+  }, [pathname]);
+
+  const setLanguage = (targetLang: Language) => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("portfolio_lang", targetLang);
+      document.cookie = `portfolio_lang=${targetLang}; path=/; max-age=31536000; SameSite=Lax`;
+      document.documentElement.lang = targetLang;
+      document.documentElement.dir = targetLang === "ar" ? "rtl" : "ltr";
+    }
+    setLanguageState(targetLang);
+
+    // Compute updated path replacing current locale prefix
+    let newPath = pathname;
+    if (pathname.startsWith("/ar")) {
+      newPath = pathname.replace(/^\/ar(\/|$)/, `/${targetLang}$1`);
+    } else if (pathname.startsWith("/en")) {
+      newPath = pathname.replace(/^\/en(\/|$)/, `/${targetLang}$1`);
+    } else {
+      newPath = `/${targetLang}${pathname === "/" ? "" : pathname}`;
+    }
+
+    startTransition(() => {
+      router.push(newPath);
+    });
   };
 
   const toggleLanguage = () => {
-    setLanguage(language === "ar" ? "en" : "ar");
+    const nextLang = language === "ar" ? "en" : "ar";
+    setLanguage(nextLang);
   };
 
   const isRTL = language === "ar";

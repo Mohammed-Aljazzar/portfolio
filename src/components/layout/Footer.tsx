@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
           
           {/* Col 1: Identity & Bio (lg:col-span-4) */}
           <div className="lg:col-span-4 space-y-4 text-start">
-            <Link href="/" className="inline-flex items-center gap-3 group">
+            <Link href={`/${language}`} className="inline-flex items-center gap-3 group">
               <MonogramLogo size={42} />
               <div>
                 <h3 className="font-bold text-lg text-white tracking-tight group-hover:text-teal-400 transition-colors">
@@ -76,33 +76,33 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm font-medium">
               <li>
-                <Link href="/" className="text-slate-400 hover:text-teal-300 transition-colors">
+                <Link href={`/${language}`} className="text-slate-400 hover:text-teal-300 transition-colors">
                   {t.nav.home}
                 </Link>
               </li>
               <li>
-                <Link href="/projects" className="text-slate-400 hover:text-teal-300 transition-colors">
+                <Link href={`/${language}/projects`} className="text-slate-400 hover:text-teal-300 transition-colors">
                   {t.nav.projects}
                 </Link>
               </li>
               <li>
-                <Link href="/experience" className="text-slate-400 hover:text-teal-300 transition-colors">
+                <Link href={`/${language}/experience`} className="text-slate-400 hover:text-teal-300 transition-colors">
                   {t.nav.experience}
                 </Link>
               </li>
               <li>
-                <Link href="/training" className="text-teal-400 hover:text-teal-300 transition-colors inline-flex items-center gap-1.5">
+                <Link href={`/${language}/training`} className="text-teal-400 hover:text-teal-300 transition-colors inline-flex items-center gap-1.5">
                   <span>{t.nav.training}</span>
                   <span className="text-[10px] bg-teal-950/80 border border-teal-800/80 px-1.5 py-0.5 rounded font-mono">Hub</span>
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-slate-400 hover:text-teal-300 transition-colors">
+                <Link href={`/${language}/about`} className="text-slate-400 hover:text-teal-300 transition-colors">
                   {t.nav.about}
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-slate-400 hover:text-teal-300 transition-colors">
+                <Link href={`/${language}/contact`} className="text-slate-400 hover:text-teal-300 transition-colors">
                   {t.nav.contact}
                 </Link>
               </li>

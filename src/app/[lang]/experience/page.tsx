@@ -58,7 +58,7 @@ export default function ExperiencePage() {
               <span className="p-2 rounded-xl bg-teal-200/50 dark:bg-teal-900/50 text-teal-700 dark:text-teal-300 shrink-0"><Terminal className="w-4 h-4" /></span>
               <span>{t.experiencePage.notice}</span>
             </div>
-            <Link href="/training" className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition-all duration-300 hover:-translate-y-0.5 shrink-0">
+            <Link href={`/${language}/training`} className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition-all duration-300 hover:-translate-y-0.5 shrink-0">
               <GraduationCap className="w-3.5 h-3.5" /><span>{t.nav.training}</span>
             </Link>
           </div>
