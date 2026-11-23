@@ -815,13 +815,16 @@ export default function HomePage() {
           </div>
         </ScrollReveal>
 
-        {/* 2. Three Project Cards Grid Below */}
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.08}>
-          {filteredShowcaseProjects.map((project) => {
+        {/* 2. Three Project Cards Grid Below (2 on tablet screens for clean 2-column symmetry) */}
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.08}>
+          {filteredShowcaseProjects.map((project, idx) => {
             const isSelectedInHero = activeFeatured.id === project.id;
 
             return (
-              <StaggerItem key={project.id}>
+              <StaggerItem
+                key={project.id}
+                className={idx >= 2 ? "sm:hidden lg:block h-full" : "h-full"}
+              >
                 <motion.div
                   className={`rounded-2xl bg-white dark:bg-slate-900/90 border overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group h-full ${
                     isSelectedInHero
