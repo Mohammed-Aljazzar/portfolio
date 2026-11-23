@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
@@ -44,6 +44,39 @@ export default function HomePage() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [selectedProject, setSelectedProject] = useState<any | null>(null);
   const [featuredIndex, setFeaturedIndex] = useState<number>(2);
+
+  // Drag-to-scroll & swipe state for Skill Tabs on mobile & tablet
+  const skillTabsRef = useRef<HTMLDivElement>(null);
+  const isTabsDownRef = useRef(false);
+  const tabsStartXRef = useRef(0);
+  const tabsScrollLeftRef = useRef(0);
+  const hasTabsDraggedRef = useRef(false);
+
+  const handleTabsMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!skillTabsRef.current) return;
+    isTabsDownRef.current = true;
+    hasTabsDraggedRef.current = false;
+    tabsStartXRef.current = e.pageX - skillTabsRef.current.offsetLeft;
+    tabsScrollLeftRef.current = skillTabsRef.current.scrollLeft;
+  };
+
+  const handleTabsMouseLeave = () => {
+    isTabsDownRef.current = false;
+  };
+
+  const handleTabsMouseUp = () => {
+    isTabsDownRef.current = false;
+  };
+
+  const handleTabsMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isTabsDownRef.current || !skillTabsRef.current) return;
+    const x = e.pageX - skillTabsRef.current.offsetLeft;
+    const walk = x - tabsStartXRef.current;
+    if (Math.abs(walk) > 5) {
+      hasTabsDraggedRef.current = true;
+    }
+    skillTabsRef.current.scrollLeft = tabsScrollLeftRef.current - walk;
+  };
 
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
   const Chevron = isRTL ? ChevronLeft : ChevronRight;
@@ -1072,28 +1105,43 @@ export default function HomePage() {
           </p>
         </ScrollReveal>
 
-        {/* Skill Tabs */}
+        {/* Skill Tabs — Draggable & Swipeable on mobile & tablet without visible scrollbars */}
         <ScrollReveal delay={0.08}>
-          <div className="flex flex-wrap justify-start gap-2 p-1.5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 max-w-fit">
-            {[
-              { id: "erp", label: language === "ar" ? "أنظمة ERP وأتمتة الأعمال" : "ERP & Business Automation", icon: <Layers className="w-4 h-4" /> },
-              { id: "backend", label: language === "ar" ? "الباك إند وقواعد البيانات" : "Backend & DevOps", icon: <Server className="w-4 h-4" /> },
-              { id: "frontend", label: language === "ar" ? "الفرونت إند والويب" : "Frontend & Web Apps", icon: <Layout className="w-4 h-4" /> },
-              { id: "uiux", label: language === "ar" ? "تصميم واجهات وتجربة UI/UX" : "UI/UX & Product Design", icon: <Palette className="w-4 h-4" /> },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveSkillTab(tab.id as any)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 ${
-                  activeSkillTab === tab.id
-                    ? "bg-white dark:bg-slate-800 text-teal-600 dark:text-teal-400 shadow-sm"
-                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                }`}
-              >
-                {tab.icon}
-                <span>{tab.label}</span>
-              </button>
-            ))}
+          <div className="w-full overflow-hidden">
+            <div
+              ref={skillTabsRef}
+              onMouseDown={handleTabsMouseDown}
+              onMouseLeave={handleTabsMouseLeave}
+              onMouseUp={handleTabsMouseUp}
+              onMouseMove={handleTabsMouseMove}
+              className="flex items-center gap-2 p-1.5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 w-full lg:w-auto max-w-full lg:max-w-fit overflow-x-auto lg:overflow-visible no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden touch-pan-x cursor-grab active:cursor-grabbing select-none"
+            >
+              {[
+                { id: "erp", label: language === "ar" ? "أنظمة ERP وأتمتة الأعمال" : "ERP & Business Automation", icon: <Layers className="w-4 h-4 shrink-0" /> },
+                { id: "backend", label: language === "ar" ? "الباك إند وقواعد البيانات" : "Backend & DevOps", icon: <Server className="w-4 h-4 shrink-0" /> },
+                { id: "frontend", label: language === "ar" ? "الفرونت إند والويب" : "Frontend & Web Apps", icon: <Layout className="w-4 h-4 shrink-0" /> },
+                { id: "uiux", label: language === "ar" ? "تصميم واجهات وتجربة UI/UX" : "UI/UX & Product Design", icon: <Palette className="w-4 h-4 shrink-0" /> },
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => {
+                    if (hasTabsDraggedRef.current) {
+                      hasTabsDraggedRef.current = false;
+                      return;
+                    }
+                    setActiveSkillTab(tab.id as any);
+                  }}
+                  className={`shrink-0 whitespace-nowrap flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 ${
+                    activeSkillTab === tab.id
+                      ? "bg-white dark:bg-slate-800 text-teal-600 dark:text-teal-400 shadow-sm"
+                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                  }`}
+                >
+                  {tab.icon}
+                  <span>{tab.label}</span>
+                </button>
+              ))}
+            </div>
           </div>
         </ScrollReveal>
 
