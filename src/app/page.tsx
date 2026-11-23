@@ -1372,30 +1372,32 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Left in RTL: Action Buttons Stack (Exact Match to Reference Image) */}
-            <div className="w-full sm:w-64 shrink-0 flex flex-col items-stretch space-y-3">
-              {/* 1. Primary Action Button (Start Conversation / ابدأ محادثة) */}
-              <a
-                href="https://wa.me/972598048284"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 text-white font-bold text-sm shadow-md hover:shadow-teal-500/25 transition-all duration-200 group text-center hover:-translate-y-0.5"
-              >
-                <MessageCircle className="w-4 h-4 transition-transform group-hover:scale-110" />
-                <span>{language === "ar" ? "ابدأ محادثة" : "Start a Conversation"}</span>
-              </a>
+            {/* Left in RTL: Action Buttons Stack — Side-by-side on tablet screens only */}
+            <div className="w-full lg:w-64 shrink-0 flex flex-col items-stretch sm:items-start lg:items-stretch space-y-3">
+              <div className="flex flex-col sm:flex-row lg:flex-col gap-3 w-full sm:w-auto lg:w-full">
+                {/* 1. Primary Action Button (Start Conversation / ابدأ محادثة) */}
+                <a
+                  href="https://wa.me/972598048284"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto lg:w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 text-white font-bold text-sm shadow-md hover:shadow-teal-500/25 transition-all duration-200 group text-center hover:-translate-y-0.5 whitespace-nowrap"
+                >
+                  <MessageCircle className="w-4 h-4 transition-transform group-hover:scale-110" />
+                  <span>{language === "ar" ? "ابدأ محادثة" : "Start a Conversation"}</span>
+                </a>
 
-              {/* 2. Secondary Action Button (Send Email / أرسل بريداً) */}
-              <a
-                href="mailto:m.i.aljazzar19@gmail.com"
-                className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:border-teal-500 dark:hover:border-teal-400 hover:bg-slate-50 dark:hover:bg-slate-800/80 font-bold text-sm shadow-2xs hover:shadow-sm transition-all duration-200 group text-center"
-              >
-                <Mail className="w-4 h-4 text-slate-500 dark:text-slate-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors" />
-                <span>{language === "ar" ? "أرسل بريداً" : "Send an Email"}</span>
-              </a>
+                {/* 2. Secondary Action Button (Send Email / أرسل بريداً) */}
+                <a
+                  href="mailto:m.i.aljazzar19@gmail.com"
+                  className="w-full sm:w-auto lg:w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:border-teal-500 dark:hover:border-teal-400 hover:bg-slate-50 dark:hover:bg-slate-800/80 font-bold text-sm shadow-2xs hover:shadow-sm transition-all duration-200 group text-center whitespace-nowrap"
+                >
+                  <Mail className="w-4 h-4 text-slate-500 dark:text-slate-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors" />
+                  <span>{language === "ar" ? "أرسل بريداً" : "Send an Email"}</span>
+                </a>
+              </div>
 
               {/* Subtext below buttons */}
-              <p className="text-[11.5px] text-slate-400 dark:text-slate-500 text-center font-normal pt-1">
+              <p className="text-[11.5px] text-slate-400 dark:text-slate-500 text-center sm:text-start lg:text-center font-normal pt-1">
                 {language === "ar" ? "أرد عادةً في أقرب وقت أكون فيه متاحًا." : "Usually reply as soon as available."}
               </p>
             </div>
