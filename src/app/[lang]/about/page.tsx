@@ -180,9 +180,10 @@ export default function AboutPage() {
               </div>
               <ul className="space-y-2.5 text-xs text-slate-700 dark:text-slate-300 text-start">
                 {[
-                  "Official Odoo Certified Developer — Odoo S.A.",
-                  "ERPNext & Frappe Custom Applications Specialist",
-                  "Advanced UI/UX Design Specialist — Gaza Sky Geeks",
+                  language === "ar" ? "شهادة Odoo الرسمية المعتمدة — شركة Odoo S.A." : "Official Odoo Certified Developer — Odoo S.A.",
+                  language === "ar" ? "شهادة خبرة مدرب تقني وذكاء اصطناعي — جمعية فراسة السويسرية" : "Technical & AI Trainer — Firasah Swiss Association",
+                  language === "ar" ? "شهادة إعداد وتأهيل مدرب دولي (TOT) — شركة SkillUp" : "Certified International Trainer (TOT) — SkillUp",
+                  language === "ar" ? "شهادة توصية دولية وتقدير مهني — شركة MCM" : "International Recommendation Certificate — MCM Global",
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-teal-500 shrink-0" />
