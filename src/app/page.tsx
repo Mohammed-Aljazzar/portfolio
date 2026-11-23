@@ -540,7 +540,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, scale: 0.94 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.4, 0.25, 1] as const }}
-                className="relative w-full max-w-[280px] sm:max-w-[340px] lg:max-w-[420px] xl:max-w-[440px] aspect-[4/5] sm:h-[30rem] lg:h-[33rem] xl:h-[34rem] rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group"
+                className="relative w-full max-w-[315px] sm:max-w-[360px] lg:max-w-[420px] xl:max-w-[440px] aspect-[4/5] sm:h-[30rem] lg:h-[33rem] xl:h-[34rem] rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group"
               >
                 <Image
                   src={config.avatarUrl}
