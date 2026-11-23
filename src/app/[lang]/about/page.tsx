@@ -11,13 +11,11 @@ import {
   Sparkles, Layers, Server, Layout, Palette, GraduationCap, Award,
   CheckCircle2, Calendar, MapPin, ArrowRight, ArrowLeft, Download,
   MessageCircle, Mail, Globe, ArrowUpRight, ShieldCheck, Terminal,
-  Cpu, Code2, Users, BookOpen,
 } from "lucide-react";
 
 export default function AboutPage() {
   const { language, t, isRTL } = useLanguage();
   const [activeTab, setActiveTab] = useState<"erp" | "backend" | "frontend" | "uiux">("erp");
-  const [activeCertCategory, setActiveCertCategory] = useState<string>("all");
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
 
   const config = initialData.config;
@@ -86,49 +84,12 @@ export default function AboutPage() {
     skillTabsRef.current.scrollLeft = tabsScrollLeftRef.current - walk;
   };
 
-  // Drag-to-scroll for Cert Categories
-  const certTabsRef = useRef<HTMLDivElement>(null);
-  const isCertDownRef = useRef(false);
-  const certStartXRef = useRef(0);
-  const certScrollLeftRef = useRef(0);
-  const hasCertDraggedRef = useRef(false);
-
-  const handleCertMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!certTabsRef.current) return;
-    isCertDownRef.current = true;
-    hasCertDraggedRef.current = false;
-    certStartXRef.current = e.pageX - certTabsRef.current.offsetLeft;
-    certScrollLeftRef.current = certTabsRef.current.scrollLeft;
-  };
-
-  const handleCertMouseLeave = () => { isCertDownRef.current = false; };
-  const handleCertMouseUp = () => { isCertDownRef.current = false; };
-  const handleCertMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isCertDownRef.current || !certTabsRef.current) return;
-    const x = e.pageX - certTabsRef.current.offsetLeft;
-    const walk = x - certStartXRef.current;
-    if (Math.abs(walk) > 5) hasCertDraggedRef.current = true;
-    certTabsRef.current.scrollLeft = certScrollLeftRef.current - walk;
-  };
-
   const tabOptions = [
     { id: "erp", label: language === "ar" ? "أنظمة ERP وأتمتة الأعمال" : "ERP & Business Automation", icon: <Layers className="w-4 h-4 shrink-0" /> },
     { id: "backend", label: language === "ar" ? "الباك إند وقواعد البيانات" : "Backend & DevOps", icon: <Server className="w-4 h-4 shrink-0" /> },
     { id: "frontend", label: language === "ar" ? "الفرونت إند والويب" : "Frontend & Web Apps", icon: <Layout className="w-4 h-4 shrink-0" /> },
     { id: "uiux", label: language === "ar" ? "تصميم واجهات وتجربة UI/UX" : "UI/UX & Product Design", icon: <Palette className="w-4 h-4 shrink-0" /> },
   ];
-
-  const certCategories = [
-    { id: "all", label: language === "ar" ? "جميع الاعتمادات (9)" : "All Credentials (9)", icon: <Award className="w-3.5 h-3.5" /> },
-    { id: "erp_ai", label: language === "ar" ? "ERP والذكاء الاصطناعي (2)" : "ERP & AI (2)", icon: <Cpu className="w-3.5 h-3.5" /> },
-    { id: "uiux", label: language === "ar" ? "تصميم تجربة المستخدم UI/UX (1)" : "UI/UX Design (1)", icon: <Palette className="w-3.5 h-3.5" /> },
-    { id: "web", label: language === "ar" ? "تطوير الويب والبرمجة (3)" : "Web & Backend (3)", icon: <Code2 className="w-3.5 h-3.5" /> },
-    { id: "mentorship", label: language === "ar" ? "التدريب والتوصيات (3)" : "Mentorship & Honors (3)", icon: <Users className="w-3.5 h-3.5" /> },
-  ];
-
-  const filteredCerts = activeCertCategory === "all"
-    ? certs
-    : certs.filter((c) => c.categoryKey === activeCertCategory);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-16 sm:space-y-24">
@@ -199,29 +160,6 @@ export default function AboutPage() {
                   Odoo Certified
                 </span>
               </div>
-            </div>
-
-            {/* Key Credentials Box */}
-            <div className="w-full max-w-[315px] sm:max-w-[360px] lg:max-w-[420px] rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 p-5 space-y-3.5 shadow-xs hover:border-teal-500/30 transition-all">
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-teal-500" />
-                <h4 className="text-xs font-mono font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider">
-                  {language === "ar" ? "الاعتمادات الرئيسية" : "Key Credentials"}
-                </h4>
-              </div>
-              <ul className="space-y-2.5 text-xs text-slate-700 dark:text-slate-300 text-start">
-                {[
-                  language === "ar" ? "شهادة Odoo الرسمية المعتمدة — شركة Odoo S.A." : "Official Odoo Certified Developer — Odoo S.A.",
-                  language === "ar" ? "من UI/UX إلى بناء التطبيقات بالذكاء الاصطناعي — شركة Avatar" : "UI/UX to AI App Development — Avatar Tech",
-                  language === "ar" ? "شهادة خبرة مدرب تقني وذكاء اصطناعي — جمعية فراسة السويسرية" : "Technical & AI Trainer — Firasah Swiss Association",
-                  language === "ar" ? "دبلومة تصميم تجربة وواجهة المستخدم المتقدم — Gaza Sky Geeks" : "Advanced UI/UX Design Diploma — Gaza Sky Geeks",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-teal-500 shrink-0" />
-                    <span className="line-clamp-1">{item}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
           </ScrollReveal>
 
@@ -389,8 +327,8 @@ export default function AboutPage() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          3. ACADEMIC EDUCATION MILESTONE
-          Featured Degree Recognition Banner
+          3. ACADEMIC EDUCATION
+          Clean, human, lightweight
          ══════════════════════════════════════════════ */}
       <section className="space-y-6">
         <ScrollReveal>
@@ -399,7 +337,7 @@ export default function AboutPage() {
               <span className="w-5 sm:w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
               <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
               <span className="text-[11px] sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
-                {language === "ar" ? "التعليم الأكاديمي والدرجة العلمية" : "ACADEMIC EDUCATION & DEGREE"}
+                {language === "ar" ? "التعليم الأكاديمي" : "ACADEMIC EDUCATION"}
               </span>
             </div>
 
@@ -409,186 +347,85 @@ export default function AboutPage() {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.08}>
-          <div className="rounded-3xl bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800 p-6 sm:p-8 lg:p-10 shadow-xs hover:shadow-xl hover:border-teal-500/30 transition-all duration-300">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-              {/* Left Column: Degree & Honors */}
-              <div className="lg:col-span-7 space-y-4 text-start">
-                <div className="flex items-center justify-between gap-4">
-                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-100 dark:border-indigo-800/60 text-indigo-600 dark:text-indigo-400">
-                    <GraduationCap className="w-6 h-6" />
-                  </div>
-
-                  <span className="px-3 py-1 text-xs font-mono font-bold rounded-full bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200/60 dark:border-indigo-800/60">
-                    {edu.period}
-                  </span>
+        <ScrollReveal delay={0.06}>
+          <div className="rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800/80 p-6 sm:p-8 text-start space-y-4 shadow-xs hover:border-teal-500/30 transition-all">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100 dark:border-slate-800/80">
+              <div className="flex items-center gap-3.5">
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/60 text-teal-600 dark:text-teal-400 shrink-0">
+                  <GraduationCap className="w-5 h-5" />
                 </div>
-
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white leading-snug">
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white leading-snug">
                     {language === "ar" ? edu.degreeAr : edu.degreeEn}
                   </h3>
-                  <div className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 mt-1">
-                    {language === "ar" ? edu.institutionAr : edu.institutionEn}
+                  <div className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium">
+                    {language === "ar" ? edu.institutionAr : edu.institutionEn} · {edu.period}
                   </div>
                 </div>
-
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-amber-50 dark:bg-amber-950/50 border border-amber-200/80 dark:border-amber-800/70 text-amber-800 dark:text-amber-300 text-xs font-mono font-bold">
-                  <Award className="w-4 h-4 text-amber-500" />
-                  <span>{language === "ar" ? edu.gradeAr : edu.gradeEn}</span>
-                </div>
-
-                <p className="text-xs sm:text-[13.5px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
-                  {language === "ar" ? edu.detailsAr : edu.detailsEn}
-                </p>
               </div>
 
-              {/* Right Column: Academic Pillars & Location */}
-              <div className="lg:col-span-5 flex flex-col justify-between space-y-4 pt-2 lg:pt-0 lg:border-s lg:border-slate-100 dark:lg:border-slate-800/80 lg:ps-8 text-start">
-                <div className="space-y-2.5">
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 font-semibold block">
-                    {language === "ar" ? "الركائز والمحاور الأكاديمية" : "CORE ACADEMIC PILLARS"}
-                  </span>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {[
-                      language === "ar" ? "هندسة البرمجيات والنظم" : "Software Architecture",
-                      language === "ar" ? "أنظمة الذكاء الاصطناعي" : "AI & Algorithms",
-                      language === "ar" ? "قواعد البيانات الموزعة" : "Distributed Databases",
-                      language === "ar" ? "أمن وهندسة المعمارية" : "Clean Code & Design Patterns",
-                      language === "ar" ? "مشروع التخرج بامتياز" : "Capstone Project Honors",
-                    ].map((pillar, pIdx) => (
-                      <span
-                        key={pIdx}
-                        className="px-2.5 py-1 text-[11px] font-medium rounded-lg bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60"
-                      >
-                        {pillar}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 font-mono">
-                  <span className="flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-indigo-500" />
-                    <span>{language === "ar" ? edu.locationAr : edu.locationEn}</span>
-                  </span>
-                  <span className="font-semibold text-teal-600 dark:text-teal-400">
-                    {language === "ar" ? "اعتماد رسمي مكتمل" : "Accredited B.Sc."}
-                  </span>
-                </div>
+              <div className="text-xs font-mono font-semibold text-teal-700 dark:text-teal-300 bg-teal-50/70 dark:bg-teal-950/40 px-3 py-1.5 rounded-lg border border-teal-200/50 dark:border-teal-800/50 self-start sm:self-auto">
+                {language === "ar" ? edu.gradeAr : edu.gradeEn}
               </div>
             </div>
+
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+              {language === "ar" ? edu.detailsAr : edu.detailsEn}
+            </p>
           </div>
         </ScrollReveal>
       </section>
 
       {/* ══════════════════════════════════════════════
           4. PROFESSIONAL CREDENTIALS & CERTIFICATIONS
-          Interactive Distinctive Grid of 9 Credentials
+          Smooth, distinctive, calm & elegant (No AI noise)
          ══════════════════════════════════════════════ */}
-      <section className="space-y-8">
+      <section className="space-y-6 sm:space-y-8">
         <ScrollReveal>
           <div className="text-start space-y-2.5">
-            {/* Signature Overline */}
             <div className="flex items-center justify-start gap-2 mb-2 sm:mb-2.5">
               <span className="w-5 sm:w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
               <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
               <span className="text-[11px] sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
-                {language === "ar" ? "الاعتمادات المهنية والدولية" : "PROFESSIONAL CREDENTIALS & ACCREDITATIONS"}
+                {language === "ar" ? "الشهادات والاعتمادات" : "CREDENTIALS & ACCREDITATIONS"}
               </span>
             </div>
 
-            {/* Main Title */}
             <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
               {language === "ar" ? "شهادات معتمدة وتدريب احترافي متقدم" : "Certified Credentials & Advanced Specializations"}
             </h2>
 
-            {/* Subtitle */}
             <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl text-start">
               {language === "ar"
-                ? "سجل موثق من 9 شهادات واعتمادات رسمية من شركات وجهات دولية ومحلية تغطي أنظمة المؤسسات، الذكاء الاصطناعي، وتصميم وتطوير البرمجيات."
-                : "Curated portfolio of 9 official certifications from international and enterprise organizations spanning ERP, AI, UI/UX, and engineering mentorship."}
+                ? "سجل موثق من الاعتمادات المهنية والدولية في هندسة النظم وتخطيط المؤسسات (ERP) والذكاء الاصطناعي وتطوير البرمجيات."
+                : "Curated credentials from international organizations across enterprise ERP, AI, UI/UX, and software engineering."}
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Category Filter Pills (Swipeable & Draggable on mobile/tablet) */}
-        <ScrollReveal delay={0.06}>
-          <div className="w-full overflow-hidden">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
+          {certs.map((cert) => (
             <div
-              ref={certTabsRef}
-              onMouseDown={handleCertMouseDown}
-              onMouseLeave={handleCertMouseLeave}
-              onMouseUp={handleCertMouseUp}
-              onMouseMove={handleCertMouseMove}
-              className="flex items-center gap-2 p-1.5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 w-full lg:w-auto max-w-full lg:max-w-fit overflow-x-auto lg:overflow-visible no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden touch-pan-x cursor-grab active:cursor-grabbing select-none"
+              key={cert.id}
+              className="group p-5 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800/80 hover:border-teal-500/30 dark:hover:border-teal-500/30 hover:shadow-sm transition-all duration-200 text-start flex flex-col justify-between gap-3.5"
             >
-              {certCategories.map((cat) => (
-                <button
-                  key={cat.id}
-                  onClick={() => {
-                    if (hasCertDraggedRef.current) {
-                      hasCertDraggedRef.current = false;
-                      return;
-                    }
-                    setActiveCertCategory(cat.id);
-                  }}
-                  className={`shrink-0 whitespace-nowrap flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 ${
-                    activeCertCategory === cat.id
-                      ? "bg-white dark:bg-slate-800 text-teal-600 dark:text-teal-400 shadow-sm"
-                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                  }`}
-                >
-                  {cat.icon}
-                  <span>{cat.label}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-        </ScrollReveal>
-
-        {/* 9 Credentials Responsive Grid */}
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5" staggerDelay={0.05}>
-          {filteredCerts.map((cert) => (
-            <StaggerItem key={cert.id} className="h-full">
-              <motion.div
-                whileHover={{ y: -4 }}
-                className="rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800 p-5 sm:p-5.5 space-y-4 shadow-xs hover:shadow-xl hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-between text-start h-full group"
-              >
-                <div className="space-y-3">
-                  {/* Top Row: Issuer Badge & Date */}
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="px-2.5 py-1 text-[11px] font-mono font-bold rounded-lg bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/60 truncate max-w-[190px]">
-                      {language === "ar" ? cert.issuerAr : cert.issuerEn}
-                    </span>
-
-                    <span className="text-[11px] font-mono font-semibold text-slate-400 dark:text-slate-500 shrink-0">
-                      {language === "ar" ? cert.dateAr : cert.dateEn}
-                    </span>
-                  </div>
-
-                  {/* Certificate Title */}
-                  <h3 className="text-sm sm:text-[15px] font-bold text-slate-900 dark:text-white leading-snug group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors line-clamp-2">
-                    {language === "ar" ? cert.titleAr : cert.titleEn}
-                  </h3>
-                </div>
-
-                {/* Bottom Row: Verified Check & Badge */}
-                <div className="pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs mt-auto">
-                  <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400 font-medium text-[11.5px]">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-teal-500 shrink-0" />
-                    <span className="truncate">{language === "ar" ? cert.issuerAr : cert.issuerEn}</span>
-                  </div>
-
-                  <span className="text-[10.5px] font-mono px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-semibold shrink-0">
-                    {cert.badge || "Verified"}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-xs text-slate-400 dark:text-slate-500">
+                  <span className="font-semibold text-teal-600 dark:text-teal-400">
+                    {language === "ar" ? cert.issuerAr : cert.issuerEn}
+                  </span>
+                  <span className="font-mono text-[11px] text-slate-400 dark:text-slate-500">
+                    {language === "ar" ? cert.dateAr : cert.dateEn}
                   </span>
                 </div>
-              </motion.div>
-            </StaggerItem>
+
+                <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-100 leading-snug group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                  {language === "ar" ? cert.titleAr : cert.titleEn}
+                </h3>
+              </div>
+            </div>
           ))}
-        </StaggerContainer>
+        </div>
       </section>
 
       {/* ══════════════════════════════════════════════
