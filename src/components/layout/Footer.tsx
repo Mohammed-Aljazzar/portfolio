@@ -160,13 +160,13 @@ export const Footer: React.FC = () => {
               </a>
 
               <a
-                href="https://wa.me/972598048284"
+                href="https://wa.me/970598048284"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2.5 p-2 rounded-xl bg-slate-800/40 border border-slate-800 hover:border-teal-500/50 hover:bg-slate-800/80 hover:text-teal-300 transition-all group"
               >
                 <Phone className="w-4 h-4 text-teal-400 shrink-0 group-hover:scale-110 transition-transform" />
-                <span className="font-mono text-xs" dir="ltr">+972 59 804 8284</span>
+                <span className="font-mono text-xs" dir="ltr">+970 59 804 8284</span>
               </a>
             </div>
 
@@ -199,7 +199,7 @@ export const Footer: React.FC = () => {
                 </a>
 
                 <a
-                  href="https://wa.me/972598048284"
+                  href="https://wa.me/970598048284"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-9 h-9 rounded-xl bg-slate-800/90 border border-slate-700/80 hover:bg-[#25D366] hover:border-[#25D366] flex items-center justify-center text-slate-300 hover:text-white transition-all shadow-xs"

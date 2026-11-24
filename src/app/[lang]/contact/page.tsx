@@ -167,7 +167,7 @@ export default function ContactPage() {
                 {t.contactPage.phoneLabel}
               </span>
               <a
-                href="https://wa.me/972598048284"
+                href="https://wa.me/970598048284"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-between gap-3 p-3.5 rounded-xl bg-slate-50/80 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/70 group hover:border-[#25D366]/50 hover:bg-[#25D366]/5 transition-all"
@@ -177,7 +177,7 @@ export default function ContactPage() {
                     <Phone className="w-3.5 h-3.5" />
                   </div>
                   <span className="font-mono text-xs sm:text-[13px] text-slate-800 dark:text-slate-200" dir="ltr">
-                    +972 59 804 8284
+                    +970 59 804 8284
                   </span>
                 </div>
                 <span className="text-[11px] font-medium text-emerald-600 dark:text-emerald-400 flex items-center gap-1 group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5 transition-transform">

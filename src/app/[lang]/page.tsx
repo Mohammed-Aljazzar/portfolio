@@ -517,11 +517,11 @@ export default function HomePage() {
 
                   {/* 3. WhatsApp */}
                   <a
-                    href="https://wa.me/972598048284"
+                    href="https://wa.me/970598048284"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="relative flex items-center justify-center w-11 h-11 sm:w-10 sm:h-10 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-[#25D366] hover:border-[#25D366]/50 hover:bg-[#25D366]/10 shadow-xs hover:-translate-y-1 hover:shadow-md transition-all duration-200 group"
-                    title="+972 59 804 8284"
+                    title="+970 59 804 8284"
                     aria-label="WhatsApp"
                   >
                     <svg className="w-5 h-5 sm:w-4 sm:h-4 fill-current transition-transform duration-200 group-hover:scale-110" viewBox="0 0 24 24">
@@ -1377,7 +1377,7 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row lg:flex-col gap-3 w-full sm:w-auto lg:w-full">
                 {/* 1. Primary Action Button (Start Conversation / ابدأ محادثة) */}
                 <a
-                  href="https://wa.me/972598048284"
+                  href="https://wa.me/970598048284"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto lg:w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 text-white font-bold text-sm shadow-md hover:shadow-teal-500/25 transition-all duration-200 group text-center hover:-translate-y-0.5 whitespace-nowrap"

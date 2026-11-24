@@ -35,7 +35,7 @@ export const FloatingActions: React.FC = () => {
       : "Hello Eng. Mohammed Aljazzar, I visited your portfolio and would like to discuss a project / technical consultation."
   );
 
-  const whatsappUrl = `https://wa.me/972598048284?text=${whatsappMessage}`;
+  const whatsappUrl = `https://wa.me/970598048284?text=${whatsappMessage}`;
 
   return (
     <div

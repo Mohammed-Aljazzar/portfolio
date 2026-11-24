@@ -469,7 +469,7 @@ export default function AboutPage() {
             <div className="w-full lg:w-64 shrink-0 flex flex-col items-stretch sm:items-start lg:items-stretch space-y-3">
               <div className="flex flex-col sm:flex-row lg:flex-col gap-3 w-full sm:w-auto lg:w-full">
                 <a
-                  href="https://wa.me/972598048284"
+                  href="https://wa.me/970598048284"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto lg:w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 text-white font-bold text-sm shadow-md hover:shadow-teal-500/25 transition-all duration-200 group text-center hover:-translate-y-0.5 whitespace-nowrap"
