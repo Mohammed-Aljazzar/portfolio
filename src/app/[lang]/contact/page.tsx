@@ -158,27 +158,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-slate-50/50 dark:bg-[#0B1120] text-slate-900 dark:text-slate-100 selection:bg-teal-500 selection:text-white">
       {/* ══════════════════════════════════════════════
-          1. MINIMAL BREADCRUMB
-         ══════════════════════════════════════════════ */}
-      <div className="border-b border-slate-200/80 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/40 backdrop-blur-xs">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-            <Link
-              href={`/${language}`}
-              className="hover:text-slate-900 dark:hover:text-white transition-colors"
-            >
-              {language === "ar" ? "الرئيسية" : "Home"}
-            </Link>
-            <span className="text-slate-300 dark:text-slate-700">/</span>
-            <span className="text-teal-600 dark:text-teal-400 font-medium">
-              {language === "ar" ? "التواصل والسيرة الذاتية" : "Contact & Resume"}
-            </span>
-          </nav>
-        </div>
-      </div>
-
-      {/* ══════════════════════════════════════════════
-          2. HERO HEADER (Clean, Soft & Modern)
+          1. HERO HEADER (Clean, Soft & Modern)
          ══════════════════════════════════════════════ */}
       <header className="py-12 sm:py-16 text-center max-w-3xl mx-auto px-4 space-y-4">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-950/60 border border-teal-200/70 dark:border-teal-800/60 text-teal-700 dark:text-teal-300 text-xs font-semibold">
