@@ -412,8 +412,8 @@ export const initialData = {
     },
     {
       id: "exp-freelance",
-      roleAr: "مطور Full Stack ومصمم UI/UX ومهندس أنظمة ERP مستقل",
-      roleEn: "Freelance Full Stack Developer, UI/UX Designer & ERP Systems Specialist",
+      roleAr: "فل ستاك بايثون و ERP ومصمم UI/UX",
+      roleEn: "Python Full Stack, ERP Developer & UI/UX Designer",
       companyAr: "منصات العمل الحر الدولية والعربية & تعاقدات السوق الخليجي",
       companyEn: "Global & Arab Freelance Platforms & Gulf Market",
       locationAr: "السوق الخليجي وعالمياً (عن بُعد)",
