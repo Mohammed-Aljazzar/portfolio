@@ -248,7 +248,7 @@ export default function ContactPage() {
           aria-labelledby="cv-heading"
           className="relative overflow-hidden rounded-3xl border border-slate-200/90 dark:border-slate-800 bg-gradient-to-b from-white via-white to-slate-50/50 dark:from-slate-900/90 dark:via-slate-900/80 dark:to-slate-900/60 p-6 sm:p-8 shadow-xs"
         >
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-100 dark:border-slate-800/80">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/60 border border-teal-200/60 dark:border-teal-800/60 flex items-center justify-center text-teal-600 dark:text-teal-400 shrink-0 shadow-xs">
                 <FileText className="w-6 h-6" />
@@ -291,46 +291,6 @@ export default function ContactPage() {
                 <Download className="w-4 h-4 text-teal-600 dark:text-teal-400 group-hover:-translate-y-0.5 transition-transform" />
                 <span>{language === "ar" ? "تحميل السيرة (English)" : "Resume (English)"}</span>
               </a>
-            </div>
-          </div>
-
-          {/* Core Highlights Pills under CV */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6">
-            <div className="p-3.5 rounded-xl bg-slate-50/80 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/70">
-              <span className="text-[10.5px] font-semibold text-slate-400 block uppercase tracking-wider">
-                {language === "ar" ? "المؤهل الدراسي" : "Degree"}
-              </span>
-              <p className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 mt-0.5">
-                {language === "ar" ? "بكالوريوس هندسة برمجيات" : "B.Sc. Software Engineering"}
-              </p>
-            </div>
-
-            <div className="p-3.5 rounded-xl bg-slate-50/80 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/70">
-              <span className="text-[10.5px] font-semibold text-slate-400 block uppercase tracking-wider">
-                {language === "ar" ? "سنوات الخبرة" : "Experience"}
-              </span>
-              <p className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 mt-0.5">
-                {language === "ar" ? "+4 سنوات خبرة عملية" : "+4 Professional Years"}
-              </p>
-            </div>
-
-            <div className="p-3.5 rounded-xl bg-slate-50/80 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/70">
-              <span className="text-[10.5px] font-semibold text-slate-400 block uppercase tracking-wider">
-                {language === "ar" ? "التخصصات الرئيسية" : "Core Domains"}
-              </span>
-              <p className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 mt-0.5">
-                ERP, Full-Stack, UI/UX
-              </p>
-            </div>
-
-            <div className="p-3.5 rounded-xl bg-slate-50/80 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/70">
-              <span className="text-[10.5px] font-semibold text-slate-400 block uppercase tracking-wider">
-                {language === "ar" ? "التوفر الحالي" : "Availability"}
-              </span>
-              <p className="text-xs sm:text-sm font-bold text-emerald-600 dark:text-emerald-400 mt-0.5 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                <span>{language === "ar" ? "عن بُعد / دوام مرن" : "Remote & Flexible"}</span>
-              </p>
             </div>
           </div>
         </section>
