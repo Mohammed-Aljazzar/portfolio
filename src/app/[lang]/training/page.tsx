@@ -554,27 +554,39 @@ export default function TrainingPage() {
          ══════════════════════════════════════════════ */}
       <section>
         <ScrollReveal>
-          <div className="rounded-3xl bg-gradient-to-r from-teal-900 via-slate-900 to-indigo-950 border border-teal-500/30 p-8 sm:p-10 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md text-start">
-            <div className="space-y-2 max-w-xl">
-              <h3 className="text-lg sm:text-2xl font-bold">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-teal-950/80 dark:from-slate-900 dark:via-slate-900/95 dark:to-teal-950/90 border border-teal-500/30 p-8 sm:p-10 lg:p-12 text-white flex flex-col lg:flex-row items-center justify-between gap-8 shadow-xl text-start">
+            {/* Ambient Background Glows */}
+            <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-teal-500/15 blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-indigo-500/15 blur-3xl pointer-events-none" />
+
+            <div className="relative space-y-3 max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold">
+                <Sparkles className="w-3.5 h-3.5 text-teal-400" />
+                <span>{language === "ar" ? "جاهزية واستشارات تدريبية مخصصة" : "Customized Training Programs"}</span>
+              </div>
+
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white tracking-tight leading-snug">
                 {language === "ar"
                   ? "هل ترغب في تنظيم برنامج تدريبي أو ورشة عمل لفريقك؟"
                   : "Looking to conduct technical workshops or bootcamps for your team?"}
               </h3>
+
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
                 {language === "ar"
-                  ? "متاح لتقديم برامج مخصصة في تطوير أنظمة ERP، أطر عمل بايثون ودجانغو، هندسة واجهات Next.js، وتصميم أنظمة Figma."
-                  : "Available for tailored masterclasses in ERP systems, Python/Django, Next.js architecture, and Figma Design Systems."}
+                  ? "متاح لتقديم برامج مخصصة وحقائب تدريبية عملية في تطوير أنظمة ERP، أطر عمل بايثون، هندسة واجهات Next.js، وتصميم أنظمة Figma مع متابعة مشاريع واقعية."
+                  : "Available for tailored masterclasses in ERP systems, Python/Django, Next.js architecture, and Figma Design Systems with hands-on capstone mentoring."}
               </p>
             </div>
 
-            <Link
-              href={`/${language}/contact`}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs sm:text-sm shadow-md transition-all shrink-0 cursor-pointer"
-            >
-              <span>{language === "ar" ? "تواصل لحجز تدريب" : "Inquire for Training"}</span>
-              <Arrow className="w-4 h-4" />
-            </Link>
+            <div className="relative shrink-0 flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+              <Link
+                href={`/${language}/contact`}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs sm:text-sm shadow-lg hover:shadow-teal-500/25 transition-all cursor-pointer group"
+              >
+                <span>{language === "ar" ? "تواصل لحجز تدريب" : "Inquire for Training"}</span>
+                <Arrow className="w-4 h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </div>
         </ScrollReveal>
       </section>
