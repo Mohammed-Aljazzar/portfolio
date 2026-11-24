@@ -715,7 +715,7 @@ export const initialData = {
     philosophyEn: "I firmly believe that genuine technical mastery is forged through hands-on project-based learning. Rather than lecturing theoretical syntax, I mentor trainees through complete development cycles—from the first line of code to production deployment—equipping them with practical tools and freelancing readiness.",
     stats: {
       programsCount: 14,
-      workshopsCount: 28,
+      workshopsCount: 70,
       organizationsCount: 6,
       traineesCount: 650,
       trainingHours: 480,
