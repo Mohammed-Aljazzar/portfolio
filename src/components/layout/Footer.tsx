@@ -202,7 +202,7 @@ export const Footer: React.FC = () => {
                   href="https://wa.me/970598048284"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-xl bg-slate-800/90 border border-slate-700/80 hover:bg-[#25D366] hover:border-[#25D366] flex items-center justify-center text-slate-300 hover:text-white transition-all shadow-xs"
+                  className="w-9 h-9 rounded-xl bg-slate-800/90 border border-slate-700/80 hover:bg-gradient-to-br hover:from-teal-500 hover:to-teal-700 hover:border-teal-400 flex items-center justify-center text-slate-300 hover:text-white transition-all shadow-xs hover:shadow-teal-500/20"
                   title="WhatsApp"
                   aria-label="WhatsApp"
                 >

@@ -520,7 +520,7 @@ export default function HomePage() {
                     href="https://wa.me/970598048284"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative flex items-center justify-center w-11 h-11 sm:w-10 sm:h-10 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-[#25D366] hover:border-[#25D366]/50 hover:bg-[#25D366]/10 shadow-xs hover:-translate-y-1 hover:shadow-md transition-all duration-200 group"
+                    className="relative flex items-center justify-center w-11 h-11 sm:w-10 sm:h-10 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:border-teal-500/50 hover:bg-teal-500/10 shadow-xs hover:-translate-y-1 hover:shadow-md transition-all duration-200 group"
                     title="+970 59 804 8284"
                     aria-label="WhatsApp"
                   >

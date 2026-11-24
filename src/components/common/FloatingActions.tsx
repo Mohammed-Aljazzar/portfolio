@@ -71,7 +71,7 @@ export const FloatingActions: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* 2. Floating WhatsApp Direct Contact Button */}
+      {/* 2. Floating WhatsApp Direct Contact Button (Site Identity: Teal Theme) */}
       <motion.a
         href={whatsappUrl}
         target="_blank"
@@ -80,14 +80,14 @@ export const FloatingActions: React.FC = () => {
         title={language === "ar" ? "تواصل مباشرة عبر واتساب" : "Direct WhatsApp Chat"}
         whileHover={{ scale: 1.08, y: -2 }}
         whileTap={{ scale: 0.95 }}
-        className="group relative flex items-center justify-center w-13 h-13 rounded-2xl bg-[#25D366] text-white shadow-xl shadow-[#25D366]/30 hover:shadow-[#25D366]/50 transition-all duration-300"
+        className="group relative flex items-center justify-center w-12 h-12 sm:w-13 sm:h-13 rounded-2xl bg-gradient-to-br from-teal-500 via-teal-600 to-teal-700 text-white shadow-xl shadow-teal-500/30 hover:shadow-teal-500/50 border border-teal-300/40 dark:border-teal-400/30 transition-all duration-300"
       >
         {/* Radar Ambient Pulse */}
-        <span className="absolute -inset-1 rounded-2xl bg-[#25D366] opacity-35 blur-xs group-hover:opacity-60 transition-opacity animate-pulse pointer-events-none" />
+        <span className="absolute -inset-1 rounded-2xl bg-teal-500 opacity-35 blur-xs group-hover:opacity-60 transition-opacity animate-pulse pointer-events-none" />
 
-        {/* WhatsApp Official SVG Icon */}
+        {/* WhatsApp SVG Icon in Site Palette */}
         <svg
-          className="w-7 h-7 relative z-10 fill-white"
+          className="w-6 h-6 sm:w-7 sm:h-7 relative z-10 fill-white"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -100,7 +100,7 @@ export const FloatingActions: React.FC = () => {
             isRTL ? "left-15" : "right-15"
           }`}
         >
-          <span className="w-2 h-2 rounded-full bg-[#25D366] animate-ping" />
+          <span className="w-2 h-2 rounded-full bg-teal-400 animate-ping" />
           <span>{language === "ar" ? "تواصل واتساب مباشر" : "Direct WhatsApp"}</span>
         </span>
       </motion.a>

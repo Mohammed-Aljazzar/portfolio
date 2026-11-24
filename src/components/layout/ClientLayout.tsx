@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import PageTransition from "@/components/layout/PageTransition";
 import { ScrollProgressBar } from "@/components/common/ScrollProgressBar";
 import { FloatingActions } from "@/components/common/FloatingActions";
+import AiChatAssistant from "@/components/common/AiChatAssistant";
 
 export function ClientLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -29,6 +30,7 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
       </main>
       <Footer />
       <FloatingActions />
+      <AiChatAssistant />
     </>
   );
 }
