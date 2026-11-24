@@ -28,10 +28,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   const [language, setLanguageState] = useState<Language>(() => {
-    if (typeof window !== "undefined") {
-      return getLangFromPath(window.location.pathname);
-    }
-    return "ar";
+    return getLangFromPath(pathname);
   });
 
   // Sync state & DOM whenever pathname changes
