@@ -750,7 +750,7 @@ export const initialData = {
       roleEn: "Tech Empowerment & Upskilling Partner",
       descriptionAr: "شراكة استراتيجية لتقديم ورش ودورات مكثفة تسهم في فتح فرص عمل وتطوير المهارات الرقمية.",
       descriptionEn: "Strategic partnership delivering intensive workshops and tech diplomas creating career opportunities.",
-      logoUrl: "/assets/images/partners/forsaplus-logo.svg",
+      logoUrl: "/assets/images/partners/forsaplus-logo.jpg",
       websiteUrl: null,
     },
     {
