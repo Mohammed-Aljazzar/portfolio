@@ -167,31 +167,39 @@ export default function AiChatAssistant() {
   return (
     <>
       {/* Floating Action Button */}
-      <div className="fixed bottom-6 start-6 z-40 flex flex-col items-center gap-2">
+      <div
+        className={`fixed bottom-6 z-40 flex flex-col items-center gap-2 ${
+          isAr ? "left-6 sm:left-8" : "right-6 sm:right-8"
+        }`}
+      >
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
-          className="group relative flex items-center justify-center w-13 h-13 rounded-2xl bg-gradient-to-br from-teal-500 via-teal-600 to-teal-800 text-white shadow-xl shadow-teal-500/25 hover:shadow-teal-500/40 hover:scale-105 active:scale-95 transition-all duration-300 border border-teal-300/30 cursor-pointer"
+          className="group relative flex items-center justify-center w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-teal-500 via-teal-600 to-slate-900 text-white shadow-xl shadow-teal-500/30 hover:shadow-teal-500/50 hover:scale-105 active:scale-95 transition-all duration-300 border border-teal-300/40 dark:border-teal-400/30 cursor-pointer"
           aria-label={isAr ? "المساعد الذكي للدردشة" : "AI Chat Assistant"}
           title={isAr ? "المساعد الذكي للمهندس محمد الجزار" : "AI Chat Assistant"}
         >
+          {/* Ambient Glow */}
+          <span className="absolute -inset-1 rounded-2xl bg-teal-500 opacity-25 blur-xs group-hover:opacity-50 transition-opacity animate-pulse pointer-events-none" />
+
           {isOpen ? (
-            <X className="w-6 h-6 transition-transform duration-200" />
+            <X className="w-6 h-6 relative z-10 transition-transform duration-200" />
           ) : (
             <>
-              <Bot className="w-6 h-6 transition-transform duration-200 group-hover:rotate-6" />
-              <span className="absolute -top-1 -end-1 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-white dark:border-slate-900 animate-pulse" />
+              <Bot className="w-6 h-6 sm:w-7 sm:h-7 relative z-10 transition-transform duration-200 group-hover:rotate-6 text-teal-100" />
+              <span className="absolute -top-1 -end-1 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-white dark:border-slate-900 animate-pulse z-20" />
             </>
           )}
 
           {/* Tooltip on Hover */}
           {!isOpen && (
             <span
-              className={`absolute top-1/2 -translate-y-1/2 whitespace-nowrap px-3 py-1.5 rounded-xl bg-slate-900/90 dark:bg-slate-800/95 text-white text-xs font-medium shadow-lg backdrop-blur-md opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-200 border border-slate-700/50 ${
-                isAr ? "right-16" : "left-16"
+              className={`absolute top-1/2 -translate-y-1/2 whitespace-nowrap px-3 py-1.5 rounded-xl bg-slate-900/95 dark:bg-slate-800/95 text-white text-xs font-semibold shadow-xl backdrop-blur-md opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-200 border border-slate-700/60 flex items-center gap-1.5 ${
+                isAr ? "left-16" : "right-16"
               }`}
             >
-              {isAr ? "المساعد الذكي (اسأل عن أي شيء)" : "AI Assistant (Ask me anything)"}
+              <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+              <span>{isAr ? "المساعد الذكي (اسأل عن أي شيء)" : "AI Assistant (Ask me anything)"}</span>
             </span>
           )}
         </button>
@@ -201,7 +209,9 @@ export default function AiChatAssistant() {
       {isOpen && (
         <div
           dir={isAr ? "rtl" : "ltr"}
-          className="fixed bottom-22 start-4 sm:start-6 z-50 w-[calc(100vw-2rem)] sm:w-96 max-w-[420px] h-[540px] max-h-[calc(100vh-7rem)] flex flex-col rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800 shadow-2xl shadow-slate-900/20 overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-300"
+          className={`fixed bottom-22 z-50 w-[calc(100vw-2rem)] sm:w-96 max-w-[420px] h-[550px] max-h-[calc(100vh-7rem)] flex flex-col rounded-3xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-slate-200/90 dark:border-slate-800 shadow-2xl shadow-slate-950/25 overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-300 ${
+            isAr ? "left-4 sm:left-8" : "right-4 sm:right-8"
+          }`}
         >
           {/* Header */}
           <div className="relative px-4 py-3.5 bg-gradient-to-r from-teal-600 via-teal-700 to-slate-900 text-white flex items-center justify-between shrink-0 shadow-md">

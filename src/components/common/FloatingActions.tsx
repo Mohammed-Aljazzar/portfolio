@@ -40,7 +40,7 @@ export const FloatingActions: React.FC = () => {
   return (
     <div
       className={`fixed bottom-6 z-40 flex flex-col items-center gap-3 ${
-        isRTL ? "left-6 sm:left-8" : "right-6 sm:right-8"
+        isRTL ? "right-6 sm:right-8" : "left-6 sm:left-8"
       }`}
     >
       {/* 1. Back to Top Button */}
@@ -62,7 +62,7 @@ export const FloatingActions: React.FC = () => {
             {/* Tooltip Label */}
             <span
               className={`absolute top-1/2 -translate-y-1/2 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap px-2.5 py-1 text-[11px] font-semibold font-mono rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-lg ${
-                isRTL ? "left-14" : "right-14"
+                isRTL ? "right-14" : "left-14"
               }`}
             >
               {language === "ar" ? "العودة للأعلى ↑" : "Back to top ↑"}
@@ -97,7 +97,7 @@ export const FloatingActions: React.FC = () => {
         {/* Live Chat Tooltip */}
         <span
           className={`absolute top-1/2 -translate-y-1/2 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap px-3 py-1.5 text-xs font-semibold rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xl flex items-center gap-1.5 ${
-            isRTL ? "left-15" : "right-15"
+            isRTL ? "right-15" : "left-15"
           }`}
         >
           <span className="w-2 h-2 rounded-full bg-teal-400 animate-ping" />
