@@ -2,11 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { ThemeProvider } from "@/context/ThemeContext";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import PageTransition from "@/components/layout/PageTransition";
-import { ScrollProgressBar } from "@/components/common/ScrollProgressBar";
-import { FloatingActions } from "@/components/common/FloatingActions";
+import { ClientLayout } from "@/components/layout/ClientLayout";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mohammed-aljazzar.vercel.app"),
@@ -41,13 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900 dark:bg-[#0B1120] dark:text-slate-100 antialiased selection:bg-teal-500 selection:text-white">
         <LanguageProvider>
           <ThemeProvider>
-            <ScrollProgressBar />
-            <Navbar />
-            <main className="flex-1 pt-20">
-              <PageTransition>{children}</PageTransition>
-            </main>
-            <Footer />
-            <FloatingActions />
+            <ClientLayout>{children}</ClientLayout>
           </ThemeProvider>
         </LanguageProvider>
       </body>

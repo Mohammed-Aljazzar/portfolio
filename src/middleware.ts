@@ -10,7 +10,7 @@ export function middleware(request: NextRequest) {
   // 1. Skip paths that should not be localized
   if (
     pathname.startsWith('/api') ||
-    pathname.startsWith('/admin') ||
+    pathname.startsWith('/ssh') ||
     pathname.startsWith('/_next') ||
     pathname.startsWith('/assets') ||
     pathname.includes('.') // static files like favicon.svg, images, etc.

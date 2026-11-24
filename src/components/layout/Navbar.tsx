@@ -17,7 +17,6 @@ import {
   ChevronDown,
   Sparkles,
   ExternalLink,
-  Shield,
   FileText,
   MessageSquare,
 } from "lucide-react";
@@ -144,15 +143,6 @@ export const Navbar: React.FC = () => {
                 <span>{language === "ar" ? "تواصل معي" : "Get in Touch"}</span>
               </Link>
             </motion.div>
-
-            {/* Admin CMS Portal Link */}
-            <Link
-              href="/admin"
-              className="h-10 w-10 rounded-full inline-flex items-center justify-center border border-transparent hover:border-slate-200 dark:hover:border-slate-800 text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
-              title={t.nav.admin}
-            >
-              <Shield className="w-4 h-4" />
-            </Link>
           </div>
 
           {/* Mobile Menu Toggle Button */}
@@ -258,16 +248,6 @@ export const Navbar: React.FC = () => {
                   <span>{t.nav.cvEnglish}</span>
                   <Download className="w-3.5 h-3.5" />
                 </a>
-
-                {/* Admin CMS Portal Link */}
-                <Link
-                  href="/admin"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 py-2 px-3 text-xs text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors"
-                >
-                  <Shield className="w-3.5 h-3.5" />
-                  <span>{t.nav.admin}</span>
-                </Link>
               </div>
             </motion.div>
           )}
