@@ -135,7 +135,11 @@ export default function ExperiencePage() {
                   <div className="flex flex-wrap sm:flex-col sm:items-end gap-2 text-xs font-mono text-slate-500 dark:text-slate-400">
                     <span className="flex items-center gap-1.5 bg-slate-50 dark:bg-slate-800/80 px-2.5 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
                       <Calendar className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
-                      <span>{exp.startDate} – {exp.endDate}</span>
+                      <span>
+                        {language === "ar"
+                          ? `${exp.startDateAr || exp.startDate} – ${exp.endDateAr || exp.endDate}`
+                          : `${exp.startDateEn || exp.startDate} – ${exp.endDateEn || (exp.isCurrent ? "Present" : exp.endDate)}`}
+                      </span>
                     </span>
                     <span className="flex items-center gap-1.5 bg-slate-50 dark:bg-slate-800/80 px-2.5 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
                       <MapPin className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
@@ -235,7 +239,9 @@ export default function ExperiencePage() {
                       </div>
                     </div>
                     <div className="text-xs font-mono text-slate-500 dark:text-slate-400">
-                      {exp.startDate} – {exp.endDate}
+                      {language === "ar"
+                        ? `${exp.startDateAr || exp.startDate} – ${exp.endDateAr || exp.endDate}`
+                        : `${exp.startDateEn || exp.startDate} – ${exp.endDateEn || (exp.isCurrent ? "Present" : exp.endDate)}`}
                     </div>
                   </div>
 

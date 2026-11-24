@@ -74,6 +74,10 @@ export interface Experience {
   type: "remote" | "onsite" | "hybrid";
   startDate: string;
   endDate: string;
+  startDateAr?: string;
+  startDateEn?: string;
+  endDateAr?: string;
+  endDateEn?: string;
   isCurrent: boolean;
   highlightsAr: string[];
   highlightsEn: string[];
