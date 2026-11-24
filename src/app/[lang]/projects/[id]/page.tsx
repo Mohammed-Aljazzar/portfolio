@@ -107,34 +107,7 @@ export default async function ProjectDetailPage({ params }: Props) {
   return (
     <article className="min-h-screen text-slate-900 dark:text-slate-100">
       {/* ══════════════════════════════════════════════
-          1. BREADCRUMBS
-         ══════════════════════════════════════════════ */}
-      <div className="border-b border-slate-200/80 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-900/30">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-            <Link
-              href={`/${language}`}
-              className="hover:text-slate-900 dark:hover:text-white transition-colors"
-            >
-              {language === "ar" ? "الرئيسية" : "Home"}
-            </Link>
-            <span className="text-slate-400 dark:text-slate-600">/</span>
-            <Link
-              href={`/${language}/projects`}
-              className="hover:text-slate-900 dark:hover:text-white transition-colors"
-            >
-              {language === "ar" ? "المشاريع" : "Projects"}
-            </Link>
-            <span className="text-slate-400 dark:text-slate-600">/</span>
-            <span className="text-slate-900 dark:text-slate-200 font-medium truncate max-w-xs sm:max-w-md">
-              {title}
-            </span>
-          </nav>
-        </div>
-      </div>
-
-      {/* ══════════════════════════════════════════════
-          2. HERO SECTION & KEY METADATA
+          HERO SECTION & KEY METADATA
          ══════════════════════════════════════════════ */}
       <header className="border-b border-slate-200/80 dark:border-slate-800/80 py-10 sm:py-14 bg-white dark:bg-[#0B1120]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-start">
