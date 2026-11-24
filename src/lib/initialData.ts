@@ -760,7 +760,7 @@ export const initialData = {
       roleEn: "Principal Training Partner in Web Dev, UI/UX & Enterprise Systems",
       descriptionAr: "شراكة ممتدة في تقديم دبلومات تطوير البرمجيات وتصميم المنتجات وتوجيه المتدربين نحو سوق العمل والعمل الحر.",
       descriptionEn: "Long-standing collaboration delivering professional software diplomas, UI/UX sprints, and career mentorship.",
-      logoUrl: "/assets/images/partners/pidea-logo.svg",
+      logoUrl: "/assets/images/partners/pidea-logo.webp",
       websiteUrl: "https://pidea.co",
     },
   ],
