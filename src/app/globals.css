@@ -143,23 +143,32 @@ body {
 
 /* Infinite Marquee Animation */
 @keyframes marquee-scroll {
-  from {
+  0% {
     transform: translateX(0);
   }
-  to {
-    transform: translateX(-50%);
+  100% {
+    transform: translateX(calc(-50% - 0.625rem));
   }
 }
 
 .animate-marquee-scroll {
   display: flex;
   width: max-content;
-  animation: marquee-scroll 28s linear infinite;
+  animation: marquee-scroll 24s linear infinite;
   will-change: transform;
 }
 
 [dir="rtl"] .animate-marquee-scroll {
-  animation-direction: reverse;
+  animation: marquee-scroll-rtl 24s linear infinite;
+}
+
+@keyframes marquee-scroll-rtl {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(50% + 0.625rem));
+  }
 }
 
 .animate-marquee-scroll:hover {

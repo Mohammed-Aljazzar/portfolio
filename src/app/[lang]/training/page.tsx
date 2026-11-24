@@ -438,7 +438,7 @@ export default function TrainingPage() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          5. TRAINER PHOTO GALLERY (معرض صور التدريب والمحاضرات - شريط تمرير تلقائي)
+          5. TRAINER PHOTO GALLERY (معرض صور التدريب والمحاضرات - شريط تمرير تلقائي مستمر)
          ══════════════════════════════════════════════ */}
       <section className="space-y-6 text-start overflow-hidden">
         <ScrollReveal>
@@ -457,15 +457,31 @@ export default function TrainingPage() {
               </p>
             </div>
             <span className="text-xs font-mono text-teal-600 dark:text-teal-400 font-semibold hidden sm:inline-block">
-              {language === "ar" ? "تمرير تفاعلي مستمر" : "Continuous Carousel"}
+              {language === "ar" ? "تمرير تلقائي مستمر" : "Continuous Carousel"}
             </span>
           </div>
         </ScrollReveal>
 
-        {/* Infinite Auto-Scrolling Carousel */}
-        <div className="relative w-full overflow-hidden py-3 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        {/* Infinite Continuous Auto-Scrolling Carousel (بدون ضباب على الأطراف) */}
+        <div className="relative w-full overflow-hidden py-2">
           <div className="animate-marquee-scroll flex gap-5 items-center">
+            {/* Double array to create seamless infinite loop without gap or jumping */}
             {[
+              {
+                src: "/assets/images/training/trainer-1.png",
+                captionAr: "المهندس محمد الجزار — مدرب ومحاضر تقني معتمد",
+                captionEn: "Eng. Mohammed Aljazzar — Certified Technical Instructor",
+              },
+              {
+                src: "/assets/images/training/trainer-2.png",
+                captionAr: "تقديم الورش التقنية والتدريب العملي المباشر",
+                captionEn: "Delivering hands-on technical workshops & training",
+              },
+              {
+                src: "/assets/images/training/trainer-3.jpg",
+                captionAr: "تمكين الكفاءات وتوجيه المتدربين نحو سوق العمل",
+                captionEn: "Empowering tech talent & career mentorship",
+              },
               {
                 src: "/assets/images/training/trainer-1.png",
                 captionAr: "المهندس محمد الجزار — مدرب ومحاضر تقني معتمد",
@@ -521,6 +537,15 @@ export default function TrainingPage() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* مؤشرات النقاط تحت شريط العرض (Indicator Dots) */}
+        <div className="flex items-center justify-center gap-2 pt-2">
+          <span className="w-6 h-1.5 rounded-full bg-teal-500 animate-pulse" />
+          <span className="w-2 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700" />
+          <span className="w-2 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700" />
+          <span className="w-2 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700" />
+          <span className="w-2 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700" />
         </div>
       </section>
 
