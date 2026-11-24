@@ -387,42 +387,45 @@ export default function TrainingPage() {
               </h3>
             </div>
 
-            <div className="space-y-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
               {workshops.map((ws, idx) => (
                 <ScrollReveal key={ws.id} delay={idx * 0.04}>
-                  <div className="rounded-2xl p-5 bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-indigo-500/40 transition-all flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div className="space-y-2 max-w-3xl">
-                      <div className="flex flex-wrap items-center gap-2.5 text-xs">
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-950/70 text-indigo-700 dark:text-indigo-300 font-semibold border border-indigo-200/60 dark:border-indigo-800/60">
+                  <div className="rounded-2xl p-5 sm:p-6 bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-indigo-500/40 transition-all flex flex-col justify-between gap-4 h-full group">
+                    <div className="space-y-3">
+                      {/* Top Badges (Institution & Date) */}
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-indigo-50 dark:bg-indigo-950/70 text-indigo-700 dark:text-indigo-300 border border-indigo-200/60 dark:border-indigo-800/60">
                           <Building2 className="w-3 h-3" />
                           <span>{language === "ar" ? ws.organizationAr : ws.organizationEn}</span>
                         </span>
 
-                        <span className="inline-flex items-center gap-1 font-mono text-slate-400">
+                        <span className="inline-flex items-center gap-1 font-mono text-[11px] text-slate-400">
                           <Calendar className="w-3.5 h-3.5" />
                           <span>{ws.date}</span>
                         </span>
-
-                        <span className="inline-flex items-center gap-1 font-mono text-slate-500 dark:text-slate-400">
-                          <Users className="w-3.5 h-3.5 text-indigo-500" />
-                          <span>{ws.beneficiariesCount} {language === "ar" ? "مستفيد" : "Learners"}</span>
-                        </span>
                       </div>
 
-                      <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
+                      {/* Workshop Title */}
+                      <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                         {language === "ar" ? ws.titleAr : ws.titleEn}
                       </h4>
 
-                      <div className="flex flex-wrap gap-1.5 pt-1">
-                        {(language === "ar" ? ws.topicsAr : ws.topicsEn).map((tItem, i) => (
-                          <span
-                            key={i}
-                            className="text-[11px] font-mono text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/70 px-2 py-0.5 rounded-md border border-slate-200/60 dark:border-slate-700/60"
-                          >
-                            {tItem}
-                          </span>
-                        ))}
+                      {/* Hours & Beneficiaries Stats */}
+                      <div className="flex items-center gap-4 text-xs font-mono text-slate-500 dark:text-slate-400 pt-0.5">
+                        <span className="inline-flex items-center gap-1">
+                          <Clock className="w-3.5 h-3.5 text-indigo-500" />
+                          <span>{ws.hours} {language === "ar" ? "ساعات تدريبية" : "Hours"}</span>
+                        </span>
+                        <span className="inline-flex items-center gap-1">
+                          <Users className="w-3.5 h-3.5 text-indigo-500" />
+                          <span>+{ws.beneficiariesCount} {language === "ar" ? "مستفيد" : "Learners"}</span>
+                        </span>
                       </div>
+
+                      {/* Workshop Summary */}
+                      <p className="text-xs sm:text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+                        {language === "ar" ? ws.descriptionAr : ws.descriptionEn}
+                      </p>
                     </div>
                   </div>
                 </ScrollReveal>
