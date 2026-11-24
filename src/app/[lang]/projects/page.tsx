@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
@@ -22,6 +22,39 @@ export default function ProjectsPage() {
   const { language, t, isRTL } = useLanguage();
   const [activeFilter, setActiveFilter] = useState<string>("all");
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
+
+  // Drag-to-scroll for categories on mobile & tablet
+  const filterTabsRef = useRef<HTMLDivElement>(null);
+  const isTabsDownRef = useRef(false);
+  const tabsStartXRef = useRef(0);
+  const tabsScrollLeftRef = useRef(0);
+  const hasTabsDraggedRef = useRef(false);
+
+  const handleTabsMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!filterTabsRef.current) return;
+    isTabsDownRef.current = true;
+    hasTabsDraggedRef.current = false;
+    tabsStartXRef.current = e.pageX - filterTabsRef.current.offsetLeft;
+    tabsScrollLeftRef.current = filterTabsRef.current.scrollLeft;
+  };
+
+  const handleTabsMouseLeave = () => {
+    isTabsDownRef.current = false;
+  };
+
+  const handleTabsMouseUp = () => {
+    isTabsDownRef.current = false;
+  };
+
+  const handleTabsMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isTabsDownRef.current || !filterTabsRef.current) return;
+    const x = e.pageX - filterTabsRef.current.offsetLeft;
+    const walk = x - tabsStartXRef.current;
+    if (Math.abs(walk) > 5) {
+      hasTabsDraggedRef.current = true;
+    }
+    filterTabsRef.current.scrollLeft = tabsScrollLeftRef.current - walk;
+  };
 
   const projects = initialData.projects;
   const filteredProjects = projects.filter(
@@ -73,28 +106,40 @@ export default function ProjectsPage() {
           </div>
         </ScrollReveal>
 
-        {/* Categories / Filter Tabs */}
+        {/* Categories / Filter Tabs (Drag-to-scroll & swipe on mobile and tablet, wrap on lg+) */}
         <ScrollReveal delay={0.06}>
-          <div className="flex flex-wrap gap-2 pt-1 border-b border-slate-200/80 dark:border-slate-800 pb-4">
-            {[
-              { id: "all", label: t.projectsPage.filters.all },
-              { id: "erp", label: t.projectsPage.filters.erp },
-              { id: "backend", label: t.projectsPage.filters.backend },
-              { id: "frontend", label: t.projectsPage.filters.frontend },
-              { id: "uiux", label: t.projectsPage.filters.uiux },
-            ].map((f) => (
-              <button
-                key={f.id}
-                onClick={() => setActiveFilter(f.id)}
-                className={`px-4 py-2 text-xs sm:text-[13px] font-semibold rounded-xl transition-all duration-200 cursor-pointer ${
-                  activeFilter === f.id
-                    ? "bg-teal-600 dark:bg-teal-500 text-white shadow-xs shadow-teal-500/20"
-                    : "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200/90 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/50"
-                }`}
-              >
-                {f.label}
-              </button>
-            ))}
+          <div className="relative border-b border-slate-200/80 dark:border-slate-800 pb-4">
+            <div
+              ref={filterTabsRef}
+              onMouseDown={handleTabsMouseDown}
+              onMouseLeave={handleTabsMouseLeave}
+              onMouseUp={handleTabsMouseUp}
+              onMouseMove={handleTabsMouseMove}
+              className="flex items-center gap-2 overflow-x-auto lg:flex-wrap lg:overflow-x-visible no-scrollbar scroll-smooth cursor-grab active:cursor-grabbing select-none py-1"
+            >
+              {[
+                { id: "all", label: t.projectsPage.filters.all },
+                { id: "erp", label: t.projectsPage.filters.erp },
+                { id: "backend", label: t.projectsPage.filters.backend },
+                { id: "frontend", label: t.projectsPage.filters.frontend },
+                { id: "uiux", label: t.projectsPage.filters.uiux },
+              ].map((f) => (
+                <button
+                  key={f.id}
+                  onClick={() => {
+                    if (hasTabsDraggedRef.current) return;
+                    setActiveFilter(f.id);
+                  }}
+                  className={`px-4 py-2 text-xs sm:text-[13px] font-semibold rounded-xl transition-all duration-200 shrink-0 cursor-pointer whitespace-nowrap ${
+                    activeFilter === f.id
+                      ? "bg-teal-600 dark:bg-teal-500 text-white shadow-xs shadow-teal-500/20"
+                      : "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200/90 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/50"
+                  }`}
+                >
+                  {f.label}
+                </button>
+              ))}
+            </div>
           </div>
         </ScrollReveal>
       </section>
