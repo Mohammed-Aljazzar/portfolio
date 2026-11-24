@@ -370,23 +370,6 @@ export default function TrainingPage() {
                         {language === "ar" ? program.descriptionAr : program.descriptionEn}
                       </p>
                     </div>
-
-                    {/* Topics Covered */}
-                    <div className="pt-3 border-t border-slate-100 dark:border-slate-800/80 space-y-2">
-                      <span className="text-[10px] font-mono uppercase text-slate-400 block font-semibold">
-                        {language === "ar" ? "أبرز المحاور التدريبية:" : "Curriculum Topics:"}
-                      </span>
-                      <div className="flex flex-wrap gap-1.5">
-                        {(language === "ar" ? program.topicsAr : program.topicsEn).map((topic, i) => (
-                          <span
-                            key={i}
-                            className="px-2.5 py-1 text-[11px] rounded-lg bg-slate-50 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/70 dark:border-slate-700/70 font-medium"
-                          >
-                            {topic}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
                   </div>
                 </ScrollReveal>
               ))}
