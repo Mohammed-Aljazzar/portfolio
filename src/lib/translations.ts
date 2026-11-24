@@ -3,7 +3,7 @@ export const translations = {
     nav: {
       home: "الرئيسية",
       about: "نبذة عني",
-      experience: "الخبرة",
+      experience: "الخبرات",
       training: "التدريب",
       projects: "المشاريع",
       contact: "تواصل معي",
