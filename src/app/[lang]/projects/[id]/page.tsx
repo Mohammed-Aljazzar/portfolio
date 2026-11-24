@@ -10,13 +10,20 @@ import {
   Globe,
   Palette,
   ExternalLink,
-  Sparkles,
+  Star,
   ArrowRight,
   ArrowLeft,
   CheckCircle2,
   Cpu,
   Workflow,
   Terminal,
+  Calendar,
+  Building,
+  UserCheck,
+  Layers,
+  Sparkles,
+  TrendingUp,
+  Image as ImageIcon,
 } from "lucide-react";
 
 interface Props {
@@ -73,13 +80,27 @@ export default async function ProjectDetailPage({ params }: Props) {
   const solution = language === "ar" ? project.solutionAr : project.solutionEn;
   const architecture =
     language === "ar" ? project.architectureAr : project.architectureEn;
+  const role = language === "ar" ? project.roleAr : project.roleEn;
+  const client = language === "ar" ? project.clientAr : project.clientEn;
+  const projectType =
+    language === "ar" ? project.projectTypeAr : project.projectTypeEn;
+  const year = project.year || "2025";
+  const keyFeatures =
+    language === "ar" ? project.keyFeaturesAr : project.keyFeaturesEn;
+  const myContributions =
+    language === "ar" ? project.myContributionsAr : project.myContributionsEn;
+  const outcomes =
+    language === "ar" ? project.outcomesAr : project.outcomesEn;
+  const gallery = project.galleryImages && project.galleryImages.length > 0
+    ? project.galleryImages
+    : [project.coverImage];
 
   const ArrowBack = isRTL ? ArrowRight : ArrowLeft;
   const ArrowNext = isRTL ? ArrowLeft : ArrowRight;
 
   const categoryNames: Record<string, { ar: string; en: string }> = {
-    erp: { ar: "أنظمة ERP وتطوير الأعمال", en: "Enterprise ERP & Business Automation" },
-    backend: { ar: "هندسة الباك إند والخدمات السحابية", en: "Backend & Cloud Web Services" },
+    erp: { ar: "أنظمة ERP وتطوير الأعمال", en: "Enterprise ERP & Automation" },
+    backend: { ar: "هندسة الباك إند والخدمات السحابية", en: "Backend & Cloud Services" },
     frontend: { ar: "تطوير تطبيقات الويب والفرونت إند", en: "Modern Web Apps & Frontend" },
     uiux: { ar: "تصميم واجهات وتجربة المستخدم", en: "UI/UX & Product Design System" },
   };
@@ -88,7 +109,7 @@ export default async function ProjectDetailPage({ params }: Props) {
     categoryNames[project.category]?.[language] || project.category.toUpperCase();
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-14 space-y-10 sm:space-y-14">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-14 space-y-12 sm:space-y-16">
       {/* ══════════════════════════════════════════════
           1. NAVIGATION BREADCRUMB
          ══════════════════════════════════════════════ */}
@@ -107,16 +128,16 @@ export default async function ProjectDetailPage({ params }: Props) {
             {project.category.toUpperCase()}
           </span>
           {project.isFeatured && (
-            <span className="inline-flex items-center gap-1.5 text-xs font-mono text-teal-700 dark:text-teal-300 font-bold bg-teal-50 dark:bg-teal-950/60 px-3 py-1 rounded-full border border-teal-200 dark:border-teal-800">
-              <Sparkles className="w-3.5 h-3.5 text-teal-500" />
-              <span>Featured</span>
+            <span className="inline-flex items-center gap-1.5 text-xs font-mono text-slate-950 font-bold bg-amber-400 px-3 py-1 rounded-full shadow-xs">
+              <Star className="w-3.5 h-3.5 fill-slate-950 text-slate-950" />
+              <span>{language === "ar" ? "مشروع مميز" : "Featured"}</span>
             </span>
           )}
         </div>
       </div>
 
       {/* ══════════════════════════════════════════════
-          2. HEADER (Matches Home & Experience Overline Style)
+          2. HEADER HERO
          ══════════════════════════════════════════════ */}
       <div className="space-y-4 text-start">
         {/* Signature Overline */}
@@ -133,7 +154,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           {title}
         </h1>
 
-        {/* Summary */}
+        {/* Summary Description */}
         <p className="text-xs sm:text-sm lg:text-base text-slate-600 dark:text-slate-400 font-normal leading-relaxed max-w-4xl">
           {summary}
         </p>
@@ -183,7 +204,59 @@ export default async function ProjectDetailPage({ params }: Props) {
       </div>
 
       {/* ══════════════════════════════════════════════
-          3. COVER IMAGE SHOWCASE FRAME
+          3. PROJECT METADATA CARD (Role, Client, Type, Year, Status)
+             Inspired by ameerabudraz.com/en/projects/doosdoos
+         ══════════════════════════════════════════════ */}
+      <div className="rounded-2xl sm:rounded-3xl bg-slate-50/70 dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800 p-5 sm:p-7 shadow-xs">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 text-start">
+          {/* Role */}
+          <div className="space-y-1">
+            <div className="flex items-center gap-1.5 text-slate-400 text-xs font-mono">
+              <UserCheck className="w-3.5 h-3.5 text-teal-500" />
+              <span>{t.projectsPage.projectDetail.roleLabel}</span>
+            </div>
+            <p className="text-xs sm:text-[13px] font-bold text-slate-900 dark:text-white leading-snug">
+              {role || (language === "ar" ? "مهندس برمجيات ومطور رئيسي" : "Lead Software Engineer")}
+            </p>
+          </div>
+
+          {/* Client / Organization */}
+          <div className="space-y-1">
+            <div className="flex items-center gap-1.5 text-slate-400 text-xs font-mono">
+              <Building className="w-3.5 h-3.5 text-teal-500" />
+              <span>{t.projectsPage.projectDetail.clientLabel}</span>
+            </div>
+            <p className="text-xs sm:text-[13px] font-bold text-slate-900 dark:text-white leading-snug">
+              {client || (language === "ar" ? "عميل تجاري ومؤسسي" : "Enterprise Client")}
+            </p>
+          </div>
+
+          {/* Project Type */}
+          <div className="space-y-1">
+            <div className="flex items-center gap-1.5 text-slate-400 text-xs font-mono">
+              <Layers className="w-3.5 h-3.5 text-teal-500" />
+              <span>{t.projectsPage.projectDetail.projectTypeLabel}</span>
+            </div>
+            <p className="text-xs sm:text-[13px] font-bold text-slate-900 dark:text-white leading-snug">
+              {projectType || categoryLabel}
+            </p>
+          </div>
+
+          {/* Timeline & Status */}
+          <div className="space-y-1">
+            <div className="flex items-center gap-1.5 text-slate-400 text-xs font-mono">
+              <Calendar className="w-3.5 h-3.5 text-teal-500" />
+              <span>{t.projectsPage.projectDetail.yearLabel}</span>
+            </div>
+            <p className="text-xs sm:text-[13px] font-bold text-teal-600 dark:text-teal-400 leading-snug">
+              {year} • {t.projectsPage.projectDetail.statusDelivered}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* ══════════════════════════════════════════════
+          4. COVER IMAGE SHOWCASE FRAME
          ══════════════════════════════════════════════ */}
       <div className="relative w-full aspect-[16/9] sm:aspect-[16/8] rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-950 border border-slate-800 shadow-xl">
         <Image
@@ -198,7 +271,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       </div>
 
       {/* ══════════════════════════════════════════════
-          4. CASE STUDY DEEP DIVE (CHALLENGE & SOLUTION)
+          5. OVERVIEW & ENGINEERING CHALLENGE / SOLUTION
          ══════════════════════════════════════════════ */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-7 text-start">
         {/* The Challenge */}
@@ -210,7 +283,7 @@ export default async function ProjectDetailPage({ params }: Props) {
               </div>
               <div>
                 <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400 block">
-                  {language === "ar" ? "المشكلة التشغيلية" : "Problem Statement"}
+                  {language === "ar" ? "المشكلة التشغيلية" : "Operational Challenge"}
                 </span>
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
                   {t.projectsPage.projectDetail.challengeTitle}
@@ -247,16 +320,123 @@ export default async function ProjectDetailPage({ params }: Props) {
       </div>
 
       {/* ══════════════════════════════════════════════
-          5. ARCHITECTURE & IMPLEMENTATION
+          6. KEY FEATURES & CAPABILITIES
+         ══════════════════════════════════════════════ */}
+      {keyFeatures && keyFeatures.length > 0 && (
+        <div className="rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800 p-6 sm:p-8 space-y-5 shadow-xs text-start">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/60 text-teal-600 dark:text-teal-400 shrink-0">
+              <Layers className="w-4 h-4" />
+            </div>
+            <div>
+              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 block">
+                {language === "ar" ? "قدرات النظام" : "Core Capabilities"}
+              </span>
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                {t.projectsPage.projectDetail.featuresTitle}
+              </h3>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+            {keyFeatures.map((feat, idx) => (
+              <div
+                key={idx}
+                className="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50/70 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60"
+              >
+                <CheckCircle2 className="w-4 h-4 text-teal-500 shrink-0 mt-0.5" />
+                <span className="text-xs sm:text-[13px] text-slate-700 dark:text-slate-300 leading-relaxed">
+                  {feat}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ══════════════════════════════════════════════
+          7. MY SPECIFIC CONTRIBUTIONS & DELIVERABLES
+         ══════════════════════════════════════════════ */}
+      {myContributions && myContributions.length > 0 && (
+        <div className="rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800 p-6 sm:p-8 space-y-5 shadow-xs text-start">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-100 dark:border-indigo-800/60 text-indigo-600 dark:text-indigo-400 shrink-0">
+              <UserCheck className="w-4 h-4" />
+            </div>
+            <div>
+              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 block">
+                {language === "ar" ? "المسؤولية والتسليم" : "Scope & Execution"}
+              </span>
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                {t.projectsPage.projectDetail.myContributionsTitle}
+              </h3>
+            </div>
+          </div>
+
+          <div className="space-y-2.5 pt-1">
+            {myContributions.map((contrib, idx) => (
+              <div
+                key={idx}
+                className="flex items-start gap-3 p-3.5 rounded-xl bg-indigo-50/30 dark:bg-indigo-950/20 border border-indigo-100/60 dark:border-indigo-900/40"
+              >
+                <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0 mt-2" />
+                <span className="text-xs sm:text-[13px] text-slate-700 dark:text-slate-300 leading-relaxed">
+                  {contrib}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ══════════════════════════════════════════════
+          8. OUTCOMES & MEASURED IMPACT
+         ══════════════════════════════════════════════ */}
+      {outcomes && outcomes.length > 0 && (
+        <div className="rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800 p-6 sm:p-8 space-y-5 shadow-xs text-start">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/60 text-emerald-600 dark:text-emerald-400 shrink-0">
+              <TrendingUp className="w-4 h-4" />
+            </div>
+            <div>
+              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 block">
+                {language === "ar" ? "القيمة المضافة" : "Business Impact"}
+              </span>
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                {t.projectsPage.projectDetail.outcomesTitle}
+              </h3>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 pt-1">
+            {outcomes.map((outcome, idx) => (
+              <div
+                key={idx}
+                className="p-4 rounded-xl bg-emerald-50/30 dark:bg-emerald-950/20 border border-emerald-100/60 dark:border-emerald-900/40 space-y-1.5"
+              >
+                <span className="text-[11px] font-mono font-bold text-emerald-600 dark:text-emerald-400 block">
+                  0{idx + 1}
+                </span>
+                <p className="text-xs sm:text-[13px] font-medium text-slate-700 dark:text-slate-200 leading-relaxed">
+                  {outcome}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ══════════════════════════════════════════════
+          9. ARCHITECTURE & IMPLEMENTATION
          ══════════════════════════════════════════════ */}
       {architecture && (
         <div className="rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800 p-6 sm:p-7 space-y-3.5 shadow-xs text-start">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl flex items-center justify-center bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-100 dark:border-indigo-800/60 text-indigo-600 dark:text-indigo-400 shrink-0">
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 shrink-0">
               <Cpu className="w-4 h-4" />
             </div>
             <div>
-              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 block">
+              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block">
                 {language === "ar" ? "البنية المعمارية" : "Architecture & Patterns"}
               </span>
               <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
@@ -271,7 +451,45 @@ export default async function ProjectDetailPage({ params }: Props) {
       )}
 
       {/* ══════════════════════════════════════════════
-          6. TECH STACK SPECIFICATION
+          10. GALLERY (Multiple Project Images)
+         ══════════════════════════════════════════════ */}
+      {gallery && gallery.length > 1 && (
+        <div className="rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800 p-6 sm:p-8 space-y-5 shadow-xs text-start">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/60 text-teal-600 dark:text-teal-400 shrink-0">
+              <ImageIcon className="w-4 h-4" />
+            </div>
+            <div>
+              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 block">
+                {language === "ar" ? "المعرض البصري" : "Project Gallery"}
+              </span>
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                {t.projectsPage.projectDetail.galleryTitle}
+              </h3>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
+            {gallery.map((imgUrl, idx) => (
+              <div
+                key={idx}
+                className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-950 border border-slate-800 group"
+              >
+                <Image
+                  src={imgUrl}
+                  alt={`${title} - screenshot ${idx + 1}`}
+                  fill
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 380px"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ══════════════════════════════════════════════
+          11. TECH STACK SPECIFICATION
          ══════════════════════════════════════════════ */}
       <div className="rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800 p-6 sm:p-7 space-y-4 shadow-xs text-start">
         <div className="flex items-center gap-3">
@@ -301,7 +519,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       </div>
 
       {/* ══════════════════════════════════════════════
-          7. BOTTOM NAVIGATION: PREV & NEXT PROJECT
+          12. BOTTOM NAVIGATION: PREV & NEXT PROJECT
          ══════════════════════════════════════════════ */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-200/80 dark:border-slate-800">
         {prevProject ? (

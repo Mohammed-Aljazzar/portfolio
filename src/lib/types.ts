@@ -47,6 +47,13 @@ export interface Project {
   titleEn: string;
   category: "erp" | "backend" | "frontend" | "uiux";
   isFeatured: boolean;
+  year?: string;
+  roleAr?: string;
+  roleEn?: string;
+  clientAr?: string;
+  clientEn?: string;
+  projectTypeAr?: string;
+  projectTypeEn?: string;
   summaryAr: string;
   summaryEn: string;
   challengeAr?: string;
@@ -55,6 +62,13 @@ export interface Project {
   solutionEn?: string;
   architectureAr?: string;
   architectureEn?: string;
+  keyFeaturesAr?: string[];
+  keyFeaturesEn?: string[];
+  myContributionsAr?: string[];
+  myContributionsEn?: string[];
+  outcomesAr?: string[];
+  outcomesEn?: string[];
+  galleryImages?: string[];
   techStack: string[];
   githubUrl?: string | null;
   liveDemoUrl?: string | null;

@@ -14,7 +14,7 @@ import {
   ArrowRight,
   ArrowLeft,
   ArrowUpRight,
-  Sparkles,
+  Star,
   Terminal,
 } from "lucide-react";
 
@@ -134,9 +134,9 @@ export default function ProjectsPage() {
                         {project.category}
                       </span>
                       {project.isFeatured && (
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-teal-500/90 backdrop-blur-xs text-[10px] font-mono font-bold text-white shadow-xs">
-                          <Sparkles className="w-3 h-3" />
-                          <span>Featured</span>
+                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-500/90 backdrop-blur-xs text-[10px] font-mono font-bold text-slate-950 shadow-xs">
+                          <Star className="w-3 h-3 fill-slate-950 text-slate-950" />
+                          <span>{language === "ar" ? "مشروع مميز" : "Featured"}</span>
                         </span>
                       )}
                     </div>
