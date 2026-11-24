@@ -346,8 +346,8 @@ export const initialData = {
   engineeringExperiences: [
     {
       id: "exp-pidea",
-      roleAr: "مؤسس ومدير تنفيذي & قائد هندسة البرمجيات (Founder & CEO / Lead Software Engineer)",
-      roleEn: "Founder, CEO & Lead Software Engineer",
+      roleAr: "المؤسس والمدير التنفيذي (Founder & CEO)",
+      roleEn: "Founder & CEO",
       companyAr: "شركة بيديا للحلول الرقمية (Pidea)",
       companyEn: "Pidea Digital Solutions",
       locationAr: "عن بُعد",
