@@ -740,7 +740,7 @@ export const initialData = {
       roleEn: "Training & Career Upskilling Partner",
       descriptionAr: "تنفيذ برامج تدريبية متقدمة في البرمجة وتأهيل الشباب لسوق العمل الحر والتوظيف عن بُعد.",
       descriptionEn: "Delivering advanced bootcamps in programming and preparing emerging talent for global remote work.",
-      logoUrl: "/assets/images/partners/skillup-logo.svg",
+      logoUrl: "/assets/images/partners/skillup-logo.png",
       websiteUrl: "https://skillup.org",
     },
     {
