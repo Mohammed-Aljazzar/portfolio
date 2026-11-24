@@ -1,0 +1,17 @@
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sadeemGrad" x1="0" y1="0" x2="160" y2="160" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4f46e5" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="32" fill="url(#sadeemGrad)"/>
+  <!-- Nebula / Constellation symbol for Sadeem (Nebula) -->
+  <circle cx="80" cy="80" r="30" stroke="#ffffff" stroke-width="3" stroke-dasharray="6 4" fill="none"/>
+  <circle cx="80" cy="80" r="16" fill="#ffffff" fill-opacity="0.95"/>
+  <circle cx="56" cy="60" r="6" fill="#e0e7ff"/>
+  <circle cx="106" cy="62" r="5" fill="#e0e7ff"/>
+  <circle cx="102" cy="102" r="6" fill="#e0e7ff"/>
+  <circle cx="60" cy="104" r="5" fill="#e0e7ff"/>
+  <path d="M56 60L80 80L106 62M80 80L102 102M80 80L60 104" stroke="#ffffff" stroke-width="2" stroke-opacity="0.8"/>
+</svg>

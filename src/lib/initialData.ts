@@ -763,6 +763,16 @@ export const initialData = {
       logoUrl: "/assets/images/partners/pidea-logo.webp",
       websiteUrl: "https://pidea.co",
     },
+    {
+      nameAr: "مركز سديم للتدريب والتطوير",
+      nameEn: "Sadeem Training & Development Center",
+      roleAr: "شريك تأهيل الكوادر والتطوير المهني",
+      roleEn: "Career Readiness & Professional Development Partner",
+      descriptionAr: "تقديم ورش عمل تدريبية متخصصة في إعداد السير الذاتية الاحترافية والجاهزية لسوق العمل.",
+      descriptionEn: "Delivering specialized workshops in professional resume crafting and career readiness.",
+      logoUrl: "/assets/images/partners/sadeem-logo.svg",
+      websiteUrl: null,
+    },
   ],
 
   trainingPrograms: [
@@ -854,6 +864,19 @@ export const initialData = {
 
   workshops: [
     {
+      id: "ws-resume-sadeem-pidea",
+      titleAr: "ورشة صناعة السيرة الذاتية الاحترافية والجاهزية الوظيفية (ATS Resume)",
+      titleEn: "Professional ATS Resume Building & Career Readiness",
+      organizationAr: "مركز سديم & أكاديمية بيديا",
+      organizationEn: "Sadeem Center & Pidea Academy",
+      date: "2026",
+      hours: 5,
+      beneficiariesCount: 85,
+      descriptionAr: "ورشة تدريبية تطبيقية متقدمة في كتابة وصياغة السيرة الذاتية المتوافقة مع أنظمة تتبع المتقدمين (ATS)، إبراز المشاريع التقنية والمهارات البرمجية، استفاد منها أكثر من 85 خريجاً وباحثاً عن عمل.",
+      descriptionEn: "Hands-on ATS resume masterclass focusing on technical experience framing, keyword optimization, and portfolio presentation, benefiting over 85 attendees.",
+      order: 1,
+    },
+    {
       id: "ws-ai-cinema-siraj",
       titleAr: "إنتاج الأفلام السينمائية والمحتوى البصري بالذكاء الاصطناعي",
       titleEn: "Cinematic Filmmaking & Visual Storytelling with AI",
@@ -864,7 +887,7 @@ export const initialData = {
       beneficiariesCount: 55,
       descriptionAr: "ورشة عمل تخصصية وإبداعية تناولت تقنيات توليد المشاهد السينمائية، كتابة السيناريو الإبداعي وتطوير الشخصيات البصرية والمؤثرات الصوتية باستخدام أحدث نماذج الذكاء الاصطناعي التوليدي.",
       descriptionEn: "Creative specialized workshop on generating cinematic visual scenes, AI scriptwriting, character consistency, and sound design using generative AI models.",
-      order: 1,
+      order: 2,
     },
     {
       id: "ws-computer-skills-forsa",
@@ -877,7 +900,7 @@ export const initialData = {
       beneficiariesCount: 45,
       descriptionAr: "جلسة تطبيقية تفاعلية ركزت على اختصارات الإنتاجية، حل المشكلات التقنية الشائعة، إدارة الملفات السحابية، ورفع الكفاءة التشغيلية لمستخدمي الحاسوب.",
       descriptionEn: "Interactive practical session on computer shortcuts, common technical troubleshooting, cloud storage management, and day-to-day digital proficiency.",
-      order: 2,
+      order: 3,
     },
     {
       id: "ws-ai-usages-forsa",
@@ -890,11 +913,11 @@ export const initialData = {
       beneficiariesCount: 60,
       descriptionAr: "ورشة شاملة استعرضت أحدث أدوات الـ AI التوليدي، وتطبيقاته المباشرة في تسريع إنجاز الأعمال، تلخيص البيانات، وصياغة الرسائل، وبناء العروض التقديمية الاحترافية.",
       descriptionEn: "Comprehensive masterclass showcasing cutting-edge AI tools for workflow automation, research synthesis, business communication, and dynamic presentations.",
-      order: 3,
+      order: 4,
     },
     {
       id: "ws-digital-marketing-pidea",
-      titleAr: "ورشة استراتيجيات التسويق الرقمي وبناء الهوية",
+      titleAr: "ورشة استراتيجيات التسوق الرقمي وبناء الهوية",
       titleEn: "Digital Marketing Strategies & Online Brand Positioning",
       organizationAr: "أكاديمية بيديا (Pidea Academy)",
       organizationEn: "Pidea Academy",
@@ -903,7 +926,7 @@ export const initialData = {
       beneficiariesCount: 50,
       descriptionAr: "ورشة تفاعلية حول مبادئ التسويق الرقمي الحديث، رسم القمع التسويقي (Funnel)، فهم سلوك الجمهور عبر الإنترنت، وكتابة المحتوى التسويقي الجاذب.",
       descriptionEn: "Interactive workshop on digital marketing funnels, online audience personas, compelling copywriting, and brand awareness tactics.",
-      order: 4,
+      order: 5,
     },
     {
       id: "ws-tech-career-pidea",
@@ -916,7 +939,7 @@ export const initialData = {
       beneficiariesCount: 70,
       descriptionAr: "إرشاد عملي للمبتدئين والخريجين لتحديد المسار المهني الأنسب في عالم البرمجيات، مع خارطة طريق واضحة لاحتراف تطوير واجهات الويب الأمامية (Front-End) وبناء المشاريع.",
       descriptionEn: "Career guidance workshop helping emerging developers chart their specialization path with a clear roadmap for mastering front-end web development.",
-      order: 5,
+      order: 6,
     },
   ],
 

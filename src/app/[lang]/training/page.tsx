@@ -23,6 +23,8 @@ import {
   Terminal,
   Presentation,
   CheckCircle2,
+  Image as ImageIcon,
+  Flame,
 } from "lucide-react";
 
 export default function TrainingPage() {
@@ -436,7 +438,104 @@ export default function TrainingPage() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          5. CTA TO CONTACT FOR TRAINING ENQUIRIES
+          5. TRAINING SHOWCASE & HIGHLIGHTS (معرض أعمال ومخرجات البرامج)
+         ══════════════════════════════════════════════ */}
+      <section className="space-y-6 text-start">
+        <ScrollReveal>
+          <div className="flex items-center justify-between pb-3 border-b border-slate-200/80 dark:border-slate-800">
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-teal-500" />
+                <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                  {language === "ar" ? "معرض أعمال ومخرجات البرامج التدريبية" : "Training Showcase & Program Outcomes"}
+                </h2>
+              </div>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                {language === "ar"
+                  ? "نماذج من مخرجات المتدربين، الإشراف على المشاريع، وأثر البرامج التدريبية على المسار المهني"
+                  : "Highlighting learner deliverables, supervised projects, and career impact"}
+              </p>
+            </div>
+            <span className="text-xs font-mono text-teal-600 dark:text-teal-400 font-semibold hidden sm:inline-block">
+              {language === "ar" ? "مخرجات واقعية" : "Hands-on Outcomes"}
+            </span>
+          </div>
+        </ScrollReveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {/* Showcase Card 1 */}
+          <ScrollReveal delay={0.05}>
+            <div className="rounded-2xl p-5 bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-teal-500/40 transition-all flex flex-col justify-between gap-4 h-full group">
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950/70 border border-teal-200/60 dark:border-teal-800/60 text-teal-600 dark:text-teal-400 flex items-center justify-center">
+                  <Terminal className="w-5 h-5" />
+                </div>
+                <h3 className="font-bold text-base text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                  {language === "ar" ? "مشاريع التخرج والأنظمة البرمجية" : "Capstone Systems & Web Apps"}
+                </h3>
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  {language === "ar"
+                    ? "إشراف ومتابعة المتدربين في بناء تطبيقات متكاملة Full-Stack وواجهات مستخدم متفاعلة، مع تطبيق معايير الكود النظيف ونشر المشاريع على GitHub والاستضافات الحقيقية."
+                    : "Supervising trainees in developing full-stack applications with clean architecture and production deployment on live hosting services."}
+                </p>
+              </div>
+              <div className="pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                <span>{language === "ar" ? "تطبيقات منجزة" : "Live Capstones"}</span>
+                <span className="text-teal-600 dark:text-teal-400 font-semibold">+35 مشروع</span>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Showcase Card 2 */}
+          <ScrollReveal delay={0.1}>
+            <div className="rounded-2xl p-5 bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-teal-500/40 transition-all flex flex-col justify-between gap-4 h-full group">
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/70 border border-indigo-200/60 dark:border-indigo-800/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
+                  <Layers className="w-5 h-5" />
+                </div>
+                <h3 className="font-bold text-base text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                  {language === "ar" ? "نماذج التصميم التفاعلي (Figma Prototypes)" : "Interactive Figma Design Files"}
+                </h3>
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  {language === "ar"
+                    ? "تطوير بورتفوليو تصاميم UI/UX احترافي للمتدربين يشمل أنظمة تصميم متكاملة (Design Systems)، مخططات تدفق المستخدم (Wireframes)، ونماذج قابلة للاختبار الواقعي."
+                    : "Guiding learners to build production-grade UI/UX portfolios including responsive design systems, user flows, and interactive prototypes."}
+                </p>
+              </div>
+              <div className="pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                <span>{language === "ar" ? "ملفات تصميم معتمدة" : "Design Systems"}</span>
+                <span className="text-indigo-600 dark:text-indigo-400 font-semibold">+60 نموذج</span>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Showcase Card 3 */}
+          <ScrollReveal delay={0.15}>
+            <div className="rounded-2xl p-5 bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-teal-500/40 transition-all flex flex-col justify-between gap-4 h-full group">
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/70 border border-emerald-200/60 dark:border-emerald-800/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                  <Award className="w-5 h-5" />
+                </div>
+                <h3 className="font-bold text-base text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                  {language === "ar" ? "الوصول لسوق العمل والعمل الحر" : "Job Placement & Freelancing Wins"}
+                </h3>
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  {language === "ar"
+                    ? "نجاح خريجي الدورات في الحصول على أولى عقودهم في العمل الحر عبر منصات Upwork ومستقل، وتأهيل العديد منهم لوظائف تقنية عن بُعد بفضل السير الذاتية المعيارية (ATS)."
+                    : "Enabling trainees to secure their initial freelance contracts and remote software roles through optimized ATS resumes and winning proposals."}
+                </p>
+              </div>
+              <div className="pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                <span>{language === "ar" ? "عقود وعروض عمل" : "Career Wins"}</span>
+                <span className="text-emerald-600 dark:text-emerald-400 font-semibold">+40 عقد موثق</span>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════
+          6. CTA TO CONTACT FOR TRAINING ENQUIRIES
          ══════════════════════════════════════════════ */}
       <section>
         <ScrollReveal>
