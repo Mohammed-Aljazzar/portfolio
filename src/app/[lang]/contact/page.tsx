@@ -15,9 +15,13 @@ import {
   ExternalLink,
   CheckCircle2,
   Clock,
-  Sparkles,
+  Github,
+  Linkedin,
   ArrowRight,
   ArrowLeft,
+  Globe,
+  Briefcase,
+  Share2,
 } from "lucide-react";
 
 export default function ContactPage() {
@@ -62,7 +66,71 @@ export default function ContactPage() {
     }
   };
 
-  const socialLinks = initialData.socialLinks.filter((s) => s.isVisible);
+  // Structured Social Platforms categorized cleanly
+  const professionalNetworks = [
+    {
+      name: "LinkedIn",
+      handle: "/in/mohammed-aljazzar",
+      url: "https://www.linkedin.com/in/mohammed-aljazzar/",
+      badge: language === "ar" ? "الملف المهني" : "Professional",
+      icon: (
+        <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+          <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76c.92 0 1.66-.74 1.66-1.66 0-.92-.74-1.66-1.66-1.66-.92 0-1.66.74-1.66 1.66 0 .92.74 1.66 1.66 1.66m1.39 9.74v-8.37H5.07v8.37h2.78z" />
+        </svg>
+      ),
+    },
+    {
+      name: "GitHub",
+      handle: "Mohammed-Aljazzar",
+      url: "https://github.com/Mohammed-Aljazzar",
+      badge: language === "ar" ? "المستودعات" : "Repositories",
+      icon: (
+        <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+          <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
+        </svg>
+      ),
+    },
+    {
+      name: "Behance",
+      handle: "moh_aljazzar",
+      url: "https://behance.net/moh_aljazzar",
+      badge: language === "ar" ? "معرض التصميم" : "UI/UX Works",
+      icon: (
+        <span className="font-bold text-xs font-mono">Bē</span>
+      ),
+    },
+    {
+      name: language === "ar" ? "منصة مستقل" : "Mostaql",
+      handle: "Mohammed_Aljazzar",
+      url: "https://mostaql.com/u/Mohammed_Aljazzar",
+      badge: language === "ar" ? "العمل الحر" : "Freelance",
+      icon: (
+        <Briefcase className="w-3.5 h-3.5" />
+      ),
+    },
+    {
+      name: "X (Twitter)",
+      handle: "@moh_aljazzar",
+      url: "https://x.com/moh_aljazzar",
+      badge: language === "ar" ? "التحديثات التقنية" : "Tech Updates",
+      icon: (
+        <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+      ),
+    },
+    {
+      name: "Facebook",
+      handle: "mohammed.aljazzar",
+      url: "https://facebook.com/mohammed.aljazzar",
+      badge: language === "ar" ? "التواصل الاجتماعي" : "Social",
+      icon: (
+        <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+          <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z" />
+        </svg>
+      ),
+    },
+  ];
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-14 space-y-12 sm:space-y-16">
@@ -108,43 +176,46 @@ export default function ContactPage() {
           2. TWO-COLUMN MAIN WORKSPACE
          ══════════════════════════════════════════════ */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-start text-start">
-        {/* Left Column: Soft Channels & Direct Cards */}
-        <div className="lg:col-span-5 space-y-6">
-          {/* Quick Direct Info Card */}
-          <div className="rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800 p-6 sm:p-7 space-y-6 shadow-xs">
-            {/* Header + Availability Badge */}
-            <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800/80 pb-4">
-              <span className="text-xs font-semibold text-slate-900 dark:text-white uppercase tracking-wider">
+        {/* Left Column: Handcrafted Direct Info & Verified Channels */}
+        <div className="lg:col-span-5 space-y-8">
+          {/* SECTION A: Direct Contact Channels (Minimalist List) */}
+          <div className="space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-200/80 dark:border-slate-800 pb-3">
+              <h3 className="text-xs font-semibold text-slate-900 dark:text-white uppercase tracking-wider">
                 {t.contactPage.directInfoTitle}
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200/70 dark:border-emerald-800/60">
+              </h3>
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-emerald-600 dark:text-emerald-400">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span>{language === "ar" ? "متاح للمشاريع" : "Available"}</span>
+                <span>{language === "ar" ? "متاح للمشاريع والتعاقد" : "Available for Work"}</span>
               </span>
             </div>
 
-            {/* Email Channel */}
-            <div className="space-y-1.5">
-              <span className="text-[11px] font-mono text-slate-400 block uppercase">
-                {t.contactPage.emailLabel}
-              </span>
-              <div className="flex items-center justify-between gap-3 p-3.5 rounded-xl bg-slate-50/80 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/70 group hover:border-teal-500/40 transition-colors">
-                <a
-                  href="mailto:m.i.aljazzar19@gmail.com"
-                  className="flex items-center gap-2.5 truncate text-slate-800 dark:text-slate-200 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
-                >
-                  <div className="w-7 h-7 rounded-lg bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/60 flex items-center justify-center text-teal-600 dark:text-teal-400 shrink-0">
-                    <Mail className="w-3.5 h-3.5" />
+            {/* Item 1: Email */}
+            <div className="group rounded-2xl p-4 bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 hover:border-teal-500/40 transition-colors shadow-xs">
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors shrink-0">
+                    <Mail className="w-4 h-4" />
                   </div>
-                  <span className="font-mono text-xs sm:text-[13px] truncate" dir="ltr">
-                    m.i.aljazzar19@gmail.com
-                  </span>
-                </a>
+                  <div className="min-w-0 space-y-0.5">
+                    <span className="text-[10.5px] font-mono text-slate-400 block uppercase">
+                      {t.contactPage.emailLabel}
+                    </span>
+                    <a
+                      href="mailto:m.i.aljazzar19@gmail.com"
+                      className="font-mono text-xs sm:text-[13px] text-slate-900 dark:text-slate-100 hover:text-teal-600 dark:hover:text-teal-400 transition-colors block truncate"
+                      dir="ltr"
+                    >
+                      m.i.aljazzar19@gmail.com
+                    </a>
+                  </div>
+                </div>
+
                 <button
                   type="button"
                   onClick={handleCopyEmail}
-                  className="p-1.5 rounded-lg text-slate-400 hover:text-teal-600 dark:hover:text-teal-300 hover:bg-slate-200/60 dark:hover:bg-slate-700/60 transition-colors shrink-0 cursor-pointer"
-                  title={copied ? "Copied" : "Copy email"}
+                  className="p-2 rounded-lg text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0 cursor-pointer"
+                  title="Copy email"
                   aria-label="Copy email"
                 >
                   {copied ? (
@@ -155,88 +226,98 @@ export default function ContactPage() {
                 </button>
               </div>
               {copied && (
-                <p className="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium ps-1">
+                <p className="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium pt-2 ps-12">
                   {t.contactPage.copySuccess}
                 </p>
               )}
             </div>
 
-            {/* WhatsApp / Phone Channel */}
-            <div className="space-y-1.5">
-              <span className="text-[11px] font-mono text-slate-400 block uppercase">
-                {t.contactPage.phoneLabel}
-              </span>
-              <a
-                href="https://wa.me/970598048284"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between gap-3 p-3.5 rounded-xl bg-slate-50/80 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/70 group hover:border-[#25D366]/50 hover:bg-[#25D366]/5 transition-all"
-              >
-                <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0 group-hover:text-[#25D366]">
-                    <Phone className="w-3.5 h-3.5" />
-                  </div>
-                  <span className="font-mono text-xs sm:text-[13px] text-slate-800 dark:text-slate-200" dir="ltr">
+            {/* Item 2: WhatsApp / Direct Phone */}
+            <a
+              href="https://wa.me/970598048284"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-2xl p-4 bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 hover:border-emerald-500/40 hover:bg-emerald-50/10 dark:hover:bg-emerald-950/10 transition-colors shadow-xs flex items-center justify-between gap-3 block"
+            >
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors shrink-0">
+                  <Phone className="w-4 h-4" />
+                </div>
+                <div className="space-y-0.5">
+                  <span className="text-[10.5px] font-mono text-slate-400 block uppercase">
+                    {t.contactPage.phoneLabel}
+                  </span>
+                  <span className="font-mono text-xs sm:text-[13px] text-slate-900 dark:text-slate-100 block" dir="ltr">
                     +970 59 804 8284
                   </span>
                 </div>
-                <span className="text-[11px] font-medium text-emerald-600 dark:text-emerald-400 flex items-center gap-1 group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5 transition-transform">
-                  <span>واتساب</span>
-                  <ExternalLink className="w-3 h-3" />
-                </span>
-              </a>
-            </div>
+              </div>
 
-            {/* Location & Remote Availability */}
-            <div className="space-y-1.5">
-              <span className="text-[11px] font-mono text-slate-400 block uppercase">
-                {t.contactPage.locationLabel}
+              <span className="inline-flex items-center gap-1 text-[11px] font-medium text-emerald-600 dark:text-emerald-400 group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5 transition-transform shrink-0">
+                <span>{language === "ar" ? "محادثة واتساب" : "Chat"}</span>
+                <ExternalLink className="w-3 h-3" />
               </span>
-              <div className="flex items-start gap-2.5 p-3.5 rounded-xl bg-slate-50/80 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/70 text-xs sm:text-[13px] text-slate-700 dark:text-slate-300">
-                <div className="w-7 h-7 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-100 dark:border-indigo-800/60 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shrink-0 mt-0.5">
-                  <MapPin className="w-3.5 h-3.5" />
-                </div>
-                <div className="space-y-0.5">
-                  <p className="font-semibold text-slate-900 dark:text-white">
-                    {language === "ar" ? "فلسطين" : "Palestine"}
-                  </p>
-                  <p className="text-slate-500 dark:text-slate-400 text-xs">
-                    {language === "ar"
-                      ? "متاح للتعاقد عن بُعد للشركات في الخليج، أوروبا، ومختلف الدول."
-                      : "Open for remote engineering contracts across Gulf, Europe, and globally."}
-                  </p>
-                </div>
+            </a>
+
+            {/* Item 3: Location & Remote Mobility */}
+            <div className="rounded-2xl p-4 bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs flex items-start gap-3">
+              <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 shrink-0 mt-0.5">
+                <MapPin className="w-4 h-4" />
+              </div>
+              <div className="space-y-0.5 text-xs sm:text-[13px]">
+                <p className="font-semibold text-slate-900 dark:text-white">
+                  {language === "ar" ? "فلسطين (متاح للعمل عن بُعد)" : "Palestine (Remote Globally)"}
+                </p>
+                <p className="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">
+                  {language === "ar"
+                    ? "تعاقدات مرنة مع شركات الخليج وأوروبا والشرق الأوسط."
+                    : "Flexible remote collaboration with teams in the Gulf, Europe & worldwide."}
+                </p>
               </div>
             </div>
 
-            {/* Response Time Guarantee Pill */}
-            <div className="flex items-center gap-2 pt-1 text-slate-500 dark:text-slate-400 text-[11px]">
+            {/* Response Time Guarantee */}
+            <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-xs pt-1 ps-1">
               <Clock className="w-3.5 h-3.5 text-teal-500 shrink-0" />
               <span>
                 {language === "ar"
-                  ? "يتم الرد على جميع الاستفسارات والرسائل خلال أقل من 24 ساعة."
-                  : "All inquiries receive a prompt reply within 24 hours."}
+                  ? "متوسط وقت الرد: خلال ساعات العمل في نفس اليوم."
+                  : "Typical response time: within a few business hours."}
               </span>
             </div>
           </div>
 
-          {/* Social & Business Networks Card */}
-          <div className="rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800 p-6 space-y-4 shadow-xs">
-            <span className="text-xs font-semibold text-slate-900 dark:text-white uppercase tracking-wider block">
-              {t.contactPage.socialHeading}
-            </span>
-            <div className="grid grid-cols-2 gap-2.5">
-              {socialLinks.map((social) => (
+          {/* SECTION B: Verified Business Channels & Networks (Clean, Non-AI Grid) */}
+          <div className="space-y-3.5 pt-2">
+            <div className="border-b border-slate-200/80 dark:border-slate-800 pb-3">
+              <h3 className="text-xs font-semibold text-slate-900 dark:text-white uppercase tracking-wider">
+                {t.contactPage.socialHeading}
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              {professionalNetworks.map((net) => (
                 <a
-                  key={social.platform}
-                  href={social.url}
+                  key={net.name}
+                  href={net.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3 rounded-xl bg-slate-50/80 dark:bg-slate-800/50 border border-slate-200/70 dark:border-slate-700/70 hover:border-teal-500/40 hover:bg-teal-50/30 dark:hover:bg-slate-800 transition-all text-xs font-medium text-slate-700 dark:text-slate-300 group"
+                  className="group flex items-center justify-between p-3 rounded-xl bg-white dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 hover:border-teal-500/40 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-all text-xs"
                 >
-                  <span className="truncate">
-                    {language === "ar" ? social.labelAr : social.labelEn}
-                  </span>
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <div className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors shrink-0">
+                      {net.icon}
+                    </div>
+                    <div className="min-w-0">
+                      <p className="font-semibold text-slate-800 dark:text-slate-200 truncate group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                        {net.name}
+                      </p>
+                      <span className="text-[10px] text-slate-400 block truncate font-mono">
+                        {net.badge}
+                      </span>
+                    </div>
+                  </div>
+
                   <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-teal-500 transition-colors shrink-0" />
                 </a>
               ))}
