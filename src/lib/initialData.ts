@@ -730,7 +730,7 @@ export const initialData = {
       roleEn: "Principal Training Partner in Web Dev, UI/UX & Enterprise Systems",
       descriptionAr: "شراكة ممتدة في تقديم دبلومات تطوير البرمجيات وتصميم المنتجات وتوجيه المتدربين نحو سوق العمل والعمل الحر.",
       descriptionEn: "Long-standing collaboration delivering professional software diplomas, UI/UX sprints, and career mentorship.",
-      logoUrl: "/assets/images/partners/masar-logo.png",
+      logoUrl: "/assets/images/partners/masar-logo.svg",
       websiteUrl: "https://pidea.co",
     },
     {
@@ -740,7 +740,7 @@ export const initialData = {
       roleEn: "Training & Career Upskilling Partner",
       descriptionAr: "تنفيذ برامج تدريبية متقدمة في البرمجة وتأهيل الشباب لسوق العمل الحر والتوظيف عن بُعد.",
       descriptionEn: "Delivering advanced bootcamps in programming and preparing emerging talent for global remote work.",
-      logoUrl: "/assets/images/partners/skillup-logo.png",
+      logoUrl: "/assets/images/partners/skillup-logo.svg",
       websiteUrl: "https://skillup.org",
     },
     {
@@ -750,7 +750,7 @@ export const initialData = {
       roleEn: "Workshops, Masterclasses & Mentorship",
       descriptionAr: "تنظيم وإلقاء ورش عمل متخصصة في أنظمة ERP، أطر عمل بايثون، وأدوات الذكاء الاصطناعي للمطورين.",
       descriptionEn: "Independent technical masterclasses covering ERP engineering, Python frameworks, and AI workflows.",
-      logoUrl: "/assets/images/partners/independent-logo.png",
+      logoUrl: "/assets/images/partners/independent-logo.svg",
       websiteUrl: null,
     },
   ],

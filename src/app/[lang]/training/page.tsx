@@ -216,7 +216,7 @@ export default function TrainingPage() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          3. PARTNERS & INSTITUTIONS (معروضة بأيقونات المؤسسات)
+          3. PARTNERS & INSTITUTIONS (شعار المؤسسة واسمها فقط)
          ══════════════════════════════════════════════ */}
       <section className="space-y-5 text-start">
         <ScrollReveal>
@@ -237,41 +237,26 @@ export default function TrainingPage() {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {partners.map((partner, idx) => (
             <ScrollReveal key={idx} delay={idx * 0.06}>
-              <div className="rounded-2xl p-5 bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-teal-500/40 transition-all flex flex-col justify-between gap-4 h-full">
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    {getPartnerIcon(partner.nameAr)}
-                    <div className="min-w-0">
-                      <h3 className="font-bold text-sm sm:text-base text-slate-900 dark:text-white truncate">
-                        {language === "ar" ? partner.nameAr : partner.nameEn}
-                      </h3>
-                      <span className="text-[11px] font-medium text-teal-600 dark:text-teal-400 block truncate">
-                        {language === "ar" ? partner.roleAr : partner.roleEn}
-                      </span>
-                    </div>
-                  </div>
-
-                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
-                    {language === "ar" ? partner.descriptionAr : partner.descriptionEn}
-                  </p>
+              <div className="rounded-2xl p-4 sm:p-5 bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-teal-500/40 hover:shadow-md transition-all flex items-center gap-4 group">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-100 dark:border-slate-700/80 p-2.5 flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform overflow-hidden">
+                  {partner.logoUrl ? (
+                    <img
+                      src={partner.logoUrl}
+                      alt={language === "ar" ? partner.nameAr : partner.nameEn}
+                      className="w-full h-full object-contain"
+                    />
+                  ) : (
+                    <Building2 className="w-7 h-7 text-teal-600 dark:text-teal-400" />
+                  )}
                 </div>
-
-                {partner.websiteUrl && (
-                  <div className="pt-2 border-t border-slate-100 dark:border-slate-800/80">
-                    <a
-                      href={partner.websiteUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
-                    >
-                      <span>{language === "ar" ? "الموقع الإلكتروني" : "Visit Website"}</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  </div>
-                )}
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-bold text-sm sm:text-base text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors leading-snug">
+                    {language === "ar" ? partner.nameAr : partner.nameEn}
+                  </h3>
+                </div>
               </div>
             </ScrollReveal>
           ))}
