@@ -237,7 +237,7 @@ export default function TrainingPage() {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {partners.map((partner, idx) => (
             <ScrollReveal key={idx} delay={idx * 0.06}>
               <div className="rounded-2xl p-4 sm:p-5 bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-teal-500/40 hover:shadow-md transition-all flex items-center gap-4 group">
