@@ -75,8 +75,8 @@ export default function TrainingPage() {
               </span>
             </div>
 
-            {/* Main Title — Refined & Classy Typography */}
-            <h1 className="text-2xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
+            {/* Main Title — Balanced, Refined & Modern Typography */}
+            <h1 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
               {language === "ar" ? (
                 <>
                   سجل البرامج التدريبية و
@@ -95,7 +95,7 @@ export default function TrainingPage() {
             </h1>
 
             {/* Subtitle Paragraph */}
-            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl text-start">
+            <p className="text-xs sm:text-[13.5px] text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl text-start">
               {language === "ar"
                 ? "سجل حافل بتقديم البرامج التدريبية المتخصصة وورش العمل التطبيقية لإعداد الكوادر التقنية لسوق العمل الدولي والعمل الحر وبناء البرمجيات الحديثة."
                 : "A documented track record of executing practical training programs, bootcamps, and masterclasses preparing tech talent for global remote work and engineering."}
@@ -104,7 +104,39 @@ export default function TrainingPage() {
         </ScrollReveal>
 
         {/* ══════════════════════════════════════════════
-            2. STATS OVERVIEW CARDS (4 Main Numbers)
+            2. CERTIFIED INSTRUCTOR & PHILOSOPHY CARD
+           ══════════════════════════════════════════════ */}
+        <ScrollReveal delay={0.04}>
+          <div className="rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800 p-6 sm:p-7 shadow-xs space-y-4 hover:border-teal-500/40 transition-colors text-start">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800/80 pb-4">
+              <div className="flex items-center gap-3.5">
+                <div className="w-11 h-11 rounded-2xl bg-teal-50 dark:bg-teal-950/60 border border-teal-200/70 dark:border-teal-800/70 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 shadow-xs">
+                  <GraduationCap className="w-5 h-5" />
+                </div>
+                <div>
+                  <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                    {language === "ar" ? overview.roleAr : overview.roleEn}
+                  </h2>
+                  <div className="text-xs font-mono text-teal-600 dark:text-teal-400 font-medium">
+                    {language === "ar" ? overview.periodAr : overview.periodEn}
+                  </div>
+                </div>
+              </div>
+
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 border border-teal-200/70 dark:border-teal-800/70 w-fit self-start sm:self-auto">
+                <CheckCircle2 className="w-3.5 h-3.5 text-teal-500" />
+                <span>{language === "ar" ? "منهجية تدريب قائمة على المشاريع" : "Project-Based Pedagogy"}</span>
+              </span>
+            </div>
+
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal max-w-4xl">
+              {language === "ar" ? overview.philosophyAr : overview.philosophyEn}
+            </p>
+          </div>
+        </ScrollReveal>
+
+        {/* ══════════════════════════════════════════════
+            3. STATS OVERVIEW CARDS (4 Main Numbers)
            ══════════════════════════════════════════════ */}
         <ScrollReveal delay={0.06}>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 text-start">
