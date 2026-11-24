@@ -5,15 +5,29 @@ import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
 import { initialData } from "@/lib/initialData";
-import { ScrollReveal, StaggerContainer, StaggerItem, AnimatedCounter } from "@/components/common/ScrollReveal";
+import { ScrollReveal } from "@/components/common/ScrollReveal";
 import {
-  GraduationCap, Users, Clock, Building2, Calendar, CheckCircle2,
-  Sparkles, BookOpen, ArrowRight, ArrowLeft, ExternalLink, Target, Award,
+  GraduationCap,
+  Users,
+  Clock,
+  Building2,
+  Calendar,
+  Sparkles,
+  BookOpen,
+  ArrowRight,
+  ArrowLeft,
+  ExternalLink,
+  Target,
+  Award,
+  Layers,
+  Terminal,
+  Presentation,
+  CheckCircle2,
 } from "lucide-react";
 
 export default function TrainingPage() {
   const { language, t, isRTL } = useLanguage();
-  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [activeTab, setActiveTab] = useState<"all" | "programs" | "workshops">("all");
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
 
   const overview = initialData.trainingOverview;
@@ -21,177 +35,431 @@ export default function TrainingPage() {
   const programs = initialData.trainingPrograms;
   const workshops = initialData.workshops;
 
-  const filteredPrograms = programs.filter((p) => selectedCategory === "all" || p.category === selectedCategory);
+  // Custom visual icons / logos for partner organizations
+  const getPartnerIcon = (nameAr: string) => {
+    if (nameAr.includes("بيديا") || nameAr.includes("Pidea")) {
+      return (
+        <div className="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950/60 border border-teal-200/80 dark:border-teal-800/80 text-teal-600 dark:text-teal-400 flex items-center justify-center font-bold text-sm shrink-0">
+          <GraduationCap className="w-5 h-5" />
+        </div>
+      );
+    }
+    if (nameAr.includes("SkillUp")) {
+      return (
+        <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/60 border border-blue-200/80 dark:border-blue-800/80 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-sm shrink-0">
+          <Award className="w-5 h-5" />
+        </div>
+      );
+    }
+    return (
+      <div className="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-950/60 border border-purple-200/80 dark:border-purple-800/80 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold text-sm shrink-0">
+        <Building2 className="w-5 h-5" />
+      </div>
+    );
+  };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
-      {/* 1. HEADER & PHILOSOPHY */}
-      <section className="space-y-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12 sm:space-y-16 selection:bg-teal-500 selection:text-white">
+      {/* ══════════════════════════════════════════════
+          1. HEADER & OVERLINE (Matches Home, Projects, Experience & Contact)
+         ══════════════════════════════════════════════ */}
+      <section className="space-y-6 sm:space-y-8">
         <ScrollReveal>
-          <div className="space-y-4">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 shadow-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
-              <GraduationCap className="w-3.5 h-3.5 text-teal-500" />
-              <span>{t.trainingPage.badge}</span>
-            </span>
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+          <div className="text-start space-y-2.5">
+            {/* Signature Overline with dash & bullet */}
+            <div className="flex items-center justify-start gap-2 mb-2 sm:mb-2.5">
+              <span className="w-5 sm:w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
+              <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
+              <span className="text-[11px] sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
+                {language === "ar" ? "التدريب التقني وتمكين الكفاءات" : "TECHNICAL TRAINING & MENTORSHIP"}
+              </span>
+            </div>
+
+            {/* Main Title — Refined & Classy Typography */}
+            <h1 className="text-2xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
               {language === "ar" ? (
                 <>
                   سجل البرامج التدريبية و
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
-                    الإرشاد التقني
+                    ورش العمل التقنية
                   </span>
                 </>
               ) : (
                 <>
                   Technical Training &{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
-                    Mentorship Catalog
+                    Workshops Catalog
                   </span>
                 </>
               )}
             </h1>
-            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 font-body leading-relaxed max-w-3xl">
-              {t.trainingPage.subheading}
+
+            {/* Subtitle Paragraph */}
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl text-start">
+              {language === "ar"
+                ? "سجل حافل بتقديم البرامج التدريبية المتخصصة وورش العمل التطبيقية لإعداد الكوادر التقنية لسوق العمل الدولي والعمل الحر وبناء البرمجيات الحديثة."
+                : "A documented track record of executing practical training programs, bootcamps, and masterclasses preparing tech talent for global remote work and engineering."}
             </p>
           </div>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.15}>
-          <div className="rounded-3xl bg-gradient-to-br from-slate-900 via-[#0B1120] to-[#042f2e]/80 border border-teal-500/30 dark:border-teal-400/25 p-6 sm:p-10 text-white space-y-4 shadow-xl">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-4">
-              <div className="space-y-1">
-                <h2 className="text-xl sm:text-2xl font-bold text-teal-300">{language === "ar" ? overview.roleAr : overview.roleEn}</h2>
-                <div className="text-xs font-mono text-teal-400/80">{language === "ar" ? overview.periodAr : overview.periodEn}</div>
+        {/* ══════════════════════════════════════════════
+            2. STATS OVERVIEW CARDS (4 Main Numbers)
+           ══════════════════════════════════════════════ */}
+        <ScrollReveal delay={0.06}>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 text-start">
+            {/* Stat 1: Programs */}
+            <div className="rounded-2xl p-4 sm:p-5 bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-1.5 hover:border-teal-500/30 transition-colors">
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400">
+                  {language === "ar" ? "الدورات المنفذة" : "Training Programs"}
+                </span>
+                <div className="w-8 h-8 rounded-lg bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center">
+                  <BookOpen className="w-4 h-4" />
+                </div>
               </div>
-              <span className="text-xs font-mono bg-teal-950/80 text-teal-300 px-3 py-1 rounded-full border border-teal-700/60 w-fit">Project-Based Pedagogy</span>
+              <div className="text-2xl sm:text-3xl font-bold font-mono text-slate-900 dark:text-white">
+                +{overview.stats.programsCount}
+              </div>
+              <p className="text-[10.5px] text-slate-400 leading-tight">
+                {language === "ar" ? "برامج دبلوم وتأسيس شاملة" : "Full diplomas & bootcamps"}
+              </p>
             </div>
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-4xl font-body">{language === "ar" ? overview.philosophyAr : overview.philosophyEn}</p>
+
+            {/* Stat 2: Workshops */}
+            <div className="rounded-2xl p-4 sm:p-5 bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-1.5 hover:border-teal-500/30 transition-colors">
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400">
+                  {language === "ar" ? "ورش العمل والمحاضرات" : "Workshops & Talks"}
+                </span>
+                <div className="w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
+                  <Presentation className="w-4 h-4" />
+                </div>
+              </div>
+              <div className="text-2xl sm:text-3xl font-bold font-mono text-slate-900 dark:text-white">
+                +{overview.stats.workshopsCount}
+              </div>
+              <p className="text-[10.5px] text-slate-400 leading-tight">
+                {language === "ar" ? "جلسات تخصصية وتطبيقية" : "Specialized tech masterclasses"}
+              </p>
+            </div>
+
+            {/* Stat 3: Trainees */}
+            <div className="rounded-2xl p-4 sm:p-5 bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-1.5 hover:border-teal-500/30 transition-colors">
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400">
+                  {language === "ar" ? "إجمالي المتدربين" : "Trainees & Beneficiaries"}
+                </span>
+                <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                  <Users className="w-4 h-4" />
+                </div>
+              </div>
+              <div className="text-2xl sm:text-3xl font-bold font-mono text-emerald-600 dark:text-emerald-400">
+                +{overview.stats.traineesCount}
+              </div>
+              <p className="text-[10.5px] text-slate-400 leading-tight">
+                {language === "ar" ? "خريج ومستفيد مباشر" : "Direct learners & graduates"}
+              </p>
+            </div>
+
+            {/* Stat 4: Organizations */}
+            <div className="rounded-2xl p-4 sm:p-5 bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-1.5 hover:border-teal-500/30 transition-colors">
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400">
+                  {language === "ar" ? "المؤسسات والشركاء" : "Partner Organizations"}
+                </span>
+                <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                  <Building2 className="w-4 h-4" />
+                </div>
+              </div>
+              <div className="text-2xl sm:text-3xl font-bold font-mono text-slate-900 dark:text-white">
+                +{overview.stats.organizationsCount}
+              </div>
+              <p className="text-[10.5px] text-slate-400 leading-tight">
+                {language === "ar" ? "أكاديميات ومراكز تكنولوجية" : "Academies & tech centers"}
+              </p>
+            </div>
           </div>
         </ScrollReveal>
-
-        {/* Stats */}
-        <StaggerContainer className="grid grid-cols-2 lg:grid-cols-5 gap-4" staggerDelay={0.08}>
-          {[
-            { val: overview.stats.programsCount, label: t.trainingPage.stats.programs },
-            { val: overview.stats.workshopsCount, label: t.trainingPage.stats.workshops },
-            { val: overview.stats.organizationsCount, label: t.trainingPage.stats.partners },
-            { val: overview.stats.trainingHours, label: t.trainingPage.stats.hours },
-            { val: overview.stats.traineesCount, label: t.trainingPage.stats.trainees, span: true },
-          ].map((s, i) => (
-            <StaggerItem key={i} className={s.span ? "col-span-2 lg:col-span-1" : ""}>
-              <motion.div whileHover={{ y: -3 }} className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 text-center shadow-xs transition-all duration-300 hover:shadow-md hover:border-indigo-500/40">
-                <div className="text-3xl sm:text-4xl font-extrabold font-mono text-indigo-600 dark:text-indigo-400">
-                  <AnimatedCounter value={s.val} />
-                </div>
-                <div className="text-xs text-slate-600 dark:text-slate-400 mt-1">{s.label}</div>
-              </motion.div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
       </section>
 
-      {/* 2. PARTNERS */}
-      <section className="space-y-6">
+      {/* ══════════════════════════════════════════════
+          3. PARTNERS & INSTITUTIONS (معروضة بأيقونات المؤسسات)
+         ══════════════════════════════════════════════ */}
+      <section className="space-y-5 text-start">
         <ScrollReveal>
-          <div className="space-y-2">
-            <span className="text-xs font-mono font-semibold text-indigo-600 dark:text-indigo-400 uppercase">Institutional Alliances</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">{t.trainingPage.partnersHeading}</h2>
-            <p className="text-sm text-slate-600 dark:text-slate-400">{t.trainingPage.partnersSub}</p>
+          <div className="flex items-center justify-between pb-3 border-b border-slate-200/80 dark:border-slate-800">
+            <div>
+              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                {language === "ar" ? "المؤسسات والجهات التدريبية الشريكة" : "Partner Institutions & Organizations"}
+              </h2>
+              <p className="text-xs text-slate-500 dark:text-slate-400">
+                {language === "ar"
+                  ? "جهات وأكاديميات تم تنفيذ البرامج والورش التقنية بالتعاون معها"
+                  : "Collaborative partnerships executing technical courses and masterclasses"}
+              </p>
+            </div>
+            <span className="text-xs font-mono text-teal-600 dark:text-teal-400 font-semibold hidden sm:inline-block">
+              {partners.length} {language === "ar" ? "شراكات معتمدة" : "Partners"}
+            </span>
           </div>
         </ScrollReveal>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.1}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {partners.map((partner, idx) => (
-            <StaggerItem key={idx}>
-              <motion.div whileHover={{ y: -4 }} className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 space-y-4 hover:border-indigo-500/40 dark:hover:border-indigo-400/40 transition-all duration-300 shadow-xs hover:shadow-md">
-                <div className="flex items-center gap-3">
-                  <div className="p-3 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 text-indigo-600 dark:text-indigo-400"><Building2 className="w-5 h-5" /></div>
-                  <div>
-                    <h3 className="font-bold text-base text-slate-900 dark:text-white">{language === "ar" ? partner.nameAr : partner.nameEn}</h3>
-                    <div className="text-xs text-indigo-600 dark:text-indigo-400 font-medium">{language === "ar" ? partner.roleAr : partner.roleEn}</div>
+            <ScrollReveal key={idx} delay={idx * 0.06}>
+              <div className="rounded-2xl p-5 bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-teal-500/40 transition-all flex flex-col justify-between gap-4 h-full">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    {getPartnerIcon(partner.nameAr)}
+                    <div className="min-w-0">
+                      <h3 className="font-bold text-sm sm:text-base text-slate-900 dark:text-white truncate">
+                        {language === "ar" ? partner.nameAr : partner.nameEn}
+                      </h3>
+                      <span className="text-[11px] font-medium text-teal-600 dark:text-teal-400 block truncate">
+                        {language === "ar" ? partner.roleAr : partner.roleEn}
+                      </span>
+                    </div>
                   </div>
+
+                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+                    {language === "ar" ? partner.descriptionAr : partner.descriptionEn}
+                  </p>
                 </div>
-                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{language === "ar" ? partner.descriptionAr : partner.descriptionEn}</p>
-              </motion.div>
-            </StaggerItem>
+
+                {partner.websiteUrl && (
+                  <div className="pt-2 border-t border-slate-100 dark:border-slate-800/80">
+                    <a
+                      href={partner.websiteUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
+                    >
+                      <span>{language === "ar" ? "الموقع الإلكتروني" : "Visit Website"}</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                )}
+              </div>
+            </ScrollReveal>
           ))}
-        </StaggerContainer>
+        </div>
       </section>
 
-      {/* 3. PROGRAMS */}
-      <section className="space-y-8">
+      {/* ══════════════════════════════════════════════
+          4. FILTER TABS (All / Programs / Workshops)
+         ══════════════════════════════════════════════ */}
+      <section className="space-y-8 text-start">
         <ScrollReveal>
-          <div className="space-y-2">
-            <span className="text-xs font-mono font-semibold text-indigo-600 dark:text-indigo-400 uppercase">Comprehensive Curricula</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">{t.trainingPage.programsHeading}</h2>
-            <p className="text-sm text-slate-600 dark:text-slate-400">{t.trainingPage.programsSub}</p>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200/80 dark:border-slate-800 pb-4">
+            <div>
+              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                {language === "ar" ? "الدورات والورش المقدمة" : "Delivered Programs & Workshops"}
+              </h2>
+              <p className="text-xs text-slate-500 dark:text-slate-400">
+                {language === "ar"
+                  ? "تفاصيل ومحاور المناهج التطبيقية والورش العملية وساعات التدريب"
+                  : "Comprehensive view of curriculums, practical workshops and training hours"}
+              </p>
+            </div>
+
+            {/* Filter Toggle Buttons */}
+            <div className="inline-flex p-1 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80 self-start sm:self-auto">
+              <button
+                type="button"
+                onClick={() => setActiveTab("all")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                  activeTab === "all"
+                    ? "bg-white dark:bg-slate-900 text-teal-600 dark:text-teal-400 shadow-xs"
+                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                }`}
+              >
+                {language === "ar" ? "الكل" : "All"} ({programs.length + workshops.length})
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setActiveTab("programs")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                  activeTab === "programs"
+                    ? "bg-white dark:bg-slate-900 text-teal-600 dark:text-teal-400 shadow-xs"
+                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                }`}
+              >
+                {language === "ar" ? "الدورات المعتمدة" : "Programs"} ({programs.length})
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setActiveTab("workshops")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                  activeTab === "workshops"
+                    ? "bg-white dark:bg-slate-900 text-teal-600 dark:text-teal-400 shadow-xs"
+                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                }`}
+              >
+                {language === "ar" ? "ورش العمل" : "Workshops"} ({workshops.length})
+              </button>
+            </div>
           </div>
         </ScrollReveal>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6" staggerDelay={0.1}>
-          {filteredPrograms.map((program) => (
-            <StaggerItem key={program.id}>
-              <motion.div whileHover={{ y: -4 }} className="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 space-y-6 hover:border-indigo-500/40 dark:hover:border-indigo-400/40 transition-all duration-300 shadow-xs hover:shadow-md group">
-                <div className="space-y-2 border-b border-slate-100 dark:border-slate-800 pb-4">
-                  <div className="flex items-center justify-between text-xs font-mono text-indigo-600 dark:text-indigo-400 font-semibold">
-                    <span>{language === "ar" ? program.organizationAr : program.organizationEn}</span>
-                    <span className="bg-indigo-50 dark:bg-indigo-950/60 px-2.5 py-0.5 rounded-full">{program.batchesCount} {t.trainingPage.batchesLabel}</span>
+        {/* ── SUBSECTION A: CERTIFIED PROGRAMS ── */}
+        {(activeTab === "all" || activeTab === "programs") && (
+          <div className="space-y-4">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-teal-500" />
+              <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                {language === "ar" ? "الدورات التدريبية المعتمدة (Certified Programs)" : "Certified Programs"}
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+              {programs.map((program, idx) => (
+                <ScrollReveal key={program.id} delay={idx * 0.05}>
+                  <div className="rounded-2xl p-5 sm:p-6 bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-teal-500/40 transition-all flex flex-col justify-between gap-4 h-full group">
+                    <div className="space-y-3">
+                      {/* Top Badges */}
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-teal-50 dark:bg-teal-950/70 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/60">
+                          <Building2 className="w-3 h-3" />
+                          <span>{language === "ar" ? program.organizationAr : program.organizationEn}</span>
+                        </span>
+
+                        <span className="text-[11px] font-mono text-slate-400 font-medium">
+                          {program.batchesCount} {language === "ar" ? "أفواج" : "Batches"}
+                        </span>
+                      </div>
+
+                      {/* Program Title */}
+                      <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                        {language === "ar" ? program.titleAr : program.titleEn}
+                      </h4>
+
+                      {/* Hours & Trainees Bar */}
+                      <div className="flex items-center gap-4 text-xs font-mono text-slate-500 dark:text-slate-400 pt-0.5">
+                        <span className="inline-flex items-center gap-1">
+                          <Clock className="w-3.5 h-3.5 text-teal-500" />
+                          <span>{program.totalHours} {language === "ar" ? "ساعة تدريبية" : "Hours"}</span>
+                        </span>
+                        <span className="inline-flex items-center gap-1">
+                          <Users className="w-3.5 h-3.5 text-teal-500" />
+                          <span>+{program.traineesCount} {language === "ar" ? "متدرب" : "Trainees"}</span>
+                        </span>
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-xs sm:text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+                        {language === "ar" ? program.descriptionAr : program.descriptionEn}
+                      </p>
+                    </div>
+
+                    {/* Topics Covered */}
+                    <div className="pt-3 border-t border-slate-100 dark:border-slate-800/80 space-y-2">
+                      <span className="text-[10px] font-mono uppercase text-slate-400 block font-semibold">
+                        {language === "ar" ? "أبرز المحاور التدريبية:" : "Curriculum Topics:"}
+                      </span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {(language === "ar" ? program.topicsAr : program.topicsEn).map((topic, i) => (
+                          <span
+                            key={i}
+                            className="px-2.5 py-1 text-[11px] rounded-lg bg-slate-50 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/70 dark:border-slate-700/70 font-medium"
+                          >
+                            {topic}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300">
-                    {language === "ar" ? program.titleAr : program.titleEn}
-                  </h3>
-                  <div className="flex items-center gap-4 text-xs font-mono text-slate-500 dark:text-slate-400 pt-1">
-                    <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5 text-indigo-500" />{program.totalHours} {t.trainingPage.hoursLabel}</span>
-                    <span className="flex items-center gap-1"><Users className="w-3.5 h-3.5 text-indigo-500" />{program.traineesCount}+ {t.trainingPage.traineesLabel}</span>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ── SUBSECTION B: TECHNICAL WORKSHOPS ── */}
+        {(activeTab === "all" || activeTab === "workshops") && (
+          <div className="space-y-4 pt-4">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-indigo-500" />
+              <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                {language === "ar" ? "ورش العمل والمحاضرات المتخصصة (Workshops)" : "Technical Workshops"}
+              </h3>
+            </div>
+
+            <div className="space-y-3">
+              {workshops.map((ws, idx) => (
+                <ScrollReveal key={ws.id} delay={idx * 0.04}>
+                  <div className="rounded-2xl p-5 bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-indigo-500/40 transition-all flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div className="space-y-2 max-w-3xl">
+                      <div className="flex flex-wrap items-center gap-2.5 text-xs">
+                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-950/70 text-indigo-700 dark:text-indigo-300 font-semibold border border-indigo-200/60 dark:border-indigo-800/60">
+                          <Building2 className="w-3 h-3" />
+                          <span>{language === "ar" ? ws.organizationAr : ws.organizationEn}</span>
+                        </span>
+
+                        <span className="inline-flex items-center gap-1 font-mono text-slate-400">
+                          <Calendar className="w-3.5 h-3.5" />
+                          <span>{ws.date}</span>
+                        </span>
+
+                        <span className="inline-flex items-center gap-1 font-mono text-slate-500 dark:text-slate-400">
+                          <Users className="w-3.5 h-3.5 text-indigo-500" />
+                          <span>{ws.beneficiariesCount} {language === "ar" ? "مستفيد" : "Learners"}</span>
+                        </span>
+                      </div>
+
+                      <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
+                        {language === "ar" ? ws.titleAr : ws.titleEn}
+                      </h4>
+
+                      <div className="flex flex-wrap gap-1.5 pt-1">
+                        {(language === "ar" ? ws.topicsAr : ws.topicsEn).map((tItem, i) => (
+                          <span
+                            key={i}
+                            className="text-[11px] font-mono text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/70 px-2 py-0.5 rounded-md border border-slate-200/60 dark:border-slate-700/60"
+                          >
+                            {tItem}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{language === "ar" ? program.descriptionAr : program.descriptionEn}</p>
-                <div className="space-y-2 pt-2">
-                  <div className="text-xs font-mono font-semibold uppercase text-slate-400">{t.trainingPage.topicsCovered}</div>
-                  <div className="flex flex-wrap gap-2">
-                    {(language === "ar" ? program.topicsAr : program.topicsEn).map((topic, i) => (
-                      <span key={i} className="px-2.5 py-1 text-xs rounded-lg bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/80">{topic}</span>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        )}
       </section>
 
-      {/* 4. WORKSHOPS */}
-      <section className="space-y-8">
+      {/* ══════════════════════════════════════════════
+          5. CTA TO CONTACT FOR TRAINING ENQUIRIES
+         ══════════════════════════════════════════════ */}
+      <section>
         <ScrollReveal>
-          <div className="space-y-2">
-            <span className="text-xs font-mono font-semibold text-indigo-600 dark:text-indigo-400 uppercase">Masterclasses &amp; Seminars</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">{t.trainingPage.workshopsHeading}</h2>
-            <p className="text-sm text-slate-600 dark:text-slate-400">{t.trainingPage.workshopsSub}</p>
+          <div className="rounded-3xl bg-gradient-to-r from-teal-900 via-slate-900 to-indigo-950 border border-teal-500/30 p-8 sm:p-10 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md text-start">
+            <div className="space-y-2 max-w-xl">
+              <h3 className="text-lg sm:text-2xl font-bold">
+                {language === "ar"
+                  ? "هل ترغب في تنظيم برنامج تدريبي أو ورشة عمل لفريقك؟"
+                  : "Looking to conduct technical workshops or bootcamps for your team?"}
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                {language === "ar"
+                  ? "متاح لتقديم برامج مخصصة في تطوير أنظمة ERP، أطر عمل بايثون ودجانغو، هندسة واجهات Next.js، وتصميم أنظمة Figma."
+                  : "Available for tailored masterclasses in ERP systems, Python/Django, Next.js architecture, and Figma Design Systems."}
+              </p>
+            </div>
+
+            <Link
+              href={`/${language}/contact`}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs sm:text-sm shadow-md transition-all shrink-0 cursor-pointer"
+            >
+              <span>{language === "ar" ? "تواصل لحجز تدريب" : "Inquire for Training"}</span>
+              <Arrow className="w-4 h-4" />
+            </Link>
           </div>
         </ScrollReveal>
-
-        <StaggerContainer className="space-y-4" staggerDelay={0.08}>
-          {workshops.map((ws) => (
-            <StaggerItem key={ws.id}>
-              <motion.div whileHover={{ y: -3 }} className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:border-indigo-500/40 dark:hover:border-indigo-400/40 transition-all duration-300 shadow-xs hover:shadow-md">
-                <div className="space-y-2 max-w-3xl">
-                  <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-slate-500 dark:text-slate-400">
-                    <span className="bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 font-semibold px-2.5 py-0.5 rounded-md">{language === "ar" ? ws.organizationAr : ws.organizationEn}</span>
-                    <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" />{ws.date}</span>
-                    <span className="flex items-center gap-1"><Users className="w-3.5 h-3.5" />{ws.beneficiariesCount} {t.trainingPage.beneficiariesLabel}</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">{language === "ar" ? ws.titleAr : ws.titleEn}</h3>
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {(language === "ar" ? ws.topicsAr : ws.topicsEn).map((tItem, idx) => (
-                      <span key={idx} className="text-[11px] font-mono text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/80 px-2 py-0.5 rounded border border-slate-200/60 dark:border-slate-700/60">{tItem}</span>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
       </section>
     </div>
   );
