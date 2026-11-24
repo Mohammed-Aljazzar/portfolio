@@ -724,13 +724,13 @@ export const initialData = {
 
   trainingPartners: [
     {
-      nameAr: "مؤسسة السراج",
-      nameEn: "Al-Siraj Foundation",
+      nameAr: "مركز السراج التعليمي",
+      nameEn: "Al-Siraj Educational Center",
       roleAr: "شريك تدريبي في البرامج التقنية والمهنية",
       roleEn: "Technical & Vocational Training Partner",
       descriptionAr: "تنفيذ برامج تدريبية تخصصية لتأهيل الكوادر والشباب في المهارات البرمجية والتقنية الحديثة.",
       descriptionEn: "Delivering specialized vocational programs to equip learners with modern software & tech skills.",
-      logoUrl: "/assets/images/partners/alsiraj-logo.svg",
+      logoUrl: "/assets/images/partners/alsiraj-logo.png",
       websiteUrl: null,
     },
     {
