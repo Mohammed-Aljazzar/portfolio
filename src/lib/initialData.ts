@@ -770,7 +770,7 @@ export const initialData = {
       roleEn: "Career Readiness & Professional Development Partner",
       descriptionAr: "تقديم ورش عمل تدريبية متخصصة في إعداد السير الذاتية الاحترافية والجاهزية لسوق العمل.",
       descriptionEn: "Delivering specialized workshops in professional resume crafting and career readiness.",
-      logoUrl: "/assets/images/partners/sadeem-logo.svg",
+      logoUrl: "/assets/images/partners/sadeem-logo.png",
       websiteUrl: null,
     },
   ],
