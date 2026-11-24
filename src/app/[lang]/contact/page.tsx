@@ -262,26 +262,26 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Resume Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3 shrink-0">
+            {/* Resume Action Buttons: Side-by-side even on the smallest mobile screens */}
+            <div className="grid grid-cols-2 sm:flex sm:items-center gap-2 sm:gap-3 w-full sm:w-auto shrink-0 pt-1 sm:pt-0">
               <a
                 href="/assets/cv/Mohammed_Aljazzar_CV_AR.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold text-xs sm:text-sm shadow-sm hover:shadow-teal-500/25 transition-all cursor-pointer group"
+                className="flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 sm:py-3 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold text-[11px] sm:text-sm shadow-sm hover:shadow-teal-500/25 transition-all cursor-pointer group text-center"
               >
-                <Download className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
-                <span>{language === "ar" ? "تحميل السيرة (عربي)" : "Resume (Arabic)"}</span>
+                <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 group-hover:-translate-y-0.5 transition-transform" />
+                <span className="truncate">{language === "ar" ? "تحميل (عربي)" : "Resume (Arabic)"}</span>
               </a>
 
               <a
                 href="/assets/cv/Mohammed_Aljazzar_CV_EN.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700/80 text-slate-800 dark:text-slate-200 font-semibold text-xs sm:text-sm border border-slate-200 dark:border-slate-700 shadow-xs transition-all cursor-pointer group"
+                className="flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 sm:py-3 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700/80 text-slate-800 dark:text-slate-200 font-semibold text-[11px] sm:text-sm border border-slate-200 dark:border-slate-700 shadow-xs transition-all cursor-pointer group text-center"
               >
-                <Download className="w-4 h-4 text-teal-600 dark:text-teal-400 group-hover:-translate-y-0.5 transition-transform" />
-                <span>{language === "ar" ? "تحميل السيرة (English)" : "Resume (English)"}</span>
+                <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 text-teal-600 dark:text-teal-400 group-hover:-translate-y-0.5 transition-transform" />
+                <span className="truncate">{language === "ar" ? "تحميل (English)" : "Resume (English)"}</span>
               </a>
             </div>
           </div>
