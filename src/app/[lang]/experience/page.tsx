@@ -110,9 +110,8 @@ export default function ExperiencePage() {
               />
 
               {/* Experience Card */}
-              <motion.div
-                whileHover={{ y: -3 }}
-                className="rounded-3xl bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800 p-6 sm:p-8 lg:p-9 space-y-6 shadow-xs hover:shadow-xl hover:border-teal-500/30 transition-all duration-300 text-start group"
+              <div
+                className="rounded-3xl bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800 p-6 sm:p-8 lg:p-9 space-y-6 shadow-xs hover:border-teal-500/30 transition-all duration-300 text-start group"
               >
                 {/* Header: Role, Company, Period & Location */}
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 border-b border-slate-100 dark:border-slate-800/80 pb-5">
@@ -193,7 +192,7 @@ export default function ExperiencePage() {
                     )}
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </ScrollReveal>
           ))}
         </div>
@@ -223,8 +222,7 @@ export default function ExperiencePage() {
           <StaggerContainer className="grid grid-cols-1 gap-6" staggerDelay={0.08}>
             {operationsExps.map((exp) => (
               <StaggerItem key={exp.id}>
-                <motion.div
-                  whileHover={{ y: -3 }}
+                <div
                   className="rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800 p-6 sm:p-7 space-y-4 shadow-xs hover:border-teal-500/30 transition-all duration-300 text-start"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800/80 pb-3">
@@ -274,7 +272,7 @@ export default function ExperiencePage() {
                       )}
                     </div>
                   )}
-                </motion.div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
