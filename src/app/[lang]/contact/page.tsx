@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
+import { ScrollReveal } from "@/components/common/ScrollReveal";
 import {
   Mail,
   Phone,
@@ -156,75 +157,91 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50/50 dark:bg-[#0B1120] text-slate-900 dark:text-slate-100 selection:bg-teal-500 selection:text-white">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12 sm:space-y-16 selection:bg-teal-500 selection:text-white">
       {/* ══════════════════════════════════════════════
-          1. HERO HEADER (Clean, Soft & Modern)
+          1. HEADER & INTRODUCTION (Matches Home, Projects & Experience)
          ══════════════════════════════════════════════ */}
-      <header className="py-12 sm:py-16 text-center max-w-3xl mx-auto px-4 space-y-4">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-950/60 border border-teal-200/70 dark:border-teal-800/60 text-teal-700 dark:text-teal-300 text-xs font-semibold">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span>{language === "ar" ? "متاح للتعاقد والمشاريع الجديدة" : "Available for new projects"}</span>
-        </div>
-
-        <h1 className="text-3xl sm:text-5xl font-bold text-slate-900 dark:text-white tracking-tight leading-tight">
-          {language === "ar" ? (
-            <>
-              لنبدأ العمل معاً، أو حمّل{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
-                السيرة الذاتية
+      <section className="space-y-6 sm:space-y-8">
+        <ScrollReveal>
+          <div className="text-start space-y-2.5">
+            {/* Signature Overline with dash & bullet */}
+            <div className="flex items-center justify-start gap-2 mb-2 sm:mb-2.5">
+              <span className="w-5 sm:w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
+              <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
+              <span className="text-[11px] sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
+                {language === "ar" ? "التواصل والتعاون المهني" : "GET IN TOUCH & COLLABORATION"}
               </span>
-            </>
-          ) : (
-            <>
-              Let&apos;s build together, or get my{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
-                Resume
-              </span>
-            </>
-          )}
-        </h1>
+            </div>
 
-        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
-          {language === "ar"
-            ? "يسعدني دائماً بحث فرص التعاون في تطوير أنظمة ERP، التطبيقات السحابية المتكاملة، وتصميم تجارب المستخدم، أو مناقشة انضمامي لفريقك كمهندس برمجيات متكامل."
-            : "I am always open to discussing new ERP implementations, custom full-stack software, UI/UX systems, or high-impact engineering roles."}
-        </p>
+            {/* Main Title — Refined, Classy & Smooth Typography */}
+            <h1 className="text-2xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
+              {language === "ar" ? (
+                <>
+                  تواصل معي لبدء تعاون ناجح، أو حمّل{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                    السيرة الذاتية
+                  </span>
+                </>
+              ) : (
+                <>
+                  Let&apos;s build together, or get my{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
+                    Resume
+                  </span>
+                </>
+              )}
+            </h1>
 
-        {/* Quick Contact Icons Strip Under Title */}
-        <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
-          {/* Email Icon */}
-          <a
-            href="mailto:m.i.aljazzar19@gmail.com"
-            className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:text-teal-600 dark:hover:text-teal-400 hover:border-teal-500/40 shadow-xs text-xs font-medium transition-all"
-            title="m.i.aljazzar19@gmail.com"
-          >
-            <Mail className="w-4 h-4 text-teal-600 dark:text-teal-400" />
-            <span dir="ltr">m.i.aljazzar19@gmail.com</span>
-          </a>
+            {/* Subtitle Paragraph */}
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl text-start">
+              {language === "ar"
+                ? "سواء كنت تبحث عن استشارة في أنظمة ERP، تطوير منصة مخصصة، أو ترغب في ضم خبراتي لفريقك كمهندس برمجيات متكامل، يسعدني التواصل المباشر معك."
+                : "Whether you need enterprise ERP consulting, a full-stack platform, or want to discuss a software engineering role, feel free to reach out directly."}
+            </p>
 
-          {/* WhatsApp Icon */}
-          <a
-            href="https://wa.me/970598048284"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500/40 shadow-xs text-xs font-medium transition-all"
-          >
-            <Phone className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-            <span dir="ltr">+970 59 804 8284</span>
-          </a>
+            {/* Quick Contact Icons Strip Under Title */}
+            <div className="pt-3 flex flex-wrap items-center justify-start gap-2.5 sm:gap-3">
+              {/* Email Icon */}
+              <a
+                href="mailto:m.i.aljazzar19@gmail.com"
+                className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:text-teal-600 dark:hover:text-teal-400 hover:border-teal-500/40 shadow-xs text-xs font-medium transition-all"
+                title="m.i.aljazzar19@gmail.com"
+              >
+                <Mail className="w-4 h-4 text-teal-600 dark:text-teal-400" />
+                <span dir="ltr">m.i.aljazzar19@gmail.com</span>
+              </a>
 
-          {/* Location Badge */}
-          <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium">
-            <MapPin className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
-            <span>{language === "ar" ? "فلسطين (عن بُعد)" : "Palestine (Remote)"}</span>
+              {/* WhatsApp Icon */}
+              <a
+                href="https://wa.me/970598048284"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500/40 shadow-xs text-xs font-medium transition-all"
+              >
+                <Phone className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                <span dir="ltr">+970 59 804 8284</span>
+              </a>
+
+              {/* Location Badge */}
+              <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-400 text-xs font-medium">
+                <MapPin className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
+                <span>{language === "ar" ? "فلسطين (متاح عن بُعد)" : "Palestine (Remote)"}</span>
+              </div>
+
+              {/* Availability Badge */}
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/70 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-300 text-xs font-semibold">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>{language === "ar" ? "متاح للتعاقد" : "Available"}</span>
+              </div>
+            </div>
           </div>
-        </div>
-      </header>
+        </ScrollReveal>
+      </section>
 
       {/* ══════════════════════════════════════════════
-          3. MAIN CONTENT CONTAINER
+          2. MAIN CONTENT BODY
          ══════════════════════════════════════════════ */}
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 space-y-10">
+      <div className="space-y-10 sm:space-y-12">
 
         {/* ── CARD: RESUME DOWNLOAD & OVERVIEW (السيرة الذاتية المعتمدة) ── */}
         <section
@@ -586,7 +603,7 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }
