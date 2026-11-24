@@ -9,14 +9,13 @@ import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/common
 import {
   FolderGit2,
   Github,
-  ExternalLink,
-  Sparkles,
+  Globe,
+  Palette,
   ArrowRight,
   ArrowLeft,
-  Palette,
+  ArrowUpRight,
+  Sparkles,
   Terminal,
-  Layers,
-  CheckCircle2,
 } from "lucide-react";
 
 export default function ProjectsPage() {
@@ -30,30 +29,34 @@ export default function ProjectsPage() {
   );
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-12 sm:space-y-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12 sm:space-y-16">
       {/* ══════════════════════════════════════════════
-          1. HEADER & OVERVIEW
+          1. HEADER & INTRODUCTION (Matches Home & Experience 100%)
          ══════════════════════════════════════════════ */}
-      <section className="space-y-6 text-start">
+      <section className="space-y-6 sm:space-y-8">
         <ScrollReveal>
-          <div className="space-y-4">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 shadow-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
-              <FolderGit2 className="w-3.5 h-3.5" />
-              <span>{t.projectsPage.badge}</span>
-            </span>
+          <div className="text-start space-y-2.5">
+            {/* Signature Overline with dash & bullet */}
+            <div className="flex items-center justify-start gap-2 mb-2 sm:mb-2.5">
+              <span className="w-5 sm:w-6 h-[1.5px] bg-teal-500 rounded-full inline-block" />
+              <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />
+              <span className="text-[11px] sm:text-[13px] font-semibold text-teal-600 dark:text-teal-400">
+                {language === "ar" ? "معرض الأعمال البرمجية" : "PORTFOLIO & CASE STUDIES"}
+              </span>
+            </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+            {/* Main Title — Refined, Classy & Smooth Typography */}
+            <h1 className="text-2xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
               {language === "ar" ? (
                 <>
-                  معرض المشاريع البرمجية و
+                  المشاريع البرمجية و
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
                     دراسات الحالة
                   </span>
                 </>
               ) : (
                 <>
-                  Engineered Works &{" "}
+                  Software Projects &{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-indigo-600 dark:from-teal-400 dark:to-indigo-300">
                     Case Studies
                   </span>
@@ -61,15 +64,18 @@ export default function ProjectsPage() {
               )}
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 font-body leading-relaxed max-w-3xl">
-              {t.projectsPage.subheading}
+            {/* Subtitle Paragraph */}
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl text-start">
+              {language === "ar"
+                ? "سجل موثق من الأنظمة المؤسسية وتطبيقات الويب وتصاميم واجهات المستخدم المنفذة باحترافية، مع تفاصيل معمارية كل نظام وتحدياته الهندسية."
+                : "A documented portfolio of enterprise ERP platforms, modern web applications, and UI/UX design systems with deep architectural and engineering case studies."}
             </p>
           </div>
         </ScrollReveal>
 
         {/* Categories / Filter Tabs */}
-        <ScrollReveal delay={0.08}>
-          <div className="flex flex-wrap gap-2 pt-2 border-b border-slate-200/80 dark:border-slate-800 pb-4">
+        <ScrollReveal delay={0.06}>
+          <div className="flex flex-wrap gap-2 pt-1 border-b border-slate-200/80 dark:border-slate-800 pb-4">
             {[
               { id: "all", label: t.projectsPage.filters.all },
               { id: "erp", label: t.projectsPage.filters.erp },
@@ -80,9 +86,9 @@ export default function ProjectsPage() {
               <button
                 key={f.id}
                 onClick={() => setActiveFilter(f.id)}
-                className={`px-4 py-2.5 text-xs sm:text-sm font-semibold rounded-xl transition-all duration-200 cursor-pointer ${
+                className={`px-4 py-2 text-xs sm:text-[13px] font-semibold rounded-xl transition-all duration-200 cursor-pointer ${
                   activeFilter === f.id
-                    ? "bg-teal-600 dark:bg-teal-500 text-white shadow-sm shadow-teal-500/20"
+                    ? "bg-teal-600 dark:bg-teal-500 text-white shadow-xs shadow-teal-500/20"
                     : "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200/90 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/50"
                 }`}
               >
@@ -94,10 +100,10 @@ export default function ProjectsPage() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          2. PROJECTS GRID
+          2. PROJECTS GRID (Cards formatted like Home page showcase cards)
          ══════════════════════════════════════════════ */}
       <StaggerContainer
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7"
         staggerDelay={0.06}
       >
         {filteredProjects.map((project) => {
@@ -105,141 +111,121 @@ export default function ProjectsPage() {
           const isUiUx = project.category === "uiux";
 
           return (
-            <StaggerItem key={project.id}>
-              <div className="rounded-3xl bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800 p-6 flex flex-col justify-between hover:border-teal-500/40 dark:hover:border-teal-400/40 transition-all duration-300 shadow-xs hover:shadow-lg hover:shadow-teal-500/5 group h-full text-start">
-                <div className="space-y-4">
-                  {/* Visual Window Mockup Frame */}
+            <StaggerItem key={project.id} className="h-full">
+              <div className="rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-900/95 border border-slate-200/90 dark:border-slate-800 overflow-hidden shadow-xs hover:border-teal-500/40 dark:hover:border-teal-400/40 hover:shadow-lg hover:shadow-teal-500/5 transition-all duration-300 flex flex-col justify-between group h-full text-start">
+                <div>
+                  {/* Visual Image Header */}
                   <Link
                     href={detailUrl}
-                    className="block relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-slate-950 border border-slate-800/80 group/img focus:outline-hidden"
+                    className="block relative w-full aspect-[16/10] overflow-hidden bg-slate-950 focus:outline-hidden"
                   >
-                    {/* Window Bar */}
-                    <div className="absolute top-0 inset-x-0 h-6.5 bg-slate-900/95 backdrop-blur-xs border-b border-slate-800/80 px-3 flex items-center justify-between z-10">
-                      <div className="flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-red-500/80" />
-                        <span className="w-2 h-2 rounded-full bg-amber-500/80" />
-                        <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
-                      </div>
-                      <span className="text-[10px] font-mono text-slate-400 truncate max-w-[140px]">
-                        {project.slug || project.category}
-                      </span>
-                      <span className="text-[9px] font-mono text-teal-400 uppercase font-semibold">
+                    <Image
+                      src={project.coverImage || "/assets/images/projects/erp-smart-service.jpg"}
+                      alt={language === "ar" ? project.titleAr : project.titleEn}
+                      fill
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 420px"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
+
+                    {/* Top Floating Badges (Category & Featured) */}
+                    <div className="absolute top-3 inset-x-3 flex items-center justify-between z-10 pointer-events-none">
+                      <span className="px-2.5 py-0.5 rounded-full bg-slate-900/85 backdrop-blur-xs text-[10px] font-mono font-bold tracking-wider text-teal-400 border border-slate-700/60 shadow-xs uppercase">
                         {project.category}
                       </span>
-                    </div>
-
-                    {/* Cover Graphic */}
-                    <div className="pt-6.5 w-full h-full relative">
-                      <Image
-                        src={project.coverImage || "/assets/images/projects/erp-smart-service.jpg"}
-                        alt={language === "ar" ? project.titleAr : project.titleEn}
-                        fill
-                        className="object-cover object-center transition-transform duration-500 group-hover/img:scale-105"
-                        sizes="(max-width: 768px) 100vw, 420px"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover/img:opacity-30 transition-opacity" />
+                      {project.isFeatured && (
+                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-teal-500/90 backdrop-blur-xs text-[10px] font-mono font-bold text-white shadow-xs">
+                          <Sparkles className="w-3 h-3" />
+                          <span>Featured</span>
+                        </span>
+                      )}
                     </div>
                   </Link>
 
-                  {/* Badges: Category & Featured */}
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-mono font-bold uppercase px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60">
-                      {project.category.toUpperCase()}
-                    </span>
-                    {project.isFeatured && (
-                      <span className="flex items-center gap-1 text-[11px] font-mono text-teal-600 dark:text-teal-400 font-bold bg-teal-50 dark:bg-teal-950/60 px-2.5 py-0.5 rounded-full border border-teal-200 dark:border-teal-800">
-                        <Sparkles className="w-3 h-3 text-teal-500" />
-                        <span>Featured</span>
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Title & Summary */}
-                  <div className="space-y-2">
-                    <Link href={detailUrl} className="group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors block">
-                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white leading-snug">
+                  {/* Body Content */}
+                  <div className="p-5 sm:p-6 space-y-3">
+                    {/* Card Title Link */}
+                    <Link href={detailUrl} className="block group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                      <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-snug">
                         {language === "ar" ? project.titleAr : project.titleEn}
                       </h3>
                     </Link>
-                    <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 line-clamp-3 leading-relaxed font-body">
+
+                    {/* Summary Description */}
+                    <p className="text-xs sm:text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal line-clamp-3">
                       {language === "ar" ? project.summaryAr : project.summaryEn}
                     </p>
+
+                    {/* Tech Stack Pills */}
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {project.techStack.slice(0, 3).map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2.5 py-0.5 text-[10.5px] font-mono rounded-md bg-slate-50 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/70 dark:border-slate-700/70"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {project.techStack.length > 3 && (
+                        <span className="px-1.5 py-0.5 text-[10.5px] font-mono rounded-md bg-slate-100/70 dark:bg-slate-800/40 text-slate-500 dark:text-slate-400 border border-dashed border-slate-300 dark:border-slate-700">
+                          +{project.techStack.length - 3}
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
 
-                {/* Footer Section: Tech Stack & Actions */}
-                <div className="pt-6 space-y-4">
-                  {/* Tech Stack Tags (2 shown + count) */}
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.techStack.slice(0, 3).map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2.5 py-0.5 text-[11px] font-mono rounded-md bg-slate-50 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/70 dark:border-slate-700/70"
+                {/* Footer Row: Actions */}
+                <div className="px-5 sm:px-6 py-3.5 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs mt-auto">
+                  {/* View Details Link */}
+                  <Link
+                    href={detailUrl}
+                    className="text-teal-600 dark:text-teal-400 font-semibold hover:text-teal-700 dark:hover:text-teal-300 flex items-center gap-1 transition-colors group/btn"
+                  >
+                    <span>{t.projectsPage.card.viewDetails}</span>
+                    <Arrow className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-0.5 rtl:group-hover/btn:-translate-x-0.5" />
+                  </Link>
+
+                  {/* External Links */}
+                  <div className="flex items-center gap-2">
+                    {/* Live Demo or Behance design */}
+                    {project.liveDemoUrl && (
+                      <a
+                        href={project.liveDemoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-slate-500 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400 font-medium flex items-center gap-1 transition-colors"
+                        title={isUiUx ? t.projectsPage.card.design : t.projectsPage.card.live}
                       >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.techStack.length > 3 && (
-                      <span className="px-2 py-0.5 text-[11px] font-mono rounded-md bg-slate-100/70 dark:bg-slate-800/40 text-slate-500 dark:text-slate-400 border border-dashed border-slate-300 dark:border-slate-700">
-                        +{project.techStack.length - 3}
-                      </span>
+                        {isUiUx ? <Palette className="w-3.5 h-3.5" /> : <Globe className="w-3.5 h-3.5" />}
+                        <span>{isUiUx ? (language === "ar" ? "التصميم" : "Design") : (language === "ar" ? "الموقع" : "Live")}</span>
+                      </a>
                     )}
-                  </div>
 
-                  {/* Action Buttons Row */}
-                  <div className="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800/80 gap-2">
-                    {/* Primary Button: View Project Details Page */}
-                    <Link
-                      href={detailUrl}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors group/btn"
-                    >
-                      <span>{t.projectsPage.card.viewDetails}</span>
-                      <Arrow className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-0.5 rtl:group-hover/btn:-translate-x-0.5" />
-                    </Link>
+                    {project.behanceUrl && project.behanceUrl !== project.liveDemoUrl && (
+                      <a
+                        href={project.behanceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-slate-500 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400 font-medium flex items-center gap-1 transition-colors"
+                        title={t.projectsPage.card.behance}
+                      >
+                        <Palette className="w-3.5 h-3.5" />
+                        <span>Behance</span>
+                      </a>
+                    )}
 
-                    {/* Direct External Links: Live / Design / GitHub */}
-                    <div className="flex items-center gap-1.5">
-                      {/* Live Demo or Behance Design preview */}
-                      {project.liveDemoUrl && (
-                        <a
-                          href={project.liveDemoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 hover:bg-teal-100 dark:hover:bg-teal-900 border border-teal-200 dark:border-teal-800 text-[11px] font-semibold transition-colors"
-                          title={isUiUx ? t.projectsPage.card.design : t.projectsPage.card.live}
-                        >
-                          <ExternalLink className="w-3.5 h-3.5" />
-                          <span>{isUiUx ? (language === "ar" ? "التصميم" : "Design") : (language === "ar" ? "معاينة" : "Live")}</span>
-                        </a>
-                      )}
-
-                      {/* Behance Showcase if not already shown */}
-                      {project.behanceUrl && project.behanceUrl !== project.liveDemoUrl && (
-                        <a
-                          href={project.behanceUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900 border border-blue-200 dark:border-blue-800 text-[11px] font-semibold transition-colors"
-                          title={t.projectsPage.card.behance}
-                        >
-                          <Palette className="w-3.5 h-3.5" />
-                          <span>Behance</span>
-                        </a>
-                      )}
-
-                      {/* GitHub Link */}
-                      {project.githubUrl && (
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                          title={t.projectsPage.card.github}
-                        >
-                          <Github className="w-4 h-4" />
-                        </a>
-                      )}
-                    </div>
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+                        title={t.projectsPage.card.github}
+                      >
+                        <Github className="w-3.5 h-3.5" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
