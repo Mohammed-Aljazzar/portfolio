@@ -711,15 +711,37 @@ export const initialData = {
     roleEn: "Certified Technical Trainer & Instructor",
     periodAr: "يناير 2026 – الآن",
     periodEn: "Jan 2026 – Present",
+    methodologyAr: "منهجية تدريب قائمة على المشاريع",
+    methodologyEn: "Project-Based Pedagogy",
     philosophyAr: "أؤمن بأن التعليم التقني الحقيقي يقوم على التجربة العملية المباشرة وبناء المشاريع الواقعية (Project-Based Learning). لا أكتفي بشرح المفاهيم النظرية، بل أقود المتدربين عبر رحلة تبدأ من كتابة السطر الأول وحتى نشر التطبيقات الجاهزة للإنتاج، مع تزويدهم بالمهارات العملية والجاهزية لدخول سوق العمل والعمل الحر.",
     philosophyEn: "I firmly believe that genuine technical mastery is forged through hands-on project-based learning. Rather than lecturing theoretical syntax, I mentor trainees through complete development cycles—from the first line of code to production deployment—equipping them with practical tools and freelancing readiness.",
     stats: {
       programsCount: 14,
       workshopsCount: 70,
-      organizationsCount: 6,
+      organizationsCount: 5,
       traineesCount: 650,
       trainingHours: 480,
     },
+    trainerPhotos: [
+      {
+        id: "photo-1",
+        src: "/assets/images/training/trainer-1.png",
+        captionAr: "المهندس محمد الجزار — مدرب ومحاضر تقني معتمد",
+        captionEn: "Eng. Mohammed Aljazzar — Certified Technical Instructor",
+      },
+      {
+        id: "photo-2",
+        src: "/assets/images/training/trainer-2.png",
+        captionAr: "تقديم الورش التقنية والتدريب العملي المباشر",
+        captionEn: "Delivering hands-on technical workshops & training",
+      },
+      {
+        id: "photo-3",
+        src: "/assets/images/training/trainer-3.jpg",
+        captionAr: "تمكين الكفاءات وتوجيه المتدربين نحو سوق العمل",
+        captionEn: "Empowering tech talent & career mentorship",
+      },
+    ],
   },
 
   trainingPartners: [

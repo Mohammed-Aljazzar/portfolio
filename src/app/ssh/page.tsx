@@ -55,7 +55,10 @@ import {
   Calendar,
   Clock,
   ArrowUpRight,
-  Send
+  Send,
+  BookOpen,
+  Presentation,
+  Building2
 } from "lucide-react";
 
 type NavSection =
@@ -86,11 +89,58 @@ export default function AdminDashboardPage() {
   const [config, setConfig] = useState(initialData.config);
   const [projects, setProjects] = useState<any[]>(initialData.projects);
   const [experiences, setExperiences] = useState<any[]>(initialData.engineeringExperiences);
+  const [trainingOverview, setTrainingOverview] = useState<any>(initialData.trainingOverview);
   const [trainingPrograms, setTrainingPrograms] = useState<any[]>(initialData.trainingPrograms);
   const [workshops, setWorkshops] = useState<any[]>(initialData.workshops);
   const [trainingPartners, setTrainingPartners] = useState<any[]>(initialData.trainingPartners);
+  const [trainerPhotos, setTrainerPhotos] = useState<any[]>(
+    (initialData.trainingOverview as any).trainerPhotos || [
+      { id: "photo-1", src: "/assets/images/training/trainer-1.png", captionAr: "المهندس محمد الجزار — مدرب ومحاضر تقني معتمد", captionEn: "Eng. Mohammed Aljazzar — Certified Technical Instructor" },
+      { id: "photo-2", src: "/assets/images/training/trainer-2.png", captionAr: "تقديم الورش التقنية والتدريب العملي المباشر", captionEn: "Delivering hands-on technical workshops & training" },
+      { id: "photo-3", src: "/assets/images/training/trainer-3.jpg", captionAr: "تمكين الكفاءات وتوجيه المتدربين نحو سوق العمل", captionEn: "Empowering tech talent & career mentorship" }
+    ]
+  );
   const [socialLinks, setSocialLinks] = useState(initialData.socialLinks);
   const [knowledgeBase, setKnowledgeBase] = useState(KNOWLEDGE_BASE);
+
+  // New Training Item States for Direct Adding
+  const [newProgram, setNewProgram] = useState({
+    titleAr: "",
+    titleEn: "",
+    organizationAr: "",
+    batchesCount: 1,
+    totalHours: 40,
+    traineesCount: 25,
+    descriptionAr: ""
+  });
+  const [showAddProgram, setShowAddProgram] = useState(false);
+
+  const [newWorkshop, setNewWorkshop] = useState({
+    titleAr: "",
+    titleEn: "",
+    organizationAr: "",
+    date: "2026",
+    hours: 10,
+    beneficiariesCount: 30,
+    descriptionAr: ""
+  });
+  const [showAddWorkshop, setShowAddWorkshop] = useState(false);
+
+  const [newPartner, setNewPartner] = useState({
+    nameAr: "",
+    nameEn: "",
+    roleAr: "شريك تدريبي",
+    descriptionAr: "",
+    logoUrl: "/assets/images/partners/pidea-logo.webp"
+  });
+  const [showAddPartner, setShowAddPartner] = useState(false);
+
+  const [newPhoto, setNewPhoto] = useState({
+    captionAr: "",
+    captionEn: "",
+    src: "/assets/images/training/trainer-1.png"
+  });
+  const [showAddPhoto, setShowAddPhoto] = useState(false);
 
   // UI / Modals / Toast state
   const [saveToast, setSaveToast] = useState<string | null>(null);
@@ -748,51 +798,657 @@ export default function AdminDashboardPage() {
           )}
 
           {/* ══════════════════════════════════════════
-              SECTION 4: TRAINING & WORKSHOPS
+              SECTION 4: COMPLETE DYNAMIC TRAINING CMS
              ══════════════════════════════════════════ */}
           {currentSection === "training" && (
             <div className="space-y-6">
-              {/* Workshops Section */}
-              <div className="rounded-3xl bg-slate-900/80 border border-slate-800 p-6 space-y-4">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+              {/* 1. Training Overview & Instructor Philosophy Card */}
+              <div className="rounded-3xl bg-slate-900/80 border border-slate-800 p-6 sm:p-8 space-y-5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
                   <div>
-                    <h2 className="text-base font-bold text-white">ورش العمل والمحاضرات المتخصصة ({workshops.length})</h2>
-                    <p className="text-xs text-slate-400">إدارة الورش بمركز سديم، أكاديمية بيديا، مؤسسة فرصة بلس، والسراج</p>
+                    <h2 className="text-base font-bold text-white flex items-center gap-2">
+                      <GraduationCap className="w-5 h-5 text-teal-400" />
+                      <span>بيانات المدرب والمنهجية التدريبية (Instructor & Philosophy)</span>
+                    </h2>
+                    <p className="text-xs text-slate-400 mt-0.5">
+                      التحكم الكامل بالمسمى الوظيفي التقني، الفترة الزمنية، الشارة، وفلسفة التعليم القائمة على المشاريع
+                    </p>
                   </div>
+                  <button
+                    onClick={() => {
+                      triggerToast("تم تحديث بيانات فلسفة ومنهجية التدريب بنجاح!");
+                    }}
+                    className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-teal-600 hover:bg-teal-500 text-white text-xs font-bold transition-all cursor-pointer w-fit"
+                  >
+                    <Save className="w-3.5 h-3.5" />
+                    <span>حفظ التعديلات</span>
+                  </button>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {workshops.map((ws) => (
-                    <div
-                      key={ws.id}
-                      className="p-4 rounded-2xl bg-slate-850 border border-slate-800 space-y-2 hover:border-slate-700 transition-all"
-                    >
-                      <div className="flex items-center justify-between">
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 font-bold">
-                          {ws.organizationAr}
-                        </span>
-                        <span className="text-xs font-mono text-slate-400">{ws.date}</span>
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-bold text-slate-300">المسمى التقني للمدرب (عربي)</label>
+                    <input
+                      type="text"
+                      value={trainingOverview.roleAr}
+                      onChange={(e) => setTrainingOverview({ ...trainingOverview, roleAr: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs"
+                      placeholder="مدرب ومحاضر تقني معتمد..."
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-bold text-slate-300">المسمى التقني للمدرب (إنجليزي)</label>
+                    <input
+                      type="text"
+                      value={trainingOverview.roleEn}
+                      onChange={(e) => setTrainingOverview({ ...trainingOverview, roleEn: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs"
+                      dir="ltr"
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-bold text-slate-300">الفترة الزمنية من وإلى (عربي)</label>
+                    <input
+                      type="text"
+                      value={trainingOverview.periodAr}
+                      onChange={(e) => setTrainingOverview({ ...trainingOverview, periodAr: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs font-mono"
+                      placeholder="يناير 2026 – الآن"
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-bold text-slate-300">الفترة الزمنية (إنجليزي)</label>
+                    <input
+                      type="text"
+                      value={trainingOverview.periodEn}
+                      onChange={(e) => setTrainingOverview({ ...trainingOverview, periodEn: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs font-mono"
+                      dir="ltr"
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-bold text-slate-300">عنوان المنهجية / الشارة (عربي)</label>
+                    <input
+                      type="text"
+                      value={trainingOverview.methodologyAr || "منهجية تدريب قائمة على المشاريع"}
+                      onChange={(e) => setTrainingOverview({ ...trainingOverview, methodologyAr: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs"
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-bold text-slate-300">عنوان المنهجية (إنجليزي)</label>
+                    <input
+                      type="text"
+                      value={trainingOverview.methodologyEn || "Project-Based Pedagogy"}
+                      onChange={(e) => setTrainingOverview({ ...trainingOverview, methodologyEn: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs"
+                      dir="ltr"
+                    />
+                  </div>
+
+                  <div className="space-y-1.5 md:col-span-2">
+                    <label className="text-xs font-bold text-slate-300">الوصف وفلسفة التدريب (عربي)</label>
+                    <textarea
+                      rows={3}
+                      value={trainingOverview.philosophyAr}
+                      onChange={(e) => setTrainingOverview({ ...trainingOverview, philosophyAr: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs leading-relaxed"
+                    />
+                  </div>
+
+                  <div className="space-y-1.5 md:col-span-2">
+                    <label className="text-xs font-bold text-slate-300">الوصف وفلسفة التدريب (إنجليزي)</label>
+                    <textarea
+                      rows={3}
+                      value={trainingOverview.philosophyEn}
+                      onChange={(e) => setTrainingOverview({ ...trainingOverview, philosophyEn: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs leading-relaxed"
+                      dir="ltr"
+                    />
+                  </div>
+                </div>
+
+                {/* Auto-calculated statistics indicator */}
+                <div className="p-4 rounded-2xl bg-teal-500/10 border border-teal-500/30 flex flex-wrap items-center justify-between gap-3 text-xs">
+                  <div className="flex items-center gap-2 text-teal-300 font-bold">
+                    <Sparkles className="w-4 h-4" />
+                    <span>إحصائيات التدريب المحسوبة تلقائياً على الموقع:</span>
+                  </div>
+                  <div className="flex flex-wrap gap-4 font-mono font-semibold text-slate-300">
+                    <span>الشركاء والمؤسسات: <strong className="text-white">+{trainingPartners.length}</strong></span>
+                    <span>الدورات: <strong className="text-white">+{trainingPrograms.length}</strong></span>
+                    <span>الورش: <strong className="text-white">+{workshops.length}</strong></span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 2. Training Programs (الدورات التدريبية وإضافة دورة) */}
+              <div className="rounded-3xl bg-slate-900/80 border border-slate-800 p-6 space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+                  <div>
+                    <h3 className="text-base font-bold text-white flex items-center gap-2">
+                      <BookOpen className="w-4 h-4 text-teal-400" />
+                      <span>الدورات التدريبية المعتمدة ({trainingPrograms.length})</span>
+                    </h3>
+                    <p className="text-xs text-slate-400">إدارة الدورات: اسم الدورة، المؤسسة، الأفواج، الساعات، النبذة، والمتدربين</p>
+                  </div>
+                  <button
+                    onClick={() => setShowAddProgram(!showAddProgram)}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-teal-600 hover:bg-teal-500 text-white text-xs font-bold transition-all cursor-pointer w-fit"
+                  >
+                    <Plus className="w-4 h-4" />
+                    <span>{showAddProgram ? "إلغاء الإضافة" : "إضافة دورة تدريبية"}</span>
+                  </button>
+                </div>
+
+                {/* Add Program Form */}
+                {showAddProgram && (
+                  <div className="p-5 rounded-2xl bg-slate-850 border border-teal-500/40 space-y-4 animate-in fade-in">
+                    <h4 className="text-xs font-bold text-teal-300">بيانات الدورة التدريبية الجديدة</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                      <div className="space-y-1">
+                        <label className="text-[11px] font-semibold text-slate-300">اسم الدورة (عربي)</label>
+                        <input
+                          type="text"
+                          value={newProgram.titleAr}
+                          onChange={(e) => setNewProgram({ ...newProgram, titleAr: e.target.value })}
+                          className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs"
+                          placeholder="مثال: دبلوم تطوير واجهات المستخدم..."
+                        />
                       </div>
-                      <h4 className="font-bold text-sm text-white">{ws.titleAr}</h4>
-                      <p className="text-xs text-slate-400 line-clamp-2 leading-relaxed">{ws.descriptionAr || ws.summaryAr}</p>
-                      <div className="flex items-center gap-3 pt-1 text-[11px] text-slate-400 font-mono">
-                        <span>الساعات: {ws.hours || ws.totalHours || 0} س</span>
-                        <span>•</span>
-                        <span>المستفيدين: {ws.beneficiariesCount || ws.beneficiaries || 0}+</span>
+                      <div className="space-y-1">
+                        <label className="text-[11px] font-semibold text-slate-300">اسم الدورة (إنجليزي)</label>
+                        <input
+                          type="text"
+                          value={newProgram.titleEn}
+                          onChange={(e) => setNewProgram({ ...newProgram, titleEn: e.target.value })}
+                          className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs"
+                          dir="ltr"
+                          placeholder="Frontend Engineering..."
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[11px] font-semibold text-slate-300">المؤسسة / الأكاديمية</label>
+                        <input
+                          type="text"
+                          value={newProgram.organizationAr}
+                          onChange={(e) => setNewProgram({ ...newProgram, organizationAr: e.target.value })}
+                          className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs"
+                          placeholder="أكاديمية بيديا / فرصة بلس..."
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[11px] font-semibold text-slate-300">عدد الأفواج</label>
+                        <input
+                          type="number"
+                          value={newProgram.batchesCount}
+                          onChange={(e) => setNewProgram({ ...newProgram, batchesCount: Number(e.target.value) })}
+                          className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[11px] font-semibold text-slate-300">ساعات الدورة</label>
+                        <input
+                          type="number"
+                          value={newProgram.totalHours}
+                          onChange={(e) => setNewProgram({ ...newProgram, totalHours: Number(e.target.value) })}
+                          className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[11px] font-semibold text-slate-300">عدد المتدربين</label>
+                        <input
+                          type="number"
+                          value={newProgram.traineesCount}
+                          onChange={(e) => setNewProgram({ ...newProgram, traineesCount: Number(e.target.value) })}
+                          className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs"
+                        />
+                      </div>
+                      <div className="space-y-1 sm:col-span-2 md:col-span-3">
+                        <label className="text-[11px] font-semibold text-slate-300">نبذة عن التدريب والمحاور</label>
+                        <textarea
+                          rows={2}
+                          value={newProgram.descriptionAr}
+                          onChange={(e) => setNewProgram({ ...newProgram, descriptionAr: e.target.value })}
+                          className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs"
+                          placeholder="وصف مختصر للبرنامج التدريبي ومخرجاته..."
+                        />
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => {
+                        if (!newProgram.titleAr || !newProgram.organizationAr) {
+                          alert("يرجى ملء اسم الدورة والمؤسسة على الأقل");
+                          return;
+                        }
+                        const created = {
+                          id: `prog-${Date.now()}`,
+                          titleAr: newProgram.titleAr,
+                          titleEn: newProgram.titleEn || newProgram.titleAr,
+                          organizationAr: newProgram.organizationAr,
+                          organizationEn: newProgram.organizationAr,
+                          category: "tech",
+                          batchesCount: newProgram.batchesCount,
+                          totalHours: newProgram.totalHours,
+                          traineesCount: newProgram.traineesCount,
+                          descriptionAr: newProgram.descriptionAr,
+                          descriptionEn: newProgram.descriptionAr,
+                          order: trainingPrograms.length + 1
+                        };
+                        setTrainingPrograms([created, ...trainingPrograms]);
+                        setNewProgram({ titleAr: "", titleEn: "", organizationAr: "", batchesCount: 1, totalHours: 40, traineesCount: 25, descriptionAr: "" });
+                        setShowAddProgram(false);
+                        triggerToast("تمت إضافة الدورة التدريبية بنجاح!");
+                      }}
+                      className="px-4 py-2 rounded-xl bg-teal-600 hover:bg-teal-500 text-white text-xs font-bold transition-all cursor-pointer"
+                    >
+                      تأكيد وحفظ الدورة
+                    </button>
+                  </div>
+                )}
+
+                {/* Programs Cards Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {trainingPrograms.map((prog) => (
+                    <div
+                      key={prog.id}
+                      className="p-4 rounded-2xl bg-slate-850 border border-slate-800 space-y-2.5 hover:border-slate-700 transition-all flex flex-col justify-between"
+                    >
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 font-bold">
+                            {prog.organizationAr}
+                          </span>
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">
+                            {prog.batchesCount} أفواج
+                          </span>
+                        </div>
+                        <h4 className="font-bold text-sm text-white">{prog.titleAr}</h4>
+                        <p className="text-xs text-slate-400 line-clamp-2 leading-relaxed">{prog.descriptionAr}</p>
+                      </div>
+
+                      <div className="flex items-center justify-between pt-2 border-t border-slate-800 text-[11px] text-slate-400 font-mono">
+                        <div className="flex items-center gap-3">
+                          <span>{prog.totalHours} ساعة تدريبية</span>
+                          <span>•</span>
+                          <span>+{prog.traineesCount} متدرب</span>
+                        </div>
+                        <button
+                          onClick={() => {
+                            if (confirm("حذف هذه الدورة من القائمة؟")) {
+                              setTrainingPrograms(trainingPrograms.filter((p) => p.id !== prog.id));
+                              triggerToast("تم حذف الدورة بنجاح");
+                            }
+                          }}
+                          className="p-1 text-slate-500 hover:text-red-400 transition-colors cursor-pointer"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Partners Section */}
+              {/* 3. Workshops (ورش العمل وإضافة ورشة) */}
               <div className="rounded-3xl bg-slate-900/80 border border-slate-800 p-6 space-y-4">
-                <h3 className="text-sm font-bold text-white">المؤسسات والشركاء المعتمدين ({trainingPartners.length})</h3>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+                  <div>
+                    <h3 className="text-base font-bold text-white flex items-center gap-2">
+                      <Presentation className="w-4 h-4 text-indigo-400" />
+                      <span>ورش العمل والمحاضرات المتخصصة ({workshops.length})</span>
+                    </h3>
+                    <p className="text-xs text-slate-400">إدارة الورش: اسم الورشة، المؤسسة، عدد الساعات، المستفيدين، والتاريخ</p>
+                  </div>
+                  <button
+                    onClick={() => setShowAddWorkshop(!showAddWorkshop)}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-all cursor-pointer w-fit"
+                  >
+                    <Plus className="w-4 h-4" />
+                    <span>{showAddWorkshop ? "إلغاء الإضافة" : "إضافة ورشة عمل"}</span>
+                  </button>
+                </div>
+
+                {/* Add Workshop Form */}
+                {showAddWorkshop && (
+                  <div className="p-5 rounded-2xl bg-slate-850 border border-indigo-500/40 space-y-4 animate-in fade-in">
+                    <h4 className="text-xs font-bold text-indigo-300">بيانات ورشة العمل الجديدة</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                      <div className="space-y-1">
+                        <label className="text-[11px] font-semibold text-slate-300">اسم الورشة (عربي)</label>
+                        <input
+                          type="text"
+                          value={newWorkshop.titleAr}
+                          onChange={(e) => setNewWorkshop({ ...newWorkshop, titleAr: e.target.value })}
+                          className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs"
+                          placeholder="مثال: ورشة صناعة السيرة الذاتية ATS..."
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[11px] font-semibold text-slate-300">المؤسسة / المركز</label>
+                        <input
+                          type="text"
+                          value={newWorkshop.organizationAr}
+                          onChange={(e) => setNewWorkshop({ ...newWorkshop, organizationAr: e.target.value })}
+                          className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs"
+                          placeholder="مركز سديم / أكاديمية بيديا / فرصة بلس..."
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[11px] font-semibold text-slate-300">التاريخ</label>
+                        <input
+                          type="text"
+                          value={newWorkshop.date}
+                          onChange={(e) => setNewWorkshop({ ...newWorkshop, date: e.target.value })}
+                          className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs font-mono"
+                          placeholder="2026 أو نوفمبر 2026..."
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[11px] font-semibold text-slate-300">ساعات الورشة</label>
+                        <input
+                          type="number"
+                          value={newWorkshop.hours}
+                          onChange={(e) => setNewWorkshop({ ...newWorkshop, hours: Number(e.target.value) })}
+                          className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[11px] font-semibold text-slate-300">عدد المستفيدين</label>
+                        <input
+                          type="number"
+                          value={newWorkshop.beneficiariesCount}
+                          onChange={(e) => setNewWorkshop({ ...newWorkshop, beneficiariesCount: Number(e.target.value) })}
+                          className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs"
+                        />
+                      </div>
+                      <div className="space-y-1 sm:col-span-2 md:col-span-3">
+                        <label className="text-[11px] font-semibold text-slate-300">نبذة بسيطة عن الورشة</label>
+                        <textarea
+                          rows={2}
+                          value={newWorkshop.descriptionAr}
+                          onChange={(e) => setNewWorkshop({ ...newWorkshop, descriptionAr: e.target.value })}
+                          className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs"
+                          placeholder="نبذة عن الورشة والمحاور..."
+                        />
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => {
+                        if (!newWorkshop.titleAr || !newWorkshop.organizationAr) {
+                          alert("يرجى إدخال اسم الورشة والمؤسسة");
+                          return;
+                        }
+                        const created = {
+                          id: `ws-${Date.now()}`,
+                          titleAr: newWorkshop.titleAr,
+                          titleEn: newWorkshop.titleEn || newWorkshop.titleAr,
+                          organizationAr: newWorkshop.organizationAr,
+                          organizationEn: newWorkshop.organizationAr,
+                          date: newWorkshop.date,
+                          hours: newWorkshop.hours,
+                          beneficiariesCount: newWorkshop.beneficiariesCount,
+                          descriptionAr: newWorkshop.descriptionAr,
+                          descriptionEn: newWorkshop.descriptionAr,
+                          order: workshops.length + 1
+                        };
+                        setWorkshops([created, ...workshops]);
+                        setNewWorkshop({ titleAr: "", titleEn: "", organizationAr: "", date: "2026", hours: 10, beneficiariesCount: 30, descriptionAr: "" });
+                        setShowAddWorkshop(false);
+                        triggerToast("تمت إضافة ورشة العمل بنجاح!");
+                      }}
+                      className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-all cursor-pointer"
+                    >
+                      تأكيد وحفظ الورشة
+                    </button>
+                  </div>
+                )}
+
+                {/* Workshops Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {workshops.map((ws) => (
+                    <div
+                      key={ws.id}
+                      className="p-4 rounded-2xl bg-slate-850 border border-slate-800 space-y-2 hover:border-slate-700 transition-all flex flex-col justify-between"
+                    >
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-bold">
+                            {ws.organizationAr}
+                          </span>
+                          <span className="text-xs font-mono text-slate-400">{ws.date}</span>
+                        </div>
+                        <h4 className="font-bold text-sm text-white">{ws.titleAr}</h4>
+                        <p className="text-xs text-slate-400 line-clamp-2 leading-relaxed">{ws.descriptionAr || ws.summaryAr}</p>
+                      </div>
+
+                      <div className="flex items-center justify-between pt-2 border-t border-slate-800 text-[11px] text-slate-400 font-mono">
+                        <div className="flex items-center gap-3">
+                          <span>الساعات: {ws.hours || ws.totalHours || 0} س</span>
+                          <span>•</span>
+                          <span>المستفيدين: {ws.beneficiariesCount || ws.beneficiaries || 0}+</span>
+                        </div>
+                        <button
+                          onClick={() => {
+                            if (confirm("حذف هذه الورشة من القائمة؟")) {
+                              setWorkshops(workshops.filter((w) => w.id !== ws.id));
+                              triggerToast("تم حذف الورشة بنجاح");
+                            }
+                          }}
+                          className="p-1 text-slate-500 hover:text-red-400 transition-colors cursor-pointer"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 4. Partner Institutions (المؤسسات والشركاء وإضافة شريك) */}
+              <div className="rounded-3xl bg-slate-900/80 border border-slate-800 p-6 space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+                  <div>
+                    <h3 className="text-base font-bold text-white flex items-center gap-2">
+                      <Building2 className="w-4 h-4 text-blue-400" />
+                      <span>المؤسسات والشركاء المعتمدين ({trainingPartners.length})</span>
+                    </h3>
+                    <p className="text-xs text-slate-400">إضافة وتعديل المؤسسات والجهات التي تنعكس تلقائياً في الإحصائيات</p>
+                  </div>
+                  <button
+                    onClick={() => setShowAddPartner(!showAddPartner)}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all cursor-pointer w-fit"
+                  >
+                    <Plus className="w-4 h-4" />
+                    <span>{showAddPartner ? "إلغاء" : "إضافة مؤسسة شريكة"}</span>
+                  </button>
+                </div>
+
+                {/* Add Partner Form */}
+                {showAddPartner && (
+                  <div className="p-4 rounded-2xl bg-slate-850 border border-blue-500/40 space-y-3 animate-in fade-in">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <div className="space-y-1">
+                        <label className="text-[11px] font-semibold text-slate-300">اسم المؤسسة (عربي)</label>
+                        <input
+                          type="text"
+                          value={newPartner.nameAr}
+                          onChange={(e) => setNewPartner({ ...newPartner, nameAr: e.target.value })}
+                          className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs"
+                          placeholder="مركز سديم / أكاديمية بيديا..."
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[11px] font-semibold text-slate-300">اسم المؤسسة (إنجليزي)</label>
+                        <input
+                          type="text"
+                          value={newPartner.nameEn}
+                          onChange={(e) => setNewPartner({ ...newPartner, nameEn: e.target.value })}
+                          className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs"
+                          dir="ltr"
+                          placeholder="Pidea Academy / Sadeem Center..."
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[11px] font-semibold text-slate-300">رابط مسار الشعار</label>
+                        <input
+                          type="text"
+                          value={newPartner.logoUrl}
+                          onChange={(e) => setNewPartner({ ...newPartner, logoUrl: e.target.value })}
+                          className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs font-mono"
+                          dir="ltr"
+                        />
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => {
+                        if (!newPartner.nameAr) {
+                          alert("يرجى إدخال اسم المؤسسة");
+                          return;
+                        }
+                        setTrainingPartners([...trainingPartners, { ...newPartner }]);
+                        setNewPartner({ nameAr: "", nameEn: "", roleAr: "شريك تدريبي", descriptionAr: "", logoUrl: "/assets/images/partners/pidea-logo.webp" });
+                        setShowAddPartner(false);
+                        triggerToast("تمت إضافة المؤسسة الشريكة وتحديث الإحصائيات تلقائياً!");
+                      }}
+                      className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all cursor-pointer"
+                    >
+                      تأكيد وحفظ الشريك
+                    </button>
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                   {trainingPartners.map((partner, pIdx) => (
-                    <div key={pIdx} className="p-4 rounded-2xl bg-slate-850 border border-slate-800 space-y-1">
-                      <div className="font-bold text-xs text-teal-300">{partner.nameAr}</div>
-                      <div className="text-[11px] text-slate-400 font-mono">{partner.nameEn}</div>
+                    <div key={pIdx} className="p-4 rounded-2xl bg-slate-850 border border-slate-800 flex items-center justify-between gap-3">
+                      <div className="space-y-0.5 min-w-0">
+                        <div className="font-bold text-xs text-white truncate">{partner.nameAr}</div>
+                        <div className="text-[11px] text-slate-400 font-mono truncate">{partner.nameEn}</div>
+                      </div>
+                      <button
+                        onClick={() => {
+                          if (confirm("حذف هذه المؤسسة الشريكة؟")) {
+                            setTrainingPartners(trainingPartners.filter((_, i) => i !== pIdx));
+                            triggerToast("تم حذف المؤسسة الشريكة");
+                          }
+                        }}
+                        className="p-1.5 text-slate-500 hover:text-red-400 transition-colors shrink-0 cursor-pointer"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 5. Trainer Photo Gallery (معرض صور التدريب وإضافة صورة جديدة مع العنوان) */}
+              <div className="rounded-3xl bg-slate-900/80 border border-slate-800 p-6 space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+                  <div>
+                    <h3 className="text-base font-bold text-white flex items-center gap-2">
+                      <ImageIcon className="w-4 h-4 text-emerald-400" />
+                      <span>معرض صور التدريب والمحاضرات للشريط التلقائي ({trainerPhotos.length})</span>
+                    </h3>
+                    <p className="text-xs text-slate-400">إضافة وإدارة الصور المعروضة في شريط التمرير التلقائي المستمر مع عنوان الصورة</p>
+                  </div>
+                  <button
+                    onClick={() => setShowAddPhoto(!showAddPhoto)}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all cursor-pointer w-fit"
+                  >
+                    <Plus className="w-4 h-4" />
+                    <span>{showAddPhoto ? "إلغاء" : "إضافة صورة للمعرض"}</span>
+                  </button>
+                </div>
+
+                {/* Add Photo Form */}
+                {showAddPhoto && (
+                  <div className="p-4 rounded-2xl bg-slate-850 border border-emerald-500/40 space-y-3 animate-in fade-in">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <div className="space-y-1">
+                        <label className="text-[11px] font-semibold text-slate-300">عنوان الصورة (عربي)</label>
+                        <input
+                          type="text"
+                          value={newPhoto.captionAr}
+                          onChange={(e) => setNewPhoto({ ...newPhoto, captionAr: e.target.value })}
+                          className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs"
+                          placeholder="المهندس محمد الجزار — مدرب معتمد..."
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[11px] font-semibold text-slate-300">عنوان الصورة (إنجليزي)</label>
+                        <input
+                          type="text"
+                          value={newPhoto.captionEn}
+                          onChange={(e) => setNewPhoto({ ...newPhoto, captionEn: e.target.value })}
+                          className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs"
+                          dir="ltr"
+                          placeholder="Delivering technical training..."
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[11px] font-semibold text-slate-300">رابط مسار الصورة</label>
+                        <input
+                          type="text"
+                          value={newPhoto.src}
+                          onChange={(e) => setNewPhoto({ ...newPhoto, src: e.target.value })}
+                          className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs font-mono"
+                          dir="ltr"
+                        />
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => {
+                        if (!newPhoto.captionAr || !newPhoto.src) {
+                          alert("يرجى إدخال عنوان ومسار الصورة");
+                          return;
+                        }
+                        const created = {
+                          id: `photo-${Date.now()}`,
+                          src: newPhoto.src,
+                          captionAr: newPhoto.captionAr,
+                          captionEn: newPhoto.captionEn || newPhoto.captionAr
+                        };
+                        setTrainerPhotos([...trainerPhotos, created]);
+                        setNewPhoto({ captionAr: "", captionEn: "", src: "/assets/images/training/trainer-1.png" });
+                        setShowAddPhoto(false);
+                        triggerToast("تمت إضافة الصورة لشريط المعرض بنجاح!");
+                      }}
+                      className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all cursor-pointer"
+                    >
+                      تأكيد وحفظ الصورة
+                    </button>
+                  </div>
+                )}
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                  {trainerPhotos.map((photo, pIdx) => (
+                    <div key={photo.id || pIdx} className="rounded-2xl bg-slate-850 border border-slate-800 p-3 space-y-2 group">
+                      <div className="relative aspect-[4/5] rounded-xl overflow-hidden bg-slate-950">
+                        <img
+                          src={photo.src}
+                          alt={photo.captionAr}
+                          className="w-full h-full object-cover object-top"
+                        />
+                        <button
+                          onClick={() => {
+                            if (confirm("حذف هذه الصورة من شريط المعرض؟")) {
+                              setTrainerPhotos(trainerPhotos.filter((_, i) => i !== pIdx));
+                              triggerToast("تم حذف الصورة من المعرض");
+                            }
+                          }}
+                          className="absolute top-2 left-2 p-1.5 rounded-lg bg-red-600/80 text-white hover:bg-red-600 transition-colors cursor-pointer"
+                          title="حذف"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                      <div className="text-xs font-bold text-white truncate">{photo.captionAr}</div>
+                      <div className="text-[10px] font-mono text-slate-400 truncate" dir="ltr">{photo.src}</div>
                     </div>
                   ))}
                 </div>

@@ -127,7 +127,7 @@ export default function TrainingPage() {
 
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 border border-teal-200/70 dark:border-teal-800/70 w-fit self-start sm:self-auto">
                 <CheckCircle2 className="w-3.5 h-3.5 text-teal-500" />
-                <span>{language === "ar" ? "منهجية تدريب قائمة على المشاريع" : "Project-Based Pedagogy"}</span>
+                <span>{language === "ar" ? (overview.methodologyAr || "منهجية تدريب قائمة على المشاريع") : (overview.methodologyEn || "Project-Based Pedagogy")}</span>
               </span>
             </div>
 
@@ -196,7 +196,7 @@ export default function TrainingPage() {
               </p>
             </div>
 
-            {/* Stat 4: Organizations */}
+            {/* Stat 4: Organizations (محسوبة تلقائياً بناءً على عدد الشركاء المضافين) */}
             <div className="rounded-2xl p-4 sm:p-5 bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-1.5 hover:border-teal-500/30 transition-colors">
               <div className="flex items-center justify-between">
                 <span className="text-[11px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400">
@@ -207,7 +207,7 @@ export default function TrainingPage() {
                 </div>
               </div>
               <div className="text-2xl sm:text-3xl font-bold font-mono text-slate-900 dark:text-white">
-                +{overview.stats.organizationsCount}
+                +{partners.length}
               </div>
               <p className="text-[10.5px] text-slate-400 leading-tight">
                 {language === "ar" ? "أكاديميات ومراكز تكنولوجية" : "Academies & tech centers"}
@@ -465,54 +465,32 @@ export default function TrainingPage() {
         {/* Infinite Continuous Auto-Scrolling Carousel (بدون ضباب على الأطراف) */}
         <div className="relative w-full overflow-hidden py-2">
           <div className="animate-marquee-scroll flex gap-5 items-center">
-            {/* Double array to create seamless infinite loop without gap or jumping */}
-            {[
-              {
-                src: "/assets/images/training/trainer-1.png",
-                captionAr: "المهندس محمد الجزار — مدرب ومحاضر تقني معتمد",
-                captionEn: "Eng. Mohammed Aljazzar — Certified Technical Instructor",
-              },
-              {
-                src: "/assets/images/training/trainer-2.png",
-                captionAr: "تقديم الورش التقنية والتدريب العملي المباشر",
-                captionEn: "Delivering hands-on technical workshops & training",
-              },
-              {
-                src: "/assets/images/training/trainer-3.jpg",
-                captionAr: "تمكين الكفاءات وتوجيه المتدربين نحو سوق العمل",
-                captionEn: "Empowering tech talent & career mentorship",
-              },
-              {
-                src: "/assets/images/training/trainer-1.png",
-                captionAr: "المهندس محمد الجزار — مدرب ومحاضر تقني معتمد",
-                captionEn: "Eng. Mohammed Aljazzar — Certified Technical Instructor",
-              },
-              {
-                src: "/assets/images/training/trainer-2.png",
-                captionAr: "تقديم الورش التقنية والتدريب العملي المباشر",
-                captionEn: "Delivering hands-on technical workshops & training",
-              },
-              {
-                src: "/assets/images/training/trainer-3.jpg",
-                captionAr: "تمكين الكفاءات وتوجيه المتدربين نحو سوق العمل",
-                captionEn: "Empowering tech talent & career mentorship",
-              },
-              {
-                src: "/assets/images/training/trainer-1.png",
-                captionAr: "المهندس محمد الجزار — مدرب ومحاضر تقني معتمد",
-                captionEn: "Eng. Mohammed Aljazzar — Certified Technical Instructor",
-              },
-              {
-                src: "/assets/images/training/trainer-2.png",
-                captionAr: "تقديم الورش التقنية والتدريب العملي المباشر",
-                captionEn: "Delivering hands-on technical workshops & training",
-              },
-              {
-                src: "/assets/images/training/trainer-3.jpg",
-                captionAr: "تمكين الكفاءات وتوجيه المتدربين نحو سوق العمل",
-                captionEn: "Empowering tech talent & career mentorship",
-              },
-            ].map((photo, i) => (
+            {/* Double array to create seamless infinite loop from dynamic trainer photos */}
+            {((overview as any).trainerPhotos && (overview as any).trainerPhotos.length > 0
+              ? [...(overview as any).trainerPhotos, ...(overview as any).trainerPhotos, ...(overview as any).trainerPhotos]
+              : [
+                  {
+                    src: "/assets/images/training/trainer-1.png",
+                    captionAr: "المهندس محمد الجزار — مدرب ومحاضر تقني معتمد",
+                    captionEn: "Eng. Mohammed Aljazzar — Certified Technical Instructor",
+                  },
+                  {
+                    src: "/assets/images/training/trainer-2.png",
+                    captionAr: "تقديم الورش التقنية والتدريب العملي المباشر",
+                    captionEn: "Delivering hands-on technical workshops & training",
+                  },
+                  {
+                    src: "/assets/images/training/trainer-3.jpg",
+                    captionAr: "تمكين الكفاءات وتوجيه المتدربين نحو سوق العمل",
+                    captionEn: "Empowering tech talent & career mentorship",
+                  },
+                  {
+                    src: "/assets/images/training/trainer-1.png",
+                    captionAr: "المهندس محمد الجزار — مدرب ومحاضر تقني معتمد",
+                    captionEn: "Eng. Mohammed Aljazzar — Certified Technical Instructor",
+                  },
+                ]
+            ).map((photo: any, i: number) => (
               <div
                 key={i}
                 className="shrink-0 w-64 sm:w-80 rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-md transition-all group"

@@ -111,7 +111,7 @@ export const Navbar: React.FC = () => {
               title={t.nav.toggleLanguage}
             >
               <Globe className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
-              <span>{language === "ar" ? "EN" : "عربي"}</span>
+              <span>{language === "ar" ? "EN" : "AR"}</span>
             </motion.button>
 
             {/* Dark/Light Switcher */}
